@@ -10,6 +10,10 @@ theme = "hugo-latex"
         [markup.goldmark.renderer]
             unsafe = true
 
+[params]
+dynamicWords = ["Robotics", "Artificial Intelligence", "Vision", "Machine Learning", "Autonomous Systems"]
+
+
 [outputs]
 home = ["HTML", "RSS"]
 page = ["HTML"]

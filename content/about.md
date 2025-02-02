@@ -5,10 +5,10 @@ layout: "cv"
 url: "/cv"
 ---
  
-# Hugo Pousseur  
+<!-- # Hugo Pousseur  
 📧 [hugo.pousseur[at]gmail.com](mailto:hugo.pousseur[at]gmail.com)  
 🐙 [GitHub](https://github.com/pouceHeure/)  
-🔗 [LinkedIn](https://www.linkedin.com/in/hugo-pousseur/)
+🔗 [LinkedIn](https://www.linkedin.com/in/hugo-pousseur/) -->
 
 ## 🎓 Éducation  
 - **2020 - 2024** : PhD en Robotique, Université de Technologie de Compiègne  
