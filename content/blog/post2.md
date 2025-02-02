@@ -1,6 +1,6 @@
 ---
 title: "Mon Premier Article"
-date: 2025-02-01T18:36:30+01:00
+date: 2024-12-10
 ---
 
 Voici une formule mathématique : 

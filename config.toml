@@ -3,9 +3,14 @@ languageCode = "fr-fr"
 title = "Hugo POUSSEUR"
 theme = "hugo-latex"
 [author]
-    name = "Votre Nom"
+    name = "Hugo POUSSEUR"
 
 [markup]
     [markup.goldmark]
         [markup.goldmark.renderer]
             unsafe = true
+
+[outputs]
+home = ["HTML", "RSS"]
+page = ["HTML"]
+section = ["HTML"]
