@@ -1,0 +1,11 @@
+baseURL = "https://example.com/"
+languageCode = "fr-fr"
+title = "Mon Blog & CV Hugo"
+theme = "hugo-latex"
+[author]
+    name = "Votre Nom"
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
