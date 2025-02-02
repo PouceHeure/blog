@@ -20,7 +20,7 @@ layout: "cv"
 ---
 
 ## 💼 Expérience Professionnelle  
-- **2024** - *Ingénieur de Recherche (CNRS)*, Heudiasyc  
+- **2024 - 2025** - *Ingénieur de Recherche (CNRS)*, Heudiasyc  
   *Planification de véhicules autonomes (ROS2) et capteurs PPS*  
 - **2020 - 2023** - *Co-encadrement de stages de recherche*, Heudiasyc  
   *Supervision de six étudiants en master*  
