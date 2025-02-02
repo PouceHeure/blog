@@ -11,4 +11,13 @@ The first step involves lane detection. Several methods exist, either geometric 
 Once the lanes are detected, a feature in our case, a point must be extracted, representing a point on the trajectory to follow in the image frame.
 Finally, a control loop applying the principles of Visual Servoing can be implemented.
 
-![Description de l'image](/images/visual-control/148.png)
+## Visual Servoing Feature
+
+The first step of the visual servoing, is to detect the feature in the image frame.
+In the case of the autonomous driving, the feature should to reflet the way to keep the lane.
+
+### Lane Detection
+
+### Features
+
+{{< figure src="/images/visual-control/148.png" caption="Visual Servoing features on real application." alt="Alternative text" >}}
