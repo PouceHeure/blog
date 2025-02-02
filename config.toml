@@ -1,6 +1,6 @@
 baseURL = "https://example.com/"
 languageCode = "fr-fr"
-title = "Mon Blog & CV Hugo"
+title = "Hugo POUSSEUR"
 theme = "hugo-latex"
 [author]
     name = "Votre Nom"
