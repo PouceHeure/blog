@@ -11,7 +11,7 @@ theme = "hugo-latex"
             unsafe = true
 
 [params]
-dynamicWords = ["Robotics", "Artificial Intelligence", "Vision", "Machine Learning", "Autonomous Systems"]
+dynamicWords = ["Robotic", "Artificial Intelligence", "Vision", "Machine Learning", "Autonomous System", "Deep Learning"]
 
 
 [outputs]

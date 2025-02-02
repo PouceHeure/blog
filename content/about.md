@@ -4,44 +4,35 @@ date: 2024-01-15
 layout: "cv"
 url: "/cv"
 ---
- 
+
 <!-- # Hugo Pousseur  
 📧 [hugo.pousseur[at]gmail.com](mailto:hugo.pousseur[at]gmail.com)  
 🐙 [GitHub](https://github.com/pouceHeure/)  
 🔗 [LinkedIn](https://www.linkedin.com/in/hugo-pousseur/) -->
 
-## 🎓 Éducation  
-- **2020 - 2024** : PhD en Robotique, Université de Technologie de Compiègne  
-  *Sujet : Navigation partagée dans un système cybernétique multi-agents autonomes*  
-- **2018 - 2019** : Mastère spécialisé en Robotique, CentraleSupélec  
-- **2014 - 2019** : Diplôme d'Ingénieur en Informatique, ESILV *(Major de promotion en 3ème et 4ème année)*  
+## 🎓 Education  
+- **2020 - 2024**: PhD in Robotics, University of Technology of Compiègne *Thesis: Shared Navigation in a Multi-Agent Cybernetic Autonomous System*  
+- **2018 - 2019**: Specialized Master's in Robotics, CentraleSupélec  
+- **2014 - 2019**: Engineering Degree in Computer Science, ESILV *(Top of the class in 3rd and 4th year)*  
 
+## 💼 Professional Experience  
+- **2024 - 2025** - *Research Engineer (CNRS)*, Heudiasyc *Autonomous vehicle planning (ROS2) and PPS sensors*  
+- **2020 - 2023** - *Co-supervision of research internships*, Heudiasyc  *Supervised six Master's students*  
+- **2022** - *Research Mission in Tokyo*, University of Tokyo (Fujimoto Lab)  *Road adhesion estimation through vision*  
+- **2019 - 2022** - *Adjunct Lecturer*, UTC & ESILV *Lectures and practical courses in Artificial Intelligence and Algorithms*  
+- **2019** - *Internship at CEA-LIST*  *Development of tools for collaborative robotics*  
 
+## 🛠️ Skills  
+- **Robotics**: Planning, Perception (Vision/LiDAR), ROS/ROS2  
+- **Programming**: C++, Python  
+- **Machine Learning**: Deep Learning (CNN, RNN), TensorFlow  
+- **Tools**: Linux, Git, Docker, OpenCV  
 
-## 💼 Expérience Professionnelle  
-- **2024 - 2025** - *Ingénieur de Recherche (CNRS)*, Heudiasyc   *Planification de véhicules autonomes (ROS2) et capteurs PPS*  
-- **2020 - 2023** - *Co-encadrement de stages de recherche*, Heudiasyc  *Supervision de six étudiants en master*  
-- **2022** - *Mission de Recherche à Tokyo*, Université de Tokyo (Fujimoto Lab)  *Estimation d'adhérence routière par vision*  
-- **2019 - 2022** - *Enseignant vacataire*, UTC & ESILV  *Cours et TP en Intelligence Artificielle et Algorithmes*  
-- **2019** - *Stage au CEA-LIST*  *Développement d’outils pour la robotique collaborative*  
+## 🔍 Scientific Contributions  
+- *2023* - *ITSC*: *Cooperative architecture using air and ground vehicles for search and recognition*  
+- *2023* - *IV*: *Multi-Criteria Approach for Driving Intention*  
+- *2022* - *ITSC*: *Prediction of human driving behavior using deep learning*  
+- *2021* - *SMC*: *Shared decision-making for autonomous navigation*  
+➡️ **[View all publications](../publications/)**  
 
-
-
-## 🛠️ Compétences  
-- **Robotique** : Planification, Perception (Vision/LiDAR), ROS/ROS2  
-- **Programmation** : C++, Python  
-- **Machine Learning** : Deep Learning (CNN, RNN), TensorFlow  
-- **Outils** : Linux, Git, Docker, OpenCV  
-
-
-
-## 🔍 Contributions Scientifiques  
-- *2023* - *ITSC* : *Cooperative architecture using air and ground vehicles for search and recognition*  
-- *2023* - *IV* : *Multi-Criteria Approach for Driving Intention*  
-- *2022* - *ITSC* : *Prediction of human driving behavior using deep learning*  
-- *2021* - *SMC* : *Shared decision-making for autonomous navigation*  
-➡️ **[Voir toutes les publications](../publications/)**  
-
-
-
-📄 **[Télécharger le CV en PDF](../cv.pdf)**
+📄 **[Download CV in PDF](../cv.pdf)**
