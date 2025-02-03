@@ -33,6 +33,6 @@ url: "/cv"
 - *2023* - *IV*: *Multi-Criteria Approach for Driving Intention*  
 - *2022* - *ITSC*: *Prediction of human driving behavior using deep learning*  
 - *2021* - *SMC*: *Shared decision-making for autonomous navigation*  
-➡️ **[View all publications](../publications/)**  
+➡️ **[View all publications](../articles/)**  
 
 📄 **[Download CV in PDF](../cv.pdf)**
