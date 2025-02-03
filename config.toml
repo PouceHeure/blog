@@ -11,8 +11,12 @@ theme = "hugo-latex"
             unsafe = true
 
 [params]
-dynamicWords = ["Robotic", "Artificial Intelligence", "Vision", "Machine Learning", "Autonomous System", "Deep Learning"]
-
+  linkedin = "https://www.linkedin.com/in/hugo-pousseur/"
+  github = "https://github.com/pouceheure/"
+  about = """👋 Hi, I'm Dr. POUSSEUR, and I work on robotic and autonomous vehicle.
+I specialize in robotics and automation, with a focus on self-driving navigation, obstacle avoidance, and understanding human driving behavior. Using machine learning and deep learning, I develop models that help autonomous cars anticipate driver intentions and move more naturally in real-world traffic.
+Passionate about AI, mobility, and the future of transportation? Let’s connect! 🚗🤖🚀
+"""
 
 [outputs]
 home = ["HTML", "RSS"]

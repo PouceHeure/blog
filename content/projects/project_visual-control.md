@@ -1,7 +1,7 @@
 ---
 title: "Visual Control Applied To Autonomous Vehicle"
 date: 2025-02-01T18:36:30+01:00
-tags: ["AI", "machine-learning", "robotic"]
+tags: ["visual-servoing", "image-processing", "control", "deep-learning", "autonomous-system"]
 ---
 
 ## Abstract
@@ -21,3 +21,8 @@ In the case of the autonomous driving, the feature should to reflet the way to k
 ### Features
 
 {{< figure src="/images/visual-control/148.png" caption="Visual Servoing features on real application." width="500">}}
+
+
+### Demonstration
+
+{{< youtube code="UZjCYTLoMOw" width="500" caption="video demo">}}
