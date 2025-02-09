@@ -13,6 +13,7 @@ theme = "hugo-latex"
 [params]
   linkedin = "https://www.linkedin.com/in/hugo-pousseur/"
   github = "https://github.com/pouceheure/"
+  linkedin_username = "hugo-pousseur"
   about = """👋 Welcome! 🚀
 I'm Hugo Pousseur, an engineer and PhD in automation and robotics. Here, you'll find my projects and scientific articles, mainly focused on autonomous vehicles, robotics and AI. Feel free to explore, and don't hesitate to reach out!🚗🤖🚀
 """
