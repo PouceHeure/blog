@@ -5,6 +5,7 @@ layout: "cv"
 url: "/cv"
 ---
 
+📩 **[Contact LinkedIn](https://www.linkedin.com/messaging/compose/?recipient=hugo-pousseur)**
 <!-- # Hugo Pousseur  
 📧 [hugo.pousseur[at]gmail.com](mailto:hugo.pousseur[at]gmail.com)  
 🐙 [GitHub](https://github.com/pouceHeure/)  
@@ -13,7 +14,7 @@ url: "/cv"
 ## 🎓 Education  
 - **2020 - 2024**: PhD in Robotics, University of Technology of Compiègne *Thesis: Shared Navigation in a Multi-Agent Cybernetic Autonomous System*  
 - **2018 - 2019**: Specialized Master's in Robotics, CentraleSupélec  
-- **2014 - 2019**: Engineering Degree in Computer Science, ESILV *(Top of the class in 3rd and 4th year)*  
+- **2014 - 2019**: Engineering Degree in Computer Science, ESILV *(Major Promotion in 3rd and 4th year)*  
 
 ## 💼 Professional Experience  
 - **2024 - 2025** - *Research Engineer (CNRS)*, Heudiasyc *Autonomous vehicle planning (ROS2) and PPS sensors*  
@@ -34,5 +35,3 @@ url: "/cv"
 - *2022* - *ITSC*: *Prediction of human driving behavior using deep learning*  
 - *2021* - *SMC*: *Shared decision-making for autonomous navigation*  
 ➡️ **[View all publications](../articles/)**  
-
-📄 **[Download CV in PDF](../cv.pdf)**
