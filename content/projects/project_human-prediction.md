@@ -1,6 +1,7 @@
 ---
 title: "Human Driving Prediction"
 date: 2022-12-10
+pinned: true
 tags: ["AI", "machine-learning", "robotics", "camera-vision", "ROS", "RNN", "CNN", "deep-learning"]
 ---
 
@@ -80,6 +81,10 @@ The **final model** aggregates these processed features and applies **Gated Recu
 {{< subfigure images="/images/human-prediction/projection-prediction-test-1-lane.drawio.png,/images/human-prediction/projection-prediction-test-2-lane.drawio.png,/images/human-prediction/projection-prediction-test-city.drawio.png,/images/human-prediction/projection-prediction-test-roundabout.drawio.png" captions="Test 1 Lane, Test 2 Lanes, Test City, Test Roundabout" >}}
 
 {{< subfigure images="/images/human-prediction/results_mean.png,/images/human-prediction/table_results.png" captions="Mean Results, Performance Table" >}}
+
+{{< equation >}}
+        loss(y_{predict},y_{true}) = w_{v} \cdot \sum_{i=0}^{n} | y_{predict,v,i} - y_{true,v,i} | + w_w \cdot \sum_{i=0}^{n} | y_{predict,w,i} - y_{true,w,i} |
+{{< /equation >}}
 
 ### Prediction  
 

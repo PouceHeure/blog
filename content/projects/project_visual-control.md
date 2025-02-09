@@ -1,8 +1,8 @@
 ---
 title: "Visual Control Applied To Autonomous Vehicle"
 date: 2025-02-01T18:36:30+01:00
-tags: ["visual-control", "computer-vision", "autonomous-vehicles", "deep-learning", "image-processing", "camera-based-navigation", "sensor-fusion", "object-detection", "lane-detection", "robotics"]
-
+tags: ["visual-control", "computer-vision", "autonomous-vehicles", "deep-learning", "image-processing", "object-detection", "lane-detection", "robotic"]
+pinned: true
 ---
 
 ## Abstract
