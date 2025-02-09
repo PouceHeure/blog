@@ -59,16 +59,19 @@ Due to sensor constraints, the time interval between two acquisitions is set to 
 
 The model is divided into two main components. The **input model** compresses input data into a lower-dimensional vector, which can serve as a latent representation. The outputs are then concatenated in the **final model**, a recurrent neural network.
 
-This approach was chosen to address data imbalance issues, particularly in handling large inputs such as maps and Lidar data. By processing these inputs separately, we allow the model to focus on extracting the most relevant features for inference.
-
 {{< figure src="/images/human-prediction/scheme-data_unbalance_old.drawio.png" caption="Handling unbalanced data representation." width="500">}}
+
+
+This approach was chosen to address data imbalance issues, particularly in handling large inputs such as maps and Lidar data. By processing these inputs separately, we allow the model to focus on extracting the most relevant features for inference.
 
 {{< figure src="/images/human-prediction/scheme-models_architecture.drawio.png" caption="Overall model architecture, including input and final model." width="800">}}
 
 ## Results
 
-
 {{< subfigure images="/images/human-prediction/projection-prediction-test-1-lane.drawio.png,/images/human-prediction/projection-prediction-test-2-lane.drawio.png,/images/human-prediction/projection-prediction-test-city.drawio.png,/images/human-prediction/projection-prediction-test-roundabout.drawio.png" captions="Test 1 Lane, Test 2 Lanes, Test City, Test Rouandbout" >}}
+
+
+{{< subfigure images="/images/human-prediction/results_mean.png,/images/human-prediction/table_results.png" captions="Test 1 Lane, Test 2 Lanes, Test City, Test Rouandbout" >}}
 
 ### Prediction  
 
