@@ -1,6 +1,6 @@
 ---
 title: "Optimisation DWA"
-date: 2020-12-10
+date: 2021-12-10
 tags: ["deep-learning","AI","lidar","ROS"]
 ---
 

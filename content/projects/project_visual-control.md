@@ -1,6 +1,6 @@
 ---
 title: "Visual Control Applied To Autonomous Vehicle"
-date: 2025-02-01T18:36:30+01:00
+date: 2023-02-01
 tags: ["visual-control", "computer-vision", "autonomous-vehicles", "deep-learning", "image-processing", "object-detection", "lane-detection", "robotic"]
 pinned: true
 ---

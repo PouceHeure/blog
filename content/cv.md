@@ -15,15 +15,15 @@ url: "/cv"
 
 
 ## <span class="emoji">🎓</span> Education  
-- **2020 - 2024**: PhD in Robotics, University of Technology of Compiègne *Thesis: Shared Navigation in a Multi-Agent Cybernetic Autonomous System*  
+- **2020 - 2024**: PhD in Robotics, University of Technology of Compiègne *Thesis: Shared Navigation in a Cybernetic Multi-Agent Autonomous System*  
 - **2018 - 2019**: Specialized Master's in Robotics, CentraleSupélec  
 - **2014 - 2019**: Engineering Degree in Computer Science, ESILV *(Major Promotion in 3rd and 4th year)*  
 
 ## <span class="emoji">💼</span> Professional Experience  
-- **2023 - 2025** : *Research Engineer (CNRS)*, Heudiasyc laboratory, Autonomous vehicle planning and control (ROS2), sensor installation and integration within the system architecture.
+- **2023 - 2025** : *Research Engineer (CNRS)*, Heudiasyc laboratory, Autonomous vehicle planning and control (ROS2), sensor installation and integration.
+- **2019 - 2025** : *Adjunct Lecturer*, UTC & ESILV *practical courses in Artificial Intelligence, Algorithms and Robotics*  
 - **2020 - 2023** : *Co-supervision of research internships*, Heudiasyc laboratory, *Supervised six Master's students*  
 - **2022** : *Research Mission in Tokyo*, University of Tokyo (Fujimoto Lab)  *Road adhesion estimation through vision*  
-- **2019 - 2022** : *Adjunct Lecturer*, UTC & ESILV *Lectures and practical courses in Artificial Intelligence and Algorithms*  
 - **2019** : *Internship at CEA-LIST*  *Development of tools for collaborative robotics*  
 
 ##  <span class="emoji">🛠️</span> Skills  
