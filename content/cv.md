@@ -15,7 +15,8 @@ url: "/cv"
 
 
 ## <span class="emoji">🎓</span> Education  
-- **2020 - 2024**: PhD in Robotics, University of Technology of Compiègne *Thesis: Shared Navigation in a Cybernetic Multi-Agent Autonomous System*  
+- **2020 - 2024**: PhD in Robotics, University of Technology of Compiègne *Thesis: Shared Navigation in a Cybernetic Multi-Agent Autonomous System* 
+  + (2025) Obtained National Qualification to Apply for Associate Professor (CNU - Section 27)
 - **2018 - 2019**: Specialized Master's in Robotics, CentraleSupélec  
 - **2014 - 2019**: Engineering Degree in Computer Science, ESILV *(Major Promotion in 3rd and 4th year)*  
 
