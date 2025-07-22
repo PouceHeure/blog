@@ -1,5 +1,5 @@
 ---
-title: "Human Driving Prediction"
+title: "Human Driving Behavior Prediction"
 date: 2022-12-10
 pinned: true
 tags: ["AI", "machine-learning", "robotics", "camera-vision", "ROS", "RNN", "CNN", "deep-learning"]

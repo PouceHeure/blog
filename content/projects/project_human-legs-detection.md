@@ -1,26 +1,23 @@
 ---
-title: "Human Legs Detection From Scan 2D"
+title: "Leg Detection Using a 2D LiDAR"
 date: 2020-12-10
 tags: ["deep-learning","AI","lidar","ROS"]
 ---
 
 Github Repo: [https://github.com/PouceHeure/ros_detection_legs](https://github.com/PouceHeure/ros_detection_legs)
 
-Réalisation d'un projet personnel, dont le but est de réaliser un modèle capable de détecter des jambes en exploitant un LiDAR mono couche.
+This was a personal project aimed at developing a model capable of detecting human legs using a single-layer (2D) LiDAR.
 
-Les réseaux récurrents sont généralement utilisés sur des données ordonnées temporellement. Dans ce projet, j'ai voulu exploiter un RNN sur des données où la séquence est ordonnée selon une position spatiale.
-L'idée est de soumettre au réseau les données du scan dans le même ordre et d'exploiter ce positionnement dans le réseau.
+Recurrent Neural Networks (RNNs) are typically applied to temporally ordered data. In this project, I explored the use of an RNN on spatially ordered sequences, by feeding the LiDAR scan data to the network in the same spatial order and leveraging this structure for learning.
 
-Dans ce projet, j'ai développé toute la chaine:
+I developed the entire pipeline for this project:
 
-- acquisition des données;
-- création d'un outil pour labéliser;
-- labélisation des données;
-- création du modèle;
-- training du modèle;
-- création de l'outil pour visualiser le rendu;
-
-L'intégration du modèle a été fait avec ROS, permettant de récuperer les données capteurs. Cette intégration permetterait par la suite, d'exploiter cette information dans une application robotique.
+- Data acquisition 
+- Development of a custom labeling tool 
+- Manual data labeling 
+- Model design and implementation 
+- Model training 
+- Visualization tool for results rendering
 
 {{< youtube code="KcfxU6_UrOo" width="500" caption="video demo">}}
 
