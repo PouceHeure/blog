@@ -4,6 +4,8 @@ date: 2019-05-01
 tags: ["ROS", "arduino", "C++"]
 ---
 
+GitHub Repo: [https://github.com/PouceHeure/pouco2000](https://github.com/PouceHeure/pouco2000)
+
 This personal project aimed to simplify the creation of a physical module for interacting with and debugging robots using ROS.
 
 The core idea was to provide libraries and packages that enable easy construction of a customizable physical control table.
