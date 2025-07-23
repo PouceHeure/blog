@@ -1,7 +1,7 @@
 ---
 title: "Traffic Light Detection & Control"
 date: 2025-05-01
-tags: ["ROS", "detection", "YOLO", "control"]
+tags: ["ROS2", "detection", "YOLO", "control"]
 pinned: true
 ---
 
@@ -20,7 +20,7 @@ This project is divided into four main components:
 
 ## Matching
 
-Based on the vehicle's planned trajectory, we can project the map’s elements—such as traffic lights—onto the path. This step doesn’t determine the state of the lights but serves to notify the system that a traffic light zone is ahead.
+Based on the vehicle's planned trajectory, we can project the map’s elements:such as traffic lights onto the path. This step doesn’t determine the state of the lights but serves to notify the system that a traffic light zone is ahead.
 
 ---
 

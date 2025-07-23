@@ -1,7 +1,7 @@
 ---
 title: "ROS2 - Dashboard Framework"
 date: 2025-05-01
-tags: ["ROS"]
+tags: ["ROS2", "UI"]
 ---
 
 ## Motivation
@@ -10,7 +10,7 @@ Creation of a framework to quickly build dashboards from configuration files, sp
 
 ## Solution
 
-The idea is to define a UI interface—similar to how it's done with Qt—but using a **YAML** configuration file. The system then generates only what’s needed to connect the dashboard with **ROS 2**: defining callbacks and specifying how to retrieve the data. This approach enables full customization of dashboards that plot real-time data, either on a solid background color or over a background image (if an image topic is provided).
+The idea is to define a UI interface, similar to how it's done with Qt, but using a **YAML** configuration file. The system then generates only what’s needed to connect the dashboard with **ROS 2**: defining callbacks and specifying how to retrieve the data. This approach enables full customization of dashboards that plot real-time data, either on a solid background color or over a background image (if an image topic is provided).
 
 Currently, the framework supports the following widgets:
 
