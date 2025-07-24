@@ -2,7 +2,7 @@
 title: "Human Driving Behavior Prediction"
 date: 2022-12-10
 pinned: true
-tags: ["AI", "machine-learning", "robotics", "camera-vision", "ROS", "RNN", "CNN", "deep-learning"]
+tags: ["deep-learning", "camera", "ROS", "autosys"]
 ---
 
 ## Abstract

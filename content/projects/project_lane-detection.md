@@ -1,7 +1,7 @@
 ---
 title: "Lane Detection"
 date: 2022-12-10
-tags: ["deep-learning","vision","camera","cnn","ros"]
+tags: ["deep-learning","camera","ROS", "autosys"]
 ---
 
 ## Abstract

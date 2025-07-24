@@ -1,7 +1,7 @@
 ---
 title: "Friction Camera Detection"
 date: 2022-11-10
-tags: ["deep-learning","AI","lidar","ROS"]
+tags: ["image-processing","camera"]
 ---
 
 As part of a European project, I carried out a two-month research mission in Japan at the University of Tokyo.

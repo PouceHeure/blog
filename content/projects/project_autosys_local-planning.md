@@ -1,7 +1,7 @@
 ---
 title: "Autonomous Vehicle Planning"
 date: 2024-12-10
-tags: ["deep-learning","AI","lidar","ROS2"]
+tags: ["planing","navigation","autosys","ROS2"]
 pinned: true
 ---
 

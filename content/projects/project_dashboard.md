@@ -1,7 +1,7 @@
 ---
 title: "ROS2 - Dashboard Framework"
 date: 2025-05-01
-tags: ["ROS2", "UI"]
+tags: ["UI","ROS2"]
 ---
 
 ## Motivation

@@ -1,7 +1,7 @@
 ---
 title: "Traffic Light Detection & Control"
 date: 2025-05-01
-tags: ["ROS2", "detection", "YOLO", "control"]
+tags: ["detection", "camera", "image-processing", "YOLO", "control", "ROS2"]
 pinned: true
 ---
 
@@ -34,7 +34,9 @@ We used **YOLO** for detection. By default, YOLO is not trained to recognize tra
 
 #### Cameras
 
-Several data recording sessions were conducted using multiple cameras to ensure data diversity. This also allowed for evaluating the best-suited camera for detection. Key constraints included:
+Several data recording sessions were conducted using multiple cameras (3 different) to ensure data diversity, with weather condition differents (raining and sun).
+
+This also allowed for evaluating the best-suited camera for detection. Key constraints included:
 
 - **Field of view**
 - **Image contrast**, even under direct sunlight
@@ -53,14 +55,29 @@ The dataset was annotated using the following labels:
 
 This labeling strategy allows the model to distinguish between the top and bottom lights as well as their colors.
 
-{{< figure src="/images/traffic_light/tl_detection_webcam_combined3/labels.jpg" caption="Labels Distributions" width="500">}}
+{{< figure src="/images/traffic_light/model/labels.jpg" caption="Labels Distributions" width="500">}}
 
 #### Training
 
 The YOLO model was trained on this dataset:
 
-{{< figure src="/images/traffic_light/tl_detection_webcam_combined3/train_batch0.jpg" caption="Example Batch" width="500">}}
+{{< figure src="/images/traffic_light/model/train_batch0.jpg" caption="Example Batch" width="500">}}
 
-{{< figure src="/images/traffic_light/tl_detection_webcam_combined3/confusion_matrix_normalized.png" caption="Results" width="500">}}
+{{< figure src="/images/traffic_light/model/results.png" caption="Results" width="500">}}
+
+---
+| Metric                | Value   | Comment                                 |
+|---------------------- |---------|-----------------------------------------|
+| **Precision**         | 0.961   | Very good – low false positives         |
+| **Recall**            | 0.965   | Excellent – low false negatives         |
+| **mAP\@0.5**          | 0.982   | High accuracy in object localization    |
+| **mAP\@0.5:0.95**     | 0.821   | Strong overall model generalization     |
+| **Val Box Loss**      | 0.593   | Stable localization loss                |
+| **Val Cls Loss**      | 0.317   | Acceptable classification loss          |
+| **Val DFL Loss**      | 0.799   | Stable distance-focused loss            |
+---
+
+
+{{< figure src="/images/traffic_light/model/confusion_matrix_normalized.png" caption="Results" width="500">}}
 
 

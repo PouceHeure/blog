@@ -1,7 +1,7 @@
 ---
 title: "Leg Detection Using a 2D LiDAR"
 date: 2020-12-10
-tags: ["deep-learning","AI","lidar","ROS"]
+tags: ["deep-learning","lidar","ROS"]
 ---
 
 Github Repo: [https://github.com/PouceHeure/ros_detection_legs](https://github.com/PouceHeure/ros_detection_legs)
