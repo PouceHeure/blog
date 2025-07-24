@@ -2,6 +2,7 @@
 title: "RViz2 - Virtual Camera"
 date: 2025-05-01
 tags: ["ROS2", "RViz2"]
+image: "/images/rviz-virtual-camera/rviz_virtual_camera.png"
 ---
 
 ## Motivation
