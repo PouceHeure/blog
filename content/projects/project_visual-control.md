@@ -3,6 +3,7 @@ title: "Visual Control Applied To Autonomous Vehicle"
 date: 2023-02-01
 tags: ["visual-control", "control", "autosys", "deep-learning", "image-processing"]
 pinned: true
+description: "Control vehicle in exploiting only the camera as reference. Creating a relation with the lane variation and the speed of the vehicle."
 image: "/images/visual-control/situation_img.png"
 ---
 

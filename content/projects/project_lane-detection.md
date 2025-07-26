@@ -2,6 +2,8 @@
 title: "Lane Detection"
 date: 2022-12-10
 tags: ["deep-learning","camera","ROS", "autosys"]
+image: /images/lane-detection/vs_complexe.jpg
+description: Lane detection from camera image based on deep-learning model (autoencoder).
 ---
 
 ## Abstract

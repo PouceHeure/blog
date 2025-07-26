@@ -3,6 +3,7 @@ title: "ROS2 - Dashboard Framework"
 date: 2025-05-01
 tags: ["UI","ROS2"]
 image: /images/dashboard/dashboard_3.png
+description: "Dashboard information builder."
 ---
 
 ## Motivation
@@ -34,3 +35,5 @@ It is also possible to generate a video of the dashboard—transparent or not—
 {{< figure src="/images/dashboard/dashboard_3.png" caption="Dashboard example" width="500">}}
 
 {{< figure src="/images/dashboard/dashboard_4.png" caption="Dashboard example" width="500">}}
+
+

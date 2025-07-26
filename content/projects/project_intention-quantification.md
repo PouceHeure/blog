@@ -2,6 +2,8 @@
 title: "Driving Intention Quantification Formula"
 date: 2022-12-10
 tags: ["quantification", "autosys"]
+description: "Define a quantification formulation mesuring the quality of the driving intention, exploiting to order intensions between them"
+image: /images/quantification-intentions/scaner_studio_situation.png
 ---
 
 In the context of intention fusion between an autonomous system and a human driver, it is essential to assess whether an intention is feasible and to establish a metric that reflects its quality. This metric must therefore incorporate both feasibility and quality aspects. Additionally, the formulation accounts for various criteria such as safety, comfort, and context.

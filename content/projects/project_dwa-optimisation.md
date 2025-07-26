@@ -14,6 +14,10 @@ To address this, I developed a new approach that leverages the convexity of the 
 
 ## Result
 
-This work was published at the IEEJ SAMCOM 2022 conference (Japan).
+This work was published at the IEEJ SAMCOM 2022 conference (Japan), {{< cite GradientHPousseur >}}.
 
 {{< figure src="/images/dwa-optimization/scenario_example.png" caption="Visual Servoing features on real application." width="500">}}
+
+
+## References
+{{< bibliography >}}
