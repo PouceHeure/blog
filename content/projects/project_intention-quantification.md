@@ -1,6 +1,6 @@
 ---
 title: "Driving Intention Quantification Formula"
-date: 2022-12-10
+date: 2023-12-10
 tags: ["quantification", "autosys"]
 description: "Define a quantification formulation mesuring the quality of the driving intention, exploiting to order intensions between them"
 image: /images/quantification-intentions/scaner_studio_situation.png

@@ -57,13 +57,16 @@ The dataset was annotated using the following labels:
 - `TL_TOP_ORANGE`: 4
 - `TL_BOTTOM_ORANGE`: 5
 
-This labeling strategy allows the model to distinguish between the top and bottom lights as well as their colors.
+This labeling strategy allows the model to distinguish both the position (top or bottom) and the color of the traffic lights.
 
-The following figure show the dataset distribution. We tried to get for anyone a minimal value. The light duration of the color explain the current distribution, where the light red it's more present than the light green and orange.
-The position impacts this distribution, because far of the traffic light, the lisibility of the bottom light is hard or not possible, because the view is hidden by tree.
-{{< figure src="/images/traffic_light/model/labels_light.png" caption="Labels Distributions" width="500">}}
+The following figure shows the dataset distribution. We aimed to ensure a minimum number of samples for each class. The duration of each light color explains the current imbalance—red lights appear more frequently than green or orange.
 
-#### Training
+Additionally, the position of the camera affects the distribution. From a distance, the bottom lights are often difficult or impossible to see, especially when their view is obstructed by trees.
+
+{{< figure src="/images/traffic_light/model/labels_light.png" caption="Labels Distributions" width="300">}}
+
+
+### Training
 
 The YOLO model has been trained on the dataset created previously. The following figure shows a batch of the training. 
 
@@ -73,7 +76,7 @@ As we can see, the quality, constrast are different, in reason of the camera sou
 
 After $500$ epochs, the following figure shows the results of the training:
 
-{{< figure src="/images/traffic_light/model/results.png" caption="Results" width="500">}}
+{{< figure src="/images/traffic_light/model/results.png" caption="Results" width="800">}}
 
 
 - Precision
@@ -135,8 +138,7 @@ Harmonic mean of precision and recall, useful for balancing both aspects.
 **Estimated value:** ≈ 0.98 — Strong overall detection quality.
 
 
-
-{{< figure src="/images/traffic_light/model/confusion_matrix_normalized.png" caption="Results" width="500">}}
+{{< figure src="/images/traffic_light/model/confusion_matrix_normalized.png" caption="Results" width="600">}}
 
 | Class             | Accuracy | Notes                                                                 |
 |------------------|----------|-----------------------------------------------------------------------|
@@ -149,49 +151,58 @@ Harmonic mean of precision and recall, useful for balancing both aspects.
 
 
 
-#### Test
+### Tests Examples
 
 Following figure show an example of the detection perform on real data during a test.
 On different traffic lights. For the moment, the project onyl focuse on top light because bottom are not visiable all time.
 
-{{< subfigure images="/images/traffic_light/detection_traffic_light__green_new.png,/images/traffic_light/detection_traffic_light__orange_new.png,/images/traffic_light/detection_traffic_light__red_new.png" captions="Detections from the model." >}}
+{{< subfigure images="/images/traffic_light/detection_traffic_light__green_new.png,/images/traffic_light/detection_traffic_light__orange_new.png,/images/traffic_light/detection_traffic_light__red_new.png" captions="Green top detection., Orange top detection., Red top detection." >}}
 
+The traffic light draws on the image, it's the current representation of the traffic light by the system.
 
 ### State Definition
 
-Le système expoite la carte pour définir sur son trajet, les feux de la route. Un noeud avec la détection permet de renseigner les informations sur la détection d'un feu, en y indiquant l'état du feu. 
+The system uses the map to identify traffic lights along the planned route. A dedicated detection node publishes information about a detected traffic light, including its current state.
 
-Ce noeud inclue un paramètre timeout, permettant de conserver l'état précedent dans un cas où une detection n'est pas faite, de cette manière le système permet d'éviter tout comportement désagréable, où le système freine. 
+This node includes a **timeout** parameter to retain the previous state when no new detection is made. This prevents undesirable behavior such as sudden braking. In fact, if the system fails to detect a state, it assumes the light is red by default.
 
-Car en effet, dans un cas où le système de ne détecte pas d'état, le système considére le feu comme rouge.
+To avoid overloading the system with computations—and since this is not a safety-critical task—the detection node runs at **10 Hz**, which offers a reasonable update frequency.  
+(Note: For comparison, average human reaction time to visual stimuli is around 180–250 ms.)
 
-Pour éviter de saturé le système en calcul, et n'étant pas une priorité sécuritère, le système tourne à 10Hz. Permettant une détection à une fréquence convenable. 
-(TODO: Peut-être ajouter un truc en mode un humain le temps de réaction est de 200ms.)
+The detection model is lightweight and can run easily at **30 Hz**. Since the camera also operates at 30 Hz and the model is deterministic (relying only on the current image), running it faster would offer no benefit.
 
-Le système exploite un réseau léger, capable de tourner facilement à 30Hz, la caméra utilisée a une fréquence de 30Hz inutile de tourner le modèle plus rapidement, car il est déterministe, et dépend de l'tétat actuellement seulement.
+---
 
-## Control Adaptive
+## Adaptive Control
 
-Une fois l'état définie, il est ainsi possible d'y adapter le profile de vitesse du véhicle. 
+Once the state of the traffic light is determined, the vehicle's speed profile can be adjusted accordingly.
 
-Pour chaque élément de la route, et donc ici le feu de la route, une machine a état est associée, permettant de définir le comportement du véhicle au dépend de cette élément. Un profile de vitesse définie en distance/speed est définie en fonction de chaque état.
+Each element of the road (in this case, each traffic light) is associated with a **finite state machine** to define how the vehicle should behave. A speed profile (distance vs. velocity) is set for each state.
 
-Pour une feu de la route, la machine a état est définie de la manière suivante: 
-- `LOCK`: l'élément est pris en compte, et le véhicle va s'arrêté à une distance du feu
-- `SKIP`: l'élement n'est plus pris en compte, le véhicle ne s'arrête pas au feu
-- `FREE`: l'élement a été dépassé, inutile de le considérer
+The state machine for a traffic light is defined as follows:
 
-Transitions: 
+- `LOCK`: The element is considered active. The vehicle will stop at a defined distance before the light.
+- `SKIP`: The element is ignored. The vehicle will not stop at the light.
+- `FREE`: The element has been passed. It is no longer relevant.
+
+**Transitions:**
 - `LOCK` <-> `SKIP`
-- `SKIP` -> `FREE`
+- `SKIP` → `FREE`
 
-En fonction de l'état du feu transmise, nous pouvons alors adapté l'état du feu.
-- `LOCK`: feu rouge, feu orange
-- `SKIP`: feu vert
-- `FREE`: véhicle dépasse l'élément
+Based on the detected state of the light, the system updates the element's state:
 
-Le signal final est ajouté à l'ensemble des signaux, en prenant la borne minimale le long de ces profiles.
+- `LOCK`: when the light is red or orange
+- `SKIP`: when the light is green
+- `FREE`: when the vehicle has already passed the traffic light
+
+The final control signal is derived by combining all the velocity profiles, taking the minimum value at each distance point to ensure compliance with all constraints.
+
 
 ## Results 
 
 Mettre video
+
+
+## Conclusion
+
+Le modèle a été essayé dans des conditions différentes, pluies et soleil (même plein jour), le système en générale montre une 
