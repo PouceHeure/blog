@@ -1,4 +1,11 @@
+# website generated
 public/
+
+# mac
 .DS_Store
 
+# local log
+journal.md
+
+# img before processing
 static/images_origin/
