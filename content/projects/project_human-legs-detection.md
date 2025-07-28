@@ -2,6 +2,7 @@
 title: "Leg Detection Using a 2D LiDAR"
 date: 2020-12-10
 tags: ["deep-learning","lidar","ROS"]
+description: Leg detection based on RNN classification.
 ---
 
 Github Repo: [https://github.com/PouceHeure/ros_detection_legs](https://github.com/PouceHeure/ros_detection_legs)
