@@ -17,3 +17,11 @@ GeneralHPousseur:
   conference: IEEE IV 2023 
   authors: Hugo Pousseur, Alessandro Correa Victorino
   url: https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10186528
+
+LocalASaid:
+  text: "LocalSaid 2023"
+  title: "Local trajectory planning for autonomous vehicle with static and dynamic obstacles avoidance"
+  conference: IEEE ITSC 2021
+  authors: Abdallah Said, Reine Talj, Clovis Francis, Hassan Shraim
+  url: https://hal.science/hal-03456617/file/ITSC_1904.pdf
+ 

@@ -1,27 +1,137 @@
 ---
 title: "Optimization of the Dynamic Window Approach (DWA)"
 date: 2021-12-10
-tags: ["planing","optimisation","ROS"]
-image: /images/dwa-gradient/thumbnail.png
-description: "Gradient descent approach applied to Dynamic Window Approach, optimizing the convergence and the quality."
+tags: ["planning", "optimization", "ROS", "gradient-descent"]
+image: /images/dwa-optimization/thumbnail.png
+description: "Gradient descent formulation applied to the Dynamic Window Approach for improved convergence and trajectory quality."
 ---
 
 ## Overview
 
-As part of my PhD work, I implemented a strategy known as the Dynamic Window Approach (DWA), which allows a robot to reach a target while avoiding obstacles. This is a purely reactive system. The method explores a set of admissible velocities over a short time horizon and evaluates each candidate using an objective function. However, this approach can be computationally expensive due to the need to evaluate every possible candidate.
+The Dynamic Window Approach (DWA) is a reactive planning strategy used in mobile robotics. At each control cycle, it samples admissible velocity pairs $(v, \omega)$ and evaluates them using an objective function. The velocity that maximizes the score is selected.
 
-{{< youtube code="JagUA0hf360" width="500" caption="Video demo (Gazebo)" >}}
-{{< youtube code="JagUA0hTMXqmAW_N_of360" width="500" caption="Video demo (SCANeR + visual servoing)" >}}
-## Approach 
+However, the original DWA has two main drawbacks:
+- It uses **discretized sampling**, which limits precision
+- The **evaluation loop** is computationally expensive
 
-To address this, I developed a new approach that leverages the convexity of the objective functions, applying gradient descent to converge more quickly and accurately toward the optimal solution. This method not only speeds up convergence but also increases precision by avoiding the discretization required in the traditional DWA.
+To address this, we reformulate DWA using **convex objective functions** and **gradient descent optimization**.
 
-## Result
+This work was published at **IEEJ SAMCON 2022**, {{< cite GradientHPousseur >}}.
 
-This work was published at the IEEJ SAMCOM 2022 conference (Japan), {{< cite GradientHPousseur >}}.
+{{< youtube code="JagUA0hf360" width="500" caption="Video demo (Gazebo simulation)" >}}
+{{< youtube code="TMXqmAW_N_o" width="500" caption="Video demo (SCANeR + visual servoing)" >}}
 
-{{< figure src="/images/dwa-optimization/scenario_example.png" caption="Visual Servoing features on real application." width="500">}}
+## From Sampling to Optimization
 
+### Convex Cost Structure
+
+Instead of computing a score over discrete velocities, we define a continuous, differentiable **cost function**:
+
+{{< equation >}}
+\mathcal{L}(v, \omega) = \lambda_1 \cdot \mathcal{C}_{goal} + \lambda_2 \cdot \mathcal{C}_{obstacle} + \lambda_3 \cdot \mathcal{C}_{speed}
+{{< /equation >}}
+
+Where:
+
+- $\mathcal{C}_{goal}$: cost of misalignment with the goal or lane
+- $\mathcal{C}_{obstacle}$: penalty for proximity to obstacles
+- $\mathcal{C}_{speed}$: preference for high velocity
+
+Each term is made convex to support gradient-based optimization.
+
+### Goal Alignment Term
+
+We define a quadratic distance to the visual goal point (e.g., from a visual servoing controller):
+
+{{< equation >}}
+\mathcal{C}_{goal} = (x_{pred} - x_{target})^2 + (y_{pred} - y_{target})^2
+{{< /equation >}}
+
+This guides the robot toward the desired path center or trajectory.
+
+### Obstacle Avoidance Term
+
+We penalize proximity to obstacles using a convex inverse-distance model:
+
+{{< equation >}}
+\mathcal{C}_{obstacle} = \sum_{i=1}^{N} \frac{1}{\|p_{pred} - p_i\|^2 + \epsilon}
+{{< /equation >}}
+
+Where $p_i$ is the $i$-th obstacle point, and $\epsilon$ avoids division by zero.
+
+### Speed Regularization Term
+
+We apply a smooth penalty on low velocities to encourage motion:
+
+{{< equation >}}
+\mathcal{C}_{speed} = (v_{max} - v)^2
+{{< /equation >}}
+
+## Gradient-Based Optimization
+
+The velocity command is obtained via:
+
+{{< equation >}}
+(v^*, \omega^*) = \arg\min_{v, \omega} \mathcal{L}(v, \omega)
+{{< /equation >}}
+
+Gradient descent is used to iteratively update $(v, \omega)$ toward the minimum:
+
+{{< equation >}}
+\begin{bmatrix}
+v \\
+\omega
+\end{bmatrix}
+\leftarrow
+\begin{bmatrix}
+v \\
+\omega
+\end{bmatrix}
+ - \eta \cdot \nabla \mathcal{L}(v, \omega)
+{{< /equation >}}
+
+Where $\eta$ is the learning rate.
+
+This approach removes the need for discrete sampling and allows finer convergence toward optimal commands.
+
+## Integration with Visual Servoing
+
+In SCANeR tests, we integrated this optimizer with a **visual servoing controller**, which provides a dynamic centerline (from camera input). The goal term $\mathcal{C}_{goal}$ uses the visual reference as its target, aligning the vehicle with image-based lanes.
+
+This fusion allows:
+- DWA to remain reactive
+- Visual Servoing to inject high-level guidance
+- Optimization to converge more smoothly
+
+{{< figure src="/images/dwa-optimization/scenario_example.png" caption="Gradient-based DWA combined with visual control. Target extracted from camera image." width="600">}}
+
+## Simulation Results
+
+### Gazebo Testing
+
+Initial validation was conducted in Gazebo with static obstacles and a known goal.
+
+- Classical DWA showed oscillations and sometimes missed narrow passages
+- Optimized DWA achieved smoother trajectories and faster convergence
+
+### SCANeR Testing
+
+In SCANeR studio, we validated the optimizer in autonomous driving scenarios:
+
+- Camera extracted the lane center via visual features
+- DWA optimizer computed reactive velocities toward the visual target
+- Results showed high robustness to visual noise and tighter control
+
+## Conclusion
+
+We introduced a **gradient-based formulation of the DWA**, replacing brute-force sampling with continuous optimization. This approach enables:
+
+- Real-time optimization of $(v, \omega)$
+- Easier integration with other subsystems (e.g., vision)
+- Convex, tunable cost design
+
+It opens possibilities for vision-guided local planning and reduces reliance on hand-tuned sampling grids.
 
 ## References
+
 {{< bibliography >}}
