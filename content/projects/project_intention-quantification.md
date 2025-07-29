@@ -201,7 +201,7 @@ Each intention also passes through a guard-based admissibility check:
 | Set | Admissible | Lateral Accel Score | Speed Score | Final Score | Comments                           |
 |-----|------------|---------------------|-------------|--------------|------------------------------------|
 | A   | ✅         | Low                 | Medium      | Medium       | Avoids obstacle but sharp turn     |
-| B   | ❌         | High                | High        | —            | Smooth, but collision → rejected   |
+| B   | ❌         | High                | High        | 0            | Smooth, but collision → rejected   |
 | C   | ✅         | High                | High        | High         | Smooth, safe, fully admissible     |
 
 

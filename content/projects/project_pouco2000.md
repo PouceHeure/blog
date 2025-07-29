@@ -1,10 +1,11 @@
 ---
 title: "Pouco2000 - Customizable Physical Interface for ROS Robots"
 date: 2020-06-15
-tags: ["ROS", "Arduino", "C++", "robotics", "debugging"]
+tags: ["ROS", "arduino", "robotics", "debugging"]
 description: Modular physical control panel for interacting with ROS-based robots, with full Arduino and ROS integration.
 image: /images/pouco2000/desk_crop.png
 ---
+
 
 ## Overview
 
@@ -18,6 +19,7 @@ The system includes:
 - ROS packages for **serial communication**, **message extraction**, and **parameter introspection**
 - Utilities for visual monitoring and live debugging
 
+{{< youtube code="f1S2iDkwEEM" width="500" caption="Video demo" >}}
 
 ## Motivation
 

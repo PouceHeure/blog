@@ -7,6 +7,8 @@ description: Lateral and longitudinal control applied to a real autonomous vehic
 image: "/images/autosys-control/webcam_onboard.png"
 ---
 
+{{< youtube code="TODO" width="500" caption="Demo video coming soon" >}}
+
 ## Overview
 
 This module defines the **low-level control** system responsible for translating navigation commands into actuator signals (steering and torque). The system is fully integrated with a ROS2-based autonomous stack and was deployed and tested on a **real electric vehicle with in-wheel motors**.

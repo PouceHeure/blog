@@ -7,7 +7,7 @@ description: Local planning applied to real autonomous vehicles, combining globa
 image: "/images/local-planning/rviz_planning.png"
 ---
 
-TODO add video
+{{< youtube code="TODO" width="500" caption="Demo video coming soon" >}}
 
 ## Overview
 

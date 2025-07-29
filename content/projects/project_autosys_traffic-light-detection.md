@@ -7,6 +7,8 @@ description: Detection of traffic light, and adapt the control of the vehicle de
 image: "/images/traffic_light/detection_traffic_light__green_new.png"
 ---
 
+{{< youtube code="TODO" width="500" caption="Demo video coming soon" >}}
+
 ## Motivation
 
 Adapting a vehicle's behavior to traffic lights is a key feature in autonomous driving. The vehicle must be able to adjust its speed based on the current state of the traffic light.
@@ -32,7 +34,7 @@ Based on the vehicle's planned trajectory, we can project the map’s elements:s
 
 Within a traffic light zone, the system must identify the current state of the light.
 
-We used **YOLO** for detection. By default, YOLO is not trained to recognize traffic light states—it can detect the presence of a light but not its color or status. To address this, we trained a YOLO model using a custom dataset built specifically for this application.
+We used **YOLO** for detection. By default, YOLO is not trained to recognize traffic light states, it can detect the presence of a light but not its color or status. To address this, we trained a YOLO model using a custom dataset built specifically for this application.
 
 ### Dataset
 
@@ -59,7 +61,7 @@ The dataset was annotated using the following labels:
 
 This labeling strategy allows the model to distinguish both the position (top or bottom) and the color of the traffic lights.
 
-The following figure shows the dataset distribution. We aimed to ensure a minimum number of samples for each class. The duration of each light color explains the current imbalance—red lights appear more frequently than green or orange.
+The following figure shows the dataset distribution. We aimed to ensure a minimum number of samples for each class. The duration of each light color explains the current imbalance, indeed the red lights appear more frequently than green or orange.
 
 Additionally, the position of the camera affects the distribution. From a distance, the bottom lights are often difficult or impossible to see, especially when their view is obstructed by trees.
 
@@ -85,7 +87,7 @@ After $500$ epochs, the following figure shows the results of the training:
 {{< /equation >}}
 
 Precision measures the proportion of predicted positive detections that are actually correct.  
-**Value:** ≈ 0.99 — This indicates very few false positives.
+**Value:** ≈ 0.99 : This indicates very few false positives.
 
 ---
 
@@ -95,7 +97,7 @@ Precision measures the proportion of predicted positive detections that are actu
 {{< /equation >}}
 
 Recall measures how many of the actual objects were successfully detected.  
-**Value:** ≈ 0.97 — Meaning the model misses very few objects.
+**Value:** ≈ 0.97 : Meaning the model misses very few objects.
 
 ---
 
@@ -115,7 +117,7 @@ This measures how well a predicted bounding box overlaps with the ground truth b
 {{< /equation >}}
 
 Average precision calculated across all classes at a fixed IoU of 0.5.  
-**Value:** ≈ 0.98 — Indicates high detection accuracy at moderate overlap.
+**Value:** ≈ 0.98 : Indicates high detection accuracy at moderate overlap.
 
 ---
 
@@ -125,7 +127,7 @@ Average precision calculated across all classes at a fixed IoU of 0.5.
 {{< /equation >}}
 
 Average precision over 10 IoU thresholds from 0.5 to 0.95.  
-**Value:** ≈ 0.83 — A more rigorous and reliable performance metric.
+**Value:** ≈ 0.83 : A more rigorous and reliable performance metric.
 
 ---
 
@@ -135,7 +137,7 @@ F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \tex
 {{< /equation >}}
 
 Harmonic mean of precision and recall, useful for balancing both aspects.  
-**Estimated value:** ≈ 0.98 — Strong overall detection quality.
+**Estimated value:** ≈ 0.98 : Strong overall detection quality.
 
 
 {{< figure src="/images/traffic_light/model/confusion_matrix_normalized.png" caption="Results" width="600">}}
@@ -166,7 +168,7 @@ The system uses the map to identify traffic lights along the planned route. A de
 
 This node includes a **timeout** parameter to retain the previous state when no new detection is made. This prevents undesirable behavior such as sudden braking. In fact, if the system fails to detect a state, it assumes the light is red by default.
 
-To avoid overloading the system with computations—and since this is not a safety-critical task—the detection node runs at **10 Hz**, which offers a reasonable update frequency.  
+To avoid overloading the system with computations, and since this is not a safety-critical task, the detection node runs at **10 Hz**, which offers a reasonable update frequency.  
 (Note: For comparison, average human reaction time to visual stimuli is around 180–250 ms.)
 
 The detection model is lightweight and can run easily at **30 Hz**. Since the camera also operates at 30 Hz and the model is deterministic (relying only on the current image), running it faster would offer no benefit.

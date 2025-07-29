@@ -15,7 +15,7 @@ The system was validated on simulated and real data, showing robust behavior in 
 
 ## Visual Servoing Principle
 
-Visual Servoing (VS) refers to the use of visual information—typically from a camera—to control the motion of a robot. The control law is derived from the error between a current image feature $s$ and a desired one $s^*$:
+Visual Servoing (VS) refers to the use of visual information, typically from a camera, to control the motion of a robot. The control law is derived from the error between a current image feature $s$ and a desired one $s^*$:
 
 {{< equation >}}
 e(t) = s(t) - s^*
