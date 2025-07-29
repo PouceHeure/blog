@@ -10,41 +10,47 @@ image: /images/road-friction/thumbnail.png
 
 As part of a European research project, I conducted a two-month research mission at the University of Tokyo to investigate road surface friction estimation using only a forward-facing camera.
 
-This led to the publication of paper, {{< cite ProposalUTakumi >}}, at IEEE AIM 2023 conference, in collaboration with the University of Tokyo and UTC. The system uses image segmentation, confidence modeling, geometric projection, and accumulation into a global surface grid map.
+This led to the publication of a paper, {{< cite ProposalUTakumi >}}, at IEEE AIM 2023, in collaboration with the University of Tokyo and UTC. The system uses image segmentation, confidence modeling, geometric projection, and accumulation into a global surface grid map.
+
+---
+
+## Mission Context
+
+The experiment was conducted in partnership with the Fujimoto Lab (University of Tokyo) as part of the OWheel collaboration. The lab focuses on autonomous vehicles and control systems, particularly for electric vehicles and in-wheel motor platforms.
+
+{{< figure src="/images/road-friction/fujimoto_laboratory.jpg" caption="Laboratories of the University of Tokyo, Kashiwa campus." width="500">}}
+
+The mission goal was to detect road surface types in real time from a front-facing camera and provide this information to a traction controller.
+
+---
 
 ## Image Processing Pipeline
 
-### Goal
-
-The system performs lightweight, camera-based classification of road surfaces to support downstream control and traction management.
-
 ### Steps
-
-The algorithm consists of five main operations:
 
 1. ROI selection  
 2. Color distance computation  
-3. Threshold filtering  
+3. Binary thresholding  
 4. Image downsampling  
 5. Confidence mask application
 
-{{< figure src="/images/road-friction/ip_process.png" caption="The five-stage pipeline used to process RGB images: from region-of-interest selection to a confidence-weighted binary classification." width="600">}}
+{{< figure src="/images/road-friction/ip_process.png" caption="Five-step processing pipeline from RGB image to pixel-level friction prediction." width="700">}}
 
-### Prediction Output
+The image classifier generates:
 
-The output is a pixel-wise classification with confidence scores:
-
-- **ROAD**
-- **BLUE (slippery)**
+- **ROAD** (normal traction)
+- **SLIPPERY** (blue polymer)
 - **UNKNOWN**
 
-{{< figure src="/images/road-friction/image_processing_results.png" caption="Left: raw RGB image. Middle: binary mask showing predicted slippery surfaces. Right: final output with pixel-level confidence." width="700">}}
+{{< figure src="/images/road-friction/image_processing_results.png" caption="Left: original image. Middle: binary mask. Right: confidence-weighted prediction." width="700">}}
 
-## Projection to World Coordinates
+---
 
-### Camera to 3D Conversion
+## Projection and Grid Map Generation
 
-Each pixel $(u, v)$ is converted to 3D camera coordinates using intrinsic calibration:
+### Camera to World Projection
+
+Each pixel $(u, v)$ is projected to 3D using:
 
 {{< equation >}}
 x_c = \frac{(u - c_x)}{f_x} \cdot z(v)
@@ -54,25 +60,30 @@ x_c = \frac{(u - c_x)}{f_x} \cdot z(v)
 y_c = \frac{(v - c_y)}{f_y} \cdot z(v)
 {{< /equation >}}
 
-Where:
-- $z(v)$ is calibrated depth for pixel row $v$
-- $(f_x, f_y)$ are focal lengths
-- $(c_x, c_y)$ is the optical center
+where $z(v)$ is the estimated distance from camera to ground, computed via linear regression.
 
-### Camera to World Frame
+The pose is corrected using **GPS + IMU + Kalman filter**. This allows transforming image pixels into world coordinates and inserting them into a 2D grid.
 
-By applying the vehicle’s pose (from GPS + Kalman filter), each pixel is reprojected into world coordinates and then assigned to a 2D global grid cell.
+{{< figure src="/images/road-friction/image_projection.png" caption="Pipeline: projecting detection to grid map using calibrated camera + GPS pose." width="700">}}
 
-## Friction Grid Construction
+---
 
-### Multi-layer Update
+### Accumulation and Trust Masking
 
-Two layers are maintained:
+To ensure stability, each grid cell is updated across multiple frames. Distant pixels receive lower confidence due to both projection error and poor color reliability.
 
-- $B_{ij}$ for blue-sheet (slippery) surfaces  
-- $R_{ij}$ for normal road surfaces
+{{< figure src="/images/road-friction/data_binary_trust_mask.png" caption="Trust mask improves reliability in central image zones." width="700">}}
 
-Each projected pixel updates its corresponding cell:
+---
+
+## Grid Output and Road Profile
+
+The grid map accumulates surface class over time. Two buffers are maintained:
+
+- $B_{ij}$: slippery class (blue-sheet)
+- $R_{ij}$: normal road class
+
+Each projected detection updates the relevant grid:
 
 {{< equation >}}
 \begin{cases}
@@ -81,9 +92,7 @@ R_{ij} \leftarrow R_{ij} + \hat{p}_{uv}, & \text{if } \hat{p}_{uv} < 0
 \end{cases}
 {{< /equation >}}
 
-### Final Grid
-
-The final surface grid value is:
+Final grid value:
 
 {{< equation >}}
 G_{ij} = 
@@ -93,35 +102,81 @@ G_{ij} =
 \end{cases}
 {{< /equation >}}
 
-Where $G_{ij} \in [-1, 1]$ represents the surface type (−1 = road, +1 = slippery surface).
+This grid is transformed into **friction profiles** for left and right wheels.
 
-{{< figure src="/images/road-friction/grid_friction_motivation.png" caption="Illustration of the global friction grid: detections from image space are reprojected and aggregated in world coordinates." width="600">}}
+{{< figure src="/images/road-friction/output_road_friction_detection.png" caption="Example of final friction profile used by controller." width="700">}}
 
-## Applications
+---
 
-### Control Integration
+## Runtime Optimization
 
-This grid is used to adapt the **slip ratio limiter** and **torque constraints** in a driving force controller (CDFC), improving safety and energy usage.
+Image resolution reduction was critical. Projection runtime dropped by over 10× by resizing images before processing.
 
-{{< figure src="/images/road-friction/ip_flow_chart_bg.png" caption="Control integration flow: camera-based surface predictions directly influence controller parameters such as slip ratio limiters." width="600">}}
+{{< figure src="/images/road-friction/data_plot_with_reduction.png" caption="With downsampling: efficient per-frame processing time." width="500">}}
 
-### Outlook
-
-The current method is based on simple color thresholds but can be extended to more robust vision systems using CNNs or multi-class detection.
-
-{{< figure src="/images/road-friction/ip_perspectives.png" caption="Conceptual comparison of current rule-based detection with future potential using machine learning or deep feature extraction." width="600">}}
+---
 
 ## Experimental Setup
 
-The system was deployed on a custom-built **in-wheel motor EV** at the University of Tokyo.
+- EV testbed with onboard RGB camera and GPS
+- Blue polymer used to simulate slippery surfaces
+- Kalman filtering improved GPS position
+- Real-time fusion of camera and pose data
 
-- Low-friction zones simulated with blue polymer
-- Vehicle pose estimated with GPS and IMU
-- Results fed to control layer in real-time
+{{< figure src="/images/road-friction/tool_recorder.png" caption="Custom tool for GPS + Camera synchronized dataset creation." width="600">}}
 
-<!-- ## Conclusion
+{{< figure src="/images/road-friction/data_gps_issue_efk.png" caption="Left: raw GPS. Right: with Kalman filtering." width="700">}}
 
-This image-based segmentation pipeline allows friction estimation using only a monocular RGB camera. When integrated into an autonomous controller, it enables real-time traction adaptation and significant energy savings during low-friction events. -->
+---
+
+## Evaluation
+
+### Case 1: Double Bluesheet Lane
+
+{{< figure src="/images/road-friction/profiles/double/image_scenario_selected.png" caption="Vehicle on symmetrical slippery zones." width="400">}}
+
+{{< figure src="/images/road-friction/profiles/double/plot_road_profiles.png" caption="Profile generated from friction grid." width="600">}}
+
+{{< figure src="/images/road-friction/profiles/double/plot_road_profiles_errors.png" caption="Distance error between predicted and true profile." width="600">}}
+
+---
+
+### Case 2: Asymmetric Surface
+
+{{< figure src="/images/road-friction/profiles/mixed/image_scenario_selected.png" caption="Vehicle with offset slippery zone." width="400">}}
+
+{{< figure src="/images/road-friction/profiles/mixed/plot_road_profiles.png" caption="Estimated friction profile (asymmetric)." width="600">}}
+
+{{< figure src="/images/road-friction/profiles/mixed/plot_road_profiles_errors.png" caption="Prediction error across path length." width="600">}}
+
+---
+
+## Slip Ratio Results
+
+The slip ratio is defined as:
+
+{{< equation >}}
+s = \frac{Rw - u}{Rw}
+{{< /equation >}}
+
+Where:
+- $Rw$ is wheel speed
+- $u$ is vehicle forward velocity
+
+The use of visual-based friction prediction reduced slip ratio **by 50%**, compared to wheel-only estimation.
+
+{{< figure src="/images/road-friction/slip_results.png" caption="Slip ratio: visual-based control (red) vs. wheel-sensor-only (blue)." width="700">}}
+
+---
+
+## Conclusion
+
+- Camera-only system provides accurate road surface detection
+- Friction grid enables reliable prediction
+- Real-time compatibility demonstrated
+- Controller benefits: reduced slip and better adaptation
+
+This approach validates vision as a viable modality for low-cost, efficient, and anticipatory traction control.
 
 ## References
 
