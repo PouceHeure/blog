@@ -6,9 +6,12 @@ image: /images/lane-detection/detection-result.png
 description: Lane detection from camera image based on deep-learning model (autoencoder).
 ---
 
+
 ## Abstract
 
 Lane detection is a fundamental task for autonomous vehicles. While localization using GPS and HD maps is precise under ideal conditions, visual-based lane detection provides a critical redundancy, especially where GNSS signals are noisy or maps are outdated. This project implements a deep learning lane detection pipeline using a convolutional autoencoder, capable of identifying and segmenting multiple lane boundaries under varied road conditions.
+
+{{< youtube code="-KzQhDS5PkY" width="500" caption="Video demo" >}}
 
 ## Introduction to Lane Estimation
 
