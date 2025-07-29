@@ -3,3 +3,10 @@ GradientHPousseur:
   title: "Gradient descent dynamic window approach to the mobile robot autonomous navigation."
   authors: "Hugo POUSSEUR, Alessandro VICTORINO"
   url: "https://hal.science/hal-04041336/document"
+
+ProposalUTakumi:
+  text: "ProposalTakumi 2023"
+  title: "Proposal of On-board Camera-Based Driving Force Control Method for Autonomous Electric Vehicles"
+  conference: IEEE/ASME AIM 2023 
+  authors: Takumi Ueno, Hugo Pousseur, Binh Minh Nguyen, Alessandro Victorino, Hiroshi Fujimoto
+  url: https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10196211
