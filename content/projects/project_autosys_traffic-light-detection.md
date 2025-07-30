@@ -142,6 +142,8 @@ Harmonic mean of precision and recall, useful for balancing both aspects.
 
 {{< figure src="/images/traffic_light/model/confusion_matrix_normalized.png" caption="Results" width="600">}}
 
+{{< table-wrap >}}
+
 | Class             | Accuracy | Notes                                                                 |
 |------------------|----------|-----------------------------------------------------------------------|
 | TL_TOP_GREEN      | ≈ 0.98   | Excellent detection. Minor confusion with background and BOTTOM_GREEN |
@@ -151,7 +153,7 @@ Harmonic mean of precision and recall, useful for balancing both aspects.
 | TL_TOP_ORANGE     | ≈ 0.98   | Minor confusion with BOTTOM_ORANGE and background                     |
 | TL_BOTTOM_ORANGE  | ≈ 0.96   | Confused with TL_BOTTOM_GREEN                                        |
 
-
+{{< /table-wrap >}}
 
 ### Tests Examples
 
