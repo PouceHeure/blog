@@ -104,7 +104,7 @@ This grid is transformed into **friction profiles** for left and right wheels.
 
 ## Runtime Optimization
 
-Image resolution reduction was critical. Projection runtime dropped by over 10× by resizing images before processing.
+Image resolution reduction was critical. Projection runtime dropped by over $10\times$ by resizing images before processing.
 
 {{< figure src="/images/road-friction/data_plot_with_reduction.png" caption="With downsampling: efficient per-frame processing time." width="500">}}
 
