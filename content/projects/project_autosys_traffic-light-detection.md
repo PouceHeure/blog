@@ -28,8 +28,6 @@ This project has been developped in python for the detection, and in cpp for the
 
 Based on the vehicle's planned trajectory, we can project the map’s elements:such as traffic lights onto the path. This step doesn’t determine the state of the lights but serves to notify the system that a traffic light zone is ahead.
 
----
-
 ## Detection
 
 Within a traffic light zone, the system must identify the current state of the light.
@@ -198,13 +196,3 @@ Based on the detected state of the light, the system updates the element's state
 - `FREE`: when the vehicle has already passed the traffic light
 
 The final control signal is derived by combining all the velocity profiles, taking the minimum value at each distance point to ensure compliance with all constraints.
-
-
-## Results 
-
-Mettre video
-
-
-## Conclusion
-
-Le modèle a été essayé dans des conditions différentes, pluies et soleil (même plein jour), le système en générale montre une 
