@@ -57,9 +57,9 @@ This plugin is particularly useful for:
 - **Educational content**: Record consistent viewports for tutorials and presentations.
 
 
-## Conclusion
+<!-- ## Conclusion
 
 The RViz2 Virtual Camera plugin extends the standard visualization capabilities of ROS 2 by offering a way to publish high-quality, configurable image streams directly from the 3D rendered scene. This tool simplifies debugging, demo creation, and data generation, and opens the door to richer, programmatic use of RViz.
 
-Stay tuned for the full video demo and release instructions.
+Stay tuned for the full video demo and release instructions. -->
 

@@ -127,7 +127,7 @@ In SCANeR studio, we validated the optimizer in autonomous driving scenarios:
 - DWA optimizer computed reactive velocities toward the visual target
 - Results showed high robustness to visual noise and tighter control
 
-## Conclusion
+<!-- ## Conclusion
 
 We introduced a **gradient-based formulation of the DWA**, replacing brute-force sampling with continuous optimization. This approach enables:
 
@@ -135,7 +135,7 @@ We introduced a **gradient-based formulation of the DWA**, replacing brute-force
 - Easier integration with other subsystems (e.g., vision)
 - Convex, tunable cost design
 
-It opens possibilities for vision-guided local planning and reduces reliance on hand-tuned sampling grids.
+It opens possibilities for vision-guided local planning and reduces reliance on hand-tuned sampling grids. -->
 
 ## References
 

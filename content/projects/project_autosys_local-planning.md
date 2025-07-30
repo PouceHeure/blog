@@ -97,7 +97,7 @@ The system allows closed-loop autonomous operation by chaining:
 
 {{< figure src="/images/local-planning/global-view.png" caption="High-level planning loop integrating route, path, and motion generation" width="750">}}
 
-## Conclusion
+<!-- ## Conclusion
 
 This work provides an efficient and modular **planning stack** for autonomous vehicles, from topological goal computation to real-time local obstacle avoidance.
 
@@ -106,7 +106,7 @@ Key benefits:
 - Modularity via ROS2
 - Reactive obstacle-aware local planner
 - Velocity generation based on constraints
-- Real-world deployment on an autonomous car platform
+- Real-world deployment on an autonomous car platform -->
 
 ## References
 

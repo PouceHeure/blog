@@ -12,7 +12,6 @@ As part of a European research project, I conducted a two-month research mission
 
 This led to the publication of a paper, {{< cite ProposalUTakumi >}}, at IEEE AIM 2023, in collaboration with the University of Tokyo and UTC. The system uses image segmentation, confidence modeling, geometric projection, and accumulation into a global surface grid map.
 
----
 
 ## Mission Context
 
@@ -22,7 +21,6 @@ The experiment was conducted in partnership with the Fujimoto Lab (University of
 
 The mission goal was to detect road surface types in real time from a front-facing camera and provide this information to a traction controller.
 
----
 
 ## Image Processing Pipeline
 
@@ -44,7 +42,6 @@ The image classifier generates:
 
 {{< figure src="/images/road-friction/image_processing_results.png" caption="Left: original image. Middle: binary mask. Right: confidence-weighted prediction." width="700">}}
 
----
 
 ## Projection and Grid Map Generation
 
@@ -66,7 +63,6 @@ The pose is corrected using **GPS + IMU + Kalman filter**. This allows transform
 
 {{< figure src="/images/road-friction/image_projection.png" caption="Pipeline: projecting detection to grid map using calibrated camera + GPS pose." width="700">}}
 
----
 
 ### Accumulation and Trust Masking
 
@@ -74,7 +70,6 @@ To ensure stability, each grid cell is updated across multiple frames. Distant p
 
 {{< figure src="/images/road-friction/data_binary_trust_mask.png" caption="Trust mask improves reliability in central image zones." width="700">}}
 
----
 
 ## Grid Output and Road Profile
 
@@ -106,7 +101,6 @@ This grid is transformed into **friction profiles** for left and right wheels.
 
 {{< figure src="/images/road-friction/output_road_friction_detection.png" caption="Example of final friction profile used by controller." width="700">}}
 
----
 
 ## Runtime Optimization
 
@@ -114,7 +108,6 @@ Image resolution reduction was critical. Projection runtime dropped by over 10×
 
 {{< figure src="/images/road-friction/data_plot_with_reduction.png" caption="With downsampling: efficient per-frame processing time." width="500">}}
 
----
 
 ## Experimental Setup
 
@@ -127,7 +120,6 @@ Image resolution reduction was critical. Projection runtime dropped by over 10×
 
 {{< figure src="/images/road-friction/data_gps_issue_efk.png" caption="Left: raw GPS. Right: with Kalman filtering." width="700">}}
 
----
 
 ## Evaluation
 
@@ -139,7 +131,6 @@ Image resolution reduction was critical. Projection runtime dropped by over 10×
 
 {{< figure src="/images/road-friction/profiles/double/plot_road_profiles_errors.png" caption="Distance error between predicted and true profile." width="600">}}
 
----
 
 ### Case 2: Asymmetric Surface
 
@@ -149,7 +140,6 @@ Image resolution reduction was critical. Projection runtime dropped by over 10×
 
 {{< figure src="/images/road-friction/profiles/mixed/plot_road_profiles_errors.png" caption="Prediction error across path length." width="600">}}
 
----
 
 ## Slip Ratio Results
 

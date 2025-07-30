@@ -59,6 +59,6 @@ Once the lane is detected, the vehicle can compute a local path reference. Using
 
 The control inputs $(v, w)$ (linear and angular velocity) are calculated by minimizing the distance between the camera's forward direction and the lane center trajectory.
 
-## Conclusion and Outlook
+<!-- ## Conclusion and Outlook
 
-This lane detection system combines deep learning, robust geometric fitting, and real-time camera input to provide an end-to-end vision-based perception solution. Future enhancements could include incorporating temporal filtering using LSTMs or optical flow, adapting to multi-lane or lane-change scenarios, and extending to 3D environments with stereo vision or LiDAR fusion.
+This lane detection system combines deep learning, robust geometric fitting, and real-time camera input to provide an end-to-end vision-based perception solution. Future enhancements could include incorporating temporal filtering using LSTMs or optical flow, adapting to multi-lane or lane-change scenarios, and extending to 3D environments with stereo vision or LiDAR fusion. -->

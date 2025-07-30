@@ -72,7 +72,3 @@ The dashboard framework includes optional functionality to export visualizations
 Below are several dashboard examples showing different configurations and visual styles:
 
 {{< subfigure images="/images/dashboard/dashboard_2.png,/images/dashboard/dashboard_4.png" captions="Dashboard example with Rviz image., Dashboard example with camera image." >}}
-
-## Conclusion
-
-This ROS 2 dashboard framework makes it easy to design, configure, and render customizable UI panels for both live and recorded robotic data. By combining a declarative YAML format with real-time ROS topic integration, it balances flexibility, simplicity, and performance, making it ideal for developers, researchers, and demonstrators alike.

@@ -174,7 +174,7 @@ By integrating $J_{vs}$, the DWA selects trajectories that are not only dynamica
 
 {{< youtube code="TMXqmAW_N_o" width="500" caption="Demonstration of DWA + Visual Servoing in simulation." >}}
 
-## Conclusion
+<!-- ## Conclusion
 
 This system demonstrates how vision-only lane-keeping can be achieved with modern deep-learning and visual servoing control theory. It offers high adaptability without requiring external localization or mapping infrastructure.
 
@@ -182,7 +182,7 @@ Applications include:
 
 - Urban driving  
 - Low-cost autonomous platforms  
-- Redundant perception systems in autonomous stacks
+- Redundant perception systems in autonomous stacks -->
 
 ## References
 
