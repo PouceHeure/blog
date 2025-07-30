@@ -50,13 +50,13 @@ Widgets are composable and layout is determined via configuration, not hardcoded
 
 This dashboard can operate in two main modes:
 
-### 1. Online Mode
+### Online Mode
 
 Connected directly to a live ROS 2 system:
 - Visualize sensor data and system state in real-time
 - Interact with running nodes (e.g., adjust sliders or monitor values)
 
-### 2. Offline Mode
+### Offline Mode
 
 Load and replay dashboards from a recorded ROS 2 bag file:
 - Great for **post-analysis**, testing, and debug reviews
