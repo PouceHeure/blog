@@ -9,7 +9,7 @@ url: "/cv"
 - `2025`: Obtained French National Qualification to Apply for Associate Professor (CNU - Section 27)
 - `2020 - 2024`: PhD in Robotics, University of Technology of Compiègne *Thesis: Shared Navigation in a Cybernetic Multi-Agent Autonomous System*, Compiègne (France)
 - `2018 - 2019`: Specialized Master's in Robotics, CentraleSupélec, Metz (France) 
-- `2014 - 2019`: Engineering Degree, spetiality Computing, ESILV *(Major Promotion in 3rd and 4th year)*, Paris (France)  
+- `2014 - 2019`: Engineering degree, specialization in Computing, ESILV *(Major Promotion in 3rd and 4th year)*, Paris (France)  
 
 ## <span class="emoji">💼</span> Professional Experience  
 - `2023 - 2025` : *Research Engineer (CNRS)*, Heudiasyc laboratory, Autonomous vehicle planning and control (ROS2), sensor installation and integration.
