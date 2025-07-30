@@ -26,7 +26,7 @@ This project has been developped in python for the detection, and in cpp for the
 
 ## Matching
 
-Based on the vehicle's planned trajectory, we can project the map’s elements:such as traffic lights onto the path. This step doesn’t determine the state of the lights but serves to notify the system that a traffic light zone is ahead.
+Based on the vehicle's planned trajectory, we can project the map’s elements, such as traffic lights onto the path. This step doesn’t determine the state of the lights but serves to notify the system that a traffic light zone is ahead.
 
 ## Detection
 
@@ -72,11 +72,13 @@ The YOLO model has been trained on the dataset created previously. The following
 
 {{< figure src="/images/traffic_light/model/train_batch18621.jpg" caption="Example Batch" width="500">}}
 
-As we can see, the quality, constrast are different, in reason of the camera source different, and the yolo configuration of the training, allowing to create more data on original one, in putting some different transformation, traanslation, and color. 
+As we can see, the quality and contrast differ due to the different camera sources and the YOLO training configuration. The training process generates additional data from the original images by applying various transformations, translations, and color adjustments.
+
+
 
 After $500$ epochs, the following figure shows the results of the training:
 
-{{< figure src="/images/traffic_light/model/results.png" caption="Results" width="800">}}
+{{< figure src="/images/traffic_light/model/results.png" caption="Results Plots, training and validation evaluations" width="800">}}
 
 
 - Precision
@@ -99,7 +101,7 @@ Recall measures how many of the actual objects were successfully detected.
 
 ---
 
-- IoU (Intersection over Union)
+<!-- - IoU (Intersection over Union)
 {{< equation >}}
 \text{IoU} = \frac{\text{Area of Overlap}}{\text{Area of Union}}
 {{< /equation >}}
@@ -107,7 +109,7 @@ Recall measures how many of the actual objects were successfully detected.
 This measures how well a predicted bounding box overlaps with the ground truth box.  
 **Threshold:** Typically ≥ 0.5 to count a detection as correct.
 
----
+--- -->
 
 - mAP@0.5 (mean Average Precision at IoU = 0.5)
 {{< equation >}}
@@ -177,7 +179,7 @@ The detection model is lightweight and can run easily at **30 Hz**. Since the ca
 
 Once the state of the traffic light is determined, the vehicle's speed profile can be adjusted accordingly.
 
-Each element of the road (in this case, each traffic light) is associated with a **finite state machine** to define how the vehicle should behave. A speed profile (distance vs. velocity) is set for each state.
+Each element of the road (in this case, each traffic light) is associated with a **finite state machine** to define how the vehicle should behave. A speed profile depending of the distance is set for each state, such as: $ d \in [0, distance_{ahead}], speed = profile(d)$, 
 
 The state machine for a traffic light is defined as follows:
 
