@@ -1,7 +1,7 @@
 ---
 title: "Drone Control with ROS"
 date: 2019-02-01
-tags: ["control", "sdk", "ROS","drone"]
+tags: ["control", "SDK", "ROS","drone"]
 image: /images/drone-control/thumbnail.png
 description: "Controlling a Parrot drone using ROS"
 ---
