@@ -84,13 +84,26 @@ Q_k = \sum_{t=0}^T \gamma^t \cdot q_k(t)
 {{< /equation >}}
 
 Where:
-- $Q_k$: total discounted score for evaluator $k$
+- $Q_k$: total discounted score for evaluator $k$ 
 - $q_k(t)$: score at time $t$ for evaluator $k$
 - $\gamma$: discount factor $(\gamma \in [0, 1])$
 - $T$: prediction horizon
 
 {{< figure src="/images/quantification-intentions/implement_discount_factor.png" caption="Bellman-style discount accumulation gives more importance to short-term outcomes." width="500">}}
 
+## Aggregation of Soft Scores
+
+After computing all evaluator scores $Q_k$, we compute a final global score:
+
+{{< equation >}}
+Q_{\text{final}} = \sum_{k=1}^K w_k \cdot Q_k
+{{< /equation >}}
+
+Where:
+- $w_k$: weight of importance for criterion $k$
+- $Q_k$: quality score for criterion $k$
+
+This fusion supports multi-objective comparison of **only admissible intentions**.
 
 
 ## Admissibility Evaluation (Hard Constraints)
@@ -118,22 +131,6 @@ This means:
 - If any guard fails, the intention is immediately rejected.
 
 {{< figure src="/images/quantification-intentions/guards.png" caption="Guard system example: a collision detection guard invalidates the intention." width="450">}}
-
-
-
-## Aggregation of Soft Scores
-
-After computing all evaluator scores $Q_k$, we compute a final global score:
-
-{{< equation >}}
-Q_{\text{final}} = \sum_{k=1}^K w_k \cdot Q_k
-{{< /equation >}}
-
-Where:
-- $w_k$: weight of importance for criterion $k$
-- $Q_k$: quality score for criterion $k$
-
-This fusion supports multi-objective comparison of **only admissible intentions**.
 
 
 
@@ -202,9 +199,9 @@ Each intention also passes through a guard-based admissibility check:
 
 | Set | Admissible | Lateral Accel Score | Speed Score | Final Score | Comments                           |
 |-----|------------|---------------------|-------------|--------------|------------------------------------|
-| A   | ✅         | Low                 | Medium      | Medium       | Avoids obstacle but sharp turn     |
-| B   | ❌         | High                | High        | 0            | Smooth, but collision → rejected   |
-| C   | ✅         | High                | High        | High         | Smooth, safe, fully admissible     |
+| A   | YES         | Low                 | Medium      | Medium       | Avoids obstacle but sharp turn     |
+| B   | NO         | High                | High        | 0            | Smooth, but collision → rejected   |
+| C   | YES         | High                | High        | High         | Smooth, safe, fully admissible     |
 
 {{< /table-wrap >}}
 
