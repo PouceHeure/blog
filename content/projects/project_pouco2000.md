@@ -34,6 +34,12 @@ This hardware-software stack allows developers to:
 - Monitor feedback using LEDs or console tools
 - Deploy in both **local** and **remote ROS configurations**
 
+The following figure shows an example of desk created for the project, the wood has been sliced with laser machine, and then assembled to created the box.
+{{< figure src="/images/pouco2000/desk.jpeg" caption="Pouco2000 Desk" width="700">}}
+
+This figure shows the electronic board prototypes, for the first creation, I used 2 arduino boards showing no limitation, allowing to add several micro-controller, managing several inputs.
+{{< figure src="/images/pouco2000/electronic_crop.png" caption="Electronic boards test" width="500">}}
+
 
 ## System Architecture
 
@@ -104,7 +110,6 @@ typedef Handle<Button, Buttons::_data_type, Buttons> HandleButtons;
 ```
 
 Arduino examples are provided and visible in the Arduino IDE (`File > Examples > pouco2000_ard`).
-
 
 ## Message Format
 

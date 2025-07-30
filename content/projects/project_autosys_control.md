@@ -7,7 +7,9 @@ description: Lateral and longitudinal control applied to a real autonomous vehic
 image: "/images/autosys-control/webcam_onboard.png"
 ---
 
-{{< youtube code="TODO" width="500" caption="Demo video coming soon" >}}
+## Demonstration 
+
+{{< youtube code="1FJVICEZgao" width="500" caption="Demo video, planning & control." >}}
 
 ## Overview
 

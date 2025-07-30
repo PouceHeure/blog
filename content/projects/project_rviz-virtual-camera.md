@@ -5,8 +5,6 @@ tags: ["ROS2", "RViz2", "Visualization", "ROS Plugins"]
 image: "/images/rviz-virtual-camera/rviz_virtual_camera.png"
 ---
 
-{{< youtube code="TODO" width="500" caption="Demo video coming soon" >}}
-
 ## Overview
 
 RViz2 is a visualization tool in ROS 2, widely used for debugging and introspecting robot data streams. While it supports visualizing camera feeds, markers, and 3D data, it lacks native functionality to **publish** rendered views as image topics, particularly from custom or fixed virtual viewpoints.
@@ -15,6 +13,8 @@ This limitation makes it difficult to:
 - Capture high-quality visualizations for later review
 - Generate consistent visual data for testing
 - Stream synthetic camera views over the network
+
+{{< youtube code="1-QI8J1kdfM" width="500" caption="Demo video." >}}
 
 ## Motivation
 

@@ -1,13 +1,11 @@
 ---
 title: "Traffic Light Detection & Control"
-date: 2025-05-01
+date: 2025-05-15
 tags: ["detection", "camera", "image-processing", "YOLO", "control", "ROS2"]
-pinned: true
+# pinned: true
 description: Detection of traffic light, and adapt the control of the vehicle depends of the light state. 
 image: "/images/traffic_light/detection_traffic_light__green_new.png"
 ---
-
-{{< youtube code="TODO" width="500" caption="Demo video coming soon" >}}
 
 ## Motivation
 
@@ -21,6 +19,8 @@ This project is divided into four main components:
 - **Control**: Applying the computed velocity to the vehicle.
 
 This project has been developped in python for the detection, and in cpp for the control, inside of ROS2 enviroennement.
+
+{{< youtube code="1FJVICEZgao" width="500" caption="Demo video" >}}
 
 ---
 

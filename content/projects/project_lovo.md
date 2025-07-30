@@ -30,4 +30,6 @@ This application was developed in Java using the Android Studio IDE. It allows u
 
 ## System Workflow
 
-Based on testing, a threshold value was defined to identify suspicious acceleration. Once this threshold is exceeded, the system classifies the situation as a theft. A frame is then sent via the Sigfox network. An internal Sigfox gateway propagates this frame to the internet, which then makes a request to the Firebase API to send a notification to the mobile app. The user is then notified that the bicycle has been stolen.
+1. Based on testing, a threshold value was defined to identify suspicious acceleration. Once this threshold is exceeded, the system classifies the situation as a theft. 
+2. A frame is then sent via the Sigfox network. An internal Sigfox gateway propagates this frame to the internet, which then makes a request to the Firebase API to send a notification to the mobile app. 
+3. The user is then notified that the bicycle has been stolen.

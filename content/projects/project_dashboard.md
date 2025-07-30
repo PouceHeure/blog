@@ -6,11 +6,13 @@ image: /images/dashboard/dashboard_3.png
 description: "Dashboard information builder."
 ---
 
-{{< youtube code="TODO" width="500" caption="Demo video coming soon" >}}
 
 ## Overview
 
 In robotics and system development, having a clean and flexible interface for visualizing system states, sensor data, and real-time metrics is essential. This project introduces a lightweight **dashboard framework** built specifically for **ROS 2**, enabling rapid dashboard development using simple configuration files.
+
+
+{{< youtube code="p0qqfZNxj6I" width="500" caption="Demo video, dashboard over video." >}}
 
 ## Motivation
 

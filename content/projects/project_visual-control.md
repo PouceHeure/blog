@@ -2,7 +2,7 @@
 title: "Visual Control Applied To Autonomous Vehicle"
 date: 2023-02-01
 tags: ["visual-control", "control", "autosys", "deep-learning", "image-processing"]
-pinned: true
+# pinned: true
 description: "Control a vehicle using only camera images by linking lane features to vehicle speed and orientation."
 image: "/images/visual-control/situation_img.png"
 ---
@@ -12,6 +12,8 @@ image: "/images/visual-control/situation_img.png"
 This project focuses on **Visual Servoing**, a control strategy that links image feature variations to robot velocities. Applied to autonomous vehicles, this approach allows lane-keeping purely from camera input, without GPS or map dependency. It integrates lane detection using deep learning and transforms the output into features used in a control law that centers the vehicle in the lane.
 
 The system was validated on simulated and real data, showing robust behavior in diverse road scenarios.
+
+{{< youtube code="VPxDvUqFA-o" width="500" caption="Video demo showing the visual control pipeline on real data, from the camera to steering wheel angle." >}}
 
 ## Visual Servoing Principle
 
