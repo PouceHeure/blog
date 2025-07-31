@@ -13,7 +13,7 @@ This project focuses on **Visual Servoing**, a control strategy that links image
 
 The system was validated on simulated and real data, showing robust behavior in diverse road scenarios.
 
-{{< youtube code="VPxDvUqFA-o" width="800" caption="Video demo showing the visual control pipeline on real data, from the camera to steering wheel angle." >}}
+{{< youtube code="VPxDvUqFA-o" width="800" caption="Video demo, visual control pipeline on real data, from the camera to steering wheel angle." >}}
 
 ## Visual Servoing Concepts
 

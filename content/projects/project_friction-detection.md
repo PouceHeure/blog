@@ -12,7 +12,7 @@ As part of a European research project, I conducted a two-month research mission
 
 This led to the publication of a paper, {{< cite ProposalUTakumi >}}, at IEEE AIM 2023, in collaboration with the University of Tokyo and UTC. The system uses image segmentation, confidence modeling, geometric projection, and accumulation into a global surface grid map.
 
-{{< youtube code="mbmAByTlTSU" width="800" caption="Video demo" >}}
+{{< youtube code="mbmAByTlTSU" width="800" caption="Video demo, road friction estimation." >}}
 
 The experiment was conducted in partnership with the Fujimoto Lab (University of Tokyo) as part of the OWheel collaboration. The lab focuses on autonomous vehicles and control systems, particularly for electric vehicles and in-wheel motor platforms.
 

@@ -20,7 +20,7 @@ This project is divided into four main components:
 
 This project has been developped in python for the detection, and in cpp for the control, inside of ROS2 enviroennement.
 
-{{< youtube code="1FJVICEZgao" width="800" caption="Demo video" >}}
+{{< youtube code="1FJVICEZgao" width="800" caption="Demo video, autonomous vehicle adapting control depending the traffic light detection." >}}
 
 
 ## Matching

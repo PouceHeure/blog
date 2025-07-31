@@ -28,7 +28,7 @@ This system was built end-to-end:
 - Model training using LSTM
 - Real-time ROS integration and visualization
 
-{{< youtube code="KcfxU6_UrOo" width="800" caption="Video demo." >}}
+{{< youtube code="KcfxU6_UrOo" width="800" caption="Video demo, legs detection from a scan." >}}
 
 ## Input Representation
 

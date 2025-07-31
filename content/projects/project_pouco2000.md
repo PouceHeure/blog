@@ -19,7 +19,7 @@ The system includes:
 - ROS packages for **serial communication**, **message extraction**, and **parameter introspection**
 - Utilities for visual monitoring and live debugging
 
-{{< youtube code="f1S2iDkwEEM" width="800" caption="Video demo" >}}
+{{< youtube code="f1S2iDkwEEM" width="800" caption="Video demo, hardware and software test." >}}
 
 ## Motivation
 
