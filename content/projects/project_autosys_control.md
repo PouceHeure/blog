@@ -83,7 +83,7 @@ With its derivative:
 
 The final velocity profile is computed by:
 
-1. Generating multiple profile candidates (e.g., obstacle, stop line, speed limit) and take the minimal value on each point, to combined profiles in only one realisable;
+1. Generating multiple profile candidates (e.g., obstacle, stop line, speed limit) and take the minimal value on each point, to combined profiles in only one realisable (done by the planning stack, refer to [Motion Profile Generation](/projects/project_autosys_local-planning/#motion-profile-generation) section of the planning project);
 2. Applying an elliptical profile for deceleration scenarios;
 3. Taking the minimum value point-wise across all profiles.
 

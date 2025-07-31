@@ -50,6 +50,18 @@ The Route Server node is in charge of computing the route from the current vehic
 
 {{< figure src="/images/local-planning/route_rviz.png" caption="Route computed on topological map displayed in RViz" width="500">}}
 
+
+## Integrated Planning Stack
+
+The system allows closed-loop autonomous operation by chaining:
+
+1. Target reception → global route
+2. Obstacle analysis → adjusted path
+3. Velocity assignment → dynamic feasibility
+4. ROS2 interface → command execution
+
+{{< figure src="/images/local-planning/global-view.png" caption="High-level planning loop integrating route, path, and motion generation" width="750">}}
+
 ## Path Planning
 
 ### Problem
@@ -72,30 +84,50 @@ The planner then outputs a new trajectory by adjusting the centerline accordingl
 This part builds upon research from {{< cite LocalASaid >}}. The animation below illustrates a Python-based implementation used to evaluate the solution and help design a suitable architecture for integration into our navigation stack. The original method from the article has been modified to fit the specific requirements of our system.
 
 {{< figure src="/images/local-planning/simu.gif" caption="Python simulation of the planning loop, based on the referenced method." width="800">}}
-
-
 ## Motion Profile Generation
 
-Once a safe and smooth path is obtained, the next step is to compute a time-parameterized velocity profile.
+The speed profile of a vehicle depends on various factors, including:
+- Road elements (e.g., stop signs, traffic lights, speed bumps);
+- Obstacles on the road (e.g., vehicles, pedestrians).
 
-This includes:
+### Speed Profile: Signal
 
-- Satisfying kinematic constraints
-- Ensuring jerk and acceleration limits
-- Respecting comfort and anticipation rules
+To combine these different pieces of information, we introduce the concept of a **speed signal profile**. This profile is represented as a step (or square) signal showing the **maximum allowed speed** at each point along the trajectory (x-axis: distance, y-axis: maximum speed).
 
-A velocity curve $v(s)$ is computed along the shifted path.
+This format is practical because it requires only the key change points to be defined. The speed is assumed constant between two points.
 
-## Integrated Planning Stack
+{{< figure src="/images/local-planning/signal-example.png" caption="TODO" width="300">}}
 
-The system allows closed-loop autonomous operation by chaining:
+The figure above shows an example of a speed signal. It is defined as:
 
-1. Target reception → global route
-2. Obstacle analysis → adjusted path
-3. Velocity assignment → dynamic feasibility
-4. ROS2 interface → command execution
+```bash
+distance [m]:    72.0  | 75.0
+speed [m/s] :     5.0  |  0.0
+```
 
-{{< figure src="/images/local-planning/global-view.png" caption="High-level planning loop integrating route, path, and motion generation" width="750">}}
+This means the speed is 5.0 m/s until 75.0 meters, where it drops to 0.0 m/s.
+
+### Speed Profile: Combined Signals
+
+An advantage of this method is that multiple signals can be **combined**. To do this, simply take the **minimum** of all the signals at each point, ensuring that the resulting profile does not exceed any constraint.
+
+The figures below illustrate a situation involving two road elements: a speed bump and a stop sign. Each element has its own speed signal.  
+- For the **speed bump**, the signal is lower, requiring the vehicle to slow down (around \( v \approx 1.8\,\text{m/s} \)).
+- For the **stop sign**, the signal forces a complete stop (\( v = 0\,\text{m/s} \)).
+
+{{< figure src="/images/local-planning/road-elements.png" caption="Road elements matched to trajectory positions." width="800">}}
+
+{{< figure src="/images/local-planning/signals-combined-example.png" caption="Combined speed signal based on road elements." width="800">}}
+
+
+### Speed Profile: Curvatures
+
+Refer to [Profile Fusion](/projects/project_autosys_control/#profile-fusion) section of the control project. 
+
+### Speed Profile: Demonstration
+
+{{< youtube code="Eek62N0eyNI" width="800" caption="Road elements signal final." >}}
+
 
 <!-- ## Conclusion
 
