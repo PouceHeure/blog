@@ -126,8 +126,7 @@ Refer to [Profile Fusion](/projects/project_autosys_control/#profile-fusion) sec
 
 ### Speed Profile: Demonstration
 
-{{< youtube code="Eek62N0eyNI" width="800" caption="Road elements signal final." >}}
-
+{{< youtube code="QCiN3yqT5E8" width="800" caption="Road elements signal final." >}}
 
 <!-- ## Conclusion
 
