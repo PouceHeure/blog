@@ -9,3 +9,6 @@ journal.md
 
 # img before processing
 static/images_origin/
+
+# zip
+*.zip
