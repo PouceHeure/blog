@@ -80,9 +80,3 @@ Trame (data packet) handling is consistent across robots and includes:
 Each robot runs under a dedicated namespace (e.g. `/turtlebot/robot`), which isolates its ROS topics and services from others. This structure is critical for running multiple identical robots simultaneously.
 
 ROS networking follows the standard [Multiple Machines Tutorial](http://wiki.ros.org/ROS/Tutorials/MultipleMachines), with the PC as the master and robots as remote clients. IP and environment variables (`ROS_MASTER_URI`, `ROS_IP`) must be configured on each device.
-
-## Visualization and Monitoring
-
-RViz is used to monitor robot states, paths, and targets in real-time. The `robot_drone_visualization` package publishes markers for debugging and demonstration purposes.
-
-OptiTrack motion capture provides ground truth positioning through the `robot_drone_vrpn` package, enabling high-precision feedback loops.

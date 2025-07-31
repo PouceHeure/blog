@@ -9,9 +9,9 @@ image: "/images/local-planning/rviz_planning.png"
 
 ## Demonstration 
 
-{{< youtube code="wnQpdtmPgv0" width="500" caption="Demo video, slalom test." >}}
+{{< youtube code="wnQpdtmPgv0" width="800" caption="Demo video, slalom test." >}}
 
-{{< youtube code="As44QMtXXiw" width="500" caption="Demo video, curve test." >}}
+{{< youtube code="As44QMtXXiw" width="800" caption="Demo video, curve test." >}}
 
 
 ## Overview

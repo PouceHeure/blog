@@ -2,35 +2,34 @@
 title: "Autonomous Vehicle Control"
 date: 2024-12-10
 tags: ["control", "autosys", "ROS2"]
-# pinned: true
-description: Lateral and longitudinal control applied to a real autonomous vehicle. Connected to a navigation layer.
+description: Lateral and longitudinal control applied to a real autonomous vehicle, integrated with a navigation layer.
 image: "/images/autosys-control/webcam_onboard.png"
 ---
 
-## Demonstration 
+## Demonstration
 
-{{< youtube code="1FJVICEZgao" width="500" caption="Demo video, planning & control." >}}
+{{< youtube code="nJx0B9U1x-g" width="800" caption="Demo video: planning and control in action." >}}
 
 ## Overview
 
-This module defines the **low-level control** system responsible for translating navigation commands into actuator signals (steering and torque). The system is fully integrated with a ROS2-based autonomous stack and was deployed and tested on a **real electric vehicle with in-wheel motors**.
+This module defines the **low-level control** system responsible for translating navigation commands into actuator signals (steering and torque). The system is fully integrated into a ROS2-based autonomous stack and has been deployed and tested on a **real electric vehicle with in-wheel motors**.
 
 {{< figure src="/images/autosys-control/control_interfaces_inputs.png" caption="Interfaces between planning and control modules." width="500">}}
 
 ## Control Structure
 
-The controller is divided into:
+The controller is composed of two main components:
 
-- **Lateral control**: Aligns the vehicle to a reference trajectory using steering input.
-- **Longitudinal control**: Tracks a target speed while respecting deceleration/acceleration constraints.
+- **Lateral control**: Aligns the vehicle to a reference trajectory via steering input.
+- **Longitudinal control**: Tracks a target speed while respecting acceleration and deceleration constraints.
 
-Both control loops are refreshed at a high frequency and tuned for real-time execution on embedded systems.
+Both control loops run at correct frequency (100 Hz) and are tuned for real-time performance on embedded systems.
 
 {{< figure src="/images/autosys-control/global_view.png" caption="Block diagram of the full control pipeline." width="800">}}
 
 ## Longitudinal Control
 
-The target velocity is tracked using a classical **PID controller**:
+A classical **PID controller** is used to track the target velocity:
 
 {{< equation >}}
 u(t) = K_p \cdot e(t) + K_i \cdot \int_0^t e(\tau)\, d\tau + K_d \cdot \frac{de(t)}{dt}
@@ -38,21 +37,21 @@ u(t) = K_p \cdot e(t) + K_i \cdot \int_0^t e(\tau)\, d\tau + K_d \cdot \frac{de(
 
 Where:
 
-- $u(t)$ is the torque or throttle command,
-- $e(t) = v_{\text{ref}}(t) - v(t)$ is the velocity error,
-- $K_p$, $K_i$, $K_d$ are proportional, integral, and derivative gains.
+- $u(t)$: torque or throttle command  
+- $e(t) = v_{\text{ref}}(t) - v(t)$: velocity error  
+- $K_p$, $K_i$, $K_d$: proportional, integral, and derivative gains  
 
-The controller is tuned for smooth convergence and fast response, with clamping on acceleration and deceleration for comfort.
+The controller is tuned for a smooth response and fast convergence, with clamping on acceleration/deceleration to ensure passenger comfort.
 
 ## Speed Profile Design
 
 ### Motivation
 
-In scenarios such as approaching a stop line or crossing zones, it's essential to **smoothly reduce velocity**. Sharp deceleration leads to passenger discomfort and controller overshoot. To shape the desired speed, two profiles were compared.
+In scenarios such as stop lines or crossing zones, it's essential to **smoothly reduce velocity**. Sharp deceleration causes discomfort and can lead to controller overshoot. Two types of speed profiles were evaluated.
 
 ### Linear Profile
 
-Defined by a constant deceleration rate:
+A simple constant deceleration model:
 
 {{< equation >}}
 v(d) = v_0 - \dot{v} \cdot d
@@ -60,19 +59,19 @@ v(d) = v_0 - \dot{v} \cdot d
 
 Where:
 
-- $v(d)$ is the target speed at distance $d$,
-- $v_0$ is the initial velocity,
-- $\dot{v}$ is the (negative) deceleration rate.
+- $v(d)$: target speed at distance $d$  
+- $v_0$: initial velocity  
+- $\dot{v}$: constant deceleration  
 
 ### Elliptical Profile
 
-More human-like behavior is achieved with:
+A more natural, human-like behavior is modeled by:
 
 {{< equation >}}
 v(d) = v_{\text{max}} \cdot \sqrt{1 - \left( \frac{d}{d_{\text{stop}}} \right)^2}
 {{< /equation >}}
 
-Its derivative is:
+With its derivative:
 
 {{< equation >}}
 \frac{\partial v}{\partial d} = -\frac{v_{\text{max}} \cdot d}{d_{\text{stop}}^2 \cdot \sqrt{1 - \left( \frac{d}{d_{\text{stop}}} \right)^2}}
@@ -82,7 +81,15 @@ Its derivative is:
 
 ### Profile Fusion
 
-The final speed reference is:
+The final velocity profile is computed by:
+
+1. Generating multiple profile candidates (e.g., obstacle, stop line, speed limit) and take the minimal value on each point, to combined profiles in only one realisable;
+2. Applying an elliptical profile for deceleration scenarios;
+3. Taking the minimum value point-wise across all profiles.
+
+{{< figure src="/images/autosys-control/plot_minimum_speed.png" caption="Final fused speed profile considering multiple constraints." width="500">}}
+
+Note: Curve handling is not discretized as curves represent continuous geometric features. However, the final velocity reference includes curvature as follows:
 
 {{< equation >}}
 v_{\text{target}}(d) = \min \left( v_{\text{signal}}(d),\ v_{\text{curve}}(d),\ v_{\text{limit}} \right)
@@ -90,7 +97,7 @@ v_{\text{target}}(d) = \min \left( v_{\text{signal}}(d),\ v_{\text{curve}}(d),\ 
 
 ## Lateral Control
 
-The lateral controller computes a desired **steering angle** that minimizes both the lateral displacement and heading error with respect to the reference trajectory. The control law is based on a **nonlinear feedback formulation**, combining geometric and kinematic terms:
+The lateral controller computes a **steering angle** to minimize both lateral offset and heading error with respect to the reference trajectory. The control law is a **nonlinear feedback** approach combining geometric and kinematic considerations:
 
 {{< equation >}}
 \theta_{\text{wheel}} = \alpha_1 \cdot \frac{L}{v^2 + D} \cdot (-e_{\text{lat}}) 
@@ -100,52 +107,44 @@ The lateral controller computes a desired **steering angle** that minimizes both
 
 Where:
 
-- $e_{\text{lat}}$: lateral deviation between vehicle and path
-- $e_{\text{heading}}$: orientation error between vehicle heading and path tangent
-- $L$: vehicle wheelbase
-- $v$: vehicle forward speed
-- $\kappa$: curvature of the reference path
-- $\alpha_1$, $\alpha_2$, $\alpha_3$: control gains
-- $D$: damping factor to avoid division by zero at low speeds
+- $e_{\text{lat}}$: lateral position error  
+- $e_{\text{heading}}$: heading angle error  
+- $L$: vehicle wheelbase  
+- $v$: vehicle speed  
+- $\kappa$: path curvature  
+- $\alpha_1$, $\alpha_2$, $\alpha_3$: control gains  
+- $D$: damping constant  
 
-The final steering angle is computed by scaling the wheel angle through a gain $K$:
+The steering command is then scaled:
 
 {{< equation >}}
 \theta_{\text{steering}} = K \cdot \theta_{\text{wheel}}
 {{< /equation >}}
 
-This formulation ensures:
+### Controller Properties
 
-- Increased sensitivity to lateral error at low speeds
-- Stability across a wide range of velocities
-- Better tracking on curved paths due to explicit curvature term
+- Increased sensitivity to errors at low speed  
+- Stability across different velocity ranges  
+- Improved tracking in curves through curvature compensation  
 
-The controller was deployed on a real electric AV with precise trajectory tracking in varied urban and testing scenarios.
-
+The controller was validated on a real electric AV with consistent trajectory tracking across diverse scenarios.
 
 ## Real Vehicle Deployment
 
-All tests were conducted on a **real electric vehicle** equipped with:
+Testing was conducted on a **real electric vehicle** equipped with:
 
-- Front camera (for perception),
-- RTK-GPS and IMU (for localization),
-- ROS2-based onboard PC running the full autonomy stack.
+- RTK-GPS and IMU for high-precision localization  
+- A ROS2-based onboard PC running the full autonomy stack  
 
-The controller was directly interfaced with in-wheel motor torque requests and front steering actuator.
+The control system directly commanded:
 
-Use cases tested:
+- In-wheel motor torques  
+- Front steering actuator  
 
-- Urban navigation with stop lines, curves, and replanning
-- Parking and pull-out scenarios with lateral constraints
-- Speed adaptation to environmental constraints
+### Tested Scenarios:
 
-## Summary
-
-- **PID control** ensures accurate velocity tracking
-- **Geometric Pure Pursuit** provides stable lateral guidance
-- **Speed profiles** are generated from contextual constraints
-- **ROS2 integration** enables modularity and real-time execution
-- **All tests performed on a full-scale electric AV**
+- Curved roads, roundabouts, sharp and soft turns  
+- Straight segments with varying navigation constraints  
 
 ## References
 
