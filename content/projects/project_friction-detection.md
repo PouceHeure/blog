@@ -6,14 +6,13 @@ description: Road friction estimation based on surface segmentation using a came
 image: /images/road-friction/thumbnail.png
 ---
 
-{{< youtube code="mbmAByTlTSU" width="500" caption="Video demo" >}}
+## Mission Context
 
 As part of a European research project, I conducted a two-month research mission at the University of Tokyo to investigate road surface friction estimation using only a forward-facing camera.
 
 This led to the publication of a paper, {{< cite ProposalUTakumi >}}, at IEEE AIM 2023, in collaboration with the University of Tokyo and UTC. The system uses image segmentation, confidence modeling, geometric projection, and accumulation into a global surface grid map.
 
-
-## Mission Context
+{{< youtube code="mbmAByTlTSU" width="800" caption="Video demo" >}}
 
 The experiment was conducted in partnership with the Fujimoto Lab (University of Tokyo) as part of the OWheel collaboration. The lab focuses on autonomous vehicles and control systems, particularly for electric vehicles and in-wheel motor platforms.
 

@@ -13,7 +13,7 @@ This project focuses on **Visual Servoing**, a control strategy that links image
 
 The system was validated on simulated and real data, showing robust behavior in diverse road scenarios.
 
-{{< youtube code="VPxDvUqFA-o" width="500" caption="Video demo showing the visual control pipeline on real data, from the camera to steering wheel angle." >}}
+{{< youtube code="VPxDvUqFA-o" width="800" caption="Video demo showing the visual control pipeline on real data, from the camera to steering wheel angle." >}}
 
 ## Visual Servoing Concepts
 
@@ -148,7 +148,7 @@ Where $v_d$ is the desired forward velocity and the matrices $A$ and $B$ are der
 
 The computed velocities are sent to the vehicle's motion controller. The system runs in real time and does not depend on external GPS or map input, making it highly portable and robust in unmapped environments.
 
-{{< youtube code="UZjCYTLoMOw" width="500" caption="Demonstration of Visual Servoing Lane Following on test track" >}}
+{{< youtube code="UZjCYTLoMOw" width="800" caption="Demonstration of Visual Servoing Lane Following on test track" >}}
 
 ## Integration into the Dynamic Window Approach (DWA)
 
@@ -194,7 +194,7 @@ The last constraints it's really important to include in the computation, withou
 
 By integrating $J_{vs}$, the DWA selects trajectories that are not only dynamically valid and safe, but also visually consistent with the lane-following goal defined by the Visual Servoing framework.
 
-{{< youtube code="TMXqmAW_N_o" width="500" caption="Demonstration of DWA + Visual Servoing in simulation." >}}
+{{< youtube code="TMXqmAW_N_o" width="800" caption="Demonstration of DWA + Visual Servoing in simulation." >}}
 
 <!-- ## Conclusion
 

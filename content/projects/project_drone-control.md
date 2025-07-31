@@ -12,7 +12,7 @@ As part of my final year project, we were tasked with developing a drone capable
 The project was divided into two main components: **path planning** and **control**.  
 My role was to control a Parrot Bebop drone using **ROS**. To achieve this, we used an existing ROS package that interfaces with Parrot's SDK.
 
-{{< youtube code="8RcVpDUoFJc" width="500" caption="Drone control demo." >}}
+{{< youtube code="8RcVpDUoFJc" width="800" caption="Drone control demo." >}}
 
 ## Additional Developments
 

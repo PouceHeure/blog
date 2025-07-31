@@ -10,7 +10,7 @@ image: "/images/lovo/thumbnail.png"
 
 Bicycle theft detector using the Sigfox network. This device was developed using an Arduino board, combined with an inertial measurement unit. In case of abnormal behavior, i.e. acceleration exceeding a defined threshold, the system sends a request over the LoRaWAN network, then, using the Firebase API, a notification is sent to the user.
 
-{{< youtube code="npHM27lVe48" width="500" caption="Video demo" >}}
+{{< youtube code="npHM27lVe48" width="800" caption="Video demo" >}}
 
 ## Module
 

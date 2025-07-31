@@ -14,7 +14,7 @@ This limitation makes it difficult to:
 - Generate consistent visual data for testing
 - Stream synthetic camera views over the network
 
-{{< youtube code="1-QI8J1kdfM" width="500" caption="Demo video." >}}
+{{< youtube code="1-QI8J1kdfM" width="800" caption="Demo video." >}}
 
 ## Motivation
 

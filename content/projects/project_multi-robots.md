@@ -9,7 +9,7 @@ As part of a research internship, I designed and implemented a modular ROS archi
 
 The system leverages a unified communication protocol, distributed ROS nodes, and a flexible namespace structure to manage multiple robots from a central ROS master.
 
-{{< youtube code="BZMFS-EkR4M" width="500" caption="Video demo" >}}
+{{< youtube code="BZMFS-EkR4M" width="800" caption="Video demo" >}}
 
 ---
 

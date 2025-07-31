@@ -18,13 +18,13 @@ To address this, we reformulate DWA using **convex objective functions** and **g
 
 This work was published at **IEEJ SAMCON 2022**, {{< cite GradientHPousseur >}}.
 
-{{< youtube code="JagUA0hf360" width="500" caption="Video demo (Gazebo simulation)" >}}
+{{< youtube code="JagUA0hf360" width="800" caption="Video demo (Gazebo simulation)" >}}
 
-{{< youtube code="b1y7jF_VcuU" width="500" caption="Video demo turtlebot (case 1)." >}}
+{{< youtube code="b1y7jF_VcuU" width="800" caption="Video demo turtlebot (case 1)." >}}
 
-{{< youtube code="SK9dPbqG0fc" width="500" caption="Video demo turtlebot (case 2)." >}}
+{{< youtube code="SK9dPbqG0fc" width="800" caption="Video demo turtlebot (case 2)." >}}
 
-{{< youtube code="TMXqmAW_N_o" width="500" caption="Video demo (SCANeR + visual servoing)" >}}
+{{< youtube code="TMXqmAW_N_o" width="800" caption="Video demo (SCANeR + visual servoing)." >}}
 
 ## From Sampling to Optimization
 

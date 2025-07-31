@@ -11,7 +11,7 @@ description: Prediction of the human driving behavior in a short-time horizon, d
 
 We developed a multimodal deep learning model capable of predicting human driving behavior. This model was trained on a dataset specifically recorded for this project.
 
-{{< youtube code="rqP5nYBehL4" width="500" caption="Video demo" >}}
+{{< youtube code="rqP5nYBehL4" width="800" caption="Video demo." >}}
 
 ➡️ **[Scientific Publication](/articles/human-driving-prediction/)**
 
