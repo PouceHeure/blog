@@ -96,7 +96,7 @@ To combine these different pieces of information, we introduce the concept of a 
 
 This format is practical because it requires only the key change points to be defined. The speed is assumed constant between two points.
 
-{{< figure src="/images/local-planning/signal-example.png" caption="TODO" width="300">}}
+{{< figure src="/images/local-planning/signal-example.png" caption="Signal Example" width="300">}}
 
 The figure above shows an example of a speed signal. It is defined as:
 
@@ -126,7 +126,7 @@ Refer to [Profile Fusion](/projects/project_autosys_control/#profile-fusion) sec
 
 ### Speed Profile: Demonstration
 
-{{< youtube code="QCiN3yqT5E8" width="800" caption="Road elements signal final." >}}
+{{< youtube code="QCiN3yqT5E8" width="800" caption="Autonomous vehicle control adapted to road elements." >}}
 
 <!-- ## Conclusion
 

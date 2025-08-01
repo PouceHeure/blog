@@ -2,7 +2,7 @@
 title: "Human Driving Behavior Prediction"
 date: 2022-12-10
 # pinned: true
-tags: ["deep learning", "camera", "ROS", "autosys"]
+tags: ["deep learning", "camera", "ROS", "autonomous vehicle"]
 image: /images/human-prediction/projection-prediction-test-1-lane.drawio.png
 description: Prediction of the human driving behavior in a short-time horizon, depending on previous state of the vehicle. Exploiting deep-learning model, based on multi sensors.
 ---
@@ -13,7 +13,7 @@ We developed a multimodal deep learning model capable of predicting human drivin
 
 {{< youtube code="rqP5nYBehL4" width="800" caption="Video demo, human driving behavior prediction." >}}
 
-➡️ **[Scientific Publication](/articles/human-driving-prediction/)**
+`More detail about this solution, feel free to consult the article {{<cite PredictionHPousseur>}}.`
 
 ## Introduction
 
@@ -96,10 +96,10 @@ The following figures illustrate the model's predictions for the **city test sce
 
 {{< subfigure images="/images/human-prediction/scheme-model_city_results_linear.drawio.png, /images/human-prediction/scheme-model_city_results_angular.drawio.png" captions="Test in city environment: predicted linear velocity, Test in city environment: predicted angular velocity" >}}
 
-We evaluated the model’s performance using **Mean Absolute Error (MAE)** and **Root Mean Square Error (RMSE)** metrics. The results indicate:
+<!-- We evaluated the model’s performance using **Mean Absolute Error (MAE)** and **Root Mean Square Error (RMSE)** metrics. The results indicate:
 - **Low error rates (~4%)** in structured environments such as highways.
 - **Higher error rates (~7%)** in urban environments due to dynamic obstacles and complex intersections.
-- **Better short-term accuracy** (1-3s) compared to long-term predictions (5-10s), as expected from recurrent architectures.
+- **Better short-term accuracy** (1-3s) compared to long-term predictions (5-10s), as expected from recurrent architectures. -->
 
 ### Sensitivity Analysis
 
@@ -109,7 +109,7 @@ The neural network approach makes the process non-deterministic. To better "unde
 {{< figure src="/images/human-prediction/scheme-blind.drawio.png" caption="Blind spot impact on prediction." width="500">}}
 {{< figure src="/images/human-prediction/scheme-result_v2.drawio.png" caption="Final sensitivity analysis results." width="800">}}
 
-### Conclusion  
+<!-- ### Conclusion  
 
 The proposed multimodal deep learning model achieves **state-of-the-art performance** in predicting human driving behavior across diverse scenarios. The results demonstrate the **importance of sensor fusion, temporal modeling, and robust training datasets**.
 
@@ -118,4 +118,8 @@ Future work will focus on:
 - **Integration with shared autonomy frameworks** for driver-assist systems.
 - **Extending the approach to multi-agent scenarios**, where interactions with pedestrians and other vehicles are considered.
 
----
+--- -->
+
+## References
+
+{{< bibliography >}}

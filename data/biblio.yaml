@@ -18,6 +18,13 @@ GeneralHPousseur:
   authors: Hugo Pousseur, Alessandro Correa Victorino
   url: https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10186528
 
+PredictionHPousseur: 
+  text: "PredictionPousseur 2022"
+  title: "Prediction of human driving behavior using deep learning: a recurrent learning structure"
+  conference: IEEE ITSC 2022
+  authors: Hugo Pousseur, Alessandro Correa Victorino
+  url: https://hal.science/hal-04041186v1/document
+
 LocalASaid:
   text: "LocalSaid 2023"
   title: "Local trajectory planning for autonomous vehicle with static and dynamic obstacles avoidance"
