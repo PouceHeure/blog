@@ -1,0 +1,36 @@
+image: registry.gitlab.com/pages/hugo:latest
+
+stages:
+  - build
+  - deploy
+
+variables:
+  HUGO_OUTPUT_DIR: "public"
+
+cache:
+  paths:
+    - .hugo_cache/
+
+default:
+  tags:
+    - docker
+
+build:
+  stage: build
+  script:
+    - hugo --minify
+  artifacts:
+    paths:
+      - ${HUGO_OUTPUT_DIR}
+  only:
+    - main
+
+pages:
+  stage: deploy
+  script:
+    - echo "Deployment step"
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
