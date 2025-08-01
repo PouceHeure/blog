@@ -24,20 +24,16 @@ before_script:
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
-  - echo "Z"
-  - ssh-keyscan github.com >> ~/.ssh/known_hosts
-  - echo "A"
+  - ssh-keyscan -T 5 github.com >> ~/.ssh/known_hosts || echo "ssh-keyscan failed"
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
 
 build:
   stage: build
   script:
-    - echo "B"
     - set -x
     - git submodule sync --recursive
     - git submodule update --init --recursive
-    - echo "C"
     - hugo
   artifacts:
     paths:
