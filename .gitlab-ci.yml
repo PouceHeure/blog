@@ -24,6 +24,7 @@ before_script:
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
+  - echo "Z"
   - ssh-keyscan github.com >> ~/.ssh/known_hosts
   - echo "A"
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
