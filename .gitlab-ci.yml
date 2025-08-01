@@ -18,7 +18,7 @@ default:
 build:
   stage: build
   script:
-    - hugo --minify
+    - hugo
   artifacts:
     paths:
       - ${HUGO_OUTPUT_DIR}
