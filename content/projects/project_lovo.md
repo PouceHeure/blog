@@ -1,5 +1,5 @@
 ---
-title: "Lovo Bicycle Locker Connected"
+title: "Lovo Anti-theft Bicycle Connected"
 date: 2017-08-07
 tags: ["arduino", "android", "sigfox"]
 description: "Anti-theft bicycle system using Arduino, IMU, Sigfox, and Firebase to detect motion and notify users via app."
