@@ -1,7 +1,7 @@
 ---
 title: "Optimization of the Dynamic Window Approach (DWA)"
 date: 2021-12-10
-tags: ["planning", "optimization", "ROS", "gradient-descent"]
+tags: ["planning", "optimization", "ROS", "navigation", "quantification"]
 image: /images/dwa-optimization/thumbnail.png
 description: "Gradient descent formulation applied to the Dynamic Window Approach for improved convergence and trajectory quality."
 ---

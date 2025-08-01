@@ -1,7 +1,7 @@
 ---
 title: "Autonomous Vehicle Planning"
 date: 2024-12-10
-tags: ["planning", "navigation", "autosys", "ROS2"]
+tags: ["planning", "navigation", "autonomous system","autonomous vehicle", "ROS2"]
 # pinned: true
 description: Local planning applied to real autonomous vehicles, combining global route planning, local path adjustment, and dynamic control profile.
 image: "/images/local-planning/rviz_planning.png"
@@ -112,8 +112,8 @@ This means the speed is 5.0 m/s until 75.0 meters, where it drops to 0.0 m/s.
 An advantage of this method is that multiple signals can be **combined**. To do this, simply take the **minimum** of all the signals at each point, ensuring that the resulting profile does not exceed any constraint.
 
 The figures below illustrate a situation involving two road elements: a speed bump and a stop sign. Each element has its own speed signal.  
-- For the **speed bump**, the signal is lower, requiring the vehicle to slow down (around \( v \approx 1.8\,\text{m/s} \)).
-- For the **stop sign**, the signal forces a complete stop (\( v = 0\,\text{m/s} \)).
+- For the **speed bump**, the signal is lower, requiring the vehicle to slow down (around $ v \approx 1.8\text{ m/s} $).
+- For the **stop sign**, the signal forces a complete stop ($ v = 0\text{ m/s} $).
 
 {{< figure src="/images/local-planning/road-elements.png" caption="Road elements matched to trajectory positions." width="800">}}
 
