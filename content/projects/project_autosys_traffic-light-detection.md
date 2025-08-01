@@ -1,7 +1,7 @@
 ---
 title: "Traffic Light Detection & Control"
 date: 2025-05-15
-tags: ["detection", "camera", "image-processing", "YOLO", "control", "ROS2", "autonomous system","autonomous vehicle"]
+tags: ["detection", "camera", "image processing", "YOLO", "control", "ROS2", "autonomous system","autonomous vehicle"]
 # pinned: true
 description: Detection of traffic light, and adapt the control of the vehicle depends of the light state. 
 image: "/images/traffic_light/detection_traffic_light__green_new.png"
