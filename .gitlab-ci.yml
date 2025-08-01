@@ -15,31 +15,15 @@ default:
   tags:
     - docker
 
-before_script:
-  - apk add --no-cache openssh-client git
-  - eval $(ssh-agent -s)
-  - echo "$SSH_PRIVATE_KEY"
-  # - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-  # - git submodule update --init --recursive
-  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-  - mkdir -p ~/.ssh
-  - chmod 700 ~/.ssh
-  - ssh-keyscan -T 5 github.com >> ~/.ssh/known_hosts || echo "ssh-keyscan failed"
-  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-
-
 build:
   stage: build
   script:
-    - set -x
-    - git submodule sync --recursive
-    - git submodule update --init --recursive
-    - hugo
+    - hugo --minify
   artifacts:
     paths:
       - ${HUGO_OUTPUT_DIR}
   only:
-    - main
+    - main  # Exécute la CI uniquement sur la branche principale
 
 pages:
   stage: deploy
