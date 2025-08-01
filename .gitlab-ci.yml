@@ -16,17 +16,19 @@ default:
     - docker
 
 before_script:
-  - apk add --no-cache openssh-client git # install ssh tools
+  - apk add --no-cache openssh-client git
   - eval $(ssh-agent -s)
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
   - ssh-keyscan github.com >> ~/.ssh/known_hosts
-  - chmod 644 ~/.ssh/known_hosts
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
 
 build:
   stage: build
   script:
+    - set -x
     - git submodule sync --recursive
     - git submodule update --init --recursive
     - hugo
