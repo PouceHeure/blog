@@ -10,6 +10,12 @@ image: /images/quantification-intentions/scaner_studio_situation.png
 
 In the context of shared control between an autonomous driving system and a human driver, evaluating the **quality** of driving intentions becomes critical. A **driving intention** is defined as a short sequence of planned control actions (speed, steering) over a time horizon.
 
+{{< equation >}}
+I_t = \{(v,w)_{t+0\cdot\Delta t},(v,w)_{t+1\cdot\Delta t},...,(v,w)_{t+n\cdot\Delta t}\}
+{{< /equation >}}
+
+For example an intention can be defined as a sequence of linear and angular velocities applied to the vehicle.
+
 The challenge is twofold:
 
 - Determine whether an intention is **admissible** (safe, legal, feasible)
@@ -37,8 +43,9 @@ Each driving intention is evaluated over time and across multiple criteria using
 - **Quality**: scalar score using weighted and discounted evaluators
 
 
-
 ## Quality Evaluation (Soft Criteria)
+
+Quality represents the evaluation of intentions based on several criteria, such as comfort and security. Each criterion is defined by two functions: a metric that quantifies the situation, and an analyzer that evaluates the result.
 
 ### Metric per Evaluator
 

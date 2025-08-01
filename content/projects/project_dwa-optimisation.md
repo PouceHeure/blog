@@ -137,6 +137,6 @@ We introduced a **gradient-based formulation of the DWA**, replacing brute-force
 
 It opens possibilities for vision-guided local planning and reduces reliance on hand-tuned sampling grids. -->
 
-## References
+<!-- ## References
 
-{{< bibliography >}}
+{{< bibliography >}} -->
