@@ -157,7 +157,6 @@ The use of visual-based friction prediction reduced slip ratio **by 50%**, compa
 
 {{< figure src="/images/road-friction/slip_results.png" caption="Slip ratio: visual-based control (red) vs. wheel-sensor-only (blue)." width="700">}}
 
----
 
 ## Conclusion
 

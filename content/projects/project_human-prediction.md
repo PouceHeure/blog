@@ -2,7 +2,7 @@
 title: "Human Driving Behavior Prediction"
 date: 2022-12-10
 # pinned: true
-tags: ["deep learning", "camera", "ROS", "autonomous vehicle"]
+tags: ["deep learning", "camera", "ROS", "autonomous vehicle", "lidar"]
 image: /images/human-prediction/projection-prediction-test-1-lane.drawio.png
 description: Prediction of the human driving behavior in a short-time horizon, depending on previous state of the vehicle. Exploiting deep-learning model, based on multi sensors.
 article: /articles/human-driving-prediction/
@@ -126,7 +126,7 @@ Future work will focus on:
 - **Integration with shared autonomy frameworks** for driver-assist systems.
 - **Extending the approach to multi-agent scenarios**, where interactions with pedestrians and other vehicles are considered.
 
---- -->
+-->
 
 ## References
 
