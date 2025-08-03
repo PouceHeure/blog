@@ -4,6 +4,7 @@ date: 2022-12-10
 tags: ["ROS", "multi robots", "autonomous system", "robotics architecture"]
 image: /images/multi-robots/thumbnail.png
 description: "Modular ROS architecture enabling coordinated task execution between drones and ground robots using TCP."
+article: /articles/cooperative-architecture/
 ---
 
 As part of a research internship, I designed and implemented a modular ROS architecture to support cooperative navigation between heterogeneous autonomous vehicles, specifically drones (UAVs) and ground robots (UGVs). The goal was to build a scalable multi-robot system capable of dynamic task allocation and coordinated execution across different hardware platforms.

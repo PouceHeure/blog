@@ -12,3 +12,6 @@ static/images_origin/
 
 # zip
 *.zip
+
+# script
+scripts/deploy-test.sh

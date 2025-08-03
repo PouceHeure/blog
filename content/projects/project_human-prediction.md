@@ -5,6 +5,7 @@ date: 2022-12-10
 tags: ["deep learning", "camera", "ROS", "autonomous vehicle"]
 image: /images/human-prediction/projection-prediction-test-1-lane.drawio.png
 description: Prediction of the human driving behavior in a short-time horizon, depending on previous state of the vehicle. Exploiting deep-learning model, based on multi sensors.
+article: /articles/human-driving-prediction/
 ---
 
 ## Abstract
