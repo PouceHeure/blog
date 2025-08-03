@@ -84,6 +84,24 @@ The planner then outputs a new trajectory by adjusting the centerline accordingl
 This part builds upon research from {{< cite LocalASaid >}}. The animation below illustrates a Python-based implementation used to evaluate the solution and help design a suitable architecture for integration into our navigation stack. The original method from the article has been modified to fit the specific requirements of our system.
 
 {{< figure src="/images/local-planning/simu.gif" caption="Python simulation of the planning loop, based on the referenced method." width="800">}}
+
+### Interpolation
+
+To define a smooth trajectory in the plane, we represent a path using **curvilinear interpolation**, where both $x(d)$ and $y(d)$ are interpolated independently as functions of the **arc length parameter** $d$.
+
+This is commonly done using **cubic splines**, which ensure continuity of position, first derivative (tangent), and second derivative (curvature). The path is thus defined by:
+
+{{< equation >}}
+\gamma(d) = \begin{pmatrix} x(d) \\ y(d) \end{pmatrix}
+{{< /equation >}}
+
+Here:
+- $d$ is the curvilinear abscissa (arc length) along the path
+- $x(d)$ and $y(d)$ are smooth spline interpolations based on a set of reference waypoints
+
+This interpolation approach allows for the evaluation of geometric quantities (direction, curvature) at any point along the trajectory.
+
+
 ## Motion Profile Generation
 
 The speed profile of a vehicle depends on various factors, including:
@@ -122,7 +140,7 @@ The figures below illustrate a situation involving two road elements: a speed bu
 
 ### Speed Profile: Curvatures
 
-Refer to [Profile Fusion](/projects/project_autosys_control/#profile-fusion) section of the control project. 
+{{< refer href="/projects/project_autosys_control/#profile-fusion" project="Control Project" section="Profile Fusion" >}}
 
 ### Speed Profile: Demonstration
 

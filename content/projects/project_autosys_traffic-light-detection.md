@@ -130,7 +130,7 @@ Average precision over 10 IoU thresholds from 0.5 to 0.95.
 
 ---
 
-- F1-score (optional)
+- F1-score
 {{< equation >}}
 F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
 {{< /equation >}}
@@ -139,7 +139,7 @@ Harmonic mean of precision and recall, useful for balancing both aspects.
 **Estimated value:** ≈ 0.98 : Strong overall detection quality.
 
 
-{{< figure src="/images/traffic_light/model/confusion_matrix_normalized.png" caption="Results" width="600">}}
+{{< figure src="/images/traffic_light/model/confusion_matrix_normalized.png" caption="Confusion matrix normalized." width="600">}}
 
 {{< table-wrap >}}
 
@@ -157,7 +157,7 @@ Harmonic mean of precision and recall, useful for balancing both aspects.
 ### Tests Examples
 
 Following figure show an example of the detection perform on real data during a test.
-On different traffic lights. For the moment, the project onyl focuse on top light because bottom are not visiable all time.
+On different traffic lights. For the moment, the project only focuse on top light because bottom are not visiable all time.
 
 {{< subfigure images="/images/traffic_light/detection_traffic_light__green_new.png,/images/traffic_light/detection_traffic_light__orange_new.png,/images/traffic_light/detection_traffic_light__red_new.png" captions="Green top detection., Orange top detection., Red top detection." >}}
 
@@ -180,7 +180,8 @@ The detection model is lightweight and can run easily at **30 Hz**. Since the ca
 
 Once the state of the traffic light is determined, the vehicle's speed profile can be adjusted accordingly.
 
-Each element of the road (in this case, each traffic light) is associated with a **finite state machine** to define how the vehicle should behave. A speed profile depending of the distance is set for each state, such as: $ d \in [0, distance_{ahead}], speed = profile(d)$, 
+Each element of the road (in this case, each traffic light) is associated with a **finite state machine** to define how the vehicle should behave. A speed profile depending of the distance is set for each state, such as: $ d \in [0, distance_{ahead}], speed = profile(d)$.
+{{< refer href="/projects/project_autosys_local-planning/#speed-profile-signal" project="Planning Project" section="Speed Profile: signal" >}}
 
 The state machine for a traffic light is defined as follows:
 
@@ -189,8 +190,8 @@ The state machine for a traffic light is defined as follows:
 - `FREE`: The element has been passed. It is no longer relevant.
 
 **Transitions:**
-- `LOCK` <-> `SKIP`
-- `SKIP` → `FREE`
+- `LOCK` $\Longleftrightarrow$ `SKIP`
+- `SKIP` $\Longrightarrow$  `FREE`
 
 Based on the detected state of the light, the system updates the element's state:
 

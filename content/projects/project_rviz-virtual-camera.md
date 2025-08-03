@@ -48,14 +48,14 @@ The virtual camera plugin supports a variety of configurable parameters to adapt
 
 These settings can be adjusted dynamically within RViz, and the plugin can be easily integrated into existing RViz configurations or launch files.
 
-## Applications
+<!-- ## Applications
 
 This plugin is particularly useful for:
 
 - **Simulation pipelines**: Capture synthetic sensor data from Gazebo or other simulated environments.
 - **Testing and debugging**: Monitor specific visual perspectives without physical cameras.
 - **Offline video generation**: Render visualizations from logs or bag files in a reproducible manner.
-- **Educational content**: Record consistent viewports for tutorials and presentations.
+- **Educational content**: Record consistent viewports for tutorials and presentations. -->
 
 
 <!-- ## Conclusion

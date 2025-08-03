@@ -81,11 +81,33 @@ With its derivative:
 
 ### Profile Fusion
 
+#### Curvature
+
+Consider a planar curve $ \gamma(d) = (x(d), y(d)) $, parameterized by a scalar variable $ d $, which represents the **curvilinear distance** (i.e., the arc length) along the reference path. The curve is interpolated using two independent **cubic splines**: one for $ x(d) $, one for $ y(d) $.
+
+The **curvature** $ \kappa(d) $ of a 2D parametric curve is given by the classical formula:
+
+{{< equation >}}
+\kappa(d) = \frac{x'(d)\, y''(d) - y'(d)\, x''(d)}{\left( x'(d)^2 + y'(d)^2 \right)^{3/2}}
+{{< /equation >}}
+
+Where:
+- $ x'(d) = \frac{dx}{dd} $ is the first derivative of $ x $ with respect to arc length $ d $
+- $ x''(d) = \frac{d^2x}{dd^2} $ is the second derivative
+- Similarly for $ y(d) $
+
+Since $ d $ corresponds to the arc length, the derivatives reflect geometric properties along the path, not with respect to time. This ensures the curvature is purely spatial and invariant to speed.
+
+
+#### Fusion
+
 The final velocity profile is computed by:
 
-1. Generating multiple profile candidates (e.g., obstacle, stop line, speed limit) and take the minimal value on each point, to combined profiles in only one realisable (done by the planning stack, refer to [Motion Profile Generation](/projects/project_autosys_local-planning/#motion-profile-generation) section of the planning project);
-2. Applying an elliptical profile for deceleration scenarios;
-3. Taking the minimum value point-wise across all profiles.
+1. Generating multiple profile candidates (e.g., obstacle, stop line, speed limit) and take the minimal value on each point, to combined profiles in only one realisable.
+{{< refer href="/projects/project_autosys_local-planning/#motion-profile-generation" project="Planning Project" section="Motion Profile Generation" >}}
+
+1. Applying an elliptical profile for deceleration scenarios;
+2. Taking the minimum value point-wise across all profiles.
 
 {{< figure src="/images/autosys-control/plot_minimum_speed.png" caption="Final fused speed profile considering multiple constraints." width="500">}}
 
@@ -146,6 +168,6 @@ The control system directly commanded:
 - Curved roads, roundabouts, sharp and soft turns  
 - Straight segments with varying navigation constraints  
 
-## References
+<!-- ## References
 
-{{< bibliography >}}
+{{< bibliography >}} -->

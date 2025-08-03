@@ -12,7 +12,7 @@ The system leverages a unified communication protocol, distributed ROS nodes, an
 
 {{< youtube code="BZMFS-EkR4M" width="800" caption="Video demo, multi robots cooperation." >}}
 
----
+
 
 ## Core Architecture
 
@@ -56,7 +56,7 @@ Drones and UGVs exchange data over TCP through a **dual-channel architecture**:
 
 This bi-directional communication enables dynamic tasking, status reporting, and reliable coordination between airborne and ground agents.
 
----
+
 
 ### Trame Management
 
@@ -74,7 +74,7 @@ Trame (data packet) handling is consistent across robots and includes:
 
 {{< figure src="/images/multi-robots/trame_sequence.png" caption="Trame sequence scheme." width="500">}}
 
----
+
 
 ## Namespace and Multi-Robot Configuration
 

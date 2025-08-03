@@ -82,6 +82,13 @@ The **final model** aggregates these processed features and applies **Gated Recu
 
 ## Results
 
+The model has been tested on different situations: 
+- 1 lane;
+- 2 lane;
+- City;
+- Roundabout.
+
+Following figure shows the projection of prediction and real data, over these different situation.
 {{< subfigure images="/images/human-prediction/projection-prediction-test-1-lane.drawio.png,/images/human-prediction/projection-prediction-test-2-lane.drawio.png,/images/human-prediction/projection-prediction-test-city.drawio.png,/images/human-prediction/projection-prediction-test-roundabout.drawio.png" captions="Test 1 Lane, Test 2 Lanes, Test City, Test Roundabout" >}}
 
 {{< figure src="/images/human-prediction/results_mean.png" caption="Mean Errors" width="500">}}
@@ -106,7 +113,7 @@ The following figures illustrate the model's predictions for the **city test sce
 The neural network approach makes the process non-deterministic. To better "understand" and gain insight into how the network generates its inferences, we leveraged the topology of our multi-input network. Our approach consists of setting each input, one at a time, to a neutral position and analyzing the variation in error compared to the initial error. This method allows us to better understand the impact of each input on the model and its decision-making process.
 
 {{< figure src="/images/human-prediction/scheme-model_sensitivity_motivation.drawio.png" caption="Sensitivity analysis in city environment." width="400">}}
-{{< figure src="/images/human-prediction/scheme-blind.drawio.png" caption="Blind spot impact on prediction." width="500">}}
+{{< figure src="/images/human-prediction/scheme-blind.drawio.png" caption="Blind spot impact on prediction." width="600">}}
 {{< figure src="/images/human-prediction/scheme-result_v2.drawio.png" caption="Final sensitivity analysis results." width="800">}}
 
 <!-- ### Conclusion  
