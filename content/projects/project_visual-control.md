@@ -93,7 +93,8 @@ This vector $s$ is compared to a desired reference $s^*$ to compute the control 
 
 ## Lane Detection via Deep Learning
 
-(refer to the project [LANE DETECTION](/projects/project_lane-detection/))
+{{< refer href="/projects/project_lane-detection/" project="Lane Detection">}}
+
 
 The first step in feature extraction is robust lane detection. Instead of relying on geometric models, which are brittle in poor lighting or degraded markings, we use a convolutional autoencoder trained on the CULane dataset.
 
@@ -152,7 +153,7 @@ The computed velocities are sent to the vehicle's motion controller. The system 
 
 ## Integration into the Dynamic Window Approach (DWA)
 
-(refer to the project [OPTIMIZATION OF THE DYNAMIC WINDOW APPROACH (DWA)](/projects/project_dwa-optimisation/))
+{{< refer href="/projects/project_dwa-optimisation/" project="Optimization of The Dynamic Window Approach (DWA)">}}
 
 The Visual Servoing framework can be integrated into a classical Dynamic Window Approach (DWA) by modifying the objective function. Rather than relying solely on geometric terms like heading angle or distance to a local goal, we use the **Visual Servoing error** as part of the scoring function.
 
