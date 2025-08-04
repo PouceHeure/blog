@@ -48,6 +48,8 @@ The virtual camera plugin supports a variety of configurable parameters to adapt
 
 These settings can be adjusted dynamically within RViz, and the plugin can be easily integrated into existing RViz configurations or launch files.
 
+{{< figure src="/images/rviz-virtual-camera/config.png" caption="Plugin configuration." width="300">}}
+
 <!-- ## Applications
 
 This plugin is particularly useful for:
