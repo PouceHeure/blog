@@ -4,14 +4,11 @@ date: 2020-06-15
 tags: ["ROS", "arduino", "debugging"]
 description: Modular physical control panel for interacting with ROS-based robots, with full Arduino and ROS integration.
 image: /images/pouco2000/desk_crop.png
+github: https://github.com/PouceHeure/pouco2000
 ---
 
 
 ## Overview
-
-
-{{< github repo="PouceHeure/pouco2000">}}
-
 
 **Pouco2000** is a C++-based personal project that provides a full-stack solution for building a **physical control panel** to interact with ROS-based robots.
 

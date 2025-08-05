@@ -7,15 +7,15 @@ url: "/cv"
 
 ## <span class="emoji">🎓</span> Education  
 - `2025`: Obtained French National Qualification to Apply for Associate Professor (CNU - Section 27)
-- `2020 - 2024`: PhD in Robotics, University of Technology of Compiègne *Thesis: Shared Navigation in a Cybernetic Multi-Agent Autonomous System*, Compiègne (France)
+- `2020 - 2024`: PhD in Robotics, University of Technology of Compiègne *[Thesis: Shared Navigation in a Cybernetic Multi-Agent Autonomous System](/articles/article_thesis/)*, Compiègne (France)
 - `2018 - 2019`: Specialized Master's in Robotics, CentraleSupélec, Metz (France) 
-- `2014 - 2019`: Engineering degree, specialization in Computing, ESILV *(Major Promotion in 3rd and 4th year)*, Paris (France)  
+- `2014 - 2019`: Engineering degree, specialization in Computing, ESILV *(Ranked 1st in class during the 1st and 2nd years of the engineering cycle)*, Paris (France)  
 
 ## <span class="emoji">💼</span> Professional Experience  
-- `2023 - 2025` : *Research Engineer (CNRS)*, Heudiasyc laboratory, Autonomous vehicle planning and control (ROS2), sensor installation and integration.
+- `2023 - 2025` : *Research Engineer (CNRS)*, Heudiasyc laboratory, Autonomous vehicle [planning](/projects/project_autosys_local-planning/) and [control](/projects/project_autosys_control/) (ROS2), sensor installation and integration, CAN analyzis and extraction.
 - `2019 - 2025` : *Adjunct Lecturer*, UTC & ESILV *practical courses in Artificial Intelligence, Algorithms and Robotics*  
 - `2020 - 2023` : *Co-supervision of research internships*, Heudiasyc laboratory, *Supervised six Master's students*  
-- `2022` : *Research Mission in Tokyo*, University of Tokyo (Fujimoto Lab)  *Road adhesion estimation through vision*  
+- `2022` : *Research Mission in Tokyo*, University of Tokyo (Fujimoto Lab)  *[Road adhesion estimation through vision](/projects/project_friction-detection/)*  
 - `2019` : *Internship at CEA-LIST*  *Development of tools for collaborative robotics*  
 
 ##  <span class="emoji">🛠️</span> Skills  

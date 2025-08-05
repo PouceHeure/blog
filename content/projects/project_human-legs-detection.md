@@ -4,18 +4,18 @@ date: 2020-12-10
 tags: ["deep learning","lidar","ROS", "UI"]
 description: Leg detection based on RNN classification.
 image: "/images/legs-detection/thumbnail.png"
+github: https://github.com/PouceHeure/ros_detection_legs
 ---
 
 ## Overview
 
 ### Source Code
 
-{{< github repo="PouceHeure/PouceHeure/ros_detection_legs">}}
+In addition to the main GitHub project, there are the following submodule repositories:
+- **Dataset of scanned legs (with labels):** [https://github.com/PouceHeure/dataset_lidar2D_legs](https://github.com/PouceHeure/dataset_lidar2D_legs)  
+- **Labeling GUI tool:** [https://github.com/PouceHeure/lidar_tool_label](https://github.com/PouceHeure/lidar_tool_label)  
+- **Radar interface:** [https://github.com/PouceHeure/ros_pygame_radar_2D](https://github.com/PouceHeure/ros_pygame_radar_2D)
 
-GitHub Submodules Repos: 
-- dataset scan legs (with labels): [https://github.com/PouceHeure/dataset_lidar2D_legs](https://github.com/PouceHeure/dataset_lidar2D_legs) 
-- label GUI tool: [https://github.com/PouceHeure/lidar_tool_label](https://github.com/PouceHeure/lidar_tool_label)
-- radar interface: [https://github.com/PouceHeure/ros_pygame_radar_2D](https://github.com/PouceHeure/ros_pygame_radar_2D)
 
 ### Context
 
