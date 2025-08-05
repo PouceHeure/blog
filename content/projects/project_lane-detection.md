@@ -1,6 +1,6 @@
 ---
 title: "Lane Detection"
-date: 2022-12-10
+date: 2022-01-10
 tags: ["deep learning", "camera", "ROS", "autonomous system", "image processing", "detection"]
 image: /images/lane-detection/detection-result.png
 description: Lane detection from camera image based on deep-learning model (autoencoder).
@@ -37,13 +37,13 @@ The network predicts four binary images. Each one corresponds to a potential lan
 
 ## Post-processing and Lane Regression
 
-### From Segmentation to Curves
+### From Raw Points to Lane Detection
+The core goal of the model is to detect lane lines. After the network outputs a set of candidate points, we apply RANSAC polynomial regression to robustly fit curves and filter out outliers. This results in clean, reliable lane lines suitable for downstream planning and control.
+While segmentation of drivable regions can be derived from the fitted lanes, it is considered an optional extension rather than the main objective.
 
-After generating binary masks for each lane, a post-processing stage uses RANSAC polynomial regression to fit curves to each lane. This step removes outliers and produces clean continuous lines for use in planning and control.
+In the example below, the three stages are shown: raw point output from the model, fitted curves using RANSAC, and optional segmentation generated from the final lane geometry.
 
-In the example below, the three main stages are visualized: raw line detection from network output, polynomial regression of each detected line, and region segmentation using fitted lanes.
-
-{{< figure src="/images/lane-detection/detection-result.png" caption="Post-processing steps for lane detection. From top to bottom: raw line detection, curve fitting, and final segmentation into drivable regions." width="700">}}
+{{< figure src="/images/lane-detection/detection-result.png" caption="Post-processing steps for lane detection. From top to bottom: raw line detection, curve fitting, and optional segmentation into drivable regions." width="700">}}
 
 ## Visual Results
 

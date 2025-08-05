@@ -5,7 +5,7 @@ conference: "7th International Conference on Smart Cities and Green ICT Systems 
 year: 2018
 doi: "https://doi.org/10.5220/0006757202230230"
 author_position: "3rd"
-tags: ["multi-agent-systems", "smart-homes", "domotics", "energy-management", "demand-response", "microgrids"]
+tags: ["multi-agents systems", "smart homes", "domotics", "energy management", "demand response", "microgrids"]
 ---
 
 ## Abstract

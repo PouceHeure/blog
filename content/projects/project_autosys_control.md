@@ -1,6 +1,6 @@
 ---
 title: "Autonomous Vehicle Control"
-date: 2024-12-10
+date: 2024-12-20
 tags: ["control", "autonomous system", "autonomous vehicle", "ROS2"]
 description: Lateral and longitudinal control applied to a real autonomous vehicle, integrated with a navigation layer.
 image: "/images/autosys-control/webcam_onboard.png"

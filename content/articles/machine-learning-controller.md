@@ -5,7 +5,8 @@ journal: "IAES International Journal of Robotics and Automation"
 year: 2023
 doi: "https://doi.org/10.11591/ijra.v12i1.pp84-97"
 author_position: "3rd"
-tags: ["autonomous-car", "autonomous-navigation-systems", "intelligent-vehicles", "lane-keeping", "obstacle-avoidance", "machine-learning", "dynamic-window-approach"]
+tags: ["autonomous car", "autonomous navigation systems", "intelligent vehicles", "lane keeping", "obstacle avoidance", "machine learning", "dynamic window approach"]
+
 ---
 
 ## Abstract

@@ -1,6 +1,6 @@
 ---
 title: "Human Driving Behavior Prediction"
-date: 2022-12-10
+date: 2022-03-10
 # pinned: true
 tags: ["deep learning", "camera", "ROS", "autonomous vehicle", "lidar"]
 image: /images/human-prediction/projection-prediction-test-1-lane.drawio.png

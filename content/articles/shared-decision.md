@@ -5,7 +5,8 @@ conference: "2021 IEEE International Conference on Systems, Man, and Cybernetics
 year: 2021
 doi: "https://doi.org/10.1109/SMC52423.2021.9659077"
 author_position: "2nd"
-tags: ["shared-decision-making", "autonomous-navigation", "intelligent-vehicles", "human-in-the-loop", "non-haptic-shared-control"]
+tags: ["shared decision making", "autonomous navigation", "intelligent vehicles", "human in the loop", "non haptic shared control"]
+
 ---
 
 ## Abstract
