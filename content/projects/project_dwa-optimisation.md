@@ -34,16 +34,16 @@ This work was published at **IEEJ SAMCON 2022**, {{< cite GradientHPousseur >}}.
 Instead of computing a score over discrete velocities, we define a continuous, differentiable **cost function**:
 
 {{< equation >}}
-\mathcal{L}(v, \omega) = \lambda_1 \cdot \mathcal{C}_{goal} + \lambda_2 \cdot \mathcal{C}_{obstacle} + \lambda_3 \cdot \mathcal{C}_{speed}
+\mathcal{L}(v, \omega) = \lambda_1 \cdot \mathcal{C}_{goal} + \lambda_2 \cdot \mathcal{C}_{distance} + \lambda_3 \cdot \mathcal{C}_{speed}
 {{< /equation >}}
 
 Where:
 
-- $\mathcal{C}_{goal}$: cost of misalignment with the goal or lane
-- $\mathcal{C}_{obstacle}$: penalty for proximity to obstacles
-- $\mathcal{C}_{speed}$: preference for high velocity
+- $\mathcal{C}_{goal}$: cost of misalignment with the target direction (defined by the visual goal)
+- $\mathcal{C}_{distance}$: angular penalty for proximity to obstacles (derived from LiDAR-based safe zones)
+- $\mathcal{C}_{speed}$: penalty for low forward velocity
 
-Each term is made convex to support gradient-based optimization.
+Each term is made **convex** and **differentiable** to support gradient-based optimization.
 
 ### Goal Alignment Term
 
@@ -55,15 +55,26 @@ We define a quadratic distance to the visual goal point (e.g., from a visual ser
 
 This guides the robot toward the desired path center or trajectory.
 
-### Obstacle Avoidance Term
+### Obstacle Distance Loss Term
 
-We penalize proximity to obstacles using a convex inverse-distance model:
+Instead of using raw inverse-distance penalties, we extract **safe angular zones** from LiDAR data and define an **optimal avoidance angle** ($\theta^*_{\text{final}}$) closest to the robot's current orientation. 
+
+
+{{< subfigure images="/images_origin/dwa-optimization/clear_zone_explication_01.png,/images_origin/dwa-optimization/clear_zone_explication_02.png" captions="Safe zone from lidar perception., Safe zone explications." width="600">}}
+
+
+The obstacle distance loss penalizes deviation from this optimal safe direction:
 
 {{< equation >}}
-\mathcal{C}_{obstacle} = \sum_{i=1}^{N} \frac{1}{\|p_{pred} - p_i\|^2 + \epsilon}
+\mathcal{C}_{distance} = \frac{1}{2} \left( \omega - \frac{\theta^*_{\text{final}}}{dt} \right)^2
 {{< /equation >}}
 
-Where $p_i$ is the $i$-th obstacle point, and $\epsilon$ avoids division by zero.
+Where:
+- $\omega$ is the angular velocity being optimized
+- $\theta^*_{\text{final}}$ is the closest safe angle derived from sensor data and robot geometry
+- $dt$ is the control time horizon
+
+This formulation ensures smooth and efficient obstacle avoidance using continuous optimization, inspired by Vector Field Histogram techniques.
 
 ### Speed Regularization Term
 
@@ -72,6 +83,9 @@ We apply a smooth penalty on low velocities to encourage motion:
 {{< equation >}}
 \mathcal{C}_{speed} = (v_{max} - v)^2
 {{< /equation >}}
+
+This helps maintain forward progress and avoids stagnation.
+
 
 ## Gradient-Based Optimization
 

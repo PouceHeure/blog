@@ -84,10 +84,16 @@ The **final model** aggregates these processed features and applies **Gated Recu
 ## Results
 
 The model has been tested on different situations: 
-- 1 lane;
-- 2 lane;
-- City;
-- Roundabout.
+
+### Characteristics by test
+
+| Test Name         | # Roundabouts | # Intersections | Speed Limit | Distance | Time Record | # Lanes |
+|------------------|---------------|------------------|--------------|----------|--------------|---------|
+| roundabout       | 6             | 1                | 70 km/h      | 4 km     | 378 s        | 2       |
+| city             | 4             | 7                | 50 km/h      | 4 km     | 519 s        | 1       |
+| speed (1 lane)   | 2             | 0                | 70 km/h      | 2 km     | 116 s        | 1       |
+| speed (2 lanes)  | 0             | 0                | 90 km/h      | 2 km     | 84 s         | 2       |
+
 
 Following figure shows the projection of prediction and real data, over these different situation.
 {{< subfigure images="/images/human-prediction/projection-prediction-test-1-lane.drawio.png,/images/human-prediction/projection-prediction-test-2-lane.drawio.png,/images/human-prediction/projection-prediction-test-city.drawio.png,/images/human-prediction/projection-prediction-test-roundabout.drawio.png" captions="Test 1 Lane, Test 2 Lanes, Test City, Test Roundabout" >}}
