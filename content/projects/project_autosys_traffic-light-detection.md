@@ -174,8 +174,6 @@ To avoid overloading the system with computations, and since this is not a safet
 
 The detection model is lightweight and can run easily at **30 Hz**. Since the camera also operates at 30 Hz and the model is deterministic (relying only on the current image), running it faster would offer no benefit.
 
----
-
 ## Adaptive Control
 
 Once the state of the traffic light is determined, the vehicle's speed profile can be adjusted accordingly.
