@@ -55,7 +55,7 @@ Driving behavior varies based on different driving scenarios such as highways, c
 
 To ensure diversity in the training data, we incorporated recordings from both **structured environments** (e.g., highways with lane markings) and **unstructured environments** (e.g., urban intersections, roundabouts). Each scenario was balanced to prevent model bias toward specific driving conditions.
 
-{{< figure src="/images/human-prediction/scheme-dataset_diversification.drawio.png" caption="Scenarios Categories." width="500" label="exemple1">}}
+{{< figure src="/images/human-prediction/scheme-dataset_diversification.drawio.png" caption="Scenarios Categories." width="500">}}
 
 ### Temporal Data
 

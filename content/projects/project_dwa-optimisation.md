@@ -19,13 +19,13 @@ To address this, we reformulate DWA using **convex objective functions** and **g
 
 This work was published at **IEEJ SAMCON 2022**, {{< cite GradientHPousseur >}}.
 
-{{< youtube code="JagUA0hf360" width="800" caption="Video demo (Gazebo simulation)" >}}
+{{< youtube code="JagUA0hf360" width="800" caption="Video demo (Gazebo simulation)" label="test-gazebo">}}
 
-{{< youtube code="b1y7jF_VcuU" width="800" caption="Video demo turtlebot (case 1)." >}}
+{{< youtube code="b1y7jF_VcuU" width="800" caption="Video demo turtlebot (case 1)."  label="test-turtlebot-1" >}}
 
-{{< youtube code="SK9dPbqG0fc" width="800" caption="Video demo turtlebot (case 2)." >}}
+{{< youtube code="SK9dPbqG0fc" width="800" caption="Video demo turtlebot (case 2)." label="test-turtlebot-2" >}}
 
-{{< youtube code="TMXqmAW_N_o" width="800" caption="Video demo (SCANeR + visual servoing)." >}}
+{{< youtube code="TMXqmAW_N_o" width="800" caption="Video demo (SCANeR + visual servoing)." label="test-scaner">}}
 
 ## From Sampling to Optimization
 
@@ -134,6 +134,14 @@ Initial validation was conducted in Gazebo with static obstacles and a known goa
 - Classical DWA showed oscillations and sometimes missed narrow passages
 - Optimized DWA achieved smoother trajectories and faster convergence
 
+Demo: {{< videoref label="test-gazebo" >}}.
+
+### Turtlebot Tesing
+
+Similar to Gazebot test, but perform on real robots.
+
+Demo: {{< videoref label="test-turtlebot-1" >}}, {{< videoref label="test-turtlebot-2" >}}.
+
 ### SCANeR Testing
 
 In SCANeR studio, we validated the optimizer in autonomous driving scenarios:
@@ -141,6 +149,8 @@ In SCANeR studio, we validated the optimizer in autonomous driving scenarios:
 - Camera extracted the lane center via visual features
 - DWA optimizer computed reactive velocities toward the visual target
 - Results showed high robustness to visual noise and tighter control
+
+Demo: {{< videoref label="test-scaner" >}}.
 
 <!-- ## Conclusion
 
