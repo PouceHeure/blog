@@ -9,7 +9,9 @@ image: /images/pouco2000/desk_crop.png
 
 ## Overview
 
-GitHub Repo: [https://github.com/PouceHeure/pouco2000](https://github.com/PouceHeure/pouco2000)  
+
+{{< github repo="PouceHeure/pouco2000">}}
+
 
 **Pouco2000** is a C++-based personal project that provides a full-stack solution for building a **physical control panel** to interact with ROS-based robots.
 

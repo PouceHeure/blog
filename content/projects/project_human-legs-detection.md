@@ -6,13 +6,18 @@ description: Leg detection based on RNN classification.
 image: "/images/legs-detection/thumbnail.png"
 ---
 
-GitHub Repos: 
-- model: [https://github.com/PouceHeure/ros_detection_legs](https://github.com/PouceHeure/ros_detection_legs)
+## Overview
+
+### Source Code
+
+{{< github repo="PouceHeure/PouceHeure/ros_detection_legs">}}
+
+GitHub Submodules Repos: 
 - dataset scan legs (with labels): [https://github.com/PouceHeure/dataset_lidar2D_legs](https://github.com/PouceHeure/dataset_lidar2D_legs) 
 - label GUI tool: [https://github.com/PouceHeure/lidar_tool_label](https://github.com/PouceHeure/lidar_tool_label)
 - radar interface: [https://github.com/PouceHeure/ros_pygame_radar_2D](https://github.com/PouceHeure/ros_pygame_radar_2D)
 
-## Overview
+### Context
 
 This project focuses on detecting human legs using 2D LiDAR data, by leveraging a Recurrent Neural Network (RNN) with **Long Short-Term Memory (LSTM)** cells. Unlike traditional applications of LSTMs on time-series data, here the network is applied to **spatially ordered LiDAR data**.
 
