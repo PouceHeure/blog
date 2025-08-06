@@ -65,11 +65,17 @@ Where:
 
 ### Elliptical Profile
 
-A more natural, human-like behavior is modeled by:
+The elliptical profile models more natural, human-like deceleration behavior. It defines velocity as a function of distance to a stopping point using the equation:
 
 {{< equation >}}
 v(d) = v_{\text{max}} \cdot \sqrt{1 - \left( \frac{d}{d_{\text{stop}}} \right)^2}
 {{< /equation >}}
+Where: 
+- $v(d)$: Current velocity based on remaining distance $d$
+- $v_{max}$: Maximum speed (when far from the stop point)
+- $d_{stop}$: Total distance over which the object should stop
+- When $d = d_{stop}$: Speed is $v_{max}$
+- When $d = 0$: Speed is $0$
 
 With its derivative:
 
@@ -78,6 +84,11 @@ With its derivative:
 {{< /equation >}}
 
 {{< figure src="/images/autosys-control/plot_speed_profile.png" caption="Comparison of linear and elliptical speed profiles." width="700">}}
+
+#### Benefits:
+- Smooth, gradual deceleration at the beginning
+- Sharper slowdown near the end
+- More realistic than linear profiles
 
 ### Profile Fusion
 
