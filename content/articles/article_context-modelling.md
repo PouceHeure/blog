@@ -5,7 +5,7 @@ conference: "IECON 2021 47th Annual Conference of the IEEE Industrial Electronic
 year: 2021
 doi: "https://doi.org/10.1109/IECON48115.2021.9589399"
 author_position: "2nd"
-tags: ["context modeling", "intelligent vehicles", "semantic context", "navigation", "dynamic context", "static context"]
+tags: ["autonomous vehicle", "semantic context", "navigation"]
 
 ---
 

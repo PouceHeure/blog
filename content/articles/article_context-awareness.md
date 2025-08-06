@@ -5,7 +5,7 @@ conference: "2022 IEEE International Conference on Systems, Man, and Cybernetics
 year: 2022
 doi: "https://doi.org/10.1109/SMC53654.2022.9945347"
 author_position: "2nd"
-tags: ["autonomous navigation", "context awareness", "dynamic context", "sensor fusion", "real time decision making"]
+tags: ["autonomous vehicle","navigation", "semantic context", "decision making"]
 
 ---
 

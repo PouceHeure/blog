@@ -5,7 +5,7 @@ conference: "IEEJ International Workshop on Sensing, Actuation, Motion Control, 
 year: 2022
 doi: "https://hal.science/hal-04041336/document"
 author_position: "1st"
-tags: ["dynamic window approach", "gradient descent", "mobile robot navigation", "obstacle avoidance", "autonomous navigation"]
+tags: ["dynamic window approach", "optimization", "navigation", "obstacle avoidance", "planning"]
 
 ---
 

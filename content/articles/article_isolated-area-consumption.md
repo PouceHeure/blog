@@ -5,7 +5,7 @@ journal: "Energies"
 year: 2021
 doi: "https://doi.org/10.3390/en14237914"
 author_position: "1st"
-tags: ["time series", "hidden markov model", "short term forecast", "isolated areas", "energy consumption"]
+tags: ["hidden markov model", "short term forecast", "energy consumption"]
 
 ---
 

@@ -5,7 +5,7 @@ conference: "2023 IEEE/ASME International Conference on Advanced Intelligent Mec
 year: 2023
 doi: "https://doi.org/10.1109/AIM46323.2023.10196211"
 author_position: "2nd"
-tags: ["autonomous vehicles", "electric vehicles", "driving force control", "on board camera", "in wheel motors"]
+tags: ["autonomous vehicle", "driving force control"]
 ---
 
 ## Abstract

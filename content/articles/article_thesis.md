@@ -4,7 +4,7 @@ date: 2024-03-28
 year: 2024
 doi: "https://theses.fr/2024COMP2802"
 author_position: "1st"
-tags: ["multi-agents systems", "autonomous car", "artifical intelligence", "shared navigation", "shared control", "machine learning", "deep learning", "autonomous vehicle", "connected vehicles", "cybernetics", "automatic control", "game theory", "distributed artificial intelligence", "decision making"]
+tags: ["multi-agents system", "autonomous vehicle", "artifical intelligence", "shared navigation", "deep learning", "game theory", "decision making"]
 ---
 
 ## Abstract

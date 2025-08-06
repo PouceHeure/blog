@@ -5,7 +5,7 @@ conference: "2023 IEEE Intelligent Vehicles Symposium (IV)"
 year: 2023
 doi: "https://doi.org/10.1109/IV55152.2023.10186528"
 author_position: "1st"
-tags: ["driving intention", "multi criteria analysis", "autonomous vehicles", "trajectory planning", "safety assessment"]
+tags: ["driving intention", "multi criteria analysis", "autonomous vehicle"]
 
 ---
 
