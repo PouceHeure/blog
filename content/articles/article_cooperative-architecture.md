@@ -5,7 +5,7 @@ conference: "2023 IEEE 26th International Conference on Intelligent Transportati
 year: 2023
 doi: "https://doi.org/10.1109/ITSC57777.2023.10421916"
 author_position: "2nd"
-tags: ["cooperative navigation", "aerial vehicles", "ground vehicles", "multi-robots system"]
+tags: [ground vehicles, planning_navigation, robotics_autonomy]
 ---
 
 ## Abstract

@@ -11,6 +11,9 @@ journal.md
 static/images_origin/
 static/images_old/
 
+#backup 
+.content_old/
+
 # zip
 *.zip
 

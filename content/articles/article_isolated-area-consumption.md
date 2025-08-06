@@ -5,7 +5,7 @@ journal: "Energies"
 year: 2021
 doi: "https://doi.org/10.3390/en14237914"
 author_position: "1st"
-tags: ["hidden markov model", "short term forecast", "energy consumption"]
+tags: [ai_ml, forecasting_analysis]
 
 ---
 

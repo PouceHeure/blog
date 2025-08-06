@@ -19,9 +19,9 @@ url: "/cv"
 - `2019` : *Internship at CEA-LIST*  *Development of tools for collaborative robotics*  
 
 ## <i class="bi bi-laptop me-3"></i> Skills  
-- `Robotics`: [Planning](/tags/planning/), Perception (Vision/LiDAR), ROS/ROS2, [Control](/tags/control/)
+- `Robotics`: [Planning](/tags/planning_navigation/), [Perception (Vision/LiDAR)](/tags/sensing_perception), [ROS](/tags/ros)/[ROS2](/tags/ros2), [Control](/tags/control_optimization/)
 - `Programming`: C++, Python  
-- `Machine Learning`: Deep Learning (CNN, RNN), TensorFlow  
+- `Machine Learning`: [Deep Learning (CNN, RNN)](/tags/ai_ml), TensorFlow  
 - `Tools`: Linux, Git, Docker, OpenCV  
 
 ## <i class="bi bi-book-half me-3"></i> Scientific Contributions  

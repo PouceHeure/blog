@@ -1,7 +1,7 @@
 ---
 title: "Autonomous Vehicle Planning"
 date: 2024-12-10
-tags: ["planning", "navigation", "autonomous system","autonomous vehicle", "ROS2"]
+tags: [planning_navigation, robotics_autonomy, ros2]
 # pinned: true
 description: Local planning applied to real autonomous vehicles, combining global route planning, local path adjustment, and dynamic control profile.
 image: "/images/local-planning/rviz_planning.png"

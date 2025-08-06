@@ -1,7 +1,7 @@
 ---
 title: "RViz2 - Virtual Camera"
 date: 2025-05-01
-tags: ["ROS2", "RViz2", "visualization"]
+tags: [core_technologies, ros2]
 image: "/images/rviz-virtual-camera/rviz_virtual_camera.png"
 description: "RViz2 plugin to publish virtual camera views as ROS 2 image topics for simulation, testing, and visualization."
 ---

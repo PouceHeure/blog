@@ -1,7 +1,7 @@
 ---
 title: "Friction Camera Detection"
 date: 2022-11-10
-tags: ["image processing", "camera", "friction estimation"]
+tags: [sensing_perception]
 description: Road friction estimation based on surface segmentation using a camera and projection into a global grid.
 image: /images/road-friction/thumbnail.png
 article: /articles/article_camera-based-control/

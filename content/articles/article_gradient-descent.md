@@ -5,7 +5,7 @@ conference: "IEEJ International Workshop on Sensing, Actuation, Motion Control, 
 year: 2022
 doi: "https://hal.science/hal-04041336/document"
 author_position: "1st"
-tags: ["dynamic window approach", "optimization", "navigation", "obstacle avoidance", "planning"]
+tags: [control_optimization, planning_navigation]
 
 ---
 

@@ -5,7 +5,7 @@ conference: "2022 IEEE 17th International Conference on Advanced Motion Control 
 year: 2022
 doi: "https://doi.org/10.1109/AMC51637.2022.9729253"
 author_position: "2nd"
-tags: ["autonomous vehicle", "platooning", "motion control", "aerial vehicles", "multi-robots system"]
+tags: [control_optimization, robotics_autonomy]
 
 ---
 

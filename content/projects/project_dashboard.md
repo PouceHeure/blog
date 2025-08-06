@@ -1,7 +1,7 @@
 ---
 title: "ROS2 - Dashboard Framework"
 date: 2025-05-01
-tags: ["UI", "ROS2", "Visualization", "Dashboard"]
+tags: [core_technologies, ros2]
 image: /images/dashboard/dashboard_3.png
 description: "Configurable ROS 2 dashboard framework for visualizing data, controlling nodes, and exporting video-based UI layouts."
 ---
