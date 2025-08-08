@@ -25,9 +25,10 @@ url: "/cv"
 - `Tools`: Linux, Git, Docker, OpenCV  
 
 ## <i class="bi bi-book-half me-3"></i> Scientific Contributions  
-- `2023 - ITSC`: *Cooperative architecture using air and ground vehicles for search and recognition*  
-- `2023 - IV`: *Multi-Criteria Approach for Driving Intention*  
-- `2022 - ITSC`: *Prediction of human driving behavior using deep learning*  
-- `2021 - SMC`: *Shared decision-making for autonomous navigation*  
+- `2024 - Thesis`: *Shared navigation in a cybernetic multi-agent autonomous system*
+- `2023 - Article - IEEE ITSC`: *Cooperative architecture using air and ground vehicles for search and recognition*  
+- `2023 - Article - IEEE IV`: *Multi-Criteria Approach for Driving Intention*  
+- `2022 - Article - IEEE ITSC`: *Prediction of human driving behavior using deep learning*  
+- `2021 - Article - IEEE SMC`: *Shared decision-making for autonomous navigation*  
 <i class="bi bi-journal-text"></i> [View all publications](/articles/)
 

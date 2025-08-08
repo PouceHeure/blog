@@ -13,10 +13,10 @@ article: /articles/article_gradient-descent/
 The Dynamic Window Approach (DWA) is a reactive planning strategy used in mobile robotics. At each control cycle, it samples admissible velocity pairs $(v, \omega)$ and evaluates them using an objective function. The velocity that maximizes the score is selected.
 
 However, the original DWA has two main drawbacks:
-- It uses **discretized sampling**, which limits precision
-- The **evaluation loop** is computationally expensive
+- **Discretized sampling**, which limits precision  
+- **Computationally expensive** evaluation loops  
 
-To address this, we reformulate DWA using **convex objective functions** and **gradient descent optimization**.
+To address these limitations, DWA can be reformulated using **convex objective functions** and **gradient descent optimization**.
 
 This work was published at **IEEJ SAMCON 2022**, {{< cite GradientHPousseur >}}.
 
@@ -32,37 +32,34 @@ This work was published at **IEEJ SAMCON 2022**, {{< cite GradientHPousseur >}}.
 
 ### Convex Cost Structure
 
-Instead of computing a score over discrete velocities, we define a continuous, differentiable **cost function**:
+Instead of computing a score over discrete velocities, a continuous, differentiable **cost function** is defined:
 
 {{< equation >}}
 \mathcal{L}(v, \omega) = \lambda_1 \cdot \mathcal{C}_{goal} + \lambda_2 \cdot \mathcal{C}_{distance} + \lambda_3 \cdot \mathcal{C}_{speed}
 {{< /equation >}}
 
-Where:
+Where:  
+- $\mathcal{C}_{goal}$: cost of misalignment with the target direction (defined by the visual goal)  
+- $\mathcal{C}_{distance}$: angular penalty for proximity to obstacles (derived from LiDAR-based safe zones)  
+- $\mathcal{C}_{speed}$: penalty for low forward velocity  
 
-- $\mathcal{C}_{goal}$: cost of misalignment with the target direction (defined by the visual goal)
-- $\mathcal{C}_{distance}$: angular penalty for proximity to obstacles (derived from LiDAR-based safe zones)
-- $\mathcal{C}_{speed}$: penalty for low forward velocity
-
-Each term is made **convex** and **differentiable** to support gradient-based optimization.
+Each term is constructed to be **convex** and **differentiable**, supporting gradient-based optimization.
 
 ### Goal Alignment Term
 
-We define a quadratic distance to the visual goal point (e.g., from a visual servoing controller):
+A quadratic distance to the visual goal point (e.g., from a visual servoing controller) is used:
 
 {{< equation >}}
 \mathcal{C}_{goal} = (x_{pred} - x_{target})^2 + (y_{pred} - y_{target})^2
 {{< /equation >}}
 
-This guides the robot toward the desired path center or trajectory.
+This term guides the robot toward the desired path center or trajectory.
 
 ### Obstacle Distance Loss Term
 
-Instead of using raw inverse-distance penalties, we extract **safe angular zones** from LiDAR data and define an **optimal avoidance angle** ($\theta^*_{\text{final}}$) closest to the robot's current orientation. 
+Rather than applying raw inverse-distance penalties, **safe angular zones** are extracted from LiDAR data, and an **optimal avoidance angle** ($\theta^*_{\text{final}}$) closest to the robot's current orientation is determined.
 
-
-{{< subfigure images="/images_origin/dwa-optimization/clear_zone_explication_01.png,/images_origin/dwa-optimization/clear_zone_explication_02.png" captions="Safe zone from lidar perception., Safe zone explications." width="600">}}
-
+{{< subfigure images="/images_origin/dwa-optimization/clear_zone_explication_01.png,/images_origin/dwa-optimization/clear_zone_explication_02.png" captions="Safe zone from lidar perception., Safe zone explanations." width="600">}}
 
 The obstacle distance loss penalizes deviation from this optimal safe direction:
 
@@ -70,33 +67,32 @@ The obstacle distance loss penalizes deviation from this optimal safe direction:
 \mathcal{C}_{distance} = \frac{1}{2} \left( \omega - \frac{\theta^*_{\text{final}}}{dt} \right)^2
 {{< /equation >}}
 
-Where:
-- $\omega$ is the angular velocity being optimized
-- $\theta^*_{\text{final}}$ is the closest safe angle derived from sensor data and robot geometry
-- $dt$ is the control time horizon
+Where:  
+- $\omega$: angular velocity being optimized  
+- $\theta^*_{\text{final}}$: closest safe angle from sensor data and robot geometry  
+- $dt$: control time horizon  
 
-This formulation ensures smooth and efficient obstacle avoidance using continuous optimization, inspired by Vector Field Histogram techniques.
+This formulation provides smooth and efficient obstacle avoidance using continuous optimization, inspired by Vector Field Histogram methods.
 
 ### Speed Regularization Term
 
-We apply a smooth penalty on low velocities to encourage motion:
+A smooth penalty on low velocities is applied to encourage motion:
 
 {{< equation >}}
 \mathcal{C}_{speed} = (v_{max} - v)^2
 {{< /equation >}}
 
-This helps maintain forward progress and avoids stagnation.
-
+This maintains forward progress and prevents stagnation.
 
 ## Gradient-Based Optimization
 
-The velocity command is obtained via:
+The optimal velocity command is obtained as:
 
 {{< equation >}}
 (v^*, \omega^*) = \arg\min_{v, \omega} \mathcal{L}(v, \omega)
 {{< /equation >}}
 
-Gradient descent is used to iteratively update $(v, \omega)$ toward the minimum:
+Gradient descent iteratively updates $(v, \omega)$ toward the minimum:
 
 {{< equation >}}
 \begin{bmatrix}
@@ -113,16 +109,16 @@ v \\
 
 Where $\eta$ is the learning rate.
 
-This approach removes the need for discrete sampling and allows finer convergence toward optimal commands.
+This approach removes the need for discrete sampling and enables fine convergence toward optimal commands.
 
 ## Integration with Visual Servoing
 
-In SCANeR tests, we integrated this optimizer with a **visual servoing controller**, which provides a dynamic centerline (from camera input). The goal term $\mathcal{C}_{goal}$ uses the visual reference as its target, aligning the vehicle with image-based lanes.
+In SCANeR tests, this optimizer was integrated with a **visual servoing controller** providing a dynamic centerline from camera input. The goal term $\mathcal{C}_{goal}$ uses the visual reference as its target, aligning the vehicle with image-based lanes.
 
-This fusion allows:
-- DWA to remain reactive
-- Visual Servoing to inject high-level guidance
-- Optimization to converge more smoothly
+This integration allows:  
+- DWA to remain reactive  
+- Visual Servoing to supply high-level guidance  
+- Optimization to converge smoothly  
 
 {{< figure src="/images/dwa-optimization/scenario_example.png" caption="Gradient-based DWA combined with visual control. Target extracted from camera image." width="600">}}
 
@@ -130,35 +126,24 @@ This fusion allows:
 
 ### Gazebo Testing
 
-Initial validation was conducted in Gazebo with static obstacles and a known goal.
+Validation was conducted in Gazebo with static obstacles and a known goal.  
 
 Demo: {{< videoref label="test-gazebo" >}}.
 
-### Turtlebot Tesing
+### Turtlebot Testing
 
-Similar to Gazebot test, but perform on real robots.
+Similar validation was performed on physical robots.  
 
 Demo: {{< videoref label="test-turtlebot-1" >}}, {{< videoref label="test-turtlebot-2" >}}.
 
 ### SCANeR Testing
 
-In SCANeR studio, we validated the optimizer in autonomous driving scenarios:
-
-- Camera extracted the lane center via visual features
-- DWA optimizer computed reactive velocities toward the visual target
-- Results showed high robustness to visual noise and tighter control
+In SCANeR Studio, the optimizer was evaluated in autonomous driving scenarios:  
+- Lane center extracted via visual features from camera input  
+- DWA optimizer computed reactive velocities toward the visual target  
+- Results demonstrated robustness to visual noise and tighter control  
 
 Demo: {{< videoref label="test-scaner" >}}.
-
-<!-- ## Conclusion
-
-We introduced a **gradient-based formulation of the DWA**, replacing brute-force sampling with continuous optimization. This approach enables:
-
-- Real-time optimization of $(v, \omega)$
-- Easier integration with other subsystems (e.g., vision)
-- Convex, tunable cost design
-
-It opens possibilities for vision-guided local planning and reduces reliance on hand-tuned sampling grids. -->
 
 ## References
 

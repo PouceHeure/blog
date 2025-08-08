@@ -10,7 +10,7 @@ image: "/images/visual-control/situation_img.png"
 
 ## Abstract
 
-This project focuses on **Visual Servoing**, a control strategy that links image feature variations to robot velocities. Applied to autonomous vehicles, this approach allows lane-keeping purely from camera input, without GPS or map dependency. It integrates lane detection using deep learning and transforms the output into features used in a control law that centers the vehicle in the lane.
+This project focuses on **Visual Servoing**, a control strategy that links image feature variations to robot velocities. Applied to autonomous vehicles, this approach enables lane-keeping purely from camera input, without GPS or map dependency. It integrates lane detection using deep learning and transforms the output into features used in a control law that centers the vehicle in the lane.
 
 The system was validated on simulated and real data, showing robust behavior in diverse road scenarios.
 
@@ -30,7 +30,7 @@ The relationship between the change in feature and the robot velocity $u_c$ is m
 \dot{s}(t) = L_s u_c
 {{< /equation >}}
 
-To ensure convergence, we apply exponential decay to the error:
+To ensure convergence, exponential decay is applied to the error:
 
 {{< equation >}}
 \dot{e}(t) = -\lambda L_s^+ e(t)
@@ -50,7 +50,7 @@ These features are extracted in the image frame and used as input for control.
 
 ### Selection of Target Point
 
-We assume the detected lane provides a centerline defined as a curve in image space. A single **target point** is selected at a fixed vertical distance from the bottom of the image (typically 3/4 of the image height), denoted $v_t$.
+The detected lane is assumed to provide a centerline defined as a curve in image space. A single **target point** is selected at a fixed vertical distance from the bottom of the image (typically 3/4 of the image height), denoted $v_t$.
 
 The horizontal position of this point is obtained by evaluating the lane curve at $v_t$:
 
@@ -62,7 +62,7 @@ Where $f$ is the polynomial fitted to the detected centerline.
 
 ### Computation of X and Y
 
-The coordinates $(u_t, v_t)$ are image pixel coordinates. We normalize them relative to the optical center $(c_x, c_y)$ and focal lengths $(f_x, f_y)$:
+The coordinates $(u_t, v_t)$ are image pixel coordinates. They are normalized relative to the optical center $(c_x, c_y)$ and focal lengths $(f_x, f_y)$:
 
 {{< equation >}}
 X = \frac{u_t - c_x}{f_x}, \quad Y = \frac{v_t - c_y}{f_y}
@@ -72,7 +72,7 @@ $X$ corresponds to the lateral displacement in the image, and $Y$ is a proxy for
 
 ### Estimation of Theta
 
-To compute the orientation of the lane at the target point, we calculate the tangent to the fitted curve:
+To compute the orientation of the lane at the target point, the tangent to the fitted curve is calculated:
 
 {{< equation >}}
 \Theta = \arctan\left( \frac{df}{dv}(v_t) \right)
@@ -96,8 +96,7 @@ This vector $s$ is compared to a desired reference $s^*$ to compute the control 
 
 {{< refer href="/projects/project_lane-detection/" project="Lane Detection">}}
 
-
-The first step in feature extraction is robust lane detection. Instead of relying on geometric models, which are brittle in poor lighting or degraded markings, we use a convolutional autoencoder trained on the CULane dataset.
+The first step in feature extraction is robust lane detection. Instead of relying on geometric models, which are brittle in poor lighting or degraded markings, a convolutional autoencoder trained on the CULane dataset is employed.
 
 The model produces binary segmentation maps for lane positions, which are then used to compute the path to follow.
 
@@ -109,7 +108,7 @@ The model produces binary segmentation maps for lane positions, which are then u
 
 Given the extracted features $s = [X, Y, \Theta]$, the control goal is to minimize the error $e = s - s^*$. The control output $u_r = [v, w]^T$ includes linear and angular velocity commands.
 
-We relate the time derivative of the features to the robot velocity using:
+The time derivative of the features is related to the robot velocity by:
 
 {{< equation >}}
 \dot{s} = L_s(X, Y, \Theta) C_{TR} u_r
@@ -119,8 +118,11 @@ Where $C_{TR}$ is the transformation matrix between robot and camera frames.
 
 ### Control Law
 
-Two control configurations are used depending on the desired feature. 
-Depending of the situation: if the vehicle it's to far of the lane, the feature point it's over than the image bottom, so the vehicle has to adapt the control (**column controller**) to reach the vehicle. Other situation the feature point keeps the image bottom, then the vehicle needs to keep the lane, the vehicle uses the **row controller**.
+Two control configurations are used depending on the desired feature.  
+
+When the vehicle is far from the lane, the feature point appears above the image bottom, requiring the **column controller** to guide the vehicle back.  
+
+When the feature point remains near the bottom of the image, the **row controller** is used to maintain lane position.
 
 **Row controller** for $s^* = [0, Y, 0]$:
 
@@ -148,7 +150,7 @@ Where $v_d$ is the desired forward velocity and the matrices $A$ and $B$ are der
 
 ## Control in Real-Time
 
-The computed velocities are sent to the vehicle's motion controller. The system runs in real time and does not depend on external GPS or map input, making it highly portable and robust in unmapped environments.
+The computed velocities are sent to the vehicle's motion controller. The system operates in real time and does not depend on external GPS or map input, ensuring portability and robustness in unmapped environments.
 
 {{< youtube code="UZjCYTLoMOw" width="800" caption="Demonstration of Visual Servoing Lane Following on test track" >}}
 
@@ -156,7 +158,7 @@ The computed velocities are sent to the vehicle's motion controller. The system 
 
 {{< refer href="/projects/project_dwa-optimisation/" project="Optimization of The Dynamic Window Approach (DWA)">}}
 
-The Visual Servoing framework can be integrated into a classical Dynamic Window Approach (DWA) by modifying the objective function. Rather than relying solely on geometric terms like heading angle or distance to a local goal, we use the **Visual Servoing error** as part of the scoring function.
+The Visual Servoing framework can be integrated into a classical Dynamic Window Approach (DWA) by modifying the objective function. Rather than relying solely on geometric terms like heading angle or distance to a local goal, the **Visual Servoing error** is incorporated as part of the scoring function.
 
 ### Goal Function
 
@@ -181,33 +183,19 @@ Where:
 
 ### Obstacle Function
 
-As explain in the project [OPTIMIZATION OF THE DYNAMIC WINDOW APPROACH (DWA)](/projects/project_dwa-optimisation/), the function avoidance obstacle need to know a safety angle to reach. 
+As explained in the project [OPTIMIZATION OF THE DYNAMIC WINDOW APPROACH (DWA)](/projects/project_dwa-optimisation/), the obstacle avoidance function requires a safety angle to be determined.  
 
-The followings figure explain, how compute this angle. This angle needs to respect some constraints: 
-- avoid to hit obstacle;
-- avoid to be to close of the obstacle;
-- going in navigable zone.
+The following figure illustrates the computation of this angle. The angle must satisfy constraints to:  
+- avoid collisions;  
+- maintain a safe distance from obstacles;  
+- remain within navigable space.  
 
-The last constraints it's really important to include in the computation, without this constraint the vehicle can reach out of the road.
+The last constraint is critical, as omitting it could result in the vehicle leaving the road.
 
 {{< subfigure images="/images/visual-control/function_obstacle.png,/images/visual-control/limitation_space.png" captions="Obstacle avoidance obstacle explained.,Limitation space from perception." >}}
 
 ### Results
 
-By integrating $J_{vs}$, the DWA selects trajectories that are not only dynamically valid and safe, but also visually consistent with the lane-following goal defined by the Visual Servoing framework.
+By integrating $J_{vs}$, the DWA selects trajectories that are not only dynamically valid and safe, but also visually consistent with the lane-following objective defined by the Visual Servoing framework.
 
 {{< youtube code="TMXqmAW_N_o" width="800" caption="Demonstration of DWA + Visual Servoing in simulation." >}}
-
-<!-- ## Conclusion
-
-This system demonstrates how vision-only lane-keeping can be achieved with modern deep-learning and visual servoing control theory. It offers high adaptability without requiring external localization or mapping infrastructure.
-
-Applications include:
-
-- Urban driving  
-- Low-cost autonomous platforms  
-- Redundant perception systems in autonomous stacks -->
-
-<!-- ## References
-
-{{< bibliography >}} -->
