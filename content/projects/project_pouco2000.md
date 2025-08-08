@@ -39,7 +39,7 @@ The {{< figref "pouco-desk" >}} shows an example of desk created for the project
 
 {{< figure src="/images/pouco2000/electronic_crop.png" caption="Electronic boards test" width="500" label="pouco-electronic">}}
 
-This {{< figref "pouco-electronic" >}} shows the electronic board prototypes, for the first creation, I used 2 arduino boards showing no limitation, allowing to add several micro-controller, managing several inputs.
+The {{< figref "pouco-electronic" >}} shows the electronic board prototypes, for the first creation, I used 2 arduino boards showing no limitation, allowing to add several micro-controller, managing several inputs.
 
 ## System Architecture
 

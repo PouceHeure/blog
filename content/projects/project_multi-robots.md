@@ -37,9 +37,9 @@ The ROS Robot architecture is defined in two parts:
 - common part, common for every UGV robot;
 - specefic part, depending of the UGV hardware, control architecture;
 
-The following figure represents the ROS architecture developed for this project.
+{{< figure src="/images/multi-robots/robot_architecture.png" caption="Robot ROS architecture." label="multi-robots_robot_architecture" width="800">}}
 
-{{< figure src="/images/multi-robots/robot_architecture.png" caption="Robot ROS architecture." width="800">}}
+The {{<figref multi-robots_robot_architecture>}} represents the ROS architecture developed for this project.
 
 #### Robot-Specific Packages
 
