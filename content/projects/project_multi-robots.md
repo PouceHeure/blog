@@ -1,7 +1,7 @@
 ---
 title: "Multi-Robot ROS Architecture for UGV/UAV Coordination"
 date: 2022-08-10
-tags: [robotics_autonomy, ros]
+tags: [ground_robot, aerial_robot, robotics_autonomy, ros]
 codelang: ["cpp","python"]
 image: /images/multi-robots/thumbnail.png
 description: "Modular ROS architecture enabling coordinated task execution between drones and ground robots using TCP."

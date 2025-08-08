@@ -5,7 +5,7 @@ conference: "2021 IEEE International Conference on Systems, Man, and Cybernetics
 year: 2021
 doi: "https://doi.org/10.1109/SMC52423.2021.9659077"
 author_position: "2nd"
-tags: [context_decision, planning_navigation, robotics_autonomy]
+tags: [autonomous_vehicle, context_decision, planning_navigation, robotics_autonomy]
 
 ---
 

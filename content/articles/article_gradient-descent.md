@@ -5,7 +5,7 @@ conference: "IEEJ International Workshop on Sensing, Actuation, Motion Control, 
 year: 2022
 doi: "https://hal.science/hal-04041336/document"
 author_position: "1st"
-tags: [control_optimization, planning_navigation]
+tags: [ground_robot,control_optimization, planning_navigation]
 
 ---
 

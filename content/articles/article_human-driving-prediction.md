@@ -5,7 +5,7 @@ conference: "2022 IEEE 25th International Conference on Intelligent Transportati
 year: 2022
 doi: "https://doi.org/10.1109/ITSC55140.2022.9922144"
 author_position: "1st"
-tags: [ai_ml, robotics_autonomy, ros, sensing_perception]
+tags: [autonomous_vehicle, ai_ml, robotics_autonomy, ros, sensing_perception]
 ---
 
 ## Abstract 

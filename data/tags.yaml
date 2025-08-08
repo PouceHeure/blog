@@ -13,6 +13,24 @@ robotics_autonomy:
   description: Systems and concepts related to autonomous vehicles, multi-robot systems,
     and aerial or ground robotic platforms.
 
+autonomous_vehicle:
+  name: autonomous_vehicle
+  title: Autonomous Vehicle
+  repr: Autonomous Vehicle
+  description: Self-driving systems for cars, integrating perception, planning, and control for full or partial autonomy.
+
+ground_robot:
+  name: ground_robot
+  title: Ground Robot
+  repr: Ground Robot
+  description: Robotic platforms operating on land, including mobile manipulators, rovers, and wheeled or tracked robots for industrial, research, or field applications.
+
+aerial_robot:
+  name: aerial_robot
+  title: Aerial Robot
+  repr: Aerial Robot
+  description: Unmanned aerial systems (UAS) and drones used for inspection, delivery, mapping, and autonomous aerial operations.
+
 ai_ml:
   name: ai_ml
   title: Artificial Intelligence & Machine Learning
