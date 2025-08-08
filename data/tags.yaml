@@ -1,45 +1,76 @@
 core_technologies:
+  name: core_technologies
   title: Core Technologies
+  repr: Core Technologies
   description: Foundational tools and platforms such as middleware, user interface
     frameworks, and system integration components. Includes tools like Arduino, RViz,
     SDKs, and more.
+
 robotics_autonomy:
+  name: robotics_autonomy
   title: Robotics & Autonomy
+  repr: Robotics & Autonomy
   description: Systems and concepts related to autonomous vehicles, multi-robot systems,
     and aerial or ground robotic platforms.
+
 ai_ml:
+  name: ai_ml
   title: Artificial Intelligence & Machine Learning
+  repr: AI & ML
   description: Topics involving deep learning, machine learning, and intelligent systems
     applied in robotics and automation.
+
 control_optimization:
+  name: control_optimization
   title: Control & Optimization
+  repr: Control & Optimization
   description: Methods for motion control, optimization, and decision logic for robotic
     and autonomous systems.
+
 planning_navigation:
+  name: planning_navigation
   title: Planning & Navigation
+  repr: Planning & Navigation
   description: Path planning, obstacle avoidance, and navigation algorithms used in
     autonomous vehicles and robots.
+
 sensing_perception:
+  name: sensing_perception
   title: Sensing & Perception
+  repr: Sensing & Perception
   description: Processing data from sensors like cameras and lidars, including detection,
     image analysis, and environmental perception.
+
 context_decision:
+  name: context_decision
   title: Context Awareness & Decision Making
+  repr: Context Awareness & Decision Making
   description: Semantic context modeling, human-robot interaction, and decision-making
     in dynamic environments.
+
 multi_agent_systems:
+  name: multi_agent_systems
   title: Multi-Agent & Distributed Systems
+  repr: Multi-Agent & Distributed Systems
   description: Coordination and architecture for systems with multiple agents, including
     smart grids and cooperative robotics.
+
 forecasting_analysis:
+  name: forecasting_analysis
   title: Forecasting & Data Analysis
+  repr: Forecasting & Data Analysis
   description: Data-driven techniques including forecasting, energy consumption modeling,
     and multi-criteria analysis.
+
 ros:
+  name: ros
   title: ROS
-  description: "Robot Operating System \u2014 a flexible framework for writing robot\
-    \ software, providing tools and libraries."
+  repr: ROS
+  description: "Robot Operating System — a flexible framework for writing robot software, providing tools and libraries."
+
 ros2:
+  name: ros2
   title: ROS2
+  repr: ROS2
   description: The second generation of ROS, offering real-time capabilities and improved
     middleware support for robotics applications.
