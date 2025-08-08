@@ -16,7 +16,6 @@ In addition to the main GitHub project, there are the following submodule reposi
 - **Labeling GUI tool:** [https://github.com/PouceHeure/lidar_tool_label](https://github.com/PouceHeure/lidar_tool_label)  
 - **Radar interface:** [https://github.com/PouceHeure/ros_pygame_radar_2D](https://github.com/PouceHeure/ros_pygame_radar_2D)
 
-
 ### Context
 
 This project focuses on detecting human legs using 2D LiDAR data, by leveraging a Recurrent Neural Network (RNN) with **Long Short-Term Memory (LSTM)** cells. Unlike traditional applications of LSTMs on time-series data, here the network is applied to **spatially ordered LiDAR data**.
@@ -68,9 +67,7 @@ C = \{ P_1, P_2, \dots, P_n \}
 
 {{< figure src="https://raw.githubusercontent.com/PouceHeure/ros_detection_legs/master/.doc/graph/segmentation.png" caption="Cluster variables representation" width="500">}}
 
-
 This cluster becomes the input to the LSTM classifier.
-
 
 ### LSTM Model
 
@@ -83,8 +80,6 @@ Human legs often produce smooth, symmetric curves or narrow arcs in the LiDAR fi
 - Local curvature patterns
 
 This allows the model to generalize across different leg shapes and positions.
-
-
 
 ### Model Behavior
 
@@ -104,23 +99,36 @@ Where:
 - $ y \in \text{{0, 1}}$ is the ground-truth label,
 - $ \hat{y} \in [0, 1] $ is the model's predicted probability.
 
+## Computing the Center of a Detected Cluster
 
+For each cluster of LiDAR points classified as a leg, the system estimates its position by calculating the **geometric center** in polar coordinates. This is analogous to finding the center of mass, but applied to spatial points in the scan.
 
-### Output Processing
+Given a cluster:
+\[
+C = \{ P_1, P_2, \dots, P_n \}, \quad P_i = (\theta_i, r_i)
+\]
+the center is computed as:
 
-Once the model detects a leg cluster, the system estimates its position by computing the **geometric center** in polar coordinates:
-
-{{< equation >}}
+\[
 \theta_{\text{center}} = \frac{1}{n} \sum_{i=1}^{n} \theta_i
-{{< /equation >}}
-
-{{< equation >}}
+\]
+\[
 r_{\text{center}} = \frac{1}{n} \sum_{i=1}^{n} r_i
-{{< /equation >}}
+\]
 
-This polar point is then projected or visualized to indicate leg position.
+Where:
+- \( \theta_{\text{center}} \) is the average angular position,
+- \( r_{\text{center}} \) is the average radial distance,
+- \( n \) is the number of points in the cluster.
 
+These polar coordinates can be:
+- **Used directly** in applications like robot navigation or person tracking, or
+- **Converted to Cartesian coordinates** \((x, y)\) for mapping and visualization:
+\[
+x = r_{\text{center}} \cdot \cos(\theta_{\text{center}}), \quad y = r_{\text{center}} \cdot \sin(\theta_{\text{center}})
+\]
 
+This method is applied consistently during both **training evaluation** and **real-time ROS integration**.
 
 ### Training and Generalization
 
@@ -145,15 +153,11 @@ Where:
 - $ N_{\text{positive}} $ is the number of positive examples,
 - $ K $ is the number of augmentation steps.
 
-
 The model was trained on custom-labeled data and evaluated on real-world tests. The figure below shows training curves:
 
 {{< figure src="https://raw.githubusercontent.com/PouceHeure/ros_detection_legs/master/model/train/evaluation.png" caption="Training Curves" width="500">}}
 
-
-The trained model is integrated in a ROS node that performs real-time leg detection from `/scan` topic input and publishes detections to `/radar`.
-
-### Integration 
+## Integration 
 
 A ROS node, **`detector_node`**, subscribes to the **`/scan`** topic. As LiDAR data is published, the node processes the input in real-time using the trained LSTM model to detect leg positions. The detected positions are then published to the **`/radar`** topic.
 
@@ -163,19 +167,4 @@ Similar to training, the input data must be transformed before inference. Theref
 
 {{< figure src="https://raw.githubusercontent.com/PouceHeure/ros_detection_legs/master/.doc/graph/prediction.png" caption="Clustering and sequence creation for LSTM input during prediction." width="500">}}
 
-For each predicted positive cluster (i.e., detected leg), the system estimates the spatial position by computing the **polar center** of the cluster.
-
-{{< figure src="https://raw.githubusercontent.com/PouceHeure/ros_detection_legs/master/.doc/graph/locate_center_point.png" caption="Center point computation from detected cluster." width="500">}}
-
-The center coordinates in polar space for cluster $ j $ are defined as:
-
-{{< equation >}}
-\theta_{j_{\text{center}}} = \frac{1}{|P_j|} \sum_{i \in P_j} \theta_i
-{{< /equation >}}
-
-{{< equation >}}
-r_{j_{\text{center}}} = \frac{1}{|P_j|} \sum_{i \in P_j} r_i
-{{< /equation >}}
-
-These coordinates can be transformed into Cartesian space or used directly in robot navigation or tracking systems.
-
+For each predicted positive cluster (i.e., detected leg), the **center computation** described in the *Computing the Center of a Detected Cluster* section is used to estimate its position.

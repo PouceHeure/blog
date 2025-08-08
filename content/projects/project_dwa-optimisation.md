@@ -131,9 +131,6 @@ This fusion allows:
 
 Initial validation was conducted in Gazebo with static obstacles and a known goal.
 
-- Classical DWA showed oscillations and sometimes missed narrow passages
-- Optimized DWA achieved smoother trajectories and faster convergence
-
 Demo: {{< videoref label="test-gazebo" >}}.
 
 ### Turtlebot Tesing

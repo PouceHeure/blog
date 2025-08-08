@@ -7,7 +7,6 @@ image: /images/pouco2000/desk_crop.png
 github: https://github.com/PouceHeure/pouco2000
 ---
 
-
 ## Overview
 
 **Pouco2000** is a C++-based personal project that provides a full-stack solution for building a **physical control panel** to interact with ROS-based robots.
@@ -33,12 +32,13 @@ This hardware-software stack allows developers to:
 - Monitor feedback using LEDs or console tools
 - Deploy in both **local** and **remote ROS configurations**
 
-The following figure shows an example of desk created for the project, the wood has been sliced with laser machine, and then assembled to created the box.
-{{< figure src="/images/pouco2000/desk.jpeg" caption="Pouco2000 Desk" width="700">}}
+{{< figure src="/images/pouco2000/desk.jpeg" caption="Pouco2000 Desk" width="700" label="pouco-desk">}}
 
-This figure shows the electronic board prototypes, for the first creation, I used 2 arduino boards showing no limitation, allowing to add several micro-controller, managing several inputs.
-{{< figure src="/images/pouco2000/electronic_crop.png" caption="Electronic boards test" width="500">}}
+The {{< figref "pouco-desk" >}} shows an example of desk created for the project, the wood has been sliced with laser machine, and then assembled to created the box.
 
+{{< figure src="/images/pouco2000/electronic_crop.png" caption="Electronic boards test" width="500" label="pouco-electronic">}}
+
+This {{< figref "pouco-electronic" >}} shows the electronic board prototypes, for the first creation, I used 2 arduino boards showing no limitation, allowing to add several micro-controller, managing several inputs.
 
 ## System Architecture
 
