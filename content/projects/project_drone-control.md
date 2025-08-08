@@ -2,6 +2,7 @@
 title: "Drone Control with ROS"
 date: 2019-02-01
 tags: [control_optimization, core_technologies, robotics_autonomy, ros]
+codelang: ["cpp"]
 image: /images/drone-control/thumbnail.png
 description: "Controlling a Parrot drone using ROS"
 ---

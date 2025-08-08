@@ -2,6 +2,7 @@
 title: "Autonomous Vehicle Control"
 date: 2024-12-20
 tags: [control_optimization, robotics_autonomy, ros2]
+codelang: ["cpp"]
 description: Lateral and longitudinal control applied to a real autonomous vehicle, integrated with a navigation layer.
 image: "/images/autosys-control/webcam_onboard.png"
 ---

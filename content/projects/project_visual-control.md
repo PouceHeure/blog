@@ -2,6 +2,7 @@
 title: "Visual Control Applied To Autonomous Vehicle"
 date: 2023-02-01
 tags: [ai_ml, control_optimization, robotics_autonomy, sensing_perception]
+codelang: ["python"]
 # pinned: true
 description: "Control a vehicle using only camera images by linking lane features to vehicle speed and orientation."
 image: "/images/visual-control/situation_img.png"

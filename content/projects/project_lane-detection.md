@@ -2,6 +2,7 @@
 title: "Lane Detection"
 date: 2022-01-10
 tags: [ai_ml, robotics_autonomy, ros, sensing_perception]
+codelang: ["python"]
 image: /images/lane-detection/detection-result.png
 description: Lane detection from camera image based on deep-learning model (autoencoder).
 ---
