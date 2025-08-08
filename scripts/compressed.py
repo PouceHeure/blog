@@ -1,5 +1,6 @@
 import os
 import argparse
+import shutil
 from PIL import Image
 
 # Parse CLI arguments
@@ -20,7 +21,7 @@ except AttributeError:
 
 for root, _, files in os.walk(input_base):
     for file in files:
-        if file.lower().endswith((".jpg", ".jpeg", ".png")):
+        if file.lower().endswith((".jpg", ".jpeg", ".png", ".gif")):
             input_path = os.path.join(root, file)
             relative_path = os.path.relpath(input_path, input_base)
             output_path = os.path.join(output_base, relative_path)
@@ -32,6 +33,13 @@ for root, _, files in os.walk(input_base):
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
             try:
+                # If GIF → just copy without recompressing
+                if file.lower().endswith(".gif"):
+                    shutil.copy2(input_path, output_path)
+                    print(f"📋 Copied GIF: {relative_path}")
+                    continue
+
+                # For JPG / PNG
                 with Image.open(input_path) as img:
                     if img.mode in ("RGBA", "P"):
                         img = img.convert("RGB") if file.lower().endswith((".jpg", ".jpeg")) else img
@@ -40,9 +48,8 @@ for root, _, files in os.walk(input_base):
                     if img.width > max_size[0] or img.height > max_size[1]:
                         img.thumbnail(max_size, resample)
 
-
                     if file.lower().endswith(".png"):
-                        # Try to quantize (optional for PNG compression)
+                        # Optional quantization for PNG
                         if img.mode != "P":
                             img = img.convert("P", palette=Image.ADAPTIVE)
                         img.save(output_path, format="PNG", optimize=True)

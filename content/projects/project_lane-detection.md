@@ -6,59 +6,86 @@ image: /images/lane-detection/detection-result.png
 description: Lane detection from camera image based on deep-learning model (autoencoder).
 ---
 
-
 ## Abstract
 
-Lane detection is a fundamental task for autonomous vehicles. While localization using GPS and HD maps is precise under ideal conditions, visual-based lane detection provides a critical redundancy, especially where GNSS signals are noisy or maps are outdated. This project implements a deep learning lane detection pipeline using a convolutional autoencoder, capable of identifying and segmenting multiple lane boundaries under varied road conditions.
+Lane detection is a fundamental task for autonomous vehicles. While localization using GPS and HD maps is precise under ideal conditions, vision-based lane detection provides a critical redundancy, especially where GNSS signals are noisy or maps are outdated.
+This system implements a deep learning lane detection pipeline using a convolutional autoencoder, capable of identifying and segmenting multiple lane boundaries under varied road conditions. It uses only front-facing camera images.
 
-{{< youtube code="-KzQhDS5PkY" width="800" caption="Video demo, lane detection perform on youtube video (running 'online' with monitor recording)." >}}
+The pipeline combines image preprocessing, deep-learning inference, optional temporal tracking, and robust curve fitting to produce clean, reliable lane lines. It has been validated in both real-world driving and simulator environments such as Carla and Scaner.
 
-## Introduction to Lane Estimation
+{{< youtube code="-KzQhDS5PkY" width="800" caption="Video demo of lane detection running 'online'." >}}
 
-Accurate lane perception allows the vehicle to infer its relative position in the road and anticipate curves or road limits. Visual lane detection is a perception-first method, relying only on the camera image and its geometric projection.
+Example detections:
 
-In the following image, we show a simulated driving scene where visual lane boundaries are estimated and projected in real time onto the road.
-
-{{< figure src="/images/lane-detection/detection_curve.PNG" caption="Example of projected lane estimations in a simulated environment. Each colored line corresponds to a detected or inferred boundary." width="600">}}
+{{< figure src="/images/lane-detection/example-global.gif" caption="Lane detection output" width="700">}}
+{{< figure src="/images/lane-detection/example-global-seg.gif" caption="Lane detection + Create segmentation (demo 1)" width="700">}}
+{{< figure src="/images/lane-detection/example-global-seg-2.gif" caption="Lane detection + Create segmentation (demo 2)" width="700">}}
 
 ## Deep Learning Architecture
 
+### Global Pipeline
+
+The system is composed of multiple modules:
+- Autoencoder: Generates binary lane masks from the camera image.
+- Tracker (optional): ConvLSTM-based temporal model to improve stability across frames.
+- Lane Regression: Fits polynomial curves to detected lane masks.
+- Post-processing: Filters outliers and optionally produces drivable region segmentation.
+
+{{< figure src="/images/lane-detection/schema-global-pipeline.png" caption="Global lane detection pipeline" width="800">}}
+{{< figure src="/images/lane-detection/schema-input-output.png" caption="Input/output shapes for the model" width="500">}}
+
 ### Autoencoder Design
 
-We use a convolutional autoencoder to perform lane segmentation. The encoder compresses spatial information from the image while the decoder reconstructs four separate masks representing left and right boundaries (inner and outer for each side).
+A convolutional autoencoder is used for lane segmentation.
+The encoder compresses spatial information from the image, while the decoder reconstructs four separate binary masks representing lane boundaries (left border, left middle, right middle, right border).
 
 Each block in the architecture includes convolution layers, batch normalization, and ReLU activations. The decoder uses transpose convolutions to upsample back to the original resolution.
 
 {{< figure src="/images/lane-detection/models.png" caption="Lane detection model architecture: a symmetric autoencoder composed of convolutional and upsampling layers. The output is four segmentation masks for the expected lanes." width="600">}}
 
-### Output Structure
+## Tracking Module (Optional)
 
-The network predicts four binary images. Each one corresponds to a potential lane line such as left border, left middle, right middle, and right border. These images are then processed further to extract geometrical information.
+A ConvLSTM tracker can refine predictions by considering the previous N frames, filling gaps and smoothing noise.
+It is trained with noise-augmented data to increase robustness.
+
+{{< figure src="/images/lane-detection/schema-tracking-explication.png" caption="Tracking module explanation" width="800">}}
+{{< figure src="/images/lane-detection/schema-convlstm-channels.png" caption="ConvLSTM tracking architecture" width="800">}}
+{{< figure src="/images/lane-detection/example-tracker-prediction.png" caption="Tracker mask prediction from previous frames" width="500">}}
+{{< figure src="/images/lane-detection/example-tracker-raw-prediction.gif" caption="Tracker raw prediction animation" width="500">}}
+{{< figure src="/images/lane-detection/example-tracker-improve.gif" caption="Tracker improving lane mask prediction" width="500">}}
 
 ## Post-processing and Lane Regression
 
-### From Raw Points to Lane Detection
-The core goal of the model is to detect lane lines. After the network outputs a set of candidate points, we apply RANSAC polynomial regression to robustly fit curves and filter out outliers. This results in clean, reliable lane lines suitable for downstream planning and control.
-While segmentation of drivable regions can be derived from the fitted lanes, it is considered an optional extension rather than the main objective.
+After mask prediction, RANSAC polynomial regression is applied to fit curves for each lane boundary, filtering out outliers and producing consistent lane shapes.
 
-In the example below, the three stages are shown: raw point output from the model, fitted curves using RANSAC, and optional segmentation generated from the final lane geometry.
+{{< figure src="/images/lane-detection/schema-regression-colors.png" caption="Lane boundary regression pipeline" width="800">}}
 
 {{< figure src="/images/lane-detection/detection-result.png" caption="Post-processing steps for lane detection. From top to bottom: raw line detection, curve fitting, and optional segmentation into drivable regions." width="700">}}
 
 ## Visual Results
 
-We evaluated the model on several test scenarios taken from urban and highway environments. The model proved robust to occlusion, faded lines, and curves.
+The model is robust to occlusions, faded markings, curves, and lighting changes.
+Below are examples in varied scenarios:
 
 {{< subfigure images="/images/lane-detection/vs_simple.jpg,/images/lane-detection/vs_curve.jpg,/images/lane-detection/vs_complexe.jpg,/images/lane-detection/vs_without_mark.jpg" captions="Case: Simple, Case: Curve, Case: Complex Markings, Case: Missing Markings" >}}
 
-The system is able to detect lane lines accurately even when markings are partially missing or distorted by lighting conditions.
+Real-world example:
+{{< figure src="/images/lane-detection/example-real.gif" caption="Real-world lane detection" width="500">}}
+
+Simulator examples:
+Carla
+{{< figure src="/images/lane-detection/example-carla.gif" caption="Simulator: Carla" width="500">}}
+Scaner
+{{< figure src="/images/lane-detection/example-scaner.gif" caption="Simulator: Scaner" width="500">}}
 
 ## Integration with Visual Servoing
 
-Once the lane is detected, the vehicle can compute a local path reference. Using a visual servoing controller, we derive a control law to align the vehicle with the detected centerline. This approach works especially well in structured environments like highways or test tracks.
+Once the lane is detected, a local path reference is computed.
+Using a visual servoing controller, the vehicle aligns with the detected centerline by adjusting linear (v) and angular (w) velocities to minimize camera-to-lane deviation.
 
-The control inputs $(v, w)$ (linear and angular velocity) are calculated by minimizing the distance between the camera's forward direction and the lane center trajectory.
+{{< refer href="/projects/project_visual-control/" project="VISUAL CONTROL APPLIED TO AUTONOMOUS VEHICLE">}}
 
-<!-- ## Conclusion and Outlook
 
-This lane detection system combines deep learning, robust geometric fitting, and real-time camera input to provide an end-to-end vision-based perception solution. Future enhancements could include incorporating temporal filtering using LSTMs or optical flow, adapting to multi-lane or lane-change scenarios, and extending to 3D environments with stereo vision or LiDAR fusion. -->
+## Dataset
+
+The model is trained on the CuLane dataset (https://xingangpan.github.io/projects/CULane.html), transformed into binary lane masks using a custom preprocessing script.
