@@ -16,6 +16,7 @@ theme = "hugo-latex"
         ordered = false
 
 [params]
+  favicon = "/favicon/"
   linkedin = "https://www.linkedin.com/in/hugo-pousseur/"
   github = "https://github.com/pouceheure/"
   linkedin_username = "hugo-pousseur"
