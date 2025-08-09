@@ -24,7 +24,7 @@ The process is divided into three stages:
 - **Local path generation**: adjusting the trajectory to avoid obstacles  
 - **Motion profile optimization**: generating smooth and feasible velocities along the path  
 
-{{< figure src="/images/local-planning/global-goal.png" caption="Mission structure from global target to real motion control" width="600">}}
+{{< figure src="/images/local-planning/global-goal.png" caption="Navigation stack I/O."  width="600">}}
 
 ## Navigation Stack Architecture
 
@@ -35,7 +35,7 @@ The architecture follows a modular structure in ROS2. Each node is responsible f
 - **Motion Generator**: assigns a feasible velocity profile  
 - **Controller**: executes the commands  
 
-{{< figure src="/images/local-planning/nodes.png" caption="Modular design of the local planner stack with key processing stages" width="700">}}
+{{< figure src="/images/local-planning/nodes.png" caption="Nodes and relations of the stack, including data exchange details." width="700">}}
 
 ## Global Route Planning
 

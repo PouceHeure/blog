@@ -66,7 +66,7 @@ Camera position also influences distribution: from a distance, bottom lights are
 
 The YOLO model was trained on the dataset described above.  
 
-{{< figure src="/images/traffic_light/model/train_batch18621.jpg" caption="Example Batch" width="500">}}
+{{< figure src="/images/traffic_light/model/train_batch18621.jpg" caption="Batch Image Example" width="500">}}
 
 Image quality and contrast vary due to different camera sources and YOLO training configurations. Data augmentation was applied during training, including transformations, translations, and color adjustments.
 
@@ -92,7 +92,7 @@ Proportion of actual objects successfully detected.
 
 ---
 
-- **mAP@0.5**
+- **mAP\@0.5**
 {{< equation >}}
 \text{mAP@0.5} = \text{mean}(AP_{\text{IoU}=0.5})
 {{< /equation >}}
@@ -101,7 +101,7 @@ Average precision across all classes at IoU = 0.5.
 
 ---
 
-- **mAP@0.5:0.95**
+- **mAP\@0.5:0.95**
 {{< equation >}}
 \text{mAP}_{[0.5:0.95]} = \frac{1}{10} \sum_{i=0}^{9} AP_{0.5 + 0.05i}
 {{< /equation >}}

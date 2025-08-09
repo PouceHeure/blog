@@ -19,3 +19,6 @@ static/images_old/
 
 # script
 scripts/deploy-test.sh
+
+# doc
+doc/
