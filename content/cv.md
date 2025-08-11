@@ -7,9 +7,9 @@ url: "/cv"
 
 ## <i class="bi bi-mortarboard me-3"></i> Education  
 - `2025`: Obtained the French National Qualification to Apply for Associate Professor (CNU – Section 27)  
-- `2020–2024`: PhD in Robotics, University of Technology of Compiègne — *[Thesis: Shared Navigation in a Cybernetic Multi-Agent Autonomous System](/articles/article_thesis/)*, Compiègne, France  
+- `2020–2024`: PhD in Robotics, University of Technology of Compiègne - *[Thesis: Shared Navigation in a Cybernetic Multi-Agent Autonomous System](/articles/article_thesis/)*, Compiègne, France  
 - `2018–2019`: Specialized Master's in Robotics, CentraleSupélec, Metz, France  
-- `2014–2019`: Engineering Degree in Computing, ESILV — *(Ranked 1st in class during the 1st and 2nd years of the engineering cycle)*, Paris, France  
+- `2014–2019`: Engineering Degree in Computing, ESILV - *(Ranked 1st in class during the 1st and 2nd years of the engineering cycle)*, Paris, France  
 
 ## <i class="bi bi-briefcase me-3"></i> Professional Experience  
 - `2023–2025`: *Research Engineer (CNRS)*, Heudiasyc Laboratory  
@@ -19,7 +19,7 @@ url: "/cv"
   - Delivered practical courses on Artificial Intelligence, Algorithms, and Robotics (sensors + ROS2).  
 - `2020–2023`: *Co-supervisor of Research Internships*, Heudiasyc Laboratory  
   - Supervised six Master’s students.  
-- `2022`: *Research Mission*, University of Tokyo (Fujimoto Lab)  
+- `2022`: *Research Mission*, University of Tokyo (Fujimoto Laboratory)  
   - Conducted [road adhesion estimation through vision](/projects/project_friction-detection/).  
 - `2019`: *Research Intern*, CEA-LIST  
   - Developed tools for collaborative robotics.  
