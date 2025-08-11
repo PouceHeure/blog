@@ -1,7 +1,7 @@
 ---
 title: "A Lightweight Multi-Agent System Library"
 date: 2020-09-07
-tags: [ai_ml]
+tags: [ai_ml, multi_agent_systems]
 codelang: ["python"]
 description: A simple Python library to build and simulate multi-agent systems with agents, environments, and message-passing networks.
 image: "https://raw.githubusercontent.com/PouceHeure/py_light_mas/master/.doc/py_light_mas-sequence.png"
