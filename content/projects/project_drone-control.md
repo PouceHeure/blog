@@ -4,18 +4,18 @@ date: 2019-02-01
 tags: [control_optimization, core_technologies, robotics_autonomy, ros]
 codelang: ["cpp"]
 image: /images/drone-control/thumbnail.png
-description: "Controlling a Parrot drone using ROS"
+description: "Control of a Parrot drone using ROS."
 ---
 
-## Context
+## Overview
 
-As part of my final master year project, we were tasked with developing a drone capable of autonomously flying over a designated area.  
-The project was divided into two main components: **path planning** and **control**.  
-My role was to control a Parrot Bebop drone using **ROS**. To achieve this, we used an existing ROS package that interfaces with Parrot's SDK.
+This project was part of a final-year master's program and involved developing a drone capable of autonomously flying over a predefined area.  
+The work was split into two main parts: **path planning** and **control**.  
+My responsibility was to control a Parrot Bebop drone using **ROS**, leveraging an existing ROS package that communicates with Parrot's SDK.
 
-{{< youtube code="8RcVpDUoFJc" width="800" caption="Drone control demo." >}}
+{{< youtube code="8RcVpDUoFJc" width="800" caption="Drone control demonstration." label="demo-drone">}}
 
-## Additional Developments
+## Additional Features
 
-- **Controller Watchdog**: Implemented a manual controller watchdog system that allows the user to take full manual control of the drone in case of system failure.
-- **Package Enhancement**: Modified the original **ROS** package to interface with additional SDK features provided by the manufacturer ([GitHub Pull Request](https://github.com/AutonomyLab/bebop_autonomy/pull/189)), enabling more advanced control using the drone's internal capabilities.
+- **Controller Watchdog**: Added a manual override system allowing the operator to take full control of the drone if the autonomous system fails.  
+- **Package Improvements**: Updated the original ROS package to support extra SDK functions from the manufacturer ([GitHub Pull Request](https://github.com/AutonomyLab/bebop_autonomy/pull/189)), enabling advanced control through the drone’s built-in features.

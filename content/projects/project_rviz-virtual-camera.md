@@ -9,61 +9,47 @@ description: "RViz2 plugin to publish virtual camera views as ROS 2 image topics
 
 ## Overview
 
-RViz2 is a visualization tool in ROS 2, widely used for debugging and introspecting robot data streams. While it supports visualizing camera feeds, markers, and 3D data, it lacks native functionality to **publish** rendered views as image topics, particularly from custom or fixed virtual viewpoints.
+RViz2 is a visualization tool in ROS 2 commonly used for inspecting and debugging robot data streams. It can display camera feeds, markers, and 3D data, but it does not natively provide the ability to **publish** its rendered views as image topics, especially from fixed or custom virtual viewpoints.
 
-This limitation makes it difficult to:
-- Capture high-quality visualizations for later review
-- Generate consistent visual data for testing
-- Stream synthetic camera views over the network
+This gap makes it harder to:
+* Capture consistent, high-quality views for later review
+* Generate reproducible datasets for testing
+* Stream synthetic camera perspectives over a network
 
-{{< youtube code="1-QI8J1kdfM" width="800" caption="Demo video, example of video from a virtual camera." >}}
+{{< youtube code="1-QI8J1kdfM" width="800" caption="Demo: Example output from a virtual camera." label="virtual-camera-demo">}}
+
+Demo: {{< videoref label="virtual-camera-demo" >}}.
 
 ## Motivation
 
-The ability to capture a specific rendered perspective is useful for many robotics tasks:
-- Generating dataset frames from simulation
-- Debugging perception algorithms
-- Recording reproducible visualizations
-- Creating visual outputs for reports or demos
+Having a way to capture a defined rendered perspective is useful in several contexts:
+* Producing dataset frames from simulation
+* Debugging and tuning perception algorithms
+* Recording reproducible visualizations
+* Preparing visual content for reports and demonstrations
 
-Instead of relying on manual screen recording or external capture tools, a more integrated and programmatic solution was needed.
+Without such a feature, users often rely on manual screen recording or external capture software, which can be less precise and less reproducible.
 
-## Proposed Solution
+## Implementation
 
-To address this, I developed a **custom RViz2 plugin** that adds a virtual camera into the RViz rendering pipeline. This virtual camera acts as a ROS 2 image publisher, providing live snapshots of the scene from a configurable point of view.
+A **custom RViz2 plugin** was developed to add a virtual camera directly into the RViz rendering pipeline.  
+This virtual camera functions as a ROS 2 image publisher, continuously providing images from a configurable point of view.
 
-{{< figure src="/images/rviz-virtual-camera/rviz_virtual_camera.png" caption="Screenshot example: Left - RViz2 view; Right - rqt_image_view displaying the virtual camera feed." width="500">}}
+{{< figure src="/images/rviz-virtual-camera/rviz_virtual_camera.png" caption="Left: RViz2 main view. Right: rqt_image_view showing the virtual camera output." width="500" label="rviz-camera-output">}}
 
-This plugin enables users to record and analyze rendered perspectives without needing to manually screen capture or replicate views.
+The {{< figref "rviz-camera-output" >}} allows recording and analyzing rendered perspectives without manual screen capture or the need to replicate the viewpoint.
 
 ## Features
 
-The virtual camera plugin supports a variety of configurable parameters to adapt to different use cases:
+The virtual camera supports the following configurable parameters:
 
-- **Camera Name**: Custom name for topic and identification
-- **Attached Frame**: TF frame the camera is bound to (e.g., `/map`, `/base_link`)
-- **Field of View**: Horizontal field of view (in degrees)
-- **Clipping Planes**: Near and far clip distances for rendering
-- **Background Color**: Set background to match scene requirements
-- **Image Resolution**: Width and height of the rendered output
+* **Camera Name** – Used for topic naming and identification
+* **Attached Frame** – TF frame to which the camera is linked (e.g., `/map`, `/base_link`)
+* **Field of View** – Horizontal field of view in degrees
+* **Clipping Planes** – Near and far clip distances
+* **Background Color** – Adjustable to match the scene or remove distractions
+* **Image Resolution** – Width and height of the output image
 
-These settings can be adjusted dynamically within RViz, and the plugin can be easily integrated into existing RViz configurations or launch files.
+These settings can be changed during runtime in RViz. The plugin can be included in existing RViz configurations or launch files for automated workflows.
 
-{{< figure src="/images/rviz-virtual-camera/config.png" caption="Plugin configuration." width="300">}}
-
-<!-- ## Applications
-
-This plugin is particularly useful for:
-
-- **Simulation pipelines**: Capture synthetic sensor data from Gazebo or other simulated environments.
-- **Testing and debugging**: Monitor specific visual perspectives without physical cameras.
-- **Offline video generation**: Render visualizations from logs or bag files in a reproducible manner.
-- **Educational content**: Record consistent viewports for tutorials and presentations. -->
-
-
-<!-- ## Conclusion
-
-The RViz2 Virtual Camera plugin extends the standard visualization capabilities of ROS 2 by offering a way to publish high-quality, configurable image streams directly from the 3D rendered scene. This tool simplifies debugging, demo creation, and data generation, and opens the door to richer, programmatic use of RViz.
-
-Stay tuned for the full video demo and release instructions. -->
-
+{{< figure src="/images/rviz-virtual-camera/config.png" caption="Configuration panel of the virtual camera plugin." width="300" label="rviz-camera-config">}}

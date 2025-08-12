@@ -3,36 +3,32 @@ title: "Lovo Anti-theft Bicycle Connected"
 date: 2017-08-07
 tags: [core_technologies]
 codelang: ["cpp","java"]
-description: "Anti-theft bicycle system using Arduino, IMU, Sigfox, and Firebase to detect motion and notify users via app."
+description: "Connected anti-theft bicycle system using Arduino, IMU, Sigfox, and Firebase to detect motion and notify users."
 image: "/images/lovo/thumbnail.png"
 ---
 
-## Presentation
+## Overview
 
-Bicycle theft detector using the Sigfox network. This device was developed using an Arduino board, combined with an inertial measurement unit. In case of abnormal behavior, i.e. acceleration exceeding a defined threshold, the system sends a request over the Sigfox network, then, using the Firebase API, a notification is sent to the user.
+This project is a bicycle theft detection system based on the Sigfox network. It uses an Arduino board combined with an inertial measurement unit (IMU). When abnormal motion is detected, such as acceleration above a set threshold, the device sends data via Sigfox. The information is then forwarded to Firebase, which triggers a notification to the user’s mobile application.
 
-{{< youtube code="npHM27lVe48" width="800" caption="Video demo, system send a notification after moving." label="demo-lovo">}}
+{{< youtube code="npHM27lVe48" width="800" caption="Video demo: the system sends a notification when motion is detected." label="demo-lovo">}}
 
-## Module
+## Hardware
 
-### Hardware
-
-The module is composed of an Arduino MKR FOX 1200 board, allowing use of the Sigfox network. 
-Coupled with it is an IMU board, which provides the module's acceleration data.
-LEDs are added to provide status feedback for easier understanding and debugging.
+The device is built around an Arduino MKR FOX 1200, enabling Sigfox communication. An IMU board measures acceleration. LEDs are included to indicate status and assist during testing.
 
 {{< figure src="/images/lovo/thumbnail.png" caption="Hardware device." width="400">}}
 
-### Android Application
+## Android Application
 
-This application was developed in Java using the Android Studio IDE. It allows users to add modules and analyze frames sent over the Sigfox network. It also enables, via the Firebase API, the reception of notifications.
+Developed in Java with Android Studio, the app allows users to register devices, view data received through Sigfox, and receive alerts via Firebase.
 
-{{< subfigure images="/images/lovo/app_add.png,/images/lovo/app_trames.png" captions="Screenshot app add page,Screenshot request log page" >}}
+{{< subfigure images="/images/lovo/app_add.png,/images/lovo/app_trames.png" captions="App module registration page,App request log page" >}}
 
 ## System Workflow
 
-1. Based on testing, a threshold value was defined to identify suspicious acceleration. Once this threshold is exceeded, the system classifies the situation as a theft. 
-2. A frame is then sent via the Sigfox network. An internal Sigfox gateway propagates this frame to the internet, which then makes a request to the Firebase API to send a notification to the mobile app. 
-3. The user is then notified that the bicycle has been stolen.
+1. The IMU continuously monitors acceleration. If it exceeds a predefined threshold, the event is classified as a theft attempt.  
+2. A Sigfox frame is sent to the network. The Sigfox backend forwards the data to Firebase.  
+3. Firebase pushes a notification to the Android app, alerting the user.  
 
-The {{< videoref label="demo-lovo" >}} shows an example of the workflow application.
+The {{< videoref label="demo-lovo" >}} demonstrates this process in action.

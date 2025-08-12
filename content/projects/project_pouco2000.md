@@ -3,43 +3,43 @@ title: "Pouco2000 - Customizable Physical Interface for ROS Robots"
 date: 2020-06-15
 tags: [core_technologies, debugging, ros]
 codelang: ["cpp"]
-description: Modular physical control panel for interacting with ROS-based robots, with full Arduino and ROS integration.
+description: Modular physical control panel for interacting with ROS-based robots, with Arduino and ROS integration.
 image: /images/pouco2000/desk_crop.png
 github: https://github.com/PouceHeure/pouco2000
 ---
 
 ## Overview
 
-**Pouco2000** is a C++-based personal project that provides a full-stack solution for building a **physical control panel** to interact with ROS-based robots.
+**Pouco2000** is a C++-based project providing a modular physical control panel for interacting with ROS-based robots.
 
 The system includes:
 
-- A modular **Arduino library** for defining hardware inputs/outputs
+- An **Arduino library** for defining hardware inputs and outputs
 - ROS packages for **serial communication**, **message extraction**, and **parameter introspection**
-- Utilities for visual monitoring and live debugging
+- Utilities for visual monitoring and debugging in real-time
 
 {{< youtube code="f1S2iDkwEEM" width="800" caption="Video demo, hardware and software test." >}}
 
 ## Motivation
 
-Debugging and interacting with a robot via only terminal commands or software interfaces can be slow and impractical especially in field conditions.
+Using only terminal commands or software interfaces to control and debug robots can be slow, especially in field environments.
 
-**Pouco2000** was designed to enable the use of **physical components** (buttons, knobs, switches, displays) for controlling and debugging robotic systems in real-time.
+**Pouco2000** enables the integration of physical components such as buttons, knobs, switches, and displays to control and debug robots efficiently.
 
-This hardware-software stack allows developers to:
+With this hardware-software setup, developers can:
 
-- Trigger actions using switches or buttons
-- Adjust parameters using knobs or sliders
-- Monitor feedback using LEDs or console tools
-- Deploy in both **local** and **remote ROS configurations**
+- Trigger actions with switches or buttons
+- Adjust parameters with knobs or sliders
+- Monitor system feedback using LEDs or console tools
+- Deploy in **local** or **remote ROS configurations**
 
 {{< figure src="/images/pouco2000/desk.jpeg" caption="Pouco2000 Desk" width="700" label="pouco-desk">}}
 
-The {{< figref "pouco-desk" >}} shows an example of desk created for the project, the wood has been sliced with laser machine, and then assembled to created the box.
+The {{< figref "pouco-desk" >}} shows a control desk made for the project. The wooden parts were laser-cut and assembled to form the enclosure.
 
 {{< figure src="/images/pouco2000/electronic_crop.png" caption="Electronic boards test" width="500" label="pouco-electronic">}}
 
-The {{< figref "pouco-electronic" >}} shows the electronic board prototypes, for the first creation, I used 2 arduino boards showing no limitation, allowing to add several micro-controller, managing several inputs.
+The {{< figref "pouco-electronic" >}} shows early electronic board prototypes. Two Arduino boards were used initially, allowing multiple microcontrollers to handle various inputs without limitations.
 
 ## System Architecture
 
@@ -49,59 +49,52 @@ The {{< figref "pouco-electronic" >}} shows the electronic board prototypes, for
 
 ### Structure
 
-The ROS-side is organized into two meta-packages:
+The ROS side consists of two meta-packages:
 
 - **pouco2000_src**
   - `pouco2000_ros`: main communication layer
-  - `pouco2000_msgs`: custom messages
-  - `pouco2000_tools`: utility libraries for extracting and filtering input
+  - `pouco2000_msgs`: custom message definitions
+  - `pouco2000_tools`: utilities for data extraction and filtering
 - **pouco2000_examples**
   - `pouco2000_popup`, `pouco2000_demo`, `pouco2000_gazebo`: usage examples
-
 
 ## ROS Side
 
 ### `pouco2000_ros`
 
-This is the **core communication package** that aggregates data from the microcontroller and republishes it in a structured message.
+The **main communication package** gathers data from the microcontroller and republishes it in structured ROS messages.
 
-**Main libraries:**
+**Core libraries:**
 
-- `pouco2000`: contains the Controller class definition
-- `pouco2000_debug`: provides logging and visualization helpers
-- `pouco2000_introspection`: publishes filtered subsets of the message
-- `pouco2000_monitor`: allows terminal-based live monitoring
+- `pouco2000`: Controller class definition
+- `pouco2000_debug`: logging and visualization tools
+- `pouco2000_introspection`: publishes filtered message subsets
+- `pouco2000_monitor`: terminal-based live monitoring
 
-#### Nodes
+**Nodes:**
 
-- **`controller_node`**  
-  Subscribes to microcontroller input and publishes `pouco2000::Controller` messages.
-
-- **`monitor_node`**  
-  Displays parsed message content in the terminal.
+- **`controller_node`** – Subscribes to microcontroller inputs and publishes `pouco2000::Controller` messages
+- **`monitor_node`** – Displays parsed message data in the terminal
 
 ### `pouco2000_ros_tools`
 
-Provides reusable **C++ extractors** for accessing parts of the controller message.
+Provides reusable C++ extractors to access parts of the controller message:
 
-| Field               |  Method          | Purpose                       |
-| ------------------- |  --------------- | ----------------------------- |
-| Buttons             |  `is_push()`     | Checks if button is pressed   |
-| SwitchOnOff         |  `is_on()`       | Checks if switch is ON        |
-| SwitchMode          |  `is_mode(mode)` | Checks active mode for switch |
-
+| Field       | Method           | Purpose                       |
+|-------------|------------------|-------------------------------|
+| Buttons     | `is_push()`      | Check if a button is pressed  |
+| SwitchOnOff | `is_on()`        | Check if switch is ON         |
+| SwitchMode  | `is_mode(mode)`  | Check active mode of a switch |
 
 ## Arduino Side
 
-The `pouco2000_ard` library abstracts hardware elements and communicates over serial using `rosserial`.
+The `pouco2000_ard` library abstracts hardware elements and communicates with ROS using `rosserial`.
 
-<!-- {{< figure src="https://raw.githubusercontent.com/PouceHeure/pouco2000/master/.doc/diagram/output/pouco2000_arduino_layer.png" caption="Arduino abstraction layer with ROS integration" width="500">}} -->
+Typical workflow:
 
-Typical usage involves:
-
-- Declaring pin arrays
-- Creating handle objects for each field
-- Initializing in `setup()`, updating in `loop()`
+- Define pin arrays
+- Create handle objects for each input/output type
+- Initialize in `setup()` and update in `loop()`
 
 Typedefs simplify code:
 
@@ -109,11 +102,11 @@ Typedefs simplify code:
 typedef Handle<Button, Buttons::_data_type, Buttons> HandleButtons;
 ```
 
-Arduino examples are provided and visible in the Arduino IDE (`File > Examples > pouco2000_ard`).
+Arduino examples are available in the IDE (`File > Examples > pouco2000_ard`).
 
 ## Message Format
 
-The central message type used is `pouco2000::Controller`:
+The main message type is `pouco2000::Controller`:
 
 ```bash
 Header header
@@ -123,7 +116,6 @@ uint8[] switchs_mode
 float32[] potentiometers_circle
 float32[] potentiometers_slider
 ```
-
 
 ## Example Configurations
 
@@ -135,7 +127,6 @@ float32[] potentiometers_slider
 
 {{< figure src="https://raw.githubusercontent.com/PouceHeure/pouco2000/master/.doc/diagram/output/pouco2000_configuration_master.png" caption="Local configuration connected directly to a ROS master" width="500">}}
 
-
 ## Monitor Tool
 
 Launch controller:
@@ -144,20 +135,18 @@ Launch controller:
 roslaunch pouco2000_ros release.launch
 ```
 
-Launch monitor (optional):
+Optional: launch monitor:
 
 ```bash
 roslaunch pouco2000_ros monitor.launch
 ```
 
-
 ## Documentation
 
-The package includes Doxygen documentation generated via CMake:
+Doxygen documentation can be generated with:
 
 ```bash
 catkin build
 ```
 
-Docs will be located in each package’s `doc/` folder.
-
+The documentation will be available in each package’s `doc/` directory.

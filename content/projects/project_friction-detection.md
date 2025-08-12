@@ -10,18 +10,19 @@ article: /articles/article_camera-based-control/
 
 ## Mission Context
 
-As part of a European research project, I conducted a two-month research mission at the University of Tokyo to investigate road surface friction estimation using only a forward-facing camera.
+As part of a European research project, I contributed to a two-month research mission conducted at the University of Tokyo, focusing on road surface friction estimation using only a forward-facing camera.
 
-This led to the publication of a paper, {{< cite ProposalUTakumi >}}, at IEEE AIM 2023, in collaboration with the University of Tokyo and UTC. The system uses image segmentation, confidence modeling, geometric projection, and accumulation into a global surface grid map.
+This work led to the publication of a paper, {{< cite ProposalUTakumi >}}, at IEEE AIM 2023, in collaboration with the University of Tokyo and UTC. The system uses image segmentation, confidence modeling, geometric projection, and accumulation into a global surface grid map.
 
-{{< youtube code="mbmAByTlTSU" width="800" caption="Video demo, road friction estimation." >}}
+{{< youtube code="mbmAByTlTSU" width="800" caption="Video demo: road friction estimation." label="road-friction-demo" >}}
 
-The experiment was conducted in partnership with the Fujimoto Lab (University of Tokyo) as part of the OWheel collaboration. The lab focuses on autonomous vehicles and control systems, particularly for electric vehicles and in-wheel motor platforms.
+Demo: {{< videoref label="road-friction-demo" >}}.
+
+The experiment was conducted with the Fujimoto Lab (University of Tokyo) as part of the OWheel collaboration. The laboratory specializes in autonomous vehicles and control systems, particularly for electric vehicles and in-wheel motor platforms.
 
 {{< figure src="/images/road-friction/fujimoto_laboratory.jpg" caption="Laboratories of the University of Tokyo, Kashiwa campus." width="500">}}
 
-The mission goal was to detect road surface types in real time from a front-facing camera and provide this information to a traction controller.
-
+The mission aimed to detect road surface types in real time from a front-facing camera and provide this information to a traction controller.
 
 ## Image Processing Pipeline
 
@@ -37,18 +38,17 @@ The mission goal was to detect road surface types in real time from a front-faci
 
 The image classifier generates:
 
-- **ROAD** (normal traction)
-- **SLIPPERY** (blue polymer)
+- **ROAD** (normal traction)  
+- **SLIPPERY** (blue polymer)  
 - **UNKNOWN**
 
 {{< figure src="/images/road-friction/image_processing_results.png" caption="Left: original image. Middle: binary mask. Right: confidence-weighted prediction." width="700">}}
-
 
 ## Projection and Grid Map Generation
 
 ### Camera to World Projection
 
-Each pixel $(u, v)$ is projected to 3D using:
+Each pixel $(u, v)$ is projected into 3D space using:
 
 {{< equation >}}
 x_c = \frac{(u - c_x)}{f_x} \cdot z(v)
@@ -58,28 +58,26 @@ x_c = \frac{(u - c_x)}{f_x} \cdot z(v)
 y_c = \frac{(v - c_y)}{f_y} \cdot z(v)
 {{< /equation >}}
 
-where $z(v)$ is the estimated distance from camera to ground, computed via linear regression.
+where $z(v)$ is the estimated distance from camera to ground, obtained via linear regression.
 
-The pose is corrected using **GPS + IMU + Kalman filter**. This allows transforming image pixels into world coordinates and inserting them into a 2D grid.
+Pose correction is performed using **GPS + IMU + Kalman filter** to convert pixel coordinates into world coordinates for insertion into a 2D grid.
 
 {{< figure src="/images/road-friction/image_projection.png" caption="Pipeline: projecting detection to grid map using calibrated camera + GPS pose." width="700">}}
 
-
 ### Accumulation and Trust Masking
 
-To ensure stability, each grid cell is updated across multiple frames. Distant pixels receive lower confidence due to both projection error and poor color reliability.
+Each grid cell is updated over multiple frames to improve stability. Confidence is reduced for distant pixels due to higher projection error and reduced color reliability.
 
 {{< figure src="/images/road-friction/data_binary_trust_mask.png" caption="Trust mask improves reliability in central image zones." width="700">}}
 
-
 ## Grid Output and Road Profile
 
-The grid map accumulates surface class over time. Two buffers are maintained:
+The global grid stores accumulated surface classifications over time, with two buffers:
 
-- $B_{ij}$: slippery class (blue-sheet)
-- $R_{ij}$: normal road class
+- $B_{ij}$: slippery surface class (blue-sheet)  
+- $R_{ij}$: normal road class  
 
-Each projected detection updates the relevant grid:
+Update rule:
 
 {{< equation >}}
 \begin{cases}
@@ -98,29 +96,26 @@ G_{ij} =
 \end{cases}
 {{< /equation >}}
 
-This grid is transformed into **friction profiles** for left and right wheels.
+This grid is used to build **friction profiles** for left and right wheels.
 
 {{< figure src="/images/road-friction/output_road_friction_detection.png" caption="Example of final friction profile used by controller." width="700">}}
 
-
 ## Runtime Optimization
 
-Image resolution reduction was critical. Projection runtime dropped by over $10\times$ by resizing images before processing.
+Image resolution reduction was crucial. Projection runtime decreased by over $10\times$ when images were resized before processing.
 
 {{< figure src="/images/road-friction/data_plot_with_reduction.png" caption="With downsampling: efficient per-frame processing time." width="500">}}
 
-
 ## Experimental Setup
 
-- EV testbed with onboard RGB camera and GPS
-- Blue polymer used to simulate slippery surfaces
-- Kalman filtering improved GPS position
-- Real-time fusion of camera and pose data
+- EV testbed with onboard RGB camera and GPS  
+- Blue polymer simulating slippery surfaces  
+- Kalman filtering to improve GPS positioning  
+- Real-time fusion of camera and pose data  
 
 {{< figure src="/images/road-friction/tool_recorder.png" caption="Custom tool for GPS + Camera synchronized dataset creation." width="600">}}
 
 {{< figure src="/images/road-friction/data_gps_issue_efk.png" caption="Left: raw GPS. Right: with Kalman filtering." width="700">}}
-
 
 ## Evaluation
 
@@ -132,7 +127,6 @@ Image resolution reduction was critical. Projection runtime dropped by over $10\
 
 {{< figure src="/images/road-friction/profiles/double/plot_road_profiles_errors.png" caption="Distance error between predicted and true profile." width="600">}}
 
-
 ### Case 2: Asymmetric Surface
 
 {{< figure src="/images/road-friction/profiles/mixed/image_scenario_selected.png" caption="Vehicle with offset slippery zone." width="400">}}
@@ -141,32 +135,30 @@ Image resolution reduction was critical. Projection runtime dropped by over $10\
 
 {{< figure src="/images/road-friction/profiles/mixed/plot_road_profiles_errors.png" caption="Prediction error across path length." width="600">}}
 
-
 ## Slip Ratio Results
 
-The slip ratio is defined as:
+Slip ratio is defined as:
 
 {{< equation >}}
 s = \frac{Rw - u}{Rw}
 {{< /equation >}}
 
 Where:
-- $Rw$ is wheel speed
-- $u$ is vehicle forward velocity
+- $Rw$: wheel speed  
+- $u$: vehicle forward velocity  
 
-The use of visual-based friction prediction reduced slip ratio **by 50%**, compared to wheel-only estimation.
+Visual-based friction prediction reduced slip ratio **by 50%** compared to wheel-only estimation.
 
 {{< figure src="/images/road-friction/slip_results.png" caption="Slip ratio: visual-based control (red) vs. wheel-sensor-only (blue)." width="700">}}
 
-
 ## Conclusion
 
-- Camera-only system provides accurate road surface detection
-- Friction grid enables reliable prediction
-- Real-time compatibility demonstrated
-- Controller benefits: reduced slip and better adaptation
+- Camera-based approach enables accurate real-time road surface detection  
+- Friction grid provides stable and reliable predictions  
+- System demonstrated real-time compatibility  
+- Traction controller performance improved with reduced slip  
 
-This approach validates vision as a viable modality for low-cost, efficient, and anticipatory traction control.
+This confirms vision as a feasible solution for low-cost and anticipatory traction control in autonomous and semi-autonomous vehicles.
 
 ## References
 

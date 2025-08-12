@@ -8,78 +8,77 @@ description: "Modular ROS architecture enabling coordinated task execution betwe
 article: /articles/article_cooperative-architecture/
 ---
 
-As part of a research internship, I designed and implemented a modular ROS architecture to support cooperative navigation between heterogeneous autonomous vehicles, specifically drones (UAVs) and ground robots (UGVs). The goal was to build a scalable multi-robot system capable of dynamic task allocation and coordinated execution across different hardware platforms.
+## Context
 
-The system leverages a unified communication protocol, distributed ROS nodes, and a flexible namespace structure to manage multiple robots from a central ROS master.
+As part of a research internship project, a modular ROS architecture was designed to enable cooperative navigation between heterogeneous autonomous vehicles: drones (UAVs) and ground robots (UGVs).  
+The contribution focused on supporting the development and implementation of this system, which aimed to be scalable, with dynamic task allocation and coordinated execution across different hardware platforms.
 
-{{< youtube code="BZMFS-EkR4M" width="800" caption="Video demo, multi robots cooperation." >}}
+The architecture uses a unified communication protocol, distributed ROS nodes, and a namespace layout allowing multiple robots to be managed from a central ROS master.
 
+{{< youtube code="BZMFS-EkR4M" width="800" caption="Video demo: multi-robot cooperation." label="multi-robots-demo" >}}
 
+Demo: {{< videoref label="multi-robots-demo" >}}.
 
 ## Core Architecture
 
 ### Overview
 
-The architecture consists of three primary components:
+The system is organized around three main components:
 
 1. **Central ROS Master (PC)**  
-   Hosts coordination logic and global launchers. Acts as the core scheduler and monitor.
+   Hosts coordination logic and global launchers. Acts as scheduler and monitor.
 
 2. **UGVs (ROS-based robots)**  
-   Each UGV runs a set of common and robot-specific ROS nodes to handle navigation, teleoperation, and TCP communication.
+   Each UGV runs both common and robot-specific ROS nodes for navigation, teleoperation, and TCP communication.
 
-3. **Drones (TCP-based clients)**  
-   Lightweight platforms that communicate with UGVs via TCP. Each drone exchanges structured task data and state updates with a specific ground robot.
+3. **Drones (TCP clients)**  
+   Lightweight platforms communicating with UGVs via TCP. Each drone exchanges structured task data and state updates with a specific ground robot.
 
 ### Robot Architecture
 
-The ROS Robot architecture is defined in two parts: 
-- common part, common for every UGV robot;
-- specefic part, depending of the UGV hardware, control architecture;
+The ROS robot stack is split into two layers:
+* common modules shared by all UGVs
+* specific modules tied to the hardware and control architecture of each UGV
 
 {{< figure src="/images/multi-robots/robot_architecture.png" caption="Robot ROS architecture." label="multi-robots_robot_architecture" width="800">}}
 
-The {{<figref multi-robots_robot_architecture>}} represents the ROS architecture developed for this project.
+The {{< figref "multi-robots_robot_architecture" >}} shows the ROS nodes and interfaces used in the project.
 
 #### Robot-Specific Packages
 
-Located in the `robots/` directory, these packages contain hardware-specific configurations and interfaces per robot type (e.g., Turtlebot, Jetracer).
-
+These are located in the `robots/` directory and provide hardware interfaces and configurations for each robot type (e.g., Turtlebot, Jetracer).
 
 ### Communication Model
 
-Drones and UGVs exchange data over TCP through a **dual-channel architecture**:
+Drones and UGVs exchange data over TCP through a dual-channel setup:
 
-- **Drone to UGV**:  
-  The drone acts as a client and sends mission-related data, including target coordinates and task instructions.
+* **Drone → UGV**  
+  The drone acts as a client and sends mission data such as target coordinates and task instructions.
 
-- **UGV to Drone**:  
-  The UGV operates a TCP server to provide real-time status and connection information (such as IP and port) back to the drone.
+* **UGV → Drone**  
+  The UGV hosts a TCP server to publish status and connection details (IP and port) back to the drone.
 
-This bi-directional communication enables dynamic tasking, status reporting, and reliable coordination between airborne and ground agents.
-
-
+This bidirectional link supports dynamic tasking, status reporting, and reliable coordination between airborne and ground agents.
 
 ### Trame Management
 
-Trame (data packet) handling is consistent across robots and includes:
+Data packets (“trames”) follow a consistent management process across robots:
 
-- **Trame Content**  
-  Defines the structure of exchanged messages, such as tasks, targets, and statuses.
+* **Trame Content**  
+  Defines the structure for tasks, targets, and status messages.
 
-- **Trame Distribution**  
-  Assigns messages individually to each robot, ensuring task segregation in multi-robot scenarios.
+* **Trame Distribution**  
+  Sends messages to individual robots, ensuring isolated task execution in multi-robot scenarios.
 
-- **Trame Sequence**  
-  Ensures ordered delivery and execution, supporting safe and predictable behavior.
+* **Trame Sequence**  
+  Preserves ordering to ensure predictable and safe execution.
 
+{{< figure src="/images/multi-robots/trame_sequence.png" caption="Trame (data packet) sequence." label="trame-sequence" width="500">}}
 
-{{< figure src="/images/multi-robots/trame_sequence.png" caption="Trame sequence scheme." width="500">}}
-
-
+The {{< figref "trame-sequence" >}} illustrates the packet flow and ordering in task execution.
 
 ## Namespace and Multi-Robot Configuration
 
-Each robot runs under a dedicated namespace (e.g. `/turtlebot/robot`), which isolates its ROS topics and services from others. This structure is critical for running multiple identical robots simultaneously.
+Each robot operates under a dedicated namespace (for example, `/turtlebot/robot`) to keep topics and services isolated. This setup is essential for running multiple identical robots in parallel.
 
-ROS networking follows the standard [Multiple Machines Tutorial](http://wiki.ros.org/ROS/Tutorials/MultipleMachines), with the PC as the master and robots as remote clients. IP and environment variables (`ROS_MASTER_URI`, `ROS_IP`) must be configured on each device.
+ROS networking follows the Multiple Machines configuration, with the PC as master and robots as remote clients. Each device must be configured with the appropriate `ROS_MASTER_URI` and `ROS_IP` values for the network.

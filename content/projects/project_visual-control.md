@@ -10,7 +10,7 @@ image: "/images/visual-control/situation_img.png"
 
 ## Abstract
 
-This project focuses on **Visual Servoing**, a control strategy that links image feature variations to robot velocities. Applied to autonomous vehicles, this approach enables lane-keeping purely from camera input, without GPS or map dependency. It integrates lane detection using deep learning and transforms the output into features used in a control law that centers the vehicle in the lane.
+As part of a research project, I contributed to the development and testing of a **Visual Servoing** framework, a control strategy that links image feature variations to robot velocities. Applied to autonomous vehicles, this approach enables lane-keeping purely from camera input, without GPS or map dependency. It integrates lane detection using deep learning and transforms the output into features used in a control law that centers the vehicle in the lane.
 
 The system was validated on simulated and real data, showing robust behavior in diverse road scenarios.
 

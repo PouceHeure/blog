@@ -10,7 +10,8 @@ article: /articles/article_general-multi-criteria/
 
 ## Abstract
 
-In the context of shared control between an autonomous driving system and a human driver, evaluating the **quality** of driving intentions is critical. A **driving intention** is defined as a short sequence of planned control actions (speed, steering) over a time horizon.
+As part of a collaborative research effort on shared control between an autonomous driving system and a human driver, I contributed to work focused on evaluating the **quality** of driving intentions.  
+A **driving intention** is defined as a short sequence of planned control actions (speed, steering) over a time horizon:
 
 {{< equation >}}
 I_t = \{(v,w)_{t+0\cdot\Delta t},(v,w)_{t+1\cdot\Delta t},...,(v,w)_{t+n\cdot\Delta t}\}
@@ -23,7 +24,7 @@ The evaluation challenge is twofold:
 - Determine whether an intention is **admissible** (safe, legal, feasible)  
 - Evaluate its **quality** based on criteria such as comfort, safety margin, and compliance with road constraints  
 
-This work introduces a quantification framework inspired by the Bellman principle, where a future-aware score is computed using **discounted weighted evaluations**.
+The developed framework introduces a quantification method inspired by the Bellman principle, where a future-aware score is computed using **discounted weighted evaluations**.
 
 The results were published at IEEE IV 2023, {{<cite GeneralHPousseur>}}
 

@@ -16,7 +16,8 @@ image: "/images/local-planning/rviz_planning.png"
 
 ## Overview
 
-This project implements the core planning functionalities for autonomous driving. It is structured around a navigation stack that transforms a target position into a safe and efficient motion trajectory using environmental context and map information.
+As part of a collaborative autonomous driving project, I contributed to the implementation of the core planning functionalities for autonomous driving.  
+The navigation stack transforms a target position into a safe and efficient motion trajectory using environmental context and map information.
 
 The process is divided into three stages:
 
@@ -31,8 +32,8 @@ The process is divided into three stages:
 The architecture follows a modular structure in ROS2. Each node is responsible for a specific step in the planning pipeline:
 
 - **Route Server**: computes the topological path  
-- **Path Planner**: modifies the route to avoid obstacles  
-- **Motion Generator**: assigns a feasible velocity profile  
+- **Path Planner + Path Adapter**: modifies the route to avoid obstacles  
+- **Motion Manager**: assigns a feasible velocity profile  
 - **Controller**: executes the commands  
 
 {{< figure src="/images/local-planning/nodes.png" caption="Nodes and relations of the stack, including data exchange details." width="700">}}
