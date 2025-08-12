@@ -74,7 +74,7 @@ ros:
   name: ros
   title: ROS
   repr: ROS
-  description: "Robot Operating System — a flexible framework for writing robot software, providing tools and libraries."
+  description: "Robot Operating System a flexible framework for writing robot software, providing tools and libraries."
 
 ros2:
   name: ros2
