@@ -90,7 +90,7 @@ where $ y \in \{0, 1\} $ is the ground-truth label and $ \hat{y} $ is the predic
 
 ## Estimating the Center of a Detected Cluster
 
-For each cluster $ C = \{ P_1, \dots, P_n \} $ with $ P_i = (\theta_i, r_i) $ that is classified as a leg, the polar center is computed as:
+For each cluster $C = \\{ P_1, P_2, \dots, P_n \\}$ with $ P_i = (\theta_i, r_i) $ that is classified as a leg, the polar center is computed as:
 
 {{< equation >}}
 \theta_{\text{center}} = \frac{1}{n} \sum_{i=1}^{n} \theta_i

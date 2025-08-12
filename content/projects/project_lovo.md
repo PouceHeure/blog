@@ -27,7 +27,7 @@ Developed in Java with Android Studio, the app allows users to register devices,
 
 ## System Workflow
 
-1. The IMU continuously monitors acceleration. If it exceeds a predefined threshold, the event is classified as a theft attempt.  
+1. The Arduino combined to IMU continuously monitors acceleration. If it exceeds a predefined threshold, the event is classified as a theft attempt.  
 2. A Sigfox frame is sent to the network. The Sigfox backend forwards the data to Firebase.  
 3. Firebase pushes a notification to the Android app, alerting the user.  
 

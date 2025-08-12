@@ -39,7 +39,7 @@ Instead of scoring discrete samples, the cost is defined as:
 {{< /equation >}}
 
 Where:  
-- $\mathcal{C}_{goal}$: misalignment cost with the target direction  
+- $\mathcal{C}_{\text{goal}}$: cost for deviation from target direction
 - $\mathcal{C}_{distance}$: angular penalty for proximity to obstacles  
 - $\mathcal{C}_{speed}$: penalty for low forward velocity  
 
@@ -59,7 +59,7 @@ This term encourages convergence to the desired trajectory.
 
 LiDAR data is processed to extract **safe angular zones**. The closest safe direction $\theta^*_{\text{final}}$ to the robot’s current heading is identified.
 
-{{< subfigure images="/images_origin/dwa-optimization/clear_zone_explication_01.png,/images_origin/dwa-optimization/clear_zone_explication_02.png" captions="Safe zone from LiDAR perception., Safe zone explanations." width="600">}}
+{{< subfigure images="/images/dwa-optimization/clear_zone_explication_01.png,/images/dwa-optimization/clear_zone_explication_02.png" captions="Safe zone from LiDAR perception., Safe zone explanations." width="600">}}
 
 The cost penalizes deviation from this safe orientation:
 
@@ -133,6 +133,9 @@ Demo: {{< videoref label="test-gazebo" >}}.
 Validated on real robots in indoor scenarios.  
 
 Demo: {{< videoref label="test-turtlebot-1" >}}, {{< videoref label="test-turtlebot-2" >}}.
+
+This [demonstration](/projects/project_multi-robots/#multi-robots-demo) uses also this DWA optimization.
+
 
 ### SCANeR Scenarios
 
