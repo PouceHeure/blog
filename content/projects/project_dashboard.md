@@ -36,6 +36,15 @@ This YAML system allows users to:
 
 This method removes repetitive UI coding while offering high customization.
 
+{{< figure src="/images/dashboard/use-diagram.png" caption="Example of a basic implementation" width="600" label="dashboard_use-diagram" >}}
+
+> The {{< figref dashboard_use-diagram >}} shows an example how to create a component compatible with your topic.
+> Steps: 
+> 1. First, need to create a class heriting from a basic abstract component;
+> 2. Second, define the callback function allowing to update the value to show;
+> 3. Finally, edit the config file and call the new class in the component type.
+
+
 ## Widget Support
 
 The supported widgets include:

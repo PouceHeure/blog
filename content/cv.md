@@ -16,7 +16,7 @@ url: "/cv"
   - Developed autonomous vehicle [planning](/projects/project_autosys_local-planning/) and [control](/projects/project_autosys_control/) modules (ROS2).  
   - Installed and integrated sensors (camera, LiDAR, GPS) using PPT and ROS; conducted CAN analysis and data extraction.  
 - `2019–2025`: *Adjunct Lecturer*, UTC & ESILV  
-  - Delivered practical courses on Artificial Intelligence, Algorithms, and Robotics (sensors + ROS2).  
+  - Delivered practical courses ($\approx 150$ hours) on Artificial Intelligence, Algorithms, and Robotics (sensors + ROS2).  
 - `2020–2023`: *Co-supervisor of Research Internships*, Heudiasyc Laboratory  
   - Supervised six Master’s students.  
 - `2022`: *Research Mission*, University of Tokyo (Fujimoto Laboratory)  
@@ -25,11 +25,12 @@ url: "/cv"
   - Developed tools for collaborative robotics.  
 
 ## <i class="bi bi-laptop me-3"></i> Skills  
-- **Robotics**: [Planning](/tags/planning_navigation/), [Perception (Vision/LiDAR)](/tags/sensing_perception), [ROS](/tags/ros) / [ROS2](/tags/ros2), [Control](/tags/control_optimization/)  
+- **Robotics**: [Planning](/tags/planning_navigation/), [Perception (Vision/LiDAR)](/tags/sensing_perception), [ROS](/tags/ros) / [ROS2](/tags/ros2), [Control](/tags/control_optimization/), [Multi-Agents System](/tags/multi_agent_systems/)  
 - **Programming**: C++, Python  
 - **Machine Learning**: [Deep Learning (CNN, RNN)](/tags/ai_ml), TensorFlow  
 - **Tools**: Linux, Git, Docker, OpenCV
-<br/><i class="bi bi-motherboard"></i> [Visit projects](/projects/)
+
+<i class="bi bi-motherboard"></i> [Visit projects](/projects/)
 
 ## <i class="bi bi-book-half me-3"></i> Scientific Contributions  
 - `2024 – Thesis`: *Shared Navigation in a Cybernetic Multi-Agent Autonomous System*  

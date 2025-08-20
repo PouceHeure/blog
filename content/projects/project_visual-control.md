@@ -183,7 +183,7 @@ Where:
 
 ### Obstacle Function
 
-As explained in the project [OPTIMIZATION OF THE DYNAMIC WINDOW APPROACH (DWA)](/projects/project_dwa-optimisation/), the obstacle avoidance function requires a safety angle to be determined.  
+As explained in the project [Optimization Of The Dynamic Window Approach (DWA)](/projects/project_dwa-optimisation/), the obstacle avoidance function requires a safety angle to be determined.  
 
 The following figure illustrates the computation of this angle. The angle must satisfy constraints to:  
 - avoid collisions;  

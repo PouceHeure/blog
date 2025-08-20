@@ -81,8 +81,8 @@ After 500 epochs, the following evaluation results were obtained on the validati
 \text{Precision} = \frac{TP}{TP + FP}
 {{< /equation >}}  
 Measures how often the model’s *positive detections* (e.g., "green top light detected") are correct.  
-A precision close to 1.0 means very few **false positives** — the system rarely claims a light is green/red/orange when it is not.  
-**Result:** ≈ 0.99 → Almost every detection made by the system is correct.
+A precision close to 1.0 means very few **false positives**, the system rarely claims a light is green/red/orange when it is not.  
+**Result:** ≈ 0.99 . Almost every detection made by the system is correct.
 
 ---
 
@@ -92,18 +92,18 @@ A precision close to 1.0 means very few **false positives** — the system rarel
 {{< /equation >}}  
 Measures how many of the *actual lights present* were detected by the model.  
 A high recall means the model rarely misses a relevant light (**false negatives** are rare).  
-**Result:** ≈ 0.97 → The system detects almost all visible traffic lights.
+**Result:** ≈ 0.97 . The system detects almost all visible traffic lights.
 
 ---
 
-- **mAP@0.5**  
+- **mAP\@0.5**  
 {{< equation >}}
 \text{mAP@0.5} = \text{mean}(AP_{\text{IoU}=0.5})
 {{< /equation >}}  
 Mean Average Precision across all classes, calculated at an IoU (Intersection-over-Union) threshold of 0.5.  
 IoU is the overlap ratio between the predicted bounding box and the ground-truth box.  
 A value near 1.0 means the predicted box is well-aligned with the real light location.  
-**Result:** ≈ 0.98 → Bounding boxes are accurate for most detections.
+**Result:** ≈ 0.98 . Bounding boxes are accurate for most detections.
 
 ---
 
@@ -112,8 +112,8 @@ A value near 1.0 means the predicted box is well-aligned with the real light loc
 \text{mAP}_{[0.5:0.95]} = \frac{1}{10} \sum_{i=0}^{9} AP_{0.5 + 0.05i}
 {{< /equation >}}  
 Average precision computed over multiple IoU thresholds from 0.5 to 0.95 in steps of 0.05.  
-This is a stricter metric than mAP@0.5 because it requires good alignment across a range of IoU tolerances.  
-**Result:** ≈ 0.83 → Performance remains high even under stricter bounding box alignment requirements.
+This is a stricter metric than mAP\@0.5 because it requires good alignment across a range of IoU tolerances.  
+**Result:** ≈ 0.83 . Performance remains high even under stricter bounding box alignment requirements.
 
 ---
 
@@ -121,8 +121,8 @@ This is a stricter metric than mAP@0.5 because it requires good alignment across
 {{< equation >}}
 F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
 {{< /equation >}}  
-The harmonic mean of precision and recall — a balanced single score that considers both false positives and false negatives.  
-**Result:** ≈ 0.98 → The detector maintains a strong balance between correctly identifying lights and not missing them.
+The harmonic mean of precision and recall, a balanced single score that considers both false positives and false negatives.  
+**Result:** ≈ 0.98 . The detector maintains a strong balance between correctly identifying lights and not missing them.
 
 ---
 

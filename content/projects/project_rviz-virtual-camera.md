@@ -7,28 +7,30 @@ image: "/images/rviz-virtual-camera/rviz_virtual_camera.png"
 description: "RViz2 plugin to publish virtual camera views as ROS 2 image topics for simulation, testing, and visualization."
 ---
 
-## Overview
-
-RViz2 is a visualization tool in ROS 2 commonly used for inspecting and debugging robot data streams. It can display camera feeds, markers, and 3D data, but it does not natively provide the ability to **publish** its rendered views as image topics, especially from fixed or custom virtual viewpoints.
-
-This gap makes it harder to:
-* Capture consistent, high-quality views for later review
-* Generate reproducible datasets for testing
-* Stream synthetic camera perspectives over a network
+## Demonstration
 
 {{< youtube code="1-QI8J1kdfM" width="800" caption="Demo: Example output from a virtual camera." label="virtual-camera-demo">}}
 
-Demo: {{< videoref label="virtual-camera-demo" >}}.
+The following demontration, {{< videoref label="virtual-camera-demo" >}}, shows the video created from a virtual camera. The virtual camera is attached to a frame, fixed to vehicle.
 
 ## Motivation
 
-Having a way to capture a defined rendered perspective is useful in several contexts:
-* Producing dataset frames from simulation
-* Debugging and tuning perception algorithms
-* Recording reproducible visualizations
-* Preparing visual content for reports and demonstrations
+At first, I recorded the screen during experiments, but this was not a good solution because:
+- process it's more complex to setup,
+- it uses too many resources,
+- the video quality is low,
+- I must keep the window and RViz view in the same place.
 
-Without such a feature, users often rely on manual screen recording or external capture software, which can be less precise and less reproducible.
+...I need a better solution.
+
+## Idea
+
+RViz2 is a visualization tool in ROS 2 commonly used for inspecting and debugging robot data streams. It can display camera feeds, markers, and 3D data, but it does not natively provide the ability to **publish** its rendered views as image topics, especially from fixed or custom virtual viewpoints.
+The idea it's to develop a Rviz2 plugin allowing to get the render image, created by RViZ2.
+
+{{< figure src="/images/rviz-virtual-camera/diagram_idea.png" caption="Diagram Idea" width="600" label="rviz-virtual-camera_diagram_idea" >}}
+
+As shown by the {{< figref rviz-virtual-camera_diagram_idea >}}, the idea it's to publish the render image over ROS2 topic and record the image using rosbag.
 
 ## Implementation
 

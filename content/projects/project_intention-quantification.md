@@ -145,11 +145,12 @@ Meaning:
 
 {{< figure src="/images/quantification-intentions/collision_front_avoid/plots/evaluators.png" caption="Evaluator visualization from a specific simulation test case (Set A): three criteria shown (collision, lateral acceleration, speed). Each row shows the metric, its analyzer output, the raw score, and final discounted score." width="850">}}
 
-This example comes from a scenario where the vehicle narrowly avoids a front obstacle with aggressive lateral acceleration. It illustrates how each step of the evaluation pipeline contributes to the global quality score.
+This example comes from a scenario where the vehicle avoids a front obstacle with aggressive lateral acceleration. It illustrates how each step of the evaluation pipeline contributes to the global quality score.
 
 ## Trajectory Comparison
 
-The quantification framework can evaluate multiple driving intentions for the same scenario. The example below considers a situation where the vehicle must navigate around a static obstacle ahead.
+The quantification framework has been exploited to evaluate multiple driving intentions for the same scenario. 
+The example below considers a situation where the vehicle must navigate around a static obstacle ahead.
 
 ### Environment Overview
 
