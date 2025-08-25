@@ -27,14 +27,14 @@ url: "/cv"
   - Designed and implemented a full autonomous driving stack (navigation & control) on a real car using ROS2/C++, including traffic light integration.  
   - Delivered a demonstration setup for Imperial College London research.  
   - Developed, tested, and maintained ROS2 modules for planning and vehicle control, ensuring real-time performance and safety.  
-  - Supported research projects: prepared experiments, delivered software developments, and assisted MSc/PhD students.  
+  - Supported research projects: prepared experiments, delivered software developments, and assisted MSc/PhD students.
 - `2020–2023`: **Research Internship Co-supervision**, Heudiasyc Laboratory  
   - Supervised 6 Master’s theses on planning, perception, and autonomous vehicle control.  
 
 - `2019–2022`: **Teaching Assistant**, UTC & ESILV  
   - Led TD/TP sessions in AI, Algorithms, C++/Python, local planning, and ROS (≈30 students per group).  
   - Prepared a 15-person team for the French Robotics Cup (design, strategy, system integration).  
-  - Supervised a 6-person team building a rover from scratch (mechanical, electronics, perception, control).  
+  - Supervised 6 MSc theses on planning, perception, shared-control and autonomous vehicle control.
 
 - `2022`: **Research Assignment**, University of Tokyo (Fujimoto Laboratory)  
   - [Road adhesion estimation using camera data](/projects/project_friction-detection/).  
