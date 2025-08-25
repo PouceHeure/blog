@@ -87,7 +87,7 @@ With its derivative:
 
 {{< figure src="/images/autosys-control/plot_speed_profile.png" caption="Comparison of linear and elliptical speed profiles." width="700">}}
 
-#### Benefits:
+**Benefits**:
 - Smooth, gradual deceleration at the beginning  
 - Sharper slowdown near the end  
 - More realistic than linear profiles  

@@ -17,7 +17,7 @@ The architecture uses a unified communication protocol, distributed ROS nodes, a
 
 {{< youtube code="BZMFS-EkR4M" width="800" caption="Video demo: multi-robot cooperation." label="multi-robots-demo" >}}
 
-Demo: {{< videoref label="multi-robots-demo" >}}.
+In the following {{< videoref label="multi-robots-demo" >}}, the drone scans the area above the robots. It detects the ArUco markers designating the target positions, and the robots then move to these positions.
 
 ## Core Architecture
 
