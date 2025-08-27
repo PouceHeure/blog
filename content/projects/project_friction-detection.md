@@ -137,6 +137,8 @@ Image resolution reduction was crucial. Projection runtime decreased by over $10
 
 ## Slip Ratio Results
 
+> More information about control part, refer to the article {{< cite ProposalUTakumi >}}.
+
 Slip ratio is defined as:
 
 {{< equation >}}

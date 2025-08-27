@@ -5,12 +5,10 @@ layout: "cv"
 url: "/cv"
 ---
 
-
-
 <!-- > *Research Interests*: Motion planning & control · Multi-robot systems · Vision-based perception · Shared control · ROS2 · Learning for decision-making
 > Looking for a position in research in Italy  -->
 
-## <i class="bi bi-mortarboard me-2"></i> Education  
+## <i class="bi bi-mortarboard me-2"></i> Education
 
 - `2025`: Obtained the French National Qualification to Apply for Associate Professor (CNU – Section 27)  
 - `2020–2024`: **PhD in Robotics**, Université de Technologie de Compiègne, France  
@@ -19,14 +17,11 @@ url: "/cv"
 - `2014–2019`: Engineering Degree in Computing, ESILV (Paris, France)  
   - *Ranked 1st in class during the 1st and 2nd years of the engineering cycle*  
 
-
-
 ## <i class="bi bi-briefcase me-2"></i> Academic & Professional Experience  
 
 - `2024-2025`: **Research Engineer (CNRS)**, Heudiasyc Laboratory
   - Designed and implemented a full autonomous driving stack (navigation & control) on a real car using ROS2/C++, including traffic light integration.  
   - Delivered a demonstration setup for Imperial College London research.  
-  - Developed, tested, and maintained ROS2 modules for planning and vehicle control, ensuring real-time performance and safety.  
   - Supported research projects: prepared experiments, delivered software developments, and assisted MSc/PhD students.
 - `2020–2023`: **Research Internship Co-supervision**, Heudiasyc Laboratory  
   - Supervised 6 Master’s theses on planning, perception, and autonomous vehicle control.  
