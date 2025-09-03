@@ -72,4 +72,10 @@ The app relies on the official **Oisemob API** to fetch live bus data:
 
 ---
 
-**Panel Bus** makes bus schedules instantly readable by focusing on speed, clarity, and minimal interaction — combining **live API data** with a **simplified 1D projection** of buses.
+**Panel Bus** makes bus schedules instantly readable by focusing on speed, clarity, and minimal interaction, combining **live API data** with a **simplified 1D projection** of buses.
+
+
+## Data
+
+Data source: [Oise Mobilité](https://www.oise-mobilite.fr/open-data), Etalab v2.0
+
