@@ -96,7 +96,7 @@
 &lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the &lt;strong&gt;low-level control&lt;/strong&gt; system responsible for translating navigation commands into actuator signals (steering and torque).&lt;br&gt;
 This system is fully integrated into a ROS2-based autonomous stack and has been deployed and tested on a &lt;strong&gt;real electric vehicle with in-wheel motors&lt;/strong&gt;.&lt;/p&gt;
 &lt;figure id="fig-1"&gt;
- &lt;img src="../../images/autosys-control/control_interfaces_inputs.png" alt=""
+ &lt;img src="https://pouceheure.github.io/blog/images/autosys-control/control_interfaces_inputs.png" alt=""
  width="500"
  &gt;
  &lt;figcaption&gt;Fig. 1 - Interfaces between planning and control modules.&lt;/figcaption&gt;
