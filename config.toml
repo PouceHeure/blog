@@ -1,4 +1,4 @@
-baseURL = "https://example.com/"
+baseURL = "https://pouceheure.github.io/blog/"
 languageCode = "en-en"
 title = "Hugo POUSSEUR"
 theme = "hugo-latex"

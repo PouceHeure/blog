@@ -28,3 +28,6 @@ doc/
 
 #latex
 latex/
+
+# draft
+*.draft.*
