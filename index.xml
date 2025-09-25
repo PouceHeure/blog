@@ -96,7 +96,7 @@
 &lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the &lt;strong&gt;low-level control&lt;/strong&gt; system responsible for translating navigation commands into actuator signals (steering and torque).&lt;br&gt;
 This system is fully integrated into a ROS2-based autonomous stack and has been deployed and tested on a &lt;strong&gt;real electric vehicle with in-wheel motors&lt;/strong&gt;.&lt;/p&gt;
 &lt;figure id="fig-1"&gt;
- &lt;img src="https://pouceheure.github.io/blog/images/autosys-control/control_interfaces_inputs.png" alt=""
+ &lt;img src="./images/autosys-control/control_interfaces_inputs.png" alt=""
  width="500"
  &gt;
  &lt;figcaption&gt;Fig. 1 - Interfaces between planning and control modules.&lt;/figcaption&gt;
@@ -160,7 +160,7 @@ The solution is therefore to display the buses of a station directly, accessible
 &lt;li&gt;&lt;code&gt;2025&lt;/code&gt;: Obtained the French National Qualification to Apply for Associate Professor (CNU – Section 27)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;2020–2024&lt;/code&gt;: &lt;strong&gt;PhD in Robotics&lt;/strong&gt;, Université de Technologie de Compiègne, France
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Thesis: &lt;a href="https://pouceheure.github.io/blog/articles/article_thesis/"&gt;Shared navigation in a cybernetic multi-agent autonomous system&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Thesis: &lt;a href="./articles/article_thesis/"&gt;Shared navigation in a cybernetic multi-agent autonomous system&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;2018–2019&lt;/code&gt;: Specialized Master&amp;rsquo;s in Robotics, CentraleSupélec (Metz, France)&lt;/li&gt;
