@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo POUSSEUR</title><link>https://pouceheure.github.io/blog/</link><description>Recent content on Hugo POUSSEUR</description><generator>Hugo</generator><language>en-en</language><lastBuildDate>Thu, 15 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pouceheure.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Traffic Light Detection &amp; Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</link><pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</guid><description>&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;As part of an autonomous driving project, I contributed to the development of a system enabling a vehicle to adapt its behavior to traffic lights. The vehicle adjusts its speed according to the current traffic light state.&lt;/p&gt;
+&lt;p&gt;The project is divided into four main components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Matching&lt;/strong&gt;: Identifying traffic light positions on the map&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Detection&lt;/strong&gt;: Determining the current state of the traffic light&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Planning&lt;/strong&gt;: Adjusting vehicle speed according to the detection result&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Control&lt;/strong&gt;: Applying the computed velocity to the vehicle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The detection pipeline is implemented in Python, while control is handled in C++ within a ROS2 environment.&lt;/p&gt;</description></item><item><title>ROS2 - Dashboard Framework</title><link>https://pouceheure.github.io/blog/projects/project_dashboard/</link><pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_dashboard/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;In robotics and system development, having a clear and flexible interface to visualize system states, sensor data, and real-time metrics is important. This project offers a lightweight dashboard framework designed for ROS 2, allowing quick creation of dashboards through simple configuration files.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure id="dashboard-demo"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/p0qqfZNxj6I" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Demo video of the dashboard overlaid on video.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;p&gt;The 
+
+ &lt;a href="#dashboard-demo"&gt;Video 1: Demo video of the dashboard overlaid on video.&lt;/a&gt;
+
+ shows a demo of the dashboard running over a video stream.&lt;/p&gt;</description></item><item><title>RViz2 - Virtual Camera</title><link>https://pouceheure.github.io/blog/projects/project_rviz-virtual-camera/</link><pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_rviz-virtual-camera/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+
+
+
+
+
+
+&lt;figure id="virtual-camera-demo"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/1-QI8J1kdfM" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Demo: Example output from a virtual camera.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;p&gt;The following demontration, 
+
+ &lt;a href="#virtual-camera-demo"&gt;Video 1: Demo: Example output from a virtual camera.&lt;/a&gt;
+
+, shows the video created from a virtual camera. The virtual camera is attached to a frame, fixed to vehicle.&lt;/p&gt;
+&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;At first, I recorded the screen during experiments, but this was not a good solution because:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;process it&amp;rsquo;s more complex to setup,&lt;/li&gt;
+&lt;li&gt;it uses too many resources,&lt;/li&gt;
+&lt;li&gt;the video quality is low,&lt;/li&gt;
+&lt;li&gt;I must keep the window and RViz view in the same place.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;hellip;I need a better solution.&lt;/p&gt;</description></item><item><title>Autonomous Vehicle Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_control/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_control/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/nJx0B9U1x-g" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Demo video: planning and control in action.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the &lt;strong&gt;low-level control&lt;/strong&gt; system responsible for translating navigation commands into actuator signals (steering and torque).&lt;br&gt;
+This system is fully integrated into a ROS2-based autonomous stack and has been deployed and tested on a &lt;strong&gt;real electric vehicle with in-wheel motors&lt;/strong&gt;.&lt;/p&gt;
+&lt;figure id="fig-1"&gt;
+ &lt;img src="https://pouceheure.github.io/blog/images/autosys-control/control_interfaces_inputs.png" alt=""
+ width="500"
+ &gt;
+ &lt;figcaption&gt;Fig. 1 - Interfaces between planning and control modules.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id="control-structure"&gt;Control Structure&lt;/h2&gt;
+&lt;p&gt;The controller is composed of two main components:&lt;/p&gt;</description></item><item><title>Autonomous Vehicle Planning</title><link>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</link><pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/wnQpdtmPgv0" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Demo video, slalom test.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/As44QMtXXiw" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 2 - Demo video, curve test.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the implementation of the core planning functionalities for autonomous driving.&lt;br&gt;
+The navigation stack transforms a target position into a safe and efficient motion trajectory using environmental context and map information.&lt;/p&gt;
+&lt;p&gt;The process is divided into three stages:&lt;/p&gt;</description></item><item><title>Panel Bus</title><link>https://pouceheure.github.io/blog/projects/project_panel-bus/</link><pubDate>Fri, 11 Oct 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_panel-bus/</guid><description>&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Bus schedules are difficult to follow because of uncertain traffic conditions.&lt;br&gt;
+For this reason, I decided to use the available data to build a tool that allows quick visualization of the schedules for a given station.&lt;br&gt;
+There is already a developed solution, but it requires several clicks before reaching the information.&lt;/p&gt;
+&lt;p&gt;The idea is simple: make the information as raw and as fast to access as possible.&lt;br&gt;
+The solution is therefore to display the buses of a station directly, accessible through a single link.&lt;/p&gt;</description></item><item><title>Thesis: Shared navigation in a cybernetic multi-agent autonomous system</title><link>https://pouceheure.github.io/blog/articles/article_thesis/</link><pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_thesis/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;My thesis is based on shared navigation between the autonomous system and the human. In our research, we focus on command fusion. In our approach, both entities, the human and the autonomous system, simultaneously control the vehicle, and a module acquires their commands and performs the command fusion. This approach involves studying the intentions of both the human and the autonomous system to ensure the most appropriate fusion of their choices and to evaluate the decision-making of each entity. The intention of the autonomous system is calculated using a visual servoing controller. The implementation of visual servoing relies on a deep learning network detecting lanes. For the human driver, who actively drives and cannot express their intention simultaneously, we use a deep learning-based model to predict their intention. The construction of this model required the creation of a driving dataset using our vehicles and the development of a recurrent model that integrates data of various types. Each of these intentions is then evaluated according to specific criteria, including safety, comfort, and context, to guide the fusion process towards the selection of the highest quality intention. This quantification is based on a state analysis derived from the realization of these intentions. We then use game theory to facilitate the fusion process, where each entity, human and autonomous system, aims to steer the final command towards their choice.&lt;/p&gt;</description></item><item><title>About</title><link>https://pouceheure.github.io/blog/cv/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/cv/</guid><description>&lt;!-- &gt; *Research Interests*: Motion planning &amp; control · Multi-robot systems · Vision-based perception · Shared control · ROS2 · Learning for decision-making
+&gt; Looking for a position in research in Italy --&gt;
+&lt;h2 id="education"&gt;&lt;i class="bi bi-mortarboard me-2"&gt;&lt;/i&gt; Education&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;2025&lt;/code&gt;: Obtained the French National Qualification to Apply for Associate Professor (CNU – Section 27)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;2020–2024&lt;/code&gt;: &lt;strong&gt;PhD in Robotics&lt;/strong&gt;, Université de Technologie de Compiègne, France
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Thesis: &lt;a href="https://pouceheure.github.io/blog/articles/article_thesis/"&gt;Shared navigation in a cybernetic multi-agent autonomous system&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;2018–2019&lt;/code&gt;: Specialized Master&amp;rsquo;s in Robotics, CentraleSupélec (Metz, France)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;2014–2019&lt;/code&gt;: Engineering Degree in Computing, ESILV (Paris, France)
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Ranked 1st in class during the 1st and 2nd years of the engineering cycle&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="academic--professional-experience"&gt;&lt;i class="bi bi-briefcase me-2"&gt;&lt;/i&gt; Academic &amp;amp; Professional Experience&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;2024-2025&lt;/code&gt;: &lt;strong&gt;Research Engineer (CNRS)&lt;/strong&gt;, Heudiasyc Laboratory&lt;/p&gt;</description></item><item><title>Driving Intention Quantification Formula</title><link>https://pouceheure.github.io/blog/projects/project_intention-quantification/</link><pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_intention-quantification/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;As part of a collaborative research effort on shared control between an autonomous driving system and a human driver, I contributed to work focused on evaluating the &lt;strong&gt;quality&lt;/strong&gt; of driving intentions.&lt;br&gt;
+A &lt;strong&gt;driving intention&lt;/strong&gt; is defined as a short sequence of planned control actions (speed, steering) over a time horizon:&lt;/p&gt;
+
+
+&lt;blockquote&gt;
+&lt;div class="equation-scroll-wrapper"&gt;
+ 
+ &lt;div class="equation-block"&gt;
+ $$ 
+I_t = \{(v,w)_{t+0\cdot\Delta t},(v,w)_{t+1\cdot\Delta t},...,(v,w)_{t+n\cdot\Delta t}\}
+ \quad \text{Eq (1)} $$
+ &lt;/div&gt;
+ 
+&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For example, an intention can be expressed as a sequence of linear and angular velocities applied to the vehicle.&lt;/p&gt;</description></item><item><title>Visual Control Applied To Autonomous Vehicle</title><link>https://pouceheure.github.io/blog/projects/project_visual-control/</link><pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_visual-control/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;As part of a research project, I contributed to the development and testing of a &lt;strong&gt;Visual Servoing&lt;/strong&gt; framework, a control strategy that links image feature variations to robot velocities. Applied to autonomous vehicles, this approach enables lane-keeping purely from camera input, without GPS or map dependency. It integrates lane detection using deep learning and transforms the output into features used in a control law that centers the vehicle in the lane.&lt;/p&gt;</description></item><item><title>Cooperative Architecture Using Air and Ground Vehicles for the Search and Recognition of Targets</title><link>https://pouceheure.github.io/blog/articles/article_cooperative-architecture/</link><pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_cooperative-architecture/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;A cooperative navigation architecture for the search and recognition of targets using aerial and ground vehicles is proposed in this paper. The architecture allows managing aerial and ground vehicles to autonomously perform different tasks independently or cooperatively. For our application, two main tasks are conceived: aerial monitoring of a surface to search for targets and target ground recognition. In the target aerial detection task, the aerial drone autonomously follows a trajectory computed to cover the entire surface to be monitored, searching for targets using vision algorithms. Once a target is detected, its relative position is sent to the cooperative architecture. After the aerial drone has covered the entire area, the architecture computes and assigns each ground vehicle the closest target found. Each ground vehicle then navigates autonomously, avoiding obstacles if present, to its assigned target. To verify the success of the mission, the aerial vehicle flies following the dynamic center of mass of the ground vehicles. Real-time experiments are carried out to validate the proposed architecture. The main results, depicted in some graphs, corroborate the good performance in a closed loop.&lt;/p&gt;</description></item><item><title>General and Multi-Criteria Approach to Study the Admissibility and Quality of a Driving Intention</title><link>https://pouceheure.github.io/blog/articles/article_general-multi-criteria/</link><pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_general-multi-criteria/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Determining the admissibility and quality of driving intentions, generated by an automated intelligent vehicle and by a human driver, is a sine qua none task in a human-intelligent vehicle share navigation. Our paper proposes a generic method to quantify driving intentions. These intentions are defined by a sequence of velocities. This formulation is based on metrics already discussed in the literature. It proposes a way to use them to evaluate a state, making a judgment, and to extend this evaluation to a sequence of states. This quantification determines whether the intention is safely achievable and defines a quality taking into account several criteria (safety, comfort, context, energy consumption). It is thus possible to compare and rank the intentions according to a set of criteria. This article defines a proposed implementation that has been tested on a driving simulator. For a given scenario, we tested our solution on several intentions in order to show the interest of our solution, and the possibility to compare the intentions between them.&lt;/p&gt;</description></item><item><title>Model-based and Machine Learning-based High-level Controller for Autonomous Vehicle Navigation: Lane Centering and Obstacles Avoidance</title><link>https://pouceheure.github.io/blog/articles/article_machine-learning-controller/</link><pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_machine-learning-controller/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Researchers have been attempting to make the car drive autonomously. The environment perception together with safe guidance and control is an important task and are one of the big challenges when developing this kind of system. Geometrical or physical based models, machine learning based models and those based on a mixture of both models, are the three types of navigation methods used to resolve this problem. The last method takes advantage of the learning capability of machine learning models and uses the safeness of geometric models in order to better perform the navigation task. This paper presents a hybrid autonomous navigation methodology, which takes advantage of the learning capability of machine learning and uses the safeness of the dynamic window approach geometric method. Using a single camera and a 2D lidar sensor, this method actuates as a high-level controller, where optimal vehicle velocities are found, then applied by a low-level controller. The final algorithm is validated on CARLA Simulator environment, where the system proved to be capable to guide the vehicle in order to achieve the following tasks: lane keeping and obstacle avoidance.&lt;/p&gt;</description></item><item><title>Proposal of On-board Camera-Based Driving Force Control Method for Autonomous Electric Vehicles</title><link>https://pouceheure.github.io/blog/articles/article_camera-based-control/</link><pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_camera-based-control/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;By utilizing the camera installed in the front of a vehicle, this paper proposes on-board camera-based driving force control (CDFC) methods for autonomous electric vehicles driven by in-wheel motors. The image processing algorithm can detect the change in road surface conditions quickly and accurately. This enables the CDFC to update the slip-ratio limiter in real-time. Test results show that the proposed methods can improve traction control performance and reduce inverter input energy.&lt;/p&gt;</description></item><item><title>Friction Camera Detection</title><link>https://pouceheure.github.io/blog/projects/project_friction-detection/</link><pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_friction-detection/</guid><description>&lt;h2 id="mission-context"&gt;Mission Context&lt;/h2&gt;
+&lt;p&gt;As part of a European research project, I contributed to a two-month research mission conducted at the University of Tokyo, focusing on road surface friction estimation using only a forward-facing camera.&lt;/p&gt;
+&lt;p&gt;This work led to the publication of a paper, 
+
+
+
+ 
+ 
+ 
+
+ &lt;span class="citation"&gt;
+ &lt;a href="#ref-ProposalUTakumi"&gt;ProposalTakumi 2023&lt;/a&gt;
+ &lt;/span&gt;
+
+, at IEEE AIM 2023, in collaboration with the University of Tokyo and UTC. The system uses image segmentation, confidence modeling, geometric projection, and accumulation into a global surface grid map.&lt;/p&gt;</description></item><item><title>Multi-Robot ROS Architecture for UGV/UAV Coordination</title><link>https://pouceheure.github.io/blog/projects/project_multi-robots/</link><pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_multi-robots/</guid><description>&lt;h2 id="context"&gt;Context&lt;/h2&gt;
+&lt;p&gt;As part of a research internship project, a modular ROS architecture was designed to enable cooperative navigation between heterogeneous autonomous vehicles: drones (UAVs) and ground robots (UGVs).&lt;br&gt;
+The contribution focused on supporting the development and implementation of this system, which aimed to be scalable, with dynamic task allocation and coordinated execution across different hardware platforms.&lt;/p&gt;
+&lt;p&gt;The architecture uses a unified communication protocol, distributed ROS nodes, and a namespace layout allowing multiple robots to be managed from a central ROS master.&lt;/p&gt;</description></item><item><title>Human Driving Behavior Prediction</title><link>https://pouceheure.github.io/blog/projects/project_human-prediction/</link><pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_human-prediction/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;A multimodal deep learning model was developed to predict human driving behavior over a short time horizon. The training dataset was recorded specifically for this project.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/rqP5nYBehL4" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Video demo, human driving behavior prediction.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;p&gt;More details about this work are provided in 
+
+
+
+ 
+ 
+ 
+
+ &lt;span class="citation"&gt;
+ &lt;a href="#ref-PredictionHPousseur"&gt;PredictionPousseur 2022&lt;/a&gt;
+ &lt;/span&gt;
+
+.&lt;/p&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Driving intention is represented as a sequence of vehicle states. Let $I$ be:&lt;/p&gt;
+
+
+&lt;blockquote&gt;
+&lt;div class="equation-scroll-wrapper"&gt;
+ 
+ &lt;div class="equation-block"&gt;
+ $$ 
+I = \{x_0, x_1, ..., x_n\}
+ \quad \text{Eq (1)} $$
+ &lt;/div&gt;
+ 
+&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here, $(x_i) = (v_i, w_i)$ denotes the state at time $i$, where $v_i$ is the linear velocity and $w_i$ is the angular velocity.&lt;/p&gt;</description></item><item><title>Lane Detection</title><link>https://pouceheure.github.io/blog/projects/project_lane-detection/</link><pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_lane-detection/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Lane detection is an essential function for autonomous vehicles. While GPS and HD maps offer accurate localization under optimal conditions, vision-based detection provides an important backup, especially in areas with weak GNSS signals or outdated maps.&lt;/p&gt;
+&lt;p&gt;This system implements a deep-learning lane detection pipeline using a convolutional autoencoder, designed to identify and segment multiple lane boundaries in various road conditions using only front-facing camera images.&lt;/p&gt;
+&lt;p&gt;The approach integrates image preprocessing, deep-learning inference, optional temporal tracking, and curve fitting to generate stable and clean lane boundaries. It has been tested in real-world driving and in simulators such as Carla and Scaner.&lt;/p&gt;</description></item><item><title>Dynamic Context Awareness in Autonomous Navigation</title><link>https://pouceheure.github.io/blog/articles/article_context-awareness/</link><pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_context-awareness/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Many studies faced the problem of vehicle autonomous navigation in different fields, but nowadays just a few of them uses all the implicit information coming from the context in which such navigation is occurring. This results in a huge potential information loss that prevents us from adapting the vehicle’s behavior to each different situation it may be in. In a previous work, we defined a method to model the static context of navigation using ontologies and take it into account in the command law when performing a local navigation task. In this paper, we extend our model of the context of navigation, and define a software architecture able to update the context dynamically, by using sensor information. The method is tested with real-time experiments on driving simulator. They show that the Context of Navigation can be effectively updated during the navigation and leads to a smarter vehicle’s behavior on the road.&lt;/p&gt;</description></item><item><title>Gradient Descent Dynamic Window Approach to Mobile Robot Autonomous Navigation</title><link>https://pouceheure.github.io/blog/articles/article_gradient-descent/</link><pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_gradient-descent/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Avoiding obstacles is a key feature in a vehicle autonomous navigation methodology. The Dynamic Window Approach (DWA), proposed several decades ago, has emerged as a responsive navigation methodology suitable for reactive obstacle avoidance. In the initial approach of the DWA, the optimization of an objective function is realized with an exhaustive computation, which can be costly in computational time. This is not useful in a real-time scenario where an autonomous vehicle needs to avoid obstacles in urban or road velocity conditions. In this paper, we revise the DWA methodology by implementing a new method that redefines the objective function as a loss function, allowing the application of gradient descent for optimization. We verified the correctness of our optimization by controlling a robot in an unknown environment with obstacles to visit given positions. Our approach was tested in simulation on ROS and on a real Turtlebot robot, demonstrating improved runtime execution and a less abrupt, more comfortable driving experience.&lt;/p&gt;</description></item><item><title>Motion Control for Aerial and Ground Vehicle Autonomous Platooning</title><link>https://pouceheure.github.io/blog/articles/article_motion-control/</link><pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_motion-control/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;In this paper, a navigation control for a platoon composed of a ground and an aerial vehicle is proposed. The aim of this work is to define a platooning system that exploits the advantages of both types of robots: while the aerial drone is faster and is not affected by the terrain, the ground vehicle has more autonomy and can carry heavier payloads. The proposed control system allows the aerial vehicle to follow the ground vehicle, maintaining a desired relative position, and to assist in navigation by providing information about the environment. The effectiveness of the proposed approach is demonstrated through simulation and experimental results.&lt;/p&gt;</description></item><item><title>Prediction of human driving behavior using deep learning: a recurrent learning structure</title><link>https://pouceheure.github.io/blog/articles/article_human-driving-prediction/</link><pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_human-driving-prediction/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Predicting the intentions of the human and the machine on a near future is required to the human-machine shared control of automated intelligent vehicles. The autonomous system is able to inform about its future intentions, however it is not possible for the human to provide this information, it is necessary then to predict it. This paper proposes a deep learning methodology to predict human navigation intentions in a time horizon of a few seconds, using a recurrent neural network (RNN) architecture based on the Long Short-Term Memory (LSTM) architecture. Taking as input various preprocessed and non-preprocessed data, generated by embedded sensors and the intrinsic data of the vehicle, the proposed model predicts the future linear and angular velocities of the vehicle. The model was trained and tested on a dataset created from real data from our cars equipped with sensors (LiDAR, camera), in different scenarios and road types. Furthermore, a data sensitive study is presented evaluating the effects of missing data in the learning process.&lt;/p&gt;</description></item><item><title>Optimization of the Dynamic Window Approach (DWA)</title><link>https://pouceheure.github.io/blog/projects/project_dwa-optimisation/</link><pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_dwa-optimisation/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;The Dynamic Window Approach (DWA) is a reactive motion planning method used in mobile robotics. At each control cycle, it samples admissible velocity pairs $(v, \omega)$ and evaluates them using an objective function, selecting the pair with the highest score.&lt;/p&gt;
+&lt;p&gt;The original method presents two main issues:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Discrete sampling&lt;/strong&gt;, which limits precision&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;High computational cost&lt;/strong&gt; in evaluation loops&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These limitations can be addressed by defining a &lt;strong&gt;convex, differentiable objective function&lt;/strong&gt; and applying &lt;strong&gt;gradient descent&lt;/strong&gt; for continuous optimization.&lt;/p&gt;</description></item><item><title>Context Modelling Applied to the Intelligent Vehicle Navigation</title><link>https://pouceheure.github.io/blog/articles/article_context-modelling/</link><pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_context-modelling/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;This paper faces the problem of intelligent vehicles in interaction with their occupants and the environment, by modelling the semantic context associated with navigation. By semantically modelling context, an intelligent vehicle can not only drive itself safely but also reason about the situation and act accordingly. To achieve this, it is necessary to first define the Context of Navigation and then establish inference rules to enrich the vehicle&amp;rsquo;s understanding of the situation. We propose a definition of the Context of Navigation, based on information pertinent to the vehicle&amp;rsquo;s controller, dividing it into two components: the Dynamic Context and the Static Context. This paper focuses on the latter.&lt;/p&gt;</description></item><item><title>Isolated Areas Consumption Short-Term Forecasting Method</title><link>https://pouceheure.github.io/blog/articles/article_isolated-area-consumption/</link><pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_isolated-area-consumption/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Forecasting consumption in isolated areas represents a challenging problem typically resolved using deep learning or large mathematical models with various dimensions. These models require expertise in metering and algorithms, and the equipment needs to be frequently maintained. In the context of the MAESHA H2020 project, most of the consumers and producers are isolated. Forecasting becomes more difficult due to the lack of external data and the significant impact of human behaviors on these small systems. The proposed approach is based on data sequencing, sequential mining, and pattern mining to infer the results into a Hidden Markov Model. It only needs the consumption and production curve as a time series and adapts itself to provide the forecast. Our method gives a better forecast than other prediction machines and deep-learning methods used in the literature review.&lt;/p&gt;</description></item><item><title>Shared Decision-Making Forward an Autonomous Navigation for Intelligent Vehicles</title><link>https://pouceheure.github.io/blog/articles/article_shared-decision/</link><pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_shared-decision/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;In this paper, a non-haptic shared control is applied to navigate an intelligent vehicle based on two inputs: one by a human driver and the other by an autonomous system. The proposed shared decision-making model aims to improve the safety and efficiency of autonomous vehicle navigation by integrating human intuition and machine precision. Experimental results demonstrate the effectiveness of this approach in various driving scenarios. :contentReference[oaicite:0]{index=0}&lt;/p&gt;</description></item><item><title>Leg Detection Using a 2D LiDAR</title><link>https://pouceheure.github.io/blog/projects/project_human-legs-detection/</link><pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_human-legs-detection/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;h3 id="source-code"&gt;Source Code&lt;/h3&gt;
+&lt;p&gt;In addition to the main GitHub project, the following submodules are available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Dataset of scanned legs (with labels):&lt;/em&gt; &lt;a href="https://github.com/PouceHeure/dataset_lidar2D_legs"&gt;https://github.com/PouceHeure/dataset_lidar2D_legs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Labeling GUI tool:&lt;/em&gt; &lt;a href="https://github.com/PouceHeure/lidar_tool_label"&gt;https://github.com/PouceHeure/lidar_tool_label&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Radar interface:&lt;/em&gt; &lt;a href="https://github.com/PouceHeure/ros_pygame_radar_2D"&gt;https://github.com/PouceHeure/ros_pygame_radar_2D&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="context"&gt;Context&lt;/h3&gt;
+&lt;p&gt;This project detects human legs from 2D LiDAR scans using a Recurrent Neural Network (RNN) with LSTM cells. The LSTM processes each scan as a spatial sequence ordered by angle $ \theta $, not as a time series. The model learns local shape patterns in polar space that are typical of legs.&lt;/p&gt;</description></item><item><title>A Lightweight Multi-Agent System Library</title><link>https://pouceheure.github.io/blog/projects/project_light-mas/</link><pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_light-mas/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;py_light_mas&lt;/code&gt; is a lightweight Python framework for multi-agent systems (MAS).
+It provides simple abstractions for Agents, an Environnemnt, a Simulation loop, and an optional Network for inter-agent communication.&lt;/p&gt;
+&lt;h2 id="architecture"&gt;Architecture&lt;/h2&gt;
+&lt;p&gt;The architecture can be illustrated in two diagrams that describe the same system:&lt;/p&gt;
+&lt;p&gt;&lt;figure id="fig-1"&gt;
+ &lt;img src="https://raw.githubusercontent.com/PouceHeure/py_light_mas/master/.doc/py_light_mas-relation.png" alt=""
+ width="600"
+ &gt;
+ &lt;figcaption&gt;Fig. 1 - Relations between Simulation, Environnemnt, Agents, and Network.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+The 
+
+
+
+ 
+ 
+ &lt;a href="#fig-1"&gt;Fig. 1&lt;/a&gt;
+ 
+ highlights how the Simulation connects the Environnemnt, Agents, and optional Network.&lt;/p&gt;
+&lt;p&gt;&lt;figure id="fig-2"&gt;
+ &lt;img src="https://raw.githubusercontent.com/PouceHeure/py_light_mas/master/.doc/py_light_mas-sequence.png" alt=""
+ width="600"
+ &gt;
+ &lt;figcaption&gt;Fig. 2 - Event sequence across a simulation tick with message passing.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+The 
+
+
+
+ 
+ 
+ &lt;a href="#fig-2"&gt;Fig. 2&lt;/a&gt;
+ 
+ focuses on the chronological order of events (ticks, signals, messages) during simulation.&lt;/p&gt;</description></item><item><title>Pouco2000 - Customizable Physical Interface for ROS Robots</title><link>https://pouceheure.github.io/blog/projects/project_pouco2000/</link><pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_pouco2000/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Pouco2000&lt;/strong&gt; is a C++-based project providing a modular physical control panel for interacting with ROS-based robots.&lt;/p&gt;
+&lt;p&gt;The system includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An &lt;strong&gt;Arduino library&lt;/strong&gt; for defining hardware inputs and outputs&lt;/li&gt;
+&lt;li&gt;ROS packages for &lt;strong&gt;serial communication&lt;/strong&gt;, &lt;strong&gt;message extraction&lt;/strong&gt;, and &lt;strong&gt;parameter introspection&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Utilities for visual monitoring and debugging in real-time&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/f1S2iDkwEEM" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 2 - Video demo, hardware and software test.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Using only terminal commands or software interfaces to control and debug robots can be slow, especially in field environments.&lt;/p&gt;</description></item><item><title>JADE Modeling for Generic Microgrids</title><link>https://pouceheure.github.io/blog/articles/article_jade-microgrids/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_jade-microgrids/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;This work presents a JADE-based model for optimizing microgrid energy distribution. The proposed approach utilizes a multi-agent system framework to manage and control various distributed energy resources within a microgrid. By implementing intelligent agent behaviors, the system aims to enhance energy efficiency, reliability, and scalability in smart grid applications. Simulation results demonstrate the effectiveness of the JADE-based model in handling dynamic energy demands and supply conditions, contributing to the advancement of intelligent energy management systems.&lt;/p&gt;</description></item><item><title>Drone Control with ROS</title><link>https://pouceheure.github.io/blog/projects/project_drone-control/</link><pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_drone-control/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This project was part of a final-year master&amp;rsquo;s program and involved developing a drone capable of autonomously flying over a predefined area.&lt;br&gt;
+The work was split into two main parts: &lt;strong&gt;path planning&lt;/strong&gt; and &lt;strong&gt;control&lt;/strong&gt;.&lt;br&gt;
+My responsibility was to control a Parrot Bebop drone using &lt;strong&gt;ROS&lt;/strong&gt;, leveraging an existing ROS package that communicates with Parrot&amp;rsquo;s SDK.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure id="demo-drone"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/8RcVpDUoFJc" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Drone control demonstration.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;h2 id="additional-features"&gt;Additional Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Controller Watchdog&lt;/strong&gt;: Added a manual override system allowing the operator to take full control of the drone if the autonomous system fails.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Package Improvements&lt;/strong&gt;: Updated the original ROS package to support extra SDK functions from the manufacturer (&lt;a href="https://github.com/AutonomyLab/bebop_autonomy/pull/189"&gt;GitHub Pull Request&lt;/a&gt;), enabling advanced control through the drone’s built-in features.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Multi-agent Model for Domotics and Smart Houses</title><link>https://pouceheure.github.io/blog/articles/article_multi-agent-smart-houses/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_multi-agent-smart-houses/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Most demand-side management programs focus on the interactions between an aggregator and its users. Moreover, renewable energy production is irregular; increasing their number implies predicting consumption and managing energy storage or discharge in real time. Therefore, organizing the consumption patterns of every device connected to the grid is essential to optimize the global consumption. Studying the smart grid through modeling and simulation provides valuable results that cannot be obtained in the real world due to time and cost constraints. This paper focuses on a multi-agent model to simulate a microgrid and domotics through automata and energy consumption scheduling.&lt;/p&gt;</description></item><item><title>Lovo Anti-theft Bicycle Connected</title><link>https://pouceheure.github.io/blog/projects/project_lovo/</link><pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_lovo/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This project is a bicycle theft detection system based on the Sigfox network. It uses an Arduino board combined with an inertial measurement unit (IMU). When abnormal motion is detected, such as acceleration above a set threshold, the device sends data via Sigfox. The information is then forwarded to Firebase, which triggers a notification to the user’s mobile application.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure id="demo-lovo"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/npHM27lVe48" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Video demo: the system sends a notification when motion is detected.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;h2 id="hardware"&gt;Hardware&lt;/h2&gt;
+&lt;p&gt;The device is built around an Arduino MKR FOX 1200, enabling Sigfox communication. An IMU board measures acceleration. LEDs are included to indicate status and assist during testing.&lt;/p&gt;</description></item></channel></rss>

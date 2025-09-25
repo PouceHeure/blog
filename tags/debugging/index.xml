@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Debugging on Hugo POUSSEUR</title><link>https://pouceheure.github.io/blog/tags/debugging/</link><description>Recent content in Debugging on Hugo POUSSEUR</description><generator>Hugo</generator><language>en-en</language><lastBuildDate>Mon, 15 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://pouceheure.github.io/blog/tags/debugging/index.xml" rel="self" type="application/rss+xml"/><item><title>Pouco2000 - Customizable Physical Interface for ROS Robots</title><link>https://pouceheure.github.io/blog/projects/project_pouco2000/</link><pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_pouco2000/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Pouco2000&lt;/strong&gt; is a C++-based project providing a modular physical control panel for interacting with ROS-based robots.&lt;/p&gt;
+&lt;p&gt;The system includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An &lt;strong&gt;Arduino library&lt;/strong&gt; for defining hardware inputs and outputs&lt;/li&gt;
+&lt;li&gt;ROS packages for &lt;strong&gt;serial communication&lt;/strong&gt;, &lt;strong&gt;message extraction&lt;/strong&gt;, and &lt;strong&gt;parameter introspection&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Utilities for visual monitoring and debugging in real-time&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/f1S2iDkwEEM" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 2 - Video demo, hardware and software test.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Using only terminal commands or software interfaces to control and debug robots can be slow, especially in field environments.&lt;/p&gt;</description></item></channel></rss>

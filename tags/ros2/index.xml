@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ros2 on Hugo POUSSEUR</title><link>https://pouceheure.github.io/blog/tags/ros2/</link><description>Recent content in Ros2 on Hugo POUSSEUR</description><generator>Hugo</generator><language>en-en</language><lastBuildDate>Thu, 15 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pouceheure.github.io/blog/tags/ros2/index.xml" rel="self" type="application/rss+xml"/><item><title>Traffic Light Detection &amp; Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</link><pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</guid><description>&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;As part of an autonomous driving project, I contributed to the development of a system enabling a vehicle to adapt its behavior to traffic lights. The vehicle adjusts its speed according to the current traffic light state.&lt;/p&gt;
+&lt;p&gt;The project is divided into four main components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Matching&lt;/strong&gt;: Identifying traffic light positions on the map&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Detection&lt;/strong&gt;: Determining the current state of the traffic light&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Planning&lt;/strong&gt;: Adjusting vehicle speed according to the detection result&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Control&lt;/strong&gt;: Applying the computed velocity to the vehicle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The detection pipeline is implemented in Python, while control is handled in C++ within a ROS2 environment.&lt;/p&gt;</description></item><item><title>ROS2 - Dashboard Framework</title><link>https://pouceheure.github.io/blog/projects/project_dashboard/</link><pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_dashboard/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;In robotics and system development, having a clear and flexible interface to visualize system states, sensor data, and real-time metrics is important. This project offers a lightweight dashboard framework designed for ROS 2, allowing quick creation of dashboards through simple configuration files.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure id="dashboard-demo"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/p0qqfZNxj6I" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Demo video of the dashboard overlaid on video.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;p&gt;The 
+
+ &lt;a href="#dashboard-demo"&gt;Video 1: Demo video of the dashboard overlaid on video.&lt;/a&gt;
+
+ shows a demo of the dashboard running over a video stream.&lt;/p&gt;</description></item><item><title>RViz2 - Virtual Camera</title><link>https://pouceheure.github.io/blog/projects/project_rviz-virtual-camera/</link><pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_rviz-virtual-camera/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+
+
+
+
+
+
+&lt;figure id="virtual-camera-demo"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/1-QI8J1kdfM" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Demo: Example output from a virtual camera.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;p&gt;The following demontration, 
+
+ &lt;a href="#virtual-camera-demo"&gt;Video 1: Demo: Example output from a virtual camera.&lt;/a&gt;
+
+, shows the video created from a virtual camera. The virtual camera is attached to a frame, fixed to vehicle.&lt;/p&gt;
+&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;At first, I recorded the screen during experiments, but this was not a good solution because:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;process it&amp;rsquo;s more complex to setup,&lt;/li&gt;
+&lt;li&gt;it uses too many resources,&lt;/li&gt;
+&lt;li&gt;the video quality is low,&lt;/li&gt;
+&lt;li&gt;I must keep the window and RViz view in the same place.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;hellip;I need a better solution.&lt;/p&gt;</description></item><item><title>Autonomous Vehicle Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_control/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_control/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/nJx0B9U1x-g" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Demo video: planning and control in action.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the &lt;strong&gt;low-level control&lt;/strong&gt; system responsible for translating navigation commands into actuator signals (steering and torque).&lt;br&gt;
+This system is fully integrated into a ROS2-based autonomous stack and has been deployed and tested on a &lt;strong&gt;real electric vehicle with in-wheel motors&lt;/strong&gt;.&lt;/p&gt;
+&lt;figure id="fig-1"&gt;
+ &lt;img src="https://pouceheure.github.io/blog/images/autosys-control/control_interfaces_inputs.png" alt=""
+ width="500"
+ &gt;
+ &lt;figcaption&gt;Fig. 1 - Interfaces between planning and control modules.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id="control-structure"&gt;Control Structure&lt;/h2&gt;
+&lt;p&gt;The controller is composed of two main components:&lt;/p&gt;</description></item><item><title>Autonomous Vehicle Planning</title><link>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</link><pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/wnQpdtmPgv0" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Demo video, slalom test.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/As44QMtXXiw" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 2 - Demo video, curve test.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the implementation of the core planning functionalities for autonomous driving.&lt;br&gt;
+The navigation stack transforms a target position into a safe and efficient motion trajectory using environmental context and map information.&lt;/p&gt;
+&lt;p&gt;The process is divided into three stages:&lt;/p&gt;</description></item></channel></rss>

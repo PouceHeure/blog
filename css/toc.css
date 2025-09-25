@@ -1,0 +1,169 @@
+/* ---------------------------------------------
+   Layout structure
+--------------------------------------------- */
+
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.markdown-content {
+  max-width: 800px;
+}
+
+
+/* ---------------------------------------------
+   Table of Contents (ToC) container & layout
+--------------------------------------------- */
+
+.toc-container {
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.toc {
+  position: sticky;
+  top: 80px;
+  border-radius: 5px;
+  overflow-y: auto;
+}
+
+
+/* ---------------------------------------------
+   ToC title styling
+--------------------------------------------- */
+
+.toc-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--bs-primary);
+}
+
+
+/* ---------------------------------------------
+   ToC list structure and levels
+--------------------------------------------- */
+
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Level 1 – H2 */
+.toc ul li {
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Level 2 – H3 */
+.toc ul ul {
+  padding-left: 15px;
+  border-left: 2px solid var(--bs-primary);
+  margin-left: 10px;
+}
+
+/* Level 3 – H4 */
+.toc ul ul ul {
+  padding-left: 15px;
+  border-left: 2px dashed var(--bs-primary);
+  margin-left: 10px;
+}
+
+/* Level 4 – H5 */
+.toc ul ul ul ul {
+  padding-left: 15px;
+  border-left: 1px dotted #007bff;
+  margin-left: 10px;
+}
+
+
+/* ---------------------------------------------
+   ToC links and interaction
+--------------------------------------------- */
+
+.toc ul li a {
+  text-decoration: none;
+  color: var(--bs-primary);
+  display: block;
+  padding: 4px 0;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Link colors by depth level */
+.toc ul ul li a {
+  color: var(--bs-secondary);
+}
+
+.toc ul ul ul li a {
+  color: var(--bs-success);
+}
+
+.toc ul li a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Active link highlight */
+.toc ul li a.active {
+  color: #fff;
+  background-color: var(--bs-primary);
+  padding: 9px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+/* ---------------------------------------------
+   Tags / badges styling
+--------------------------------------------- */
+
+.badge {
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+
+/* ---------------------------------------------
+   Responsive behavior (mobile)
+--------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .toc {
+    display: none;
+  }
+
+  .toc-toggle {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #007bff;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .toc.active {
+    display: block;
+    position: fixed;
+    top: 50px;
+    left: 10px;
+    right: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); */
+    max-height: 60vh;
+    overflow-y: auto;
+    z-index: 999;
+  }
+}

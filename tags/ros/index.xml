@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ros on Hugo POUSSEUR</title><link>https://pouceheure.github.io/blog/tags/ros/</link><description>Recent content in Ros on Hugo POUSSEUR</description><generator>Hugo</generator><language>en-en</language><lastBuildDate>Wed, 10 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://pouceheure.github.io/blog/tags/ros/index.xml" rel="self" type="application/rss+xml"/><item><title>Multi-Robot ROS Architecture for UGV/UAV Coordination</title><link>https://pouceheure.github.io/blog/projects/project_multi-robots/</link><pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_multi-robots/</guid><description>&lt;h2 id="context"&gt;Context&lt;/h2&gt;
+&lt;p&gt;As part of a research internship project, a modular ROS architecture was designed to enable cooperative navigation between heterogeneous autonomous vehicles: drones (UAVs) and ground robots (UGVs).&lt;br&gt;
+The contribution focused on supporting the development and implementation of this system, which aimed to be scalable, with dynamic task allocation and coordinated execution across different hardware platforms.&lt;/p&gt;
+&lt;p&gt;The architecture uses a unified communication protocol, distributed ROS nodes, and a namespace layout allowing multiple robots to be managed from a central ROS master.&lt;/p&gt;</description></item><item><title>Human Driving Behavior Prediction</title><link>https://pouceheure.github.io/blog/projects/project_human-prediction/</link><pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_human-prediction/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;A multimodal deep learning model was developed to predict human driving behavior over a short time horizon. The training dataset was recorded specifically for this project.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/rqP5nYBehL4" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Video demo, human driving behavior prediction.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;p&gt;More details about this work are provided in 
+
+
+
+ 
+ 
+ 
+
+ &lt;span class="citation"&gt;
+ &lt;a href="#ref-PredictionHPousseur"&gt;PredictionPousseur 2022&lt;/a&gt;
+ &lt;/span&gt;
+
+.&lt;/p&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Driving intention is represented as a sequence of vehicle states. Let $I$ be:&lt;/p&gt;
+
+
+&lt;blockquote&gt;
+&lt;div class="equation-scroll-wrapper"&gt;
+ 
+ &lt;div class="equation-block"&gt;
+ $$ 
+I = \{x_0, x_1, ..., x_n\}
+ \quad \text{Eq (1)} $$
+ &lt;/div&gt;
+ 
+&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here, $(x_i) = (v_i, w_i)$ denotes the state at time $i$, where $v_i$ is the linear velocity and $w_i$ is the angular velocity.&lt;/p&gt;</description></item><item><title>Lane Detection</title><link>https://pouceheure.github.io/blog/projects/project_lane-detection/</link><pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_lane-detection/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Lane detection is an essential function for autonomous vehicles. While GPS and HD maps offer accurate localization under optimal conditions, vision-based detection provides an important backup, especially in areas with weak GNSS signals or outdated maps.&lt;/p&gt;
+&lt;p&gt;This system implements a deep-learning lane detection pipeline using a convolutional autoencoder, designed to identify and segment multiple lane boundaries in various road conditions using only front-facing camera images.&lt;/p&gt;
+&lt;p&gt;The approach integrates image preprocessing, deep-learning inference, optional temporal tracking, and curve fitting to generate stable and clean lane boundaries. It has been tested in real-world driving and in simulators such as Carla and Scaner.&lt;/p&gt;</description></item><item><title>Prediction of human driving behavior using deep learning: a recurrent learning structure</title><link>https://pouceheure.github.io/blog/articles/article_human-driving-prediction/</link><pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_human-driving-prediction/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Predicting the intentions of the human and the machine on a near future is required to the human-machine shared control of automated intelligent vehicles. The autonomous system is able to inform about its future intentions, however it is not possible for the human to provide this information, it is necessary then to predict it. This paper proposes a deep learning methodology to predict human navigation intentions in a time horizon of a few seconds, using a recurrent neural network (RNN) architecture based on the Long Short-Term Memory (LSTM) architecture. Taking as input various preprocessed and non-preprocessed data, generated by embedded sensors and the intrinsic data of the vehicle, the proposed model predicts the future linear and angular velocities of the vehicle. The model was trained and tested on a dataset created from real data from our cars equipped with sensors (LiDAR, camera), in different scenarios and road types. Furthermore, a data sensitive study is presented evaluating the effects of missing data in the learning process.&lt;/p&gt;</description></item><item><title>Optimization of the Dynamic Window Approach (DWA)</title><link>https://pouceheure.github.io/blog/projects/project_dwa-optimisation/</link><pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_dwa-optimisation/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;The Dynamic Window Approach (DWA) is a reactive motion planning method used in mobile robotics. At each control cycle, it samples admissible velocity pairs $(v, \omega)$ and evaluates them using an objective function, selecting the pair with the highest score.&lt;/p&gt;
+&lt;p&gt;The original method presents two main issues:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Discrete sampling&lt;/strong&gt;, which limits precision&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;High computational cost&lt;/strong&gt; in evaluation loops&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These limitations can be addressed by defining a &lt;strong&gt;convex, differentiable objective function&lt;/strong&gt; and applying &lt;strong&gt;gradient descent&lt;/strong&gt; for continuous optimization.&lt;/p&gt;</description></item><item><title>Leg Detection Using a 2D LiDAR</title><link>https://pouceheure.github.io/blog/projects/project_human-legs-detection/</link><pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_human-legs-detection/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;h3 id="source-code"&gt;Source Code&lt;/h3&gt;
+&lt;p&gt;In addition to the main GitHub project, the following submodules are available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Dataset of scanned legs (with labels):&lt;/em&gt; &lt;a href="https://github.com/PouceHeure/dataset_lidar2D_legs"&gt;https://github.com/PouceHeure/dataset_lidar2D_legs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Labeling GUI tool:&lt;/em&gt; &lt;a href="https://github.com/PouceHeure/lidar_tool_label"&gt;https://github.com/PouceHeure/lidar_tool_label&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Radar interface:&lt;/em&gt; &lt;a href="https://github.com/PouceHeure/ros_pygame_radar_2D"&gt;https://github.com/PouceHeure/ros_pygame_radar_2D&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="context"&gt;Context&lt;/h3&gt;
+&lt;p&gt;This project detects human legs from 2D LiDAR scans using a Recurrent Neural Network (RNN) with LSTM cells. The LSTM processes each scan as a spatial sequence ordered by angle $ \theta $, not as a time series. The model learns local shape patterns in polar space that are typical of legs.&lt;/p&gt;</description></item><item><title>Pouco2000 - Customizable Physical Interface for ROS Robots</title><link>https://pouceheure.github.io/blog/projects/project_pouco2000/</link><pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_pouco2000/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Pouco2000&lt;/strong&gt; is a C++-based project providing a modular physical control panel for interacting with ROS-based robots.&lt;/p&gt;
+&lt;p&gt;The system includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An &lt;strong&gt;Arduino library&lt;/strong&gt; for defining hardware inputs and outputs&lt;/li&gt;
+&lt;li&gt;ROS packages for &lt;strong&gt;serial communication&lt;/strong&gt;, &lt;strong&gt;message extraction&lt;/strong&gt;, and &lt;strong&gt;parameter introspection&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Utilities for visual monitoring and debugging in real-time&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/f1S2iDkwEEM" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 2 - Video demo, hardware and software test.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Using only terminal commands or software interfaces to control and debug robots can be slow, especially in field environments.&lt;/p&gt;</description></item><item><title>Drone Control with ROS</title><link>https://pouceheure.github.io/blog/projects/project_drone-control/</link><pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_drone-control/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This project was part of a final-year master&amp;rsquo;s program and involved developing a drone capable of autonomously flying over a predefined area.&lt;br&gt;
+The work was split into two main parts: &lt;strong&gt;path planning&lt;/strong&gt; and &lt;strong&gt;control&lt;/strong&gt;.&lt;br&gt;
+My responsibility was to control a Parrot Bebop drone using &lt;strong&gt;ROS&lt;/strong&gt;, leveraging an existing ROS package that communicates with Parrot&amp;rsquo;s SDK.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure id="demo-drone"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/8RcVpDUoFJc" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Drone control demonstration.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;h2 id="additional-features"&gt;Additional Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Controller Watchdog&lt;/strong&gt;: Added a manual override system allowing the operator to take full control of the drone if the autonomous system fails.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Package Improvements&lt;/strong&gt;: Updated the original ROS package to support extra SDK functions from the manufacturer (&lt;a href="https://github.com/AutonomyLab/bebop_autonomy/pull/189"&gt;GitHub Pull Request&lt;/a&gt;), enabling advanced control through the drone’s built-in features.&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

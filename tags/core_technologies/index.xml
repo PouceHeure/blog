@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Core_technologies on Hugo POUSSEUR</title><link>https://pouceheure.github.io/blog/tags/core_technologies/</link><description>Recent content in Core_technologies on Hugo POUSSEUR</description><generator>Hugo</generator><language>en-en</language><lastBuildDate>Thu, 15 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pouceheure.github.io/blog/tags/core_technologies/index.xml" rel="self" type="application/rss+xml"/><item><title>Traffic Light Detection &amp; Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</link><pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</guid><description>&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;As part of an autonomous driving project, I contributed to the development of a system enabling a vehicle to adapt its behavior to traffic lights. The vehicle adjusts its speed according to the current traffic light state.&lt;/p&gt;
+&lt;p&gt;The project is divided into four main components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Matching&lt;/strong&gt;: Identifying traffic light positions on the map&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Detection&lt;/strong&gt;: Determining the current state of the traffic light&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Planning&lt;/strong&gt;: Adjusting vehicle speed according to the detection result&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Control&lt;/strong&gt;: Applying the computed velocity to the vehicle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The detection pipeline is implemented in Python, while control is handled in C++ within a ROS2 environment.&lt;/p&gt;</description></item><item><title>ROS2 - Dashboard Framework</title><link>https://pouceheure.github.io/blog/projects/project_dashboard/</link><pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_dashboard/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;In robotics and system development, having a clear and flexible interface to visualize system states, sensor data, and real-time metrics is important. This project offers a lightweight dashboard framework designed for ROS 2, allowing quick creation of dashboards through simple configuration files.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure id="dashboard-demo"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/p0qqfZNxj6I" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Demo video of the dashboard overlaid on video.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;p&gt;The 
+
+ &lt;a href="#dashboard-demo"&gt;Video 1: Demo video of the dashboard overlaid on video.&lt;/a&gt;
+
+ shows a demo of the dashboard running over a video stream.&lt;/p&gt;</description></item><item><title>RViz2 - Virtual Camera</title><link>https://pouceheure.github.io/blog/projects/project_rviz-virtual-camera/</link><pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_rviz-virtual-camera/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+
+
+
+
+
+
+&lt;figure id="virtual-camera-demo"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/1-QI8J1kdfM" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Demo: Example output from a virtual camera.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;p&gt;The following demontration, 
+
+ &lt;a href="#virtual-camera-demo"&gt;Video 1: Demo: Example output from a virtual camera.&lt;/a&gt;
+
+, shows the video created from a virtual camera. The virtual camera is attached to a frame, fixed to vehicle.&lt;/p&gt;
+&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;At first, I recorded the screen during experiments, but this was not a good solution because:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;process it&amp;rsquo;s more complex to setup,&lt;/li&gt;
+&lt;li&gt;it uses too many resources,&lt;/li&gt;
+&lt;li&gt;the video quality is low,&lt;/li&gt;
+&lt;li&gt;I must keep the window and RViz view in the same place.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;hellip;I need a better solution.&lt;/p&gt;</description></item><item><title>Panel Bus</title><link>https://pouceheure.github.io/blog/projects/project_panel-bus/</link><pubDate>Fri, 11 Oct 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_panel-bus/</guid><description>&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Bus schedules are difficult to follow because of uncertain traffic conditions.&lt;br&gt;
+For this reason, I decided to use the available data to build a tool that allows quick visualization of the schedules for a given station.&lt;br&gt;
+There is already a developed solution, but it requires several clicks before reaching the information.&lt;/p&gt;
+&lt;p&gt;The idea is simple: make the information as raw and as fast to access as possible.&lt;br&gt;
+The solution is therefore to display the buses of a station directly, accessible through a single link.&lt;/p&gt;</description></item><item><title>Leg Detection Using a 2D LiDAR</title><link>https://pouceheure.github.io/blog/projects/project_human-legs-detection/</link><pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_human-legs-detection/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;h3 id="source-code"&gt;Source Code&lt;/h3&gt;
+&lt;p&gt;In addition to the main GitHub project, the following submodules are available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Dataset of scanned legs (with labels):&lt;/em&gt; &lt;a href="https://github.com/PouceHeure/dataset_lidar2D_legs"&gt;https://github.com/PouceHeure/dataset_lidar2D_legs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Labeling GUI tool:&lt;/em&gt; &lt;a href="https://github.com/PouceHeure/lidar_tool_label"&gt;https://github.com/PouceHeure/lidar_tool_label&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Radar interface:&lt;/em&gt; &lt;a href="https://github.com/PouceHeure/ros_pygame_radar_2D"&gt;https://github.com/PouceHeure/ros_pygame_radar_2D&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="context"&gt;Context&lt;/h3&gt;
+&lt;p&gt;This project detects human legs from 2D LiDAR scans using a Recurrent Neural Network (RNN) with LSTM cells. The LSTM processes each scan as a spatial sequence ordered by angle $ \theta $, not as a time series. The model learns local shape patterns in polar space that are typical of legs.&lt;/p&gt;</description></item><item><title>Pouco2000 - Customizable Physical Interface for ROS Robots</title><link>https://pouceheure.github.io/blog/projects/project_pouco2000/</link><pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_pouco2000/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Pouco2000&lt;/strong&gt; is a C++-based project providing a modular physical control panel for interacting with ROS-based robots.&lt;/p&gt;
+&lt;p&gt;The system includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An &lt;strong&gt;Arduino library&lt;/strong&gt; for defining hardware inputs and outputs&lt;/li&gt;
+&lt;li&gt;ROS packages for &lt;strong&gt;serial communication&lt;/strong&gt;, &lt;strong&gt;message extraction&lt;/strong&gt;, and &lt;strong&gt;parameter introspection&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Utilities for visual monitoring and debugging in real-time&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/f1S2iDkwEEM" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 2 - Video demo, hardware and software test.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Using only terminal commands or software interfaces to control and debug robots can be slow, especially in field environments.&lt;/p&gt;</description></item><item><title>JADE Modeling for Generic Microgrids</title><link>https://pouceheure.github.io/blog/articles/article_jade-microgrids/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_jade-microgrids/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;This work presents a JADE-based model for optimizing microgrid energy distribution. The proposed approach utilizes a multi-agent system framework to manage and control various distributed energy resources within a microgrid. By implementing intelligent agent behaviors, the system aims to enhance energy efficiency, reliability, and scalability in smart grid applications. Simulation results demonstrate the effectiveness of the JADE-based model in handling dynamic energy demands and supply conditions, contributing to the advancement of intelligent energy management systems.&lt;/p&gt;</description></item><item><title>Drone Control with ROS</title><link>https://pouceheure.github.io/blog/projects/project_drone-control/</link><pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_drone-control/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This project was part of a final-year master&amp;rsquo;s program and involved developing a drone capable of autonomously flying over a predefined area.&lt;br&gt;
+The work was split into two main parts: &lt;strong&gt;path planning&lt;/strong&gt; and &lt;strong&gt;control&lt;/strong&gt;.&lt;br&gt;
+My responsibility was to control a Parrot Bebop drone using &lt;strong&gt;ROS&lt;/strong&gt;, leveraging an existing ROS package that communicates with Parrot&amp;rsquo;s SDK.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure id="demo-drone"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/8RcVpDUoFJc" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Drone control demonstration.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;h2 id="additional-features"&gt;Additional Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Controller Watchdog&lt;/strong&gt;: Added a manual override system allowing the operator to take full control of the drone if the autonomous system fails.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Package Improvements&lt;/strong&gt;: Updated the original ROS package to support extra SDK functions from the manufacturer (&lt;a href="https://github.com/AutonomyLab/bebop_autonomy/pull/189"&gt;GitHub Pull Request&lt;/a&gt;), enabling advanced control through the drone’s built-in features.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Lovo Anti-theft Bicycle Connected</title><link>https://pouceheure.github.io/blog/projects/project_lovo/</link><pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_lovo/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This project is a bicycle theft detection system based on the Sigfox network. It uses an Arduino board combined with an inertial measurement unit (IMU). When abnormal motion is detected, such as acceleration above a set threshold, the device sends data via Sigfox. The information is then forwarded to Firebase, which triggers a notification to the user’s mobile application.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure id="demo-lovo"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/npHM27lVe48" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Video demo: the system sends a notification when motion is detected.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;h2 id="hardware"&gt;Hardware&lt;/h2&gt;
+&lt;p&gt;The device is built around an Arduino MKR FOX 1200, enabling Sigfox communication. An IMU board measures acceleration. LEDs are included to indicate status and assist during testing.&lt;/p&gt;</description></item></channel></rss>

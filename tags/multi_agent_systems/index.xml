@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Multi_agent_systems on Hugo POUSSEUR</title><link>https://pouceheure.github.io/blog/tags/multi_agent_systems/</link><description>Recent content in Multi_agent_systems on Hugo POUSSEUR</description><generator>Hugo</generator><language>en-en</language><lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pouceheure.github.io/blog/tags/multi_agent_systems/index.xml" rel="self" type="application/rss+xml"/><item><title>Thesis: Shared navigation in a cybernetic multi-agent autonomous system</title><link>https://pouceheure.github.io/blog/articles/article_thesis/</link><pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_thesis/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;My thesis is based on shared navigation between the autonomous system and the human. In our research, we focus on command fusion. In our approach, both entities, the human and the autonomous system, simultaneously control the vehicle, and a module acquires their commands and performs the command fusion. This approach involves studying the intentions of both the human and the autonomous system to ensure the most appropriate fusion of their choices and to evaluate the decision-making of each entity. The intention of the autonomous system is calculated using a visual servoing controller. The implementation of visual servoing relies on a deep learning network detecting lanes. For the human driver, who actively drives and cannot express their intention simultaneously, we use a deep learning-based model to predict their intention. The construction of this model required the creation of a driving dataset using our vehicles and the development of a recurrent model that integrates data of various types. Each of these intentions is then evaluated according to specific criteria, including safety, comfort, and context, to guide the fusion process towards the selection of the highest quality intention. This quantification is based on a state analysis derived from the realization of these intentions. We then use game theory to facilitate the fusion process, where each entity, human and autonomous system, aims to steer the final command towards their choice.&lt;/p&gt;</description></item><item><title>Cooperative Architecture Using Air and Ground Vehicles for the Search and Recognition of Targets</title><link>https://pouceheure.github.io/blog/articles/article_cooperative-architecture/</link><pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_cooperative-architecture/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;A cooperative navigation architecture for the search and recognition of targets using aerial and ground vehicles is proposed in this paper. The architecture allows managing aerial and ground vehicles to autonomously perform different tasks independently or cooperatively. For our application, two main tasks are conceived: aerial monitoring of a surface to search for targets and target ground recognition. In the target aerial detection task, the aerial drone autonomously follows a trajectory computed to cover the entire surface to be monitored, searching for targets using vision algorithms. Once a target is detected, its relative position is sent to the cooperative architecture. After the aerial drone has covered the entire area, the architecture computes and assigns each ground vehicle the closest target found. Each ground vehicle then navigates autonomously, avoiding obstacles if present, to its assigned target. To verify the success of the mission, the aerial vehicle flies following the dynamic center of mass of the ground vehicles. Real-time experiments are carried out to validate the proposed architecture. The main results, depicted in some graphs, corroborate the good performance in a closed loop.&lt;/p&gt;</description></item><item><title>Multi-Robot ROS Architecture for UGV/UAV Coordination</title><link>https://pouceheure.github.io/blog/projects/project_multi-robots/</link><pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_multi-robots/</guid><description>&lt;h2 id="context"&gt;Context&lt;/h2&gt;
+&lt;p&gt;As part of a research internship project, a modular ROS architecture was designed to enable cooperative navigation between heterogeneous autonomous vehicles: drones (UAVs) and ground robots (UGVs).&lt;br&gt;
+The contribution focused on supporting the development and implementation of this system, which aimed to be scalable, with dynamic task allocation and coordinated execution across different hardware platforms.&lt;/p&gt;
+&lt;p&gt;The architecture uses a unified communication protocol, distributed ROS nodes, and a namespace layout allowing multiple robots to be managed from a central ROS master.&lt;/p&gt;</description></item><item><title>A Lightweight Multi-Agent System Library</title><link>https://pouceheure.github.io/blog/projects/project_light-mas/</link><pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_light-mas/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;py_light_mas&lt;/code&gt; is a lightweight Python framework for multi-agent systems (MAS).
+It provides simple abstractions for Agents, an Environnemnt, a Simulation loop, and an optional Network for inter-agent communication.&lt;/p&gt;
+&lt;h2 id="architecture"&gt;Architecture&lt;/h2&gt;
+&lt;p&gt;The architecture can be illustrated in two diagrams that describe the same system:&lt;/p&gt;
+&lt;p&gt;&lt;figure id="fig-1"&gt;
+ &lt;img src="https://raw.githubusercontent.com/PouceHeure/py_light_mas/master/.doc/py_light_mas-relation.png" alt=""
+ width="600"
+ &gt;
+ &lt;figcaption&gt;Fig. 1 - Relations between Simulation, Environnemnt, Agents, and Network.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+The 
+
+
+
+ 
+ 
+ &lt;a href="#fig-1"&gt;Fig. 1&lt;/a&gt;
+ 
+ highlights how the Simulation connects the Environnemnt, Agents, and optional Network.&lt;/p&gt;
+&lt;p&gt;&lt;figure id="fig-2"&gt;
+ &lt;img src="https://raw.githubusercontent.com/PouceHeure/py_light_mas/master/.doc/py_light_mas-sequence.png" alt=""
+ width="600"
+ &gt;
+ &lt;figcaption&gt;Fig. 2 - Event sequence across a simulation tick with message passing.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+The 
+
+
+
+ 
+ 
+ &lt;a href="#fig-2"&gt;Fig. 2&lt;/a&gt;
+ 
+ focuses on the chronological order of events (ticks, signals, messages) during simulation.&lt;/p&gt;</description></item><item><title>JADE Modeling for Generic Microgrids</title><link>https://pouceheure.github.io/blog/articles/article_jade-microgrids/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_jade-microgrids/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;This work presents a JADE-based model for optimizing microgrid energy distribution. The proposed approach utilizes a multi-agent system framework to manage and control various distributed energy resources within a microgrid. By implementing intelligent agent behaviors, the system aims to enhance energy efficiency, reliability, and scalability in smart grid applications. Simulation results demonstrate the effectiveness of the JADE-based model in handling dynamic energy demands and supply conditions, contributing to the advancement of intelligent energy management systems.&lt;/p&gt;</description></item><item><title>Multi-agent Model for Domotics and Smart Houses</title><link>https://pouceheure.github.io/blog/articles/article_multi-agent-smart-houses/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_multi-agent-smart-houses/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Most demand-side management programs focus on the interactions between an aggregator and its users. Moreover, renewable energy production is irregular; increasing their number implies predicting consumption and managing energy storage or discharge in real time. Therefore, organizing the consumption patterns of every device connected to the grid is essential to optimize the global consumption. Studying the smart grid through modeling and simulation provides valuable results that cannot be obtained in the real world due to time and cost constraints. This paper focuses on a multi-agent model to simulate a microgrid and domotics through automata and energy consumption scheduling.&lt;/p&gt;</description></item></channel></rss>

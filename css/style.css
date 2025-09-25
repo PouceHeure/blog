@@ -1,0 +1,413 @@
+/* ---------------------------------------------
+   General Layout
+--------------------------------------------- */
+
+body {
+  background-color: #faf0be; /* Fond couleur papier jaune */
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+
+  /* Optional grid pattern */
+  background-image: linear-gradient(rgba(0, 0, 250, 0.03) 1px, transparent 1px),
+    linear-gradient(to right, rgba(0, 0, 250, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+main {
+  min-height: calc(
+    100vh - 180px
+  ); /* Ajuste selon la hauteur du header et footer */
+}
+
+footer {
+  margin-top: 50px;
+  padding: 20px;
+}
+
+/* ---------------------------------------------
+   Navbar Styles
+--------------------------------------------- */
+
+.navbar-custom {
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-custom .nav-link {
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #ffdd57 !important;
+}
+
+.navbar-custom .nav-link.active {
+  color: #ffdd57 !important;
+  font-weight: bold;
+  border-bottom: 3px solid #ffdd57;
+}
+
+.nav-link.active {
+  color: #ffdd57 !important;
+  font-weight: bold;
+  border-bottom: 3px solid #ffdd57;
+}
+
+.navbar-custom .social-icons a {
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-custom .social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.navbar-toggler {
+  font-weight: bold;
+}
+
+.social-icons {
+  gap: 0.25rem;
+}
+
+/* ---------------------------------------------
+   Icon Sizes
+--------------------------------------------- */
+
+.icon-size {
+  font-size: 1.5rem;
+}
+
+.icon-size-lg {
+  font-size: 1.75rem;
+}
+
+/* ---------------------------------------------
+   Homepage
+--------------------------------------------- */
+
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+}
+
+/* ---------------------------------------------
+   Dynamic Typing Text
+--------------------------------------------- */
+
+.dynamic-text {
+  display: inline-block;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-right: 5px;
+  position: relative;
+  min-height: 4rem;
+  animation: slideText 4s infinite;
+}
+
+.dynamic-text::after {
+  content: '|';
+  position: absolute;
+  right: 0;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------
+   Emoji Style
+--------------------------------------------- */
+
+.emoji {
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;
+  filter: grayscale(100%);
+}
+
+/* ---------------------------------------------
+   Timeline
+--------------------------------------------- */
+
+.timeline {
+  width: 150px;
+  position: sticky;
+  top: 20px;
+  border-left: 3px solid #ccc;
+  padding-left: 20px;
+}
+
+/* ---------------------------------------------
+   Mosaic Background
+--------------------------------------------- */
+
+.mosaic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 4px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.mosaic-item {
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.mosaic-item:hover {
+  transform: scale(1.1);
+}
+
+/* ---------------------------------------------
+   Cards and Layout
+--------------------------------------------- */
+
+.card-transparent {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.card {
+  border: none !important;
+}
+
+.card_image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 1),
+    rgba(0, 99, 255, 0.15)
+  );
+  z-index: 1;
+}
+
+.card_image > * {
+  position: relative;
+  z-index: 2;
+}
+
+.project-title-bg {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+/* ---------------------------------------------
+   Table Styling
+--------------------------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95rem;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ---------------------------------------------
+   Citation / References
+--------------------------------------------- */
+
+.citation {
+  font-style: italic;
+  color: #444;
+}
+
+#references {
+  margin-top: 3rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+#references h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#references ul {
+  list-style: none;
+  padding: 0;
+}
+
+#references li {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+#references a {
+  text-decoration: none;
+  color: #1a0dab;
+}
+
+#references a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------
+   Tags Section (e.g., Article list)
+--------------------------------------------- */
+
+.title-tags {
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  /* Optional styles you had commented out */
+  /* color: #333; */
+  /* text-align: center; */
+  /* border-bottom: 2px solid var(--bs-primary); */
+}
+
+/* ---------------------------------------------
+   section Home page
+--------------------------------------------- */
+
+/* Section Indicator Styles */
+.section-indicator {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+
+.section-indicator ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section-indicator li {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.section-indicator a {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--bs-secondary);
+  border-radius: 50%;
+  background-color: white;
+  transition: background-color 0.3s, border-color 0.3s;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+.section-indicator a.active {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.year-heading {
+  transition: background-color 0.3s, color 0.3s;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid transparent;
+}
+
+.year-heading.active {
+  background-color: #e3f2fd;
+  border-left-color: #0d6efd;
+  color: #0d6efd;
+}
+
+.equation-scroll-wrapper {
+  overflow-x: auto;
+  width: 100%;
+  display: block;
+  padding-bottom: 0.5rem;
+}
+
+.equation-block {
+  display: inline-block;
+  white-space: nowrap;
+  min-width: 100%;
+}
+
+.refer-box {
+  background-color: var(--bs-light);
+  border-left: 4px solid var(--bs-primary);
+  padding: 1em;
+  margin: 1.5em 0;
+  border-radius: 4px;
+}
+
+.refer-box p {
+  margin: 0;
+}
+
+a.badge[disabled] {
+  pointer-events: none;
+  text-decoration: none; /* remove underline */
+  cursor: default;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  scroll-margin-top: 80px;
+}
+
+#clearSelectedTag {
+  filter: invert(1) brightness(200%); /* pure white */
+  opacity: 1; /* fully visible */
+  transform: scale(1.1); /* slightly bigger */
+}
