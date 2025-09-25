@@ -4,7 +4,7 @@ date: 2024-10-11
 tags: [core_technologies]
 codelang: ["javascript"]
 description: "Display bus panel."
-image: "/images/panel-bus/example.png"
+image: "images/panel-bus/example.png"
 github: https://github.com/PouceHeure/panel-bus
 ---
 

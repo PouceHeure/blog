@@ -5,7 +5,7 @@ tags: [autonomous_vehicle, planning_navigation, robotics_autonomy, ros2]
 codelang: ["cpp"]
 # pinned: true
 description: Local planning applied to real autonomous vehicles, combining global route planning, local path adjustment, and dynamic control profile.
-image: "/images/local-planning/rviz_planning.png"
+image: "images/local-planning/rviz_planning.png"
 ---
 
 ## Demonstration 

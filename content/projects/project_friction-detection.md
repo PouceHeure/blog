@@ -4,7 +4,7 @@ date: 2022-11-10
 tags: [sensing_perception]
 codelang: ["python"]
 description: Road friction estimation based on surface segmentation using a camera and projection into a global grid.
-image: /images/road-friction/thumbnail.png
+image: images/road-friction/thumbnail.png
 article: /articles/article_camera-based-control/
 ---
 

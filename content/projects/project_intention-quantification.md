@@ -4,7 +4,7 @@ date: 2023-12-10
 tags: [planning_navigation, robotics_autonomy]
 codelang: ["python"]
 description: "Define a quantification formulation measuring the quality of driving intentions, used to compare and rank them."
-image: /images/quantification-intentions/scaner_studio_situation.png
+image: images/quantification-intentions/scaner_studio_situation.png
 article: /articles/article_general-multi-criteria/
 ---
 

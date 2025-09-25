@@ -4,7 +4,7 @@ date: 2017-08-07
 tags: [core_technologies]
 codelang: ["cpp","java"]
 description: "Connected anti-theft bicycle system using Arduino, IMU, Sigfox, and Firebase to detect motion and notify users."
-image: "/images/lovo/thumbnail.png"
+image: "images/lovo/thumbnail.png"
 ---
 
 ## Overview

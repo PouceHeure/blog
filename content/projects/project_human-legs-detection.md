@@ -4,7 +4,7 @@ date: 2020-12-10
 tags: [ai_ml, core_technologies, ros, sensing_perception]
 codelang: ["python"]
 description: Leg detection using an LSTM classifier on spatial LiDAR sequences.
-image: "/images/legs-detection/thumbnail.png"
+image: "images/legs-detection/thumbnail.png"
 github: https://github.com/PouceHeure/ros_detection_legs
 ---
 

@@ -3,7 +3,7 @@ title: "Human Driving Behavior Prediction"
 date: 2022-03-10
 tags: [ai_ml, robotics_autonomy, ros, sensing_perception]
 codelang: ["python"]
-image: /images/human-prediction/projection-prediction-test-1-lane.drawio.png
+image: images/human-prediction/projection-prediction-test-1-lane.drawio.png
 description: Prediction of short-term human driving behavior using previous vehicle states, based on a deep learning model integrating multiple sensors.
 article: /articles/article_human-driving-prediction/
 ---

@@ -5,7 +5,7 @@ tags: [autonomous_vehicle, control_optimization, core_technologies, robotics_aut
 codelang: ["cpp"]
 # pinned: true
 description: Detection of traffic lights, and adaptation of vehicle control depending on the light state.
-image: "/images/traffic_light/thumbnail.png"
+image: "images/traffic_light/thumbnail.png"
 ---
 
 ## Motivation
