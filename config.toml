@@ -25,7 +25,7 @@ theme = "hugo-latex"
   youtube_playlist = "PLGzYzDkg-SZrXPj-0gGwnueRWiMS9GiOM"
   name = "Hugo POUSSEUR"
   contact_email_obf = "=02~bj5~Cbp~FWb~nBk~c1V~2cz~V3b~w5y~bnV~Ha"
-  contact_text = "Send me email with object starting by [contact-web], email address (click on reveal)"
+  contact_text = "Send me email with subject starting by [contact-web]. Email address: click on reveal (avoid bot scrapping)."
   
   about = """<span class="bi bi-hand-wave"></span> Welcome! <span class="bi bi-rocket"></span><br>
 I'm Hugo Pousseur, an engineer and PhD in automation and robotics. Here, you'll find my projects and scientific articles, mainly focused on autonomous vehicles, robotics and AI. Feel free to explore, and don't hesitate to reach out! <span class="bi bi-car-front"></span> <span class="bi bi-robot"></span> <span class="bi bi-rocket"></span>
