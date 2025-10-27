@@ -123,6 +123,8 @@
 .markdown-content blockquote {
   border-left: 5px solid var(--bs-secondary);
   padding: 10px 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
   background: #f8f9fa;
   font-style: italic;
   color: #555;

@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Autonomous_vehicle on Hugo POUSSEUR</title><link>https://pouceheure.github.io/blog/tags/autonomous_vehicle/</link><description>Recent content in Autonomous_vehicle on Hugo POUSSEUR</description><generator>Hugo</generator><language>en-en</language><lastBuildDate>Thu, 15 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pouceheure.github.io/blog/tags/autonomous_vehicle/index.xml" rel="self" type="application/rss+xml"/><item><title>Traffic Light Detection &amp; Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</link><pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</guid><description>&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Autonomous_vehicle on Hugo POUSSEUR</title><link>https://pouceheure.github.io/blog/tags/autonomous_vehicle/</link><description>Recent content in Autonomous_vehicle on Hugo POUSSEUR</description><generator>Hugo</generator><language>en-en</language><lastBuildDate>Tue, 14 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pouceheure.github.io/blog/tags/autonomous_vehicle/index.xml" rel="self" type="application/rss+xml"/><item><title>LiDAR Detection &amp; Making Decision</title><link>https://pouceheure.github.io/blog/projects/project_autosys_lidar_and_decision/</link><pubDate>Tue, 14 Oct 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_lidar_and_decision/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+
+
+
+
+
+
+&lt;figure id="test-gazebo"&gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/YJY-9dpiC7o" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Video demo of the LiDAR Detection pipeline&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+ 
+
+
+
+
+
+&lt;blockquote&gt;
+&lt;p&gt;Info: A video demonstration of the decision-making system is coming soon.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In autonomous driving, the vehicle must be able to make a series of decisions, such as slowing down, stopping at an intersection, or waiting until the road is clear before proceeding.&lt;/p&gt;
+&lt;p&gt;These decisions depend on the behavior of other road users. The system must therefore identify surrounding obstacles and determine which ones are relevant for decision-making.&lt;/p&gt;</description></item><item><title>Traffic Light Detection &amp; Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</link><pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</guid><description>&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;As part of an autonomous driving project, I contributed to the development of a system enabling a vehicle to adapt its behavior to traffic lights. The vehicle adjusts its speed according to the current traffic light state.&lt;/p&gt;
 &lt;p&gt;The project is divided into four main components:&lt;/p&gt;
 &lt;ul&gt;
