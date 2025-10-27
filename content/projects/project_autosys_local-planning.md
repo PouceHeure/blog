@@ -1,5 +1,5 @@
 ---
-title: "Autonomous Vehicle Planning"
+title: "Autonomous Vehicle: Planning"
 date: 2024-12-10
 tags: [autonomous_vehicle, planning_navigation, robotics_autonomy, ros2]
 codelang: ["cpp"]
@@ -123,6 +123,48 @@ speed [m/s] :     5.0  |  0.0
 ```
 
 This specifies a speed of 5.0 m/s until 75.0 meters, where it drops to 0.0 m/s.
+
+### Speed Profile: Road Element Handler
+
+Each **road element** is associated with a **handler**.  
+The purpose of the handler is to define the **Finite State Machine (FSM)** of that element.  
+Each **state** of the element specifies a corresponding **speed signal**.
+
+Example: STOP Element
+
+A **STOP** element defines three states:
+
+| **State** | **Description** | **Signal** |
+|------------|----------------|-------------|
+| **LOCK** | The stop is active. <br/> The signal remains **UP** until the vehicle reaches the stop, then becomes **0**. | `UP → 0` |
+| **WAIT** | The vehicle has reached the stop and is waiting for permission to start. | `0` |
+| **FREE** | The vehicle has passed the stop. | `UP` |
+
+
+#### State Transitions
+
+##### Automatic Transitions
+Some transitions occur **automatically**.  
+For example:
+
+```
+LOCK → WAIT
+```
+
+This happens once the vehicle reaches the stop position and its speed equals **0**.  
+The vehicle performs this transition autonomously.
+
+
+##### Permission-Based Transitions
+Other transitions require **explicit permission**.  
+For example:
+
+```
+WAIT → FREE
+```
+
+This transition requires authorization from the **motion manager**, ensuring the **decision layer** has confirmed it is safe for the vehicle to proceed.
+
 
 ### Speed Profile: Combined Signals
 

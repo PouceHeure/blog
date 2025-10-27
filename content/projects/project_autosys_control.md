@@ -1,5 +1,5 @@
 ---
-title: "Autonomous Vehicle Control"
+title: "Autonomous Vehicle: Control"
 date: 2024-12-20
 tags: [autonomous_vehicle, control_optimization, robotics_autonomy, ros2]
 codelang: ["cpp"]
