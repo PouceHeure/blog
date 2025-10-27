@@ -130,7 +130,7 @@ Each **road element** is associated with a **handler**.
 The purpose of the handler is to define the **Finite State Machine (FSM)** of that element.  
 Each **state** of the element specifies a corresponding **speed signal**.
 
-Example: STOP Element
+#### Example: STOP Element
 
 A **STOP** element defines three states:
 
@@ -144,26 +144,14 @@ A **STOP** element defines three states:
 #### State Transitions
 
 ##### Automatic Transitions
-Some transitions occur **automatically**.  
-For example:
+Some transitions occur **automatically**. In these case the state machine can apply the transition himself, without autorisation.
 
-```
-LOCK → WAIT
-```
-
-This happens once the vehicle reaches the stop position and its speed equals **0**.  
-The vehicle performs this transition autonomously.
-
+> For example: `LOCK → WAIT` This happens once the vehicle reaches the stop position and its speed equals **0**. The vehicle performs this transition autonomously. 
 
 ##### Permission-Based Transitions
-Other transitions require **explicit permission**.  
-For example:
+Other transitions require **explicit permission**.  In these case the state machine should wait a permission (a flag), to inform the transition is possible.
 
-```
-WAIT → FREE
-```
-
-This transition requires authorization from the **motion manager**, ensuring the **decision layer** has confirmed it is safe for the vehicle to proceed.
+> For example: `WAIT → FREE` This transition requires authorization from the **motion manager**, ensuring the **decision layer** has confirmed it is safe for the vehicle to proceed.
 
 
 ### Speed Profile: Combined Signals
