@@ -71,7 +71,7 @@
 &lt;li&gt;the video quality is low,&lt;/li&gt;
 &lt;li&gt;I must keep the window and RViz view in the same place.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&amp;hellip;I need a better solution.&lt;/p&gt;</description></item><item><title>Autonomous Vehicle Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_control/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_control/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+&lt;p&gt;&amp;hellip;I need a better solution.&lt;/p&gt;</description></item><item><title>Autonomous Vehicle: Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_control/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_control/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
 
 
 
@@ -103,7 +103,7 @@ This system is fully integrated into a ROS2-based autonomous stack and has been 
 &lt;/figure&gt;
 
 &lt;h2 id="control-structure"&gt;Control Structure&lt;/h2&gt;
-&lt;p&gt;The controller is composed of two main components:&lt;/p&gt;</description></item><item><title>Autonomous Vehicle Planning</title><link>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</link><pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+&lt;p&gt;The controller is composed of two main components:&lt;/p&gt;</description></item><item><title>Autonomous Vehicle: Planning</title><link>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</link><pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
 
 
 

@@ -7,7 +7,7 @@
 &lt;li&gt;&lt;strong&gt;Planning&lt;/strong&gt;: Adjusting vehicle speed according to the detection result&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Control&lt;/strong&gt;: Applying the computed velocity to the vehicle&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The detection pipeline is implemented in Python, while control is handled in C++ within a ROS2 environment.&lt;/p&gt;</description></item><item><title>Autonomous Vehicle Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_control/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_control/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+&lt;p&gt;The detection pipeline is implemented in Python, while control is handled in C++ within a ROS2 environment.&lt;/p&gt;</description></item><item><title>Autonomous Vehicle: Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_control/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_control/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
 
 
 
@@ -39,7 +39,7 @@ This system is fully integrated into a ROS2-based autonomous stack and has been 
 &lt;/figure&gt;
 
 &lt;h2 id="control-structure"&gt;Control Structure&lt;/h2&gt;
-&lt;p&gt;The controller is composed of two main components:&lt;/p&gt;</description></item><item><title>Autonomous Vehicle Planning</title><link>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</link><pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+&lt;p&gt;The controller is composed of two main components:&lt;/p&gt;</description></item><item><title>Autonomous Vehicle: Planning</title><link>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</link><pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_local-planning/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
 
 
 

@@ -7,7 +7,7 @@
 &lt;li&gt;&lt;strong&gt;Planning&lt;/strong&gt;: Adjusting vehicle speed according to the detection result&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Control&lt;/strong&gt;: Applying the computed velocity to the vehicle&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The detection pipeline is implemented in Python, while control is handled in C++ within a ROS2 environment.&lt;/p&gt;</description></item><item><title>Autonomous Vehicle Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_control/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_control/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+&lt;p&gt;The detection pipeline is implemented in Python, while control is handled in C++ within a ROS2 environment.&lt;/p&gt;</description></item><item><title>Autonomous Vehicle: Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_control/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_control/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
 
 
 
