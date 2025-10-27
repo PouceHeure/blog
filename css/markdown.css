@@ -84,8 +84,10 @@
   font-size: 1.2rem;
   font-weight: bold;
   color: var(--bs-warning);
+  border-left: 3px solid var(--bs-warning);
   padding-left: 5px;
   margin: 8px 0;
+  margin-left: 20px;
 }
 
 /* H6 - Sixth level */

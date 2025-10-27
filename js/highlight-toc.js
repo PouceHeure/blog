@@ -27,12 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
     .map(a => document.getElementById(a.getAttribute("href").slice(1)))
     .filter(Boolean);
 
-  // Helper: activer un lien
   const setActive = (id) => {
     tocLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === `#${id}`));
   };
 
-  // Observer pour activer le lien de la partie visible
   const io = new IntersectionObserver((entries) => {
     // Select the topmost visible element in the viewport
     const visible = entries
@@ -54,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => setActive(id), 0);
   }
 
-  // On navigation via hash (e.g., browser back)
   window.addEventListener("hashchange", () => {
     const id = location.hash.slice(1);
     setActive(id);
