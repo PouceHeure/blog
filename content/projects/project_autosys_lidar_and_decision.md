@@ -10,7 +10,7 @@ big: true
 
 ## Demonstration
 
-{{< youtube code="YJY-9dpiC7o" width="800" caption="Video demo of the LiDAR Detection pipeline" label="test-gazebo">}}
+{{< youtube code="YJY-9dpiC7o" width="800" caption="Video demo of the LiDAR Detection pipeline" label="video_demo_lidar">}}
 
 > Info: A video demonstration of the decision-making system is coming soon.
 
