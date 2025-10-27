@@ -1,5 +1,5 @@
 ---
-title: "LiDAR Detection & Making Decision"
+title: "LiDAR Detection & Decision Making"
 date: 2025-10-14
 tags: [sensing_perception, context_decision, autonomous_vehicle, ros2]
 codelang: ["python"]
