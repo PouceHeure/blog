@@ -47,14 +47,14 @@ The decision logic is binary:
 The {{< figref "critic-stop-examples" >}} and {{< figref "critic-other-examples" >}} illustrate how the critical zone adapts depending on the path geometry and the road rules.
 In practice, the critical zone must adapt to the right-of-way rules and the type of road element (e.g., stop sign, intersection, roundabout). This prevents defining an overly strict critical zone that would unnecessarily block the vehicle’s progress.
 
-Legend: 
-- **Red lines**: represent critical zone lines from the map;
-- **Blue polygones**: represent polygones from the critical zone lines, used for filtering;  
+> Legend:
+> - **Red lines**: represent critical zone lines from the map;
+> - **Blue polygones**: represent polygones from the critical zone lines, used for filtering;  
 
 ## Detection
 
 The perception stack relies on a **geometric LiDAR-based approach**.  
-Unlike deep-learning methods, this pipeline is deterministic and explainable — every detection can be interpreted and justified.
+Unlike deep-learning methods, this pipeline is deterministic and explainable, every detection can be interpreted and justified.
 
 Starting from a raw LiDAR point cloud (`PCL2`), the system identifies a set of obstacles (`Perceptions[]`) represented by ground-projected polygons.  
 These obstacles can influence the vehicle’s motion when:
@@ -110,11 +110,11 @@ The {{< figref "perception_on_real_data" >}} illustrates a real-data example.
 On the left is the camera image showing the driving situation. Note that the camera is **not used** for detection.  
 On the right, the RViz visualization displays the LiDAR-based perception results.
 
-Legend:
-- **Green lane:** Polygon of the planned path the vehicle will follow.  
-- **Orange lane:** Polygon representing the critical zone.  
-- **Red dots + blue polygon (right):** A cluster detected by the pipeline, close to the map area but ignored after path and critical-zone filtering.  
-- **Green dots + orange shape + blue polygon:** The detected vehicle obstacle located within the critical zone. The orange overlay indicates that this object lies inside the critical zone.  
+>Legend:
+>- **Green lane:** Polygon of the planned path the vehicle will follow.  
+>- **Orange lane:** Polygon representing the critical zone.  
+>- **Red dots + blue polygon (right):** A cluster detected by the pipeline, close to the map area but ignored after path and critical-zone filtering.  
+>- **Green dots + orange shape + blue polygon:** The detected vehicle obstacle located within >the critical zone. The orange overlay indicates that this object lies inside the critical zone.  
 
 
 {{< figure src="/images/decision/lidar_front_gi.png" caption="Perception LiDAR on real data, case: Front Building." width="800" label="perception_on_real_data_building">}}
@@ -125,4 +125,4 @@ The {{< figref "perception_on_real_data_building" >}}, {{< figref "perception_on
 
 {{< figure src="/images/decision/lidar_cross_guard.png" caption="Perception LiDAR on real data, case: Through The Barrier" width="800" label="perception_on_real_data_guard">}}
 
-The {{< figref "perception_on_real_data_guard" >}} shows an example where the pipeline detection can detect a vehicle through the barrier between the ego vehicle and the vehicle detected.
+The {{< figref "perception_on_real_data_guard" >}} shows an example where the pipeline detection can detect a vehicle through the barrier between the ego vehicle and the vehicle detected. The red circle shows the vehicle in the image frame and RViZ display.
