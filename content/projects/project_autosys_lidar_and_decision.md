@@ -76,7 +76,7 @@ From these, filtered subsets are computed depending on the driving context.
 | --------------------------------- | ------------------------------------------------ | ----------------------------------------------------------------------- |
 | **1. Point Filtering**            | `PCL2` → `PCL2`                                 | Filters raw LiDAR points by height (`z_min`, `z_max`) and range limits to remove ground or distant noise. |
 | **2. Voxel Downsampling**         | `PCL2` → `PCL2`                                 | Reduces cloud density using voxel grid filtering for faster processing. |
-| **3. Clustering (Voxel-based)**   | `PCL2` → `PCL2`                                 | Groups nearby points using voxel-based connected components in 2D/3D space — efficient and stable segmentation. |
+| **3. Clustering (Voxel-based)**   | `PCL2` → `PCL2`                                 | Groups nearby points using voxel-based connected components in 2D/3D space, efficient and stable segmentation. |
 | **4. Cluster Filtering**          | `PCL2` → `PCL2`                                 | Removes clusters below size or height thresholds to discard irrelevant objects. |
 | **5. Road Polygon Filtering**     | `PCL2` → `PCL2`                                 | Keeps only clusters overlapping with the road polygons from the map. |
 | **6. TF Transform (Clusters)**    | `PCL2` → `PCL2`                                 | Transforms clustered points to the `map` frame for spatial consistency. |
