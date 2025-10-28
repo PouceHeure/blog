@@ -104,10 +104,10 @@ From these, filtered subsets are computed depending on the driving context.
 
 ## Example on Real Data
 
-{{< figure src="/images/decision/lidar_detection.png" caption="Perception LiDAR on real data." width="800" label="perception_on_real_data">}}
+{{< figure src="/images/decision/lidar_detection.png" caption="Perception LiDAR on real data, case: Roundabout" width="800" label="perception_on_real_data">}}
 
 The {{< figref "perception_on_real_data" >}} illustrates a real-data example.  
-On the left is the camera image showing the driving situation — note that the camera is **not used** for detection.  
+On the left is the camera image showing the driving situation. Note that the camera is **not used** for detection.  
 On the right, the RViz visualization displays the LiDAR-based perception results.
 
 Legend:
@@ -117,4 +117,12 @@ Legend:
 - **Green dots + orange shape + blue polygon:** The detected vehicle obstacle located within the critical zone. The orange overlay indicates that this object lies inside the critical zone.  
 
 
+{{< figure src="/images/decision/lidar_front_gi.png" caption="Perception LiDAR on real data, case: Front Building." width="800" label="perception_on_real_data_building">}}
 
+{{< figure src="/images/decision/lidar_parking_gi.png" caption="Perception LiDAR on real data, case: Parking." width="800" label="perception_on_real_data_parking">}}
+
+The {{< figref "perception_on_real_data_building" >}}, {{< figref "perception_on_real_data_parking" >}} show different detections examples in different situations.
+
+{{< figure src="/images/decision/lidar_cross_guard.png" caption="Perception LiDAR on real data, case: Through The Barrier" width="800" label="perception_on_real_data_guard">}}
+
+The {{< figref "perception_on_real_data_guard" >}} shows an example where the pipeline detection can detect a vehicle through the barrier between the ego vehicle and the vehicle detected.
