@@ -72,35 +72,35 @@ From these, filtered subsets are computed depending on the driving context.
 
 #### Main 
 
-| Step                              | I/O (type)                                       | Description                                                             |
+| Step                              | I/O : type (frameid)                                       | Description                                                             |
 | --------------------------------- | ------------------------------------------------ | ----------------------------------------------------------------------- |
-| **1. Point Filtering**            | `PCL2` → `PCL2`                                 | Filters raw LiDAR points by height (`z_min`, `z_max`) and range limits to remove ground or distant noise. |
-| **2. Voxel Downsampling**         | `PCL2` → `PCL2`                                 | Reduces cloud density using voxel grid filtering for faster processing. |
-| **3. Clustering (Voxel-based)**   | `PCL2` → `PCL2`                                 | Groups nearby points using voxel-based connected components in 2D/3D space, efficient and stable segmentation. |
-| **4. Cluster Filtering**          | `PCL2` → `PCL2`                                 | Removes clusters below size or height thresholds to discard irrelevant objects. |
-| **5. Road Polygon Filtering**     | `PCL2` → `PCL2`                                 | Keeps only clusters overlapping with the road polygons from the map. |
-| **6. TF Transform (Clusters)**    | `PCL2` → `PCL2`                                 | Transforms clustered points to the `map` frame for spatial consistency. |
-| **7. Cluster → Perceptions**      | `PCL2` → `Perceptions[]`                        | Converts clusters into perception objects with bounding boxes and 2D footprints. |
-| **8. Perception Filtering**       | `Perceptions[]` → `Perceptions[]`               | Filters perceptions by area or geometry constraints to retain valid obstacles. |
-| **9. TF Transform (Perceptions)** | `Perceptions[]` → `Perceptions[]`               | Transforms final perception data to the global `map` frame for fusion or planning. |
+| **1. Point Filtering**            | `PCL2 (lidar)` → `PCL2 (lidar)`                                 | Filters raw LiDAR points by height (`z_min`, `z_max`) and range limits to remove ground or distant noise. |
+| **2. Voxel Downsampling**         | `PCL2 (lidar)` → `PCL2 (lidar)`                               | Reduces cloud density using voxel grid filtering for faster processing. |
+| **3. Clustering (Voxel-based)**   | `PCL2 (lidar)` → `PCL2 (lidar)`                              | Groups nearby points using voxel-based connected components in 2D/3D space, efficient and stable segmentation. |
+| **4. Cluster Filtering**          | `PCL2 (lidar)` → `PCL2 (lidar)`                             | Removes clusters below size or height thresholds to discard irrelevant objects. |
+| **5. TF Transform (Clusters)**    | `PCL2 (lidar)` → `PCL2 (map)`                              | Transforms clustered points to the `map` frame for spatial consistency. |
+| **6. Road Polygon Filtering**     | `PCL2 (map)` → `PCL2 (map)`                                 | Keeps only clusters overlapping with the road polygons from the map. |
+| **7. Cluster → Perceptions**      | `PCL2 (map)` → `Perceptions[] (map)`                        | Converts clusters into perception objects with bounding boxes and 2D footprints. |
+| **8. Perception Filtering**       | `Perceptions[] (map)` → `Perceptions[] (map)`               | Filters perceptions by area or geometry constraints to retain valid obstacles. |
+<!-- | **9. TF Transform (Perceptions)** | `Perceptions[]` → `Perceptions[]`               | Transforms final perception data to the global `map` frame for fusion or planning. | -->
 
 
 
 #### Main + On Path 
 
-| Step                               | I/O (type)                                                                                         | Description                                                   |
+| Step                               | I/O type (frameid)                                                                                         | Description                                                   |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| **10. Path → Polygons (Local)**    | `Path` → `Polygons[]`                                        | Generates polygons around the navigation path for footprint validation and filtering. |
-| **11. Perceptions on Path Filter** | `Perceptions[]` + `Polygons[]` → `Perceptions[]`              | Keeps only perceptions intersecting the drivable corridor, focusing on relevant obstacles. |
+| **9. Path → Polygons (Local)**    | `Path (map)` → `Polygons[] (map)`                                        | Generates polygons around the navigation path for footprint validation and filtering. |
+| **10. Perceptions on Path Filter** | `Perceptions[] (map)` + `Polygons[] (map)` → `Perceptions[] (map)`              | Keeps only perceptions intersecting the drivable corridor, focusing on relevant obstacles. |
 
 
 
 #### Main +  On Critical Zone
 
-| Step                                        | I/O (type)                                                                                         | Description                                           |
+| Step                                        | I/O type (frameid)                                                                  | Description                                           |
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| **10. Critical Zone Polygons**              | `Map` → `Polygons[]`                                          | Converts the map-defined critical zone into polygons used for decision-making. |
-| **11. Perceptions in Critical Zone Filter** | `Perceptions[]` + `Polygons[]` → `Perceptions[]`              | Keeps only perceptions located inside critical zones for safety evaluation. |
+| **9. Critical Zone Polygons**              | `Map (map)` → `Polygons[] (map)`                                          | Converts the map-defined critical zone into polygons used for decision-making. |
+| **10. Perceptions in Critical Zone Filter** | `Perceptions[] (map)` + `Polygons[] (map)` → `Perceptions[] (map)`              | Keeps only perceptions located inside critical zones for safety evaluation. |
 
 ## Example on Real Data
 
