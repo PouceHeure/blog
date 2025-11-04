@@ -9,7 +9,7 @@
  &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
  &lt;iframe src="https://www.youtube.com/embed/wnQpdtmPgv0" allowfullscreen&gt;&lt;/iframe&gt;
  &lt;/div&gt;
- &lt;figcaption&gt;Video 1 - Demo video, slalom test.&lt;/figcaption&gt;
+ &lt;figcaption&gt;Video 2 - Demo video, slalom test.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 
@@ -29,7 +29,7 @@
  &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
  &lt;iframe src="https://www.youtube.com/embed/As44QMtXXiw" allowfullscreen&gt;&lt;/iframe&gt;
  &lt;/div&gt;
- &lt;figcaption&gt;Video 2 - Demo video, curve test.&lt;/figcaption&gt;
+ &lt;figcaption&gt;Video 3 - Demo video, curve test.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 
