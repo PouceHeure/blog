@@ -102,6 +102,27 @@ From these, filtered subsets are computed depending on the driving context.
 | **9. Critical Zone Polygons**              | `Map (map)` → `Polygons[] (map)`                                          | Converts the map-defined critical zone into polygons used for decision-making. |
 | **10. Perceptions in Critical Zone Filter** | `Perceptions[] (map)` + `Polygons[] (map)` → `Perceptions[] (map)`              | Keeps only perceptions located inside critical zones for safety evaluation. |
 
+
+## Cluster To Perception
+
+The step **7. Cluster → Perceptions** represents the transformation from clustered PointCloud2 data, meaning the point cloud includes a cluster ID channel, into an array of Perception objects.
+
+Each Perception defines the shape and footprint of an obstacle.
+The footprint is represented by a polygon.
+
+Footprint Polygons Steps:
+
+1. **Make a grid**: Create a blank image that covers all the points.
+2. **Plot the points**: Mark each point as a white pixel on the grid.
+3. **Morphological closing**: Use dilation + erosion to connect nearby points and fill small gaps.
+4. **Smooth**: Optionally blur the image to make shapes more rounded.
+5. **Threshold + dilate**: Convert back to binary and slightly thicken shapes.
+6. **Find contours**: Detect continuous white regions (these become polygon boundaries).
+7. **Convert back to real coordinates**: Map pixel positions to the original coordinate system.
+8. **Clean polygons**: Use Shapely to fix invalid shapes, remove very small ones, and handle multiple regions.
+9.  **Return polygons**: Output valid Shapely polygons representing the connected areas of points.
+
+
 ## Example on Real Data
 
 {{< figure src="/images/decision/lidar_detection.png" caption="Perception LiDAR on real data, case: Roundabout" width="800" label="perception_on_real_data">}}
