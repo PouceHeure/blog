@@ -52,7 +52,7 @@ The joystick can be read directly by the `joy` node from the *joy* package, whic
 
 `Joy Node  -topic->  Converter To Signal  -topic->  Motion Manager`
 
-{{< youtube code="eF1Tazql7R8" width="800" caption="Teleop to signal variation." label="video-teleop-to-signal">}}
+{{< youtube code="eF1Tazql7R8" width="800" caption="Teleop to signal variation." label="video-teleop-to-signal" ignore="true">}}
 
 The {{< videoref label="video-teleop-to-signal" >}} represents the signal variation sent to the motion behavior.
 The signal is visible on the screen, drawn in red. The height of the signal is variating depending of the teleop position.
