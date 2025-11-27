@@ -61,6 +61,13 @@ The signal is visible on the screen, drawn in red. The height of the signal is v
 
 Thus, the joystick controls the vehicle by limiting the maximum speed rather than commanding acceleration directly. This makes it possible to fuse the human operator’s intention with the vehicle’s acceptable (safe) motion constraints (obstacle, road rules & lateral accelaration maximal).
 
+
+{{< figure src="/images/teleop/signal-sat.png" caption="Example Signal Saturation" width="800" label="plot-signal-sat" >}}
+
+> The {{< figref plot-signal-sat >}} shows an example of how the signal becomes saturated. The green curve represents the bumper signal, meaning that above this threshold the signal is limited.The blue curve represents the joy input, and the red curve represents the speed targets. As illustrated in the graph, once the speed exceeds the bumper threshold, the signal becomes saturated, even if the teleoperator requests more, to ensure safe driving over the bumper. 
+> - Note 1: The curves are intentionally drawn slightly above their true values to avoid overlapping and to improve visual clarity. 
+> - Note 2: It's the speed maximal authorized by the system, not the speed directly sent to the controller.
+
 ## Others Features
 
 The joystick can also control the turn signals and the horn of the vehicle.

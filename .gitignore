@@ -31,3 +31,6 @@ latex/
 
 # draft
 *.draft.*
+
+# content builder
+content-builder/
