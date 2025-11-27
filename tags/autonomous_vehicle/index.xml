@@ -20,6 +20,8 @@
 
 
 
+ 
+ 
 
 This 
 
@@ -54,6 +56,8 @@ A teleoperator controls only the longitudinal speed using a joystick, similar to
 
 
 
+ 
+ 
 
 &lt;blockquote&gt;
 &lt;p&gt;Info: A video demonstration of the decision-making system is coming soon.&lt;/p&gt;
@@ -89,6 +93,8 @@ A teleoperator controls only the longitudinal speed using a joystick, similar to
 
 
 
+ 
+ 
 
 &lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
 &lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the &lt;strong&gt;low-level control&lt;/strong&gt; system responsible for translating navigation commands into actuator signals (steering and torque).&lt;br&gt;
@@ -121,6 +127,8 @@ This system is fully integrated into a ROS2-based autonomous stack and has been 
 
 
 
+ 
+ 
 
 
 
@@ -141,6 +149,8 @@ This system is fully integrated into a ROS2-based autonomous stack and has been 
 
 
 
+ 
+ 
 
 &lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
 &lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the implementation of the core planning functionalities for autonomous driving.&lt;br&gt;

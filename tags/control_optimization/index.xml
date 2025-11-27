@@ -20,6 +20,8 @@
 
 
 
+ 
+ 
 
 This 
 
@@ -61,6 +63,8 @@ A teleoperator controls only the longitudinal speed using a joystick, similar to
 
 
 
+ 
+ 
 
 &lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
 &lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the &lt;strong&gt;low-level control&lt;/strong&gt; system responsible for translating navigation commands into actuator signals (steering and torque).&lt;br&gt;
@@ -110,6 +114,8 @@ My responsibility was to control a Parrot Bebop drone using &lt;strong&gt;ROS&lt
 
 
 
+ 
+ 
 
 &lt;h2 id="additional-features"&gt;Additional Features&lt;/h2&gt;
 &lt;ul&gt;

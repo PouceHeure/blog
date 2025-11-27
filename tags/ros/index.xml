@@ -22,6 +22,8 @@ The contribution focused on supporting the development and implementation of thi
 
 
 
+ 
+ 
 
 &lt;p&gt;More details about this work are provided in 
 
@@ -99,6 +101,8 @@ I = \{x_0, x_1, ..., x_n\}
 
 
 
+ 
+ 
 
 &lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Using only terminal commands or software interfaces to control and debug robots can be slow, especially in field environments.&lt;/p&gt;</description></item><item><title>Drone Control with ROS</title><link>https://pouceheure.github.io/blog/projects/project_drone-control/</link><pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_drone-control/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
@@ -126,6 +130,8 @@ My responsibility was to control a Parrot Bebop drone using &lt;strong&gt;ROS&lt
 
 
 
+ 
+ 
 
 &lt;h2 id="additional-features"&gt;Additional Features&lt;/h2&gt;
 &lt;ul&gt;

@@ -30,6 +30,8 @@
 
 
 
+ 
+ 
 
 &lt;p&gt;The 
 
@@ -57,6 +59,8 @@
 
 
 
+ 
+ 
 
 &lt;p&gt;The following demontration, 
 
@@ -112,6 +116,8 @@ The solution is therefore to display the buses of a station directly, accessible
 
 
 
+ 
+ 
 
 &lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Using only terminal commands or software interfaces to control and debug robots can be slow, especially in field environments.&lt;/p&gt;</description></item><item><title>JADE Modeling for Generic Microgrids</title><link>https://pouceheure.github.io/blog/articles/article_jade-microgrids/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_jade-microgrids/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
@@ -140,6 +146,8 @@ My responsibility was to control a Parrot Bebop drone using &lt;strong&gt;ROS&lt
 
 
 
+ 
+ 
 
 &lt;h2 id="additional-features"&gt;Additional Features&lt;/h2&gt;
 &lt;ul&gt;
@@ -168,6 +176,8 @@ My responsibility was to control a Parrot Bebop drone using &lt;strong&gt;ROS&lt
 
 
 
+ 
+ 
 
 &lt;h2 id="hardware"&gt;Hardware&lt;/h2&gt;
 &lt;p&gt;The device is built around an Arduino MKR FOX 1200, enabling Sigfox communication. An IMU board measures acceleration. LEDs are included to indicate status and assist during testing.&lt;/p&gt;</description></item></channel></rss>

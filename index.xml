@@ -20,6 +20,8 @@
 
 
 
+ 
+ 
 
 This 
 
@@ -54,6 +56,8 @@ A teleoperator controls only the longitudinal speed using a joystick, similar to
 
 
 
+ 
+ 
 
 &lt;blockquote&gt;
 &lt;p&gt;Info: A video demonstration of the decision-making system is coming soon.&lt;/p&gt;
@@ -92,6 +96,8 @@ A teleoperator controls only the longitudinal speed using a joystick, similar to
 
 
 
+ 
+ 
 
 &lt;p&gt;The 
 
@@ -119,6 +125,8 @@ A teleoperator controls only the longitudinal speed using a joystick, similar to
 
 
 
+ 
+ 
 
 &lt;p&gt;The following demontration, 
 
@@ -153,6 +161,8 @@ A teleoperator controls only the longitudinal speed using a joystick, similar to
 
 
 
+ 
+ 
 
 &lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
 &lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the &lt;strong&gt;low-level control&lt;/strong&gt; system responsible for translating navigation commands into actuator signals (steering and torque).&lt;br&gt;
@@ -185,6 +195,8 @@ This system is fully integrated into a ROS2-based autonomous stack and has been 
 
 
 
+ 
+ 
 
 
 
@@ -205,6 +217,8 @@ This system is fully integrated into a ROS2-based autonomous stack and has been 
 
 
 
+ 
+ 
 
 &lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
 &lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the implementation of the core planning functionalities for autonomous driving.&lt;br&gt;
@@ -295,6 +309,8 @@ The contribution focused on supporting the development and implementation of thi
 
 
 
+ 
+ 
 
 &lt;p&gt;More details about this work are provided in 
 
@@ -414,6 +430,8 @@ The
 
 
 
+ 
+ 
 
 &lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Using only terminal commands or software interfaces to control and debug robots can be slow, especially in field environments.&lt;/p&gt;</description></item><item><title>JADE Modeling for Generic Microgrids</title><link>https://pouceheure.github.io/blog/articles/article_jade-microgrids/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_jade-microgrids/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
@@ -442,6 +460,8 @@ My responsibility was to control a Parrot Bebop drone using &lt;strong&gt;ROS&lt
 
 
 
+ 
+ 
 
 &lt;h2 id="additional-features"&gt;Additional Features&lt;/h2&gt;
 &lt;ul&gt;
@@ -471,6 +491,8 @@ My responsibility was to control a Parrot Bebop drone using &lt;strong&gt;ROS&lt
 
 
 
+ 
+ 
 
 &lt;h2 id="hardware"&gt;Hardware&lt;/h2&gt;
 &lt;p&gt;The device is built around an Arduino MKR FOX 1200, enabling Sigfox communication. An IMU board measures acceleration. LEDs are included to indicate status and assist during testing.&lt;/p&gt;</description></item></channel></rss>
