@@ -145,7 +145,7 @@ This reliability is crucial for control decisions, since a missed red light or a
 
 {{< /table-wrap >}}
 
-### Test Examples
+### Examples
 
 Examples of detection on real-world data are shown below.  
 Current implementation focuses on top lights, as bottom lights are not always visible.
@@ -154,17 +154,33 @@ Current implementation focuses on top lights, as bottom lights are not always vi
 
 The drawn traffic light overlay represents the system's recognized state.
 
-### State Definition
+## ROS Integration
+
+### Pipeline
+
+The pipeline is divided into four parts:
+
+- **`detection_rate`**: Adjusts the detection rate of the pipeline by modulating the publishing frequency of the input image, effectively reducing the initial processing rate;
+- **`detection_detect`**: Detects the bounding boxes (`bbox`) of the *TOP_* and *BOTTOM_* elements in the image;
+- **`detection_filter`**: Applies filtering on the detections, for example by name (e.g., excluding *BOTTOM* elements), by X-position, or by confidence score;
+- **`detection_state`**: Determines the current traffic light state based on the filtered detections.
+
+### State Deduction and Propagation
 
 The map is used to identify traffic lights along the planned route.  
-A dedicated detection node publishes the detected light state.
+The `detection_state` node publishes the deduced state of each detected traffic light.
 
-This node includes a **timeout** parameter to retain the last detection when no new result is available, preventing sudden braking.  
-If no detection is available, the default state is red.
+By default, the state is determined as follows:  
+- If **TOP_** is detected with sufficient confidence → **STATE = COLOR VALUE** from TOP_{RED, ORANGE, GREEN} class;
+- If **TOP_** is not detected with good confidence but **BOTTOM_** is → **STATE = COLOR VALUE** BOTTOM_{RED, ORANGE, GREEN} class;
+- If neither TOP_ nor BOTTOM_ provides a reliable classification → **STATE = NOT DETECTED**
 
-The detection node runs at **10 Hz**, balancing processing load with responsiveness. Given the deterministic nature of the model and the camera’s 30 Hz frame rate, a higher inference rate offers no benefit.
+The node includes a **timeout** parameter that preserves the last valid detection when no new result is produced, preventing sudden or unwarranted braking.  
+If no detection is available after the timeout, the state becomes *not detected*, in which case the decision server applies the same precautionary strategy as if the light were red.
 
-## Adaptive Control
+The detection node runs at **10 Hz**, providing a balance between computational cost and system responsiveness. Given the deterministic nature of the model and the camera’s 30 Hz frame rate, increasing the inference rate offers no practical benefit.
+
+### Adaptive Control
 
 Once the traffic light state is determined, the vehicle’s speed profile is adjusted accordingly.
 
@@ -188,3 +204,13 @@ State updates based on detected light color:
 - `FREE`: light already passed  
 
 The final control signal is computed by combining all velocity profiles and taking the minimum value at each distance point, ensuring compliance with all constraints.
+
+
+### RQT
+
+Rqt integration displaying the current traffic light state as perceived by the pipeline and the image annoted. 
+It's possible to use RQT and then combined rqt_image_view + image state widget, but finnaly the rqt_image_view plugin it's to unstable, and often necessite to reload the topic, to see the image.
+
+{{< figure src="/images/traffic_light/TL_rqt.png" caption="Traffic Light RQT." width="600" label="rqt-tl">}}
+
+> The {{< figref rqt-tl >}} shows a screenshot of the Traffic Light State in RQT. On the left is the image annotated with the position and classification estimates, and on the right is the pipeline’s resulting deduction based on those classification outputs.
