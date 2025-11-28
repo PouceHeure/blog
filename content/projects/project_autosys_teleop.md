@@ -64,9 +64,15 @@ Thus, the joystick controls the vehicle by limiting the maximum speed rather tha
 
 {{< figure src="/images/teleop/signal-sat.png" caption="Example Signal Saturation" width="800" label="plot-signal-sat" >}}
 
-> The {{< figref plot-signal-sat >}} shows an example of how the signal becomes saturated. The green curve represents the bumper signal, meaning that above this threshold the signal is limited.The blue curve represents the joy input, and the red curve represents the speed targets. As illustrated in the graph, once the speed exceeds the bumper threshold, the signal becomes saturated, even if the teleoperator requests more, to ensure safe driving over the bumper. 
-> - Note 1: The curves are intentionally drawn slightly above their true values to avoid overlapping and to improve visual clarity. 
-> - Note 2: It's the speed maximal authorized by the system, not the speed directly sent to the controller.
+> The {{< figref plot-signal-sat >}} illustrates how the signal becomes saturated.
+> - **Top graph, Joy Signal:** the signal defined from the joystick control state.
+> - **Middle graph, Bumper Signal:** the signal computed by the system to limit the vehicle’s speed when crossing a bumper (safety condition).
+> - **Bottom graph, Target Signal:** the final signal resulting from combining the Joy Signal and the Bumper Signal.
+
+Thus, the results can be interpreted as follows: before and after the bumper, the system uses the teleoperation speed; when passing over the bumper, the system saturates the speed according to the bumper-imposed limitation.
+
+> **Note 1:** This is the maximum speed authorized by the system, not the speed directly sent to the controller.
+
 
 ## Others Features
 
