@@ -1,13 +1,14 @@
 :root {
-  --bs-primary: #0057b8;
-  --bs-secondary: #6c757d;
-  --bs-success: #28a745;
-  --bs-info: #17a2b8;
-  --bs-warning: #e0a458;
-  --bs-danger: #d9534f;
-  --bs-light: #f4f1de22;
-  --bs-dark: #1a1a1a;
+  --bs-primary:   #024A98;  
+  --bs-secondary: #6C757D;  
+  --bs-success:   #2FA85A;  
+  --bs-info:      #1BAEC2;  
+  --bs-warning:   #D99743;  
+  --bs-danger:    #C64945;  
+  --bs-light:     #F5F2E8;  
+  --bs-dark:      #1A1A1A;  
 }
+
 
 /* ======= Boutons ======= */
 .btn-primary {

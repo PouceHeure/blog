@@ -1,141 +1,163 @@
+/* ============================= */
+/* BASE - TYPOGRAPHIE & TEXT     */
+/* ============================= */
+
 .markdown-content {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #333;
 }
 
-/* Activer un compteur pour les titres */
-.project-page {
-  counter-reset: h2-counter h3-counter h4-counter;
-}
-
-/* Numbering of H2 */
-.project-page h2 {
-  counter-reset: h3-counter;
-}
-
-.project-page h2::before {
-  counter-increment: h2-counter;
-  content: counter(h2-counter) '. ';
-}
-
-/* Numbering of H3 */
-.project-page h3::before {
-  counter-increment: h3-counter;
-  content: counter(h2-counter) '.' counter(h3-counter) ' ';
-}
-
-/* Numbering of H4 */
-.project-page h4::before {
-  counter-increment: h4-counter;
-  content: counter(h2-counter) '.' counter(h3-counter) '.' counter(h4-counter)
-    ' ';
-}
-
-/* H1 - Le plus grand titre */
-.markdown-content h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--bs-dark);
-  text-transform: uppercase;
-  /* border-bottom: 3px solid var(--bs-primary); */
-}
-
-/* H2 - Second niveau */
-.markdown-content h2 {
-  font-size: 1.75rem;
-  /* font-weight: bold; */
-  color: var(--bs-primary);
-  /* border-right: 3px solid var(--bs-primary); */
-  border-left: 15px solid var(--bs-primary);
-  background: rgba(0, 123, 255, 0.1);
-  /* box-shadow: 0px 0px 1px var(--bs-primary); */
-  padding: 10px;
-  margin: 15px 0;
-  border-radius: 4px;
-}
-
-/* H3 - Third level */
-.markdown-content h3 {
-  font-size: 1.5rem;
-  /* font-weight: bold; */
-  color: var(--bs-secondary);
-  /* border-right: 3px solid var(--bs-secondary); */
-  border-left: 10px solid var(--bs-secondary);
-  background: rgba(108, 117, 125, 0.1);
-  /* box-shadow: 0px 0px 5px var(--bs-secondary); */
-  padding: 8px;
-  margin: 12px 0;
-  border-radius: 4px;
-}
-
-/* H4 - Fourth level */
-.markdown-content h4 {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: var(--bs-success);
-  border-left: 3px solid var(--bs-success);
-  padding-left: 8px;
-  margin: 10px 0;
-}
-
-/* H5 - Fifth level */
-.markdown-content h5 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--bs-warning);
-  border-left: 3px solid var(--bs-warning);
-  padding-left: 5px;
-  margin: 8px 0;
-  margin-left: 20px;
-}
-
-/* H6 - Sixth level */
-.markdown-content h6 {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: var(--bs-danger);
-  padding-left: 3px;
-  margin: 6px 0;
-}
-
-/* Autres styles */
 .markdown-content p {
   text-align: justify;
   margin-bottom: 15px;
 }
 
-.markdown-content ul {
-  list-style: square;
+/* ============================= */
+/* STYLES VISUELS DES TITRES     */
+/* ============================= */
+
+/* H1 */
+.markdown-content h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--bs-dark);
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+/* H2 – Section */
+.markdown-content h2 {
+  font-size: 1.75rem;
+  color: var(--bs-primary);
+  margin: 30px 0 15px;
+  padding: 10px 12px;
+  border-left: 10px solid var(--bs-primary);
+  background: rgba(0, 100, 207, 0.158);
+  border-radius: 4px;
+}
+
+/* H3 – Sous-section */
+.markdown-content h3 {
+  font-size: 1.45rem;
+  color: var(--bs-secondary);
+  margin: 20px 0 10px;
+  padding: 3px;
+  padding-left: 8px;
+  background: rgba(78, 78, 78, 0.08);
+  border-left: 4px solid var(--bs-secondary);
+}
+
+/* H4 – Niveau faible */
+.markdown-content h4 {
+  font-size: 1.25rem;
+  color: solid var(--bs-success);;
+  margin: 12px 0;
+  padding-left: 8px;
+  border-left: 3px solid var(--bs-success);
+}
+
+/* H5 – Minimal */
+.markdown-content h5 {
+  font-size: 1.15rem;
+  color: #666;
+  margin: 10px 0;
+  padding-left: 6px;
+  border-left: 2px solid #ccc;
+}
+
+/* H6 – Très léger */
+.markdown-content h6 {
+  font-size: 1.05rem;
+  color: #777;
+  margin: 8px 0;
+}
+
+/* ============================= */
+/* LISTES                        */
+/* ============================= */
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 0;
   padding-left: 20px;
 }
 
-.markdown-content ol {
-  list-style: decimal;
-  padding-left: 20px;
+.markdown-content ul { list-style: square; }
+.markdown-content ol { list-style: decimal; }
+
+.markdown-content li { 
+  margin: 0;
+  padding: 2px 0;
 }
+
+.markdown-content li > ul,
+.markdown-content li > ol {
+  margin: 2px 0 0 0;
+  padding-left: 18px;
+}
+
+/* Résout les <li><p> */
+.markdown-content li > p { margin: 0; }
+
+.markdown-content li > p + ul,
+.markdown-content li > p + ol {
+  margin-top: 4px;
+}
+
+/* ============================= */
+/* LIENS                         */
+/* ============================= */
 
 .markdown-content a {
-  color: var(--bs-secondary);
-  text-decoration: underline;
+  color: var(--bs-primary);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0, 123, 255, 0.3);
+  transition: all 0.2s ease-in-out;
+  padding-bottom: 1px;
 }
+
+.markdown-content a:hover,
+.markdown-content a:focus {
+  color: var(--bs-primary);
+  border-bottom-color: var(--bs-primary);
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* Permet aux liens dans les listes de s’adapter */
+.content ul li a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* ============================= */
+/* BLOC DE CITATION              */
+/* ============================= */
 
 .markdown-content blockquote {
   border-left: 5px solid var(--bs-secondary);
   padding: 10px 20px;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin: 10px 0;
   background: #f8f9fa;
   font-style: italic;
   color: #555;
 }
 
-.markdown-content pre {
+/* ============================= */
+/* CODE & PRE                    */
+/* ============================= */
+
+.markdown-content pre,
+pre {
   background: #212529;
   color: #f8f9fa;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 1em;
+  border-radius: 8px;
   overflow-x: auto;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .markdown-content code {
@@ -144,6 +166,10 @@
   border-radius: 3px;
   font-family: monospace;
 }
+
+/* ============================= */
+/* IMAGES                        */
+/* ============================= */
 
 .markdown-content img {
   max-width: 100%;
@@ -164,60 +190,3 @@ figcaption {
   color: #666;
   margin-top: 5px;
 }
-
-pre {
-  background-color: #2d2d2d;
-  color: #f8f8f2;
-  padding: 1em;
-  border-radius: 8px;
-  overflow-x: auto;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.markdown-content code {
-  background: none;
-  padding: 3px 5px;
-  border-radius: 3px;
-  font-family: monospace;
-}
-
-.markdown-content a {
-  color: var(--bs-primary);
-  text-decoration: none;
-  font-weight: 500;
-  border-bottom: 2px solid rgba(0, 123, 255, 0.3);
-  transition: all 0.2s ease-in-out;
-  padding-bottom: 1px;
-}
-
-.markdown-content a:hover,
-.markdown-content a:focus {
-  color: var(--bs-primary);
-  border-bottom-color: var(--bs-primary);
-  background-color: rgba(0, 123, 255, 0.05);
-  text-decoration: none;
-}
-
-
-
-.content ul li a {
-  overflow-wrap: break-word; 
-  word-break: break-word;    
-  white-space: normal;       
-}
-
-
-.markdown-content ul,
-.markdown-content ol { margin: 0; padding-left: 20px; }
-.markdown-content li { margin: 0; padding: 2px 0; }
-
-.markdown-content li > ul,
-.markdown-content li > ol { margin: 2px 0 0 0; padding-left: 18px; }
-
-.markdown-content li > p { margin: 0; }
-
-.markdown-content li > p + ul,
-.markdown-content li > p + ol { margin-top: 4px; }
-
-.markdown-content li > :last-child { margin-bottom: 0; }
