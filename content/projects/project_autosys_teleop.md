@@ -9,10 +9,10 @@ big: true
 
 ## Demonstration
 
-{{< youtube code="wK4yOg2SyBs" width="800" caption="Teleoperation Demo." label="video-demo-teleop">}}
+{{< youtube code="wK4yOg2SyBs" width="800" caption="Teleoperation Demo. (Train Demo)" label="video-demo-teleop">}}
 This {{< videoref label="video-demo-teleop" >}} illustrates the longitudinal control of the car via teleoperation.
 - Example of speed saturation: 0:07 - 0:16 (limited by lateral acceleration)
-- Example of braking: 1:20
+- Example of braking: 1:20 (vehicle is stopped by teleop command)
 
 ## Overview
 
@@ -48,9 +48,12 @@ This square signal is then used by the Motion Manager as one of its input signal
 
 {{< refer href="/projects/project_autosys_control/#profile-fusion" project="Control Project" section="Profile Fusion" >}}
 
-The joystick can be read directly by the `joy` node from the *joy* package, which publishes the state of the joystick over a topic. A converter node transforms this state into a velocity signal, which is then consumed by the Motion Manager.
+The joystick can be read directly by the `joy` node from the *joy* package, which publishes the state of the joystick over a topic. A converter node transforms this state into a velocity signal, which is then exploited by the Motion Manager.
 
 `Joy Node  -topic->  Converter To Signal  -topic->  Motion Manager`
+
+(in parallel) `Stack Nav -topic->  Motion Manager`
+
 
 {{< youtube code="eF1Tazql7R8" width="800" caption="Teleop to signal variation." label="video-teleop-to-signal" ignore="true">}}
 
