@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const selectedTag = this.textContent.replace('#', '').trim()
 
       if (activeTag === selectedTag) {
-        this.classList.remove('btn-primary', 'text-light')
-        this.classList.add('btn-outline-primary', 'text-primary')
+        this.classList.remove('btn-secondary', 'text-light')
+        this.classList.add('btn-outline-secondary', 'text-secondary')
         activeTag = 'All'
         showAllCards()
 
@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
         selectedTagName.textContent = ''
       } else {
         tagLinks.forEach(a => {
-          a.classList.remove('btn-primary', 'text-light')
-          a.classList.add('btn-outline-primary', 'text-primary')
+          a.classList.remove('btn-secondary', 'text-light')
+          a.classList.add('btn-outline-secondary', 'text-secondary')
         })
-        this.classList.remove('btn-outline-primary', 'text-primary')
-        this.classList.add('btn-primary', 'text-light')
+        this.classList.remove('btn-outline-secondary', 'text-secondary')
+        this.classList.add('btn-secondary', 'text-light')
         activeTag = selectedTag
         filterCards(selectedTag)
 
@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
   clearSelectedTagBtn.addEventListener('click', function () {
     // Reset tag buttons to unselected state
     tagLinks.forEach(a => {
-      a.classList.remove('btn-primary', 'text-light')
-      a.classList.add('btn-outline-primary', 'text-primary')
+      a.classList.remove('btn-secondary', 'text-light')
+      a.classList.add('btn-outline-secondary', 'text-secondary')
     })
     // Reset filter
     activeTag = 'All'
