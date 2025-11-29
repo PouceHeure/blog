@@ -365,7 +365,6 @@ table tr:nth-child(even) {
   overflow-x: auto;
   width: 100%;
   display: block;
-  padding-bottom: 0.5rem;
 }
 
 .equation-block {
@@ -375,8 +374,7 @@ table tr:nth-child(even) {
 }
 
 .refer-box {
-  background-color: var(--bs-light);
-  border-left: 4px solid var(--bs-primary);
+  border: 1px solid var(--bs-primary);
   padding: 1em;
   margin: 1.5em 0;
   border-radius: 4px;
