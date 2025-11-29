@@ -159,3 +159,14 @@
     z-index: 999;
   }
 }
+
+
+.toc {
+  min-width: 250px;  
+  max-width: 300px;   
+}
+
+.toc-sticky {
+  position: sticky;
+  top: 80px;
+}

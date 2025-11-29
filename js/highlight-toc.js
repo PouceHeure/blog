@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const toc = document.querySelector(".toc");
   const article = document.querySelector(".markdown-content");
 
-  // Responsive behavior for consistency
   function adjustLayout() {
     if (!toc || !article) return;
     if (window.innerWidth < TABLET_WIDTH) {
@@ -23,42 +22,59 @@ document.addEventListener("DOMContentLoaded", function () {
   const tocLinks = Array.from(document.querySelectorAll(".toc a[href^='#']"));
   if (!tocLinks.length) return;
 
-  const targets = tocLinks
-    .map(a => document.getElementById(a.getAttribute("href").slice(1)))
+  const sections = tocLinks
+    .map(a => document.querySelector(a.getAttribute("href")))
     .filter(Boolean);
 
   const setActive = (id) => {
-  tocLinks.forEach(a => {
-    const isActive = a.getAttribute("href") === `#${id}`;
-    a.classList.toggle("active", isActive);
-    a.parentElement.classList.toggle("active", isActive); // <— ajout crucial
-  });
-};
+    tocLinks.forEach(a => {
+      const active = a.getAttribute("href") === `#${id}`;
+      a.classList.toggle("active", active);
+      if (a.parentElement) {
+        a.parentElement.classList.toggle("active", active);
+      }
+    });
+  };
 
+  let lastActive = null;
+  let ticking = false;
 
-  const io = new IntersectionObserver((entries) => {
-    // Select the topmost visible element in the viewport
-    const visible = entries
-      .filter(e => e.isIntersecting)
-      .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top)[0];
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        let best = null;
+        let bestTop = Infinity;
 
-    if (visible) setActive(visible.target.id);
-  }, {
-    root: null,
-    rootMargin: "0px 0px -60% 0px",
-    threshold: 0.1
-  });
+        sections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          const top = Math.abs(rect.top);
 
-  targets.forEach(t => io.observe(t));
+          if (rect.top >= -150 && top < bestTop) {
+            bestTop = top;
+            best = sec;
+          }
+        });
 
-  // If a hash is present on load
+        if (best && best.id !== lastActive) {
+          lastActive = best.id;
+          setActive(best.id);
+        }
+
+        ticking = false;
+      });
+
+      ticking = true;
+    }
+  };
+
+  document.addEventListener("scroll", onScroll);
+  onScroll(); 
   if (location.hash) {
-    const id = location.hash.slice(1);
-    setTimeout(() => setActive(id), 0);
+    setActive(location.hash.slice(1));
   }
 
   window.addEventListener("hashchange", () => {
-    const id = location.hash.slice(1);
-    setActive(id);
+    setActive(location.hash.slice(1));
   });
+
 });
