@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Robotics_autonomy on Hugo POUSSEUR</title><link>https://pouceheure.github.io/blog/tags/robotics_autonomy/</link><description>Recent content in Robotics_autonomy on Hugo POUSSEUR</description><generator>Hugo</generator><language>en-en</language><lastBuildDate>Mon, 10 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://pouceheure.github.io/blog/tags/robotics_autonomy/index.xml" rel="self" type="application/rss+xml"/><item><title>Autonomous Vehicle: Teleop</title><link>https://pouceheure.github.io/blog/projects/project_autosys_teleop/</link><pubDate>Mon, 10 Nov 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_teleop/</guid><description>&lt;h2 id="demonstration"&gt;Demonstration&lt;/h2&gt;
+&lt;h3 id="video"&gt;Video&lt;/h3&gt;
 &lt;p&gt;
 
 
@@ -30,9 +31,9 @@ This
  illustrates the longitudinal control of the car via teleoperation.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Example of speed saturation: 0:07 - 0:16 (limited by lateral acceleration)&lt;/li&gt;
-&lt;li&gt;Example of braking: 1:20 (vehicle is stopped by teleop command)&lt;/li&gt;
+&lt;li&gt;Example of breaking: 1:20 (vehicle is stopped by teleop command)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;h3 id="context"&gt;Context&lt;/h3&gt;
 &lt;p&gt;The vehicle autonomously plans a path and follows it.&lt;br&gt;
 A teleoperator controls only the longitudinal speed using a joystick, similar to driving a train. The operator specifies the desired speed &lt;em&gt;along the pre-defined path&lt;/em&gt;, but does not steer.&lt;/p&gt;</description></item><item><title>Traffic Light Detection &amp; Control</title><link>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</link><pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_autosys_traffic-light-detection/</guid><description>&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;As part of an autonomous driving project, I contributed to the development of a system enabling a vehicle to adapt its behavior to traffic lights. The vehicle adjusts its speed according to the current traffic light state.&lt;/p&gt;
