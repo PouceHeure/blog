@@ -4,17 +4,20 @@ date: 2025-11-10
 tags: [autonomous_vehicle, control_optimization, robotics_autonomy, ros2]
 description: Longitudinal control by teleop.
 image: "images/teleop/thumbnail.png"
+codelang: ["python" ,"cpp"]
 big: true
 ---
 
 ## Demonstration
 
+### Video
+
 {{< youtube code="wK4yOg2SyBs" width="800" caption="Teleoperation Demo. (Train Demo)" label="video-demo-teleop">}}
 This {{< videoref label="video-demo-teleop" >}} illustrates the longitudinal control of the car via teleoperation.
 - Example of speed saturation: 0:07 - 0:16 (limited by lateral acceleration)
-- Example of braking: 1:20 (vehicle is stopped by teleop command)
+- Example of breaking: 1:20 (vehicle is stopped by teleop command)
 
-## Overview
+### Context
 
 The vehicle autonomously plans a path and follows it.  
 A teleoperator controls only the longitudinal speed using a joystick, similar to driving a train. The operator specifies the desired speed *along the pre-defined path*, but does not steer.
@@ -39,7 +42,9 @@ The {{< videoref label="video-demo-teleop" >}} shows these different values of s
 - `speed_target`: speed joy including safety saturation;
 - `speed_vehicle`: speed of the vehicle;
 
-## Joystick Input To Signal
+## Joy Integration
+
+### Joystick Input To Signal
 
 The joystick provides an input value between –1 and +1. The idea is to remap this value to a range between 0 and the maximum speed (a parameter), and then generate a square-wave signal.  
 This square signal is then used by the Motion Manager as one of its input signals.
@@ -60,7 +65,7 @@ The joystick can be read directly by the `joy` node from the *joy* package, whic
 The {{< videoref label="video-teleop-to-signal" >}} represents the signal variation sent to the motion behavior.
 The signal is visible on the screen, drawn in red. The height of the signal is variating depending of the teleop position.
 
-## Speed Limitation Control
+### Speed Limitation Control
 
 Thus, the joystick controls the vehicle by limiting the maximum speed rather than commanding acceleration directly. This makes it possible to fuse the human operator’s intention with the vehicle’s acceptable (safe) motion constraints (obstacle, road rules & lateral accelaration maximal).
 
@@ -77,6 +82,6 @@ Thus, the results can be interpreted as follows: before and after the bumper, th
 > **Note 1:** This is the maximum speed authorized by the system, not the speed directly sent to the controller.
 
 
-## Others Features
+### Others Features
 
 The joystick can also control the turn signals and the horn of the vehicle.
