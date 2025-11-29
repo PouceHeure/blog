@@ -28,8 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .filter(Boolean);
 
   const setActive = (id) => {
-    tocLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === `#${id}`));
-  };
+  tocLinks.forEach(a => {
+    const isActive = a.getAttribute("href") === `#${id}`;
+    a.classList.toggle("active", isActive);
+    a.parentElement.classList.toggle("active", isActive); // <— ajout crucial
+  });
+};
+
 
   const io = new IntersectionObserver((entries) => {
     // Select the topmost visible element in the viewport

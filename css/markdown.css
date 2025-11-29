@@ -1,7 +1,3 @@
-/* ============================= */
-/* BASE - TYPOGRAPHIE & TEXT     */
-/* ============================= */
-
 .markdown-content {
   font-size: 1.1rem;
   line-height: 1.6;
@@ -13,51 +9,49 @@
   margin-bottom: 15px;
 }
 
-/* ============================= */
-/* STYLES VISUELS DES TITRES     */
-/* ============================= */
-
-/* H1 */
 .markdown-content h1 {
   font-size: 2rem;
   font-weight: bold;
   color: var(--bs-dark);
   text-transform: uppercase;
-  margin: 20px 0;
+  margin: 10px 0 10px;
 }
 
-/* H2 – Section */
 .markdown-content h2 {
   font-size: 1.75rem;
   color: var(--bs-primary);
-  margin: 30px 0 15px;
+  margin-top: 60px;
+  margin-bottom: 25px;
   padding: 10px 12px;
-  border-left: 10px solid var(--bs-primary);
-  background: rgba(0, 100, 207, 0.158);
-  border-radius: 4px;
+  background: rgba(2, 74, 152, 0.08);
 }
 
-/* H3 – Sous-section */
+@media (max-width: 1024px) {
+    .markdown-content h2 {
+    margin-left: 10px ;
+    margin-right: 10px;
+  }
+}
+
 .markdown-content h3 {
   font-size: 1.45rem;
   color: var(--bs-secondary);
-  margin: 20px 0 10px;
-  padding: 3px;
-  padding-left: 8px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 3px 8px;
   background: rgba(78, 78, 78, 0.08);
-  border-left: 4px solid var(--bs-secondary);
+  border-left: 10px solid var(--bs-secondary);
 }
 
-/* H4 – Niveau faible */
 .markdown-content h4 {
   font-size: 1.25rem;
-  color: solid var(--bs-success);;
-  margin: 12px 0;
+  color: var(--bs-success);
+  margin-top: 50px;
+  margin-bottom: 10px;
   padding-left: 8px;
-  border-left: 3px solid var(--bs-success);
+  border-left: 15px solid var(--bs-success);
 }
 
-/* H5 – Minimal */
 .markdown-content h5 {
   font-size: 1.15rem;
   color: #666;
@@ -66,16 +60,11 @@
   border-left: 2px solid #ccc;
 }
 
-/* H6 – Très léger */
 .markdown-content h6 {
   font-size: 1.05rem;
   color: #777;
   margin: 8px 0;
 }
-
-/* ============================= */
-/* LISTES                        */
-/* ============================= */
 
 .markdown-content ul,
 .markdown-content ol {
@@ -83,10 +72,15 @@
   padding-left: 20px;
 }
 
-.markdown-content ul { list-style: square; }
-.markdown-content ol { list-style: decimal; }
+.markdown-content ul {
+  list-style: square;
+}
 
-.markdown-content li { 
+.markdown-content ol {
+  list-style: decimal;
+}
+
+.markdown-content li {
   margin: 0;
   padding: 2px 0;
 }
@@ -97,17 +91,14 @@
   padding-left: 18px;
 }
 
-/* Résout les <li><p> */
-.markdown-content li > p { margin: 0; }
+.markdown-content li > p {
+  margin: 0;
+}
 
 .markdown-content li > p + ul,
 .markdown-content li > p + ol {
   margin-top: 4px;
 }
-
-/* ============================= */
-/* LIENS                         */
-/* ============================= */
 
 .markdown-content a {
   color: var(--bs-primary);
@@ -125,16 +116,11 @@
   background-color: rgba(0, 123, 255, 0.05);
 }
 
-/* Permet aux liens dans les listes de s’adapter */
 .content ul li a {
   overflow-wrap: break-word;
   word-break: break-word;
   white-space: normal;
 }
-
-/* ============================= */
-/* BLOC DE CITATION              */
-/* ============================= */
 
 .markdown-content blockquote {
   border-left: 5px solid var(--bs-secondary);
@@ -144,10 +130,6 @@
   font-style: italic;
   color: #555;
 }
-
-/* ============================= */
-/* CODE & PRE                    */
-/* ============================= */
 
 .markdown-content pre,
 pre {
@@ -166,10 +148,6 @@ pre {
   border-radius: 3px;
   font-family: monospace;
 }
-
-/* ============================= */
-/* IMAGES                        */
-/* ============================= */
 
 .markdown-content img {
   max-width: 100%;
