@@ -32,7 +32,7 @@ To achieve this, the vehicle continuously computes the maximum safe speed, takin
 The executed speed is determined as:
 
 {{< equation >}}
-\text{speed_target} = min(\text{speed_joy}, \text{speed_safe})
+\text{speed_target} = min(\text{speed_joy}, \text{ speed_curv_max}, \text{ speed_obstacle}, ...)
 {{< /equation >}}
 
 This ensures the vehicle respects the operator's intent while never exceeding safe operating limits.
