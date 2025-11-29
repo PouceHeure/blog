@@ -70,7 +70,7 @@
 /* Level 3 – H4 */
 .toc ul ul ul {
   padding-left: 15px;
-  border-left: 2px dashed var(--bs-primary);
+  border-left: 2px solid var(--bs-secondary);
   margin-left: 10px;
 }
 

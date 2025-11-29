@@ -168,3 +168,25 @@ figcaption {
   color: #666;
   margin-top: 5px;
 }
+
+
+
+aside.toc .toc-container a.active {
+  background: none !important;
+}
+
+aside.toc .toc-container li.active {
+  border: solid 2px var(--bs-primary);
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+
+aside.toc .toc-container ul ul > li.active {
+  border: solid 2px var(--bs-secondary);
+}
+
+aside.toc .toc-container ul ul ul> li.active {
+  border: solid 2px var(--bs-success);
+}
+

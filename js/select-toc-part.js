@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (targetEl) {
           const elTop = targetEl.getBoundingClientRect().top + window.pageYOffset;
           const elHeight = targetEl.offsetHeight;
-          const offset = 100;
+          const offset = 25;
           window.scrollTo({
             top: elTop - offset,
             behavior: "smooth"
