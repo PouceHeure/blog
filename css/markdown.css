@@ -4,6 +4,9 @@
   color: #333;
 }
 
+
+
+
 .markdown-content p {
   text-align: justify;
   margin-bottom: 15px;
@@ -26,12 +29,6 @@
   background: rgba(2, 74, 152, 0.08);
 }
 
-@media (max-width: 1024px) {
-    .markdown-content h2 {
-    margin-left: 10px ;
-    margin-right: 10px;
-  }
-}
 
 .markdown-content h3 {
   font-size: 1.45rem;
@@ -189,4 +186,5 @@ aside.toc .toc-container ul ul > li.active {
 aside.toc .toc-container ul ul ul> li.active {
   border: solid 2px var(--bs-success);
 }
+
 
