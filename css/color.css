@@ -3,7 +3,7 @@
   --bs-secondary: #5b7388;   
   --bs-success:   #2FA85A;  
   --bs-info:      #1BAEC2;   
-  --bs-warning:   #D99743;   
+  --bs-warning:   #FFC107;
   --bs-danger:    #C64945;   
   --bs-light:     #F5F2E8;   
   --bs-dark:      #1A1A1A;   
@@ -32,6 +32,8 @@
   border-color: var(--bs-primary) !important;
   color: #fff !important;
 }
+
+
 
 .btn-secondary {
   background-color: var(--bs-secondary) !important;
@@ -63,6 +65,12 @@
   color: var(--bs-success) !important;
 }
 
+.btn-outline-success:hover {
+  background-color: var(--bs-success) !important;
+  border-color: var(--bs-success) !important;
+  color: #fff !important;
+}
+
 .btn-info {
   background-color: var(--bs-info) !important;
   border-color: var(--bs-info) !important;
@@ -72,7 +80,7 @@
 .btn-warning {
   background-color: var(--bs-warning) !important;
   border-color: var(--bs-warning) !important;
-  color: #212529 !important;
+  color: var(--bs-dark) !important;
 }
 
 .btn-danger {
