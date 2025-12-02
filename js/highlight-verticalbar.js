@@ -33,6 +33,14 @@ function onScroll () {
   }
 
   activateSection(bestId)
+
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  if(bestId == "home"){
+    scrollIndicator.classList.remove('d-none');
+  }else{
+    scrollIndicator.classList.add('d-none');
+  }
+
 }
 
 document.addEventListener('scroll', onScroll)
@@ -57,3 +65,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   })
 })
+
+
+
