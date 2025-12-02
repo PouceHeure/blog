@@ -154,6 +154,8 @@ Current implementation focuses on top lights, as bottom lights are not always vi
 
 The drawn traffic light overlay represents the system's recognized state.
 
+{{< youtube code="_nudo0TSftw" width="800" caption="Demo video: Traffic Light Detection" ignore="true">}}
+
 ## ROS Integration
 
 ### Pipeline
