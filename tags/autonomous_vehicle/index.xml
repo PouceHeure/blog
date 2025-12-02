@@ -31,7 +31,7 @@ This
  illustrates the longitudinal control of the car via teleoperation.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Example of speed saturation: 0:07 - 0:16 (limited by lateral acceleration)&lt;/li&gt;
-&lt;li&gt;Example of breaking: 1:20 (vehicle is stopped by teleop command)&lt;/li&gt;
+&lt;li&gt;Example of braking: 1:20 (vehicle is stopped by teleop command)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="context"&gt;Context&lt;/h3&gt;
 &lt;p&gt;The vehicle autonomously plans a path and follows it.&lt;br&gt;
