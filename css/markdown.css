@@ -158,77 +158,25 @@
 }
 
 
-
-/* Images */
 .markdown-content img {
   max-width: 100%;
-  border-radius: 8px;
+  height: auto;
+  border-radius: 5px;
   display: block;
   margin: auto;
 }
 
-
-/* -------------------------
-   FIGURE + CAPTION
--------------------------- */
 figure {
   text-align: center;
-  margin: 25px auto;
-}
-
-figure img,
-figure video {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
-  display: block;
-  margin: 0 auto;
-}
-
-figcaption {
-  margin-top: 8px;
-  font-size: 0.95rem;
-  color: #666;
-  font-style: italic;
-}
-
-.markdown-content figure[data-figure]::before {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-/* -------------------------
-   VIDEOS (iframe, video)
--------------------------- */
-
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 */
   margin: 20px 0;
 }
 
-.video-container iframe,
-.video-container embed,
-.video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 6px;
-}
-
-.video-caption {
-  text-align: center;
-  margin-top: 6px;
-  font-size: 0.95rem;
+figcaption {
   font-style: italic;
+  font-size: 14px;
   color: #666;
+  margin-top: 5px;
 }
-
 
 
 /* TOC active without layout shift */
@@ -256,4 +204,5 @@ aside.toc .toc-container li {
   padding: 5px 10px;
   border-radius: 4px;
 }
+
 
