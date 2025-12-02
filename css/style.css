@@ -420,3 +420,46 @@ h6 {
 .header-badge {
   font-size: 0.75rem;
 }
+
+
+
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centre vertical */
+  align-items: center; /* centre horizontal */
+  position: relative;
+  padding: 0; /* IMPORTANT */
+  margin: 0; /* IMPORTANT */
+}
+
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 40px;
+  border: 3px solid var(--bs-primary);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  opacity: 0.8;
+}
+
+.scroll-indicator span {
+  width: 6px;
+  height: 6px;
+  background: var(--bs-primary);
+  border-radius: 50%;
+  animation: scrollBounce 1.4s infinite;
+}
+
+@keyframes scrollBounce {
+  0%   { transform: translateY(0); opacity: 1; }
+  50%  { transform: translateY(10px); opacity: 0.4; }
+  100% { transform: translateY(0); opacity: 1; }
+}
