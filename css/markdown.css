@@ -1,6 +1,6 @@
 /* Base */
 .markdown-content {
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   line-height: 1.75;
   color: #333;
 }
@@ -16,7 +16,7 @@
    H1 — Titre principal (moderne)
    ------------------------------ */
 .markdown-content h1 {
-  font-size: 2.6rem;
+  font-size: 2.0rem;
   font-weight: 800;
   text-transform: none;
   letter-spacing: -1px;
@@ -43,7 +43,7 @@
    H2 — Sous-titre moderne
    ------------------------------ */
 .markdown-content h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--bs-primary);
   margin-top: 55px;
@@ -119,8 +119,6 @@
 .markdown-content li {
   padding: 4px 0;
 }
-
-
 
 /* Liens */
 .markdown-content a:not(.initial-a){
@@ -206,3 +204,7 @@ aside.toc .toc-container li {
 }
 
 
+/* Evite les gros gaps en haut de l’article */
+.article-body .content > *:first-child {
+  margin-top: 0 !important;
+}

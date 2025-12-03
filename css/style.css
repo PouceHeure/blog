@@ -421,8 +421,6 @@ h6 {
   font-size: 0.75rem;
 }
 
-
-
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -475,3 +473,14 @@ h6 {
 }
 
 
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto !important;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .scroll-indicator {       
+    display: none !important;
+  }
+}
