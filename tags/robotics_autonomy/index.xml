@@ -123,10 +123,31 @@ This system is fully integrated into a ROS2-based autonomous stack and has been 
  
  
 
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/IftR4tTMJbo" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 3 - Demo video, pedestrian avoidance using lidar detection.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+ 
+ 
+
 &lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
 &lt;p&gt;As part of a collaborative autonomous driving project, I contributed to the implementation of the core planning functionalities for autonomous driving.&lt;br&gt;
-The navigation stack transforms a target position into a safe and efficient motion trajectory using environmental context and map information.&lt;/p&gt;
-&lt;p&gt;The process is divided into three stages:&lt;/p&gt;</description></item><item><title>Thesis: Shared navigation in a cybernetic multi-agent autonomous system</title><link>https://pouceheure.github.io/blog/articles/article_thesis/</link><pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_thesis/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+The navigation stack transforms a target position into a safe and efficient motion trajectory using environmental context and map information.&lt;/p&gt;</description></item><item><title>Thesis: Shared navigation in a cybernetic multi-agent autonomous system</title><link>https://pouceheure.github.io/blog/articles/article_thesis/</link><pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/articles/article_thesis/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;My thesis is based on shared navigation between the autonomous system and the human. In our research, we focus on command fusion. In our approach, both entities, the human and the autonomous system, simultaneously control the vehicle, and a module acquires their commands and performs the command fusion. This approach involves studying the intentions of both the human and the autonomous system to ensure the most appropriate fusion of their choices and to evaluate the decision-making of each entity. The intention of the autonomous system is calculated using a visual servoing controller. The implementation of visual servoing relies on a deep learning network detecting lanes. For the human driver, who actively drives and cannot express their intention simultaneously, we use a deep learning-based model to predict their intention. The construction of this model required the creation of a driving dataset using our vehicles and the development of a recurrent model that integrates data of various types. Each of these intentions is then evaluated according to specific criteria, including safety, comfort, and context, to guide the fusion process towards the selection of the highest quality intention. This quantification is based on a state analysis derived from the realization of these intentions. We then use game theory to facilitate the fusion process, where each entity, human and autonomous system, aims to steer the final command towards their choice.&lt;/p&gt;</description></item><item><title>Driving Intention Quantification Formula</title><link>https://pouceheure.github.io/blog/projects/project_intention-quantification/</link><pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate><guid>https://pouceheure.github.io/blog/projects/project_intention-quantification/</guid><description>&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;As part of a collaborative research effort on shared control between an autonomous driving system and a human driver, I contributed to work focused on evaluating the &lt;strong&gt;quality&lt;/strong&gt; of driving intentions.&lt;br&gt;
 A &lt;strong&gt;driving intention&lt;/strong&gt; is defined as a short sequence of planned control actions (speed, steering) over a time horizon:&lt;/p&gt;
