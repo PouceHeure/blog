@@ -14,6 +14,8 @@ image: "images/local-planning/rviz_planning.png"
 
 {{< youtube code="As44QMtXXiw" width="800" caption="Demo video, curve test." >}}
 
+{{< youtube code="IftR4tTMJbo" width="800" caption="Demo video, pedestrian avoidance using lidar detection." >}}
+
 ## Overview
 
 As part of a collaborative autonomous driving project, I contributed to the implementation of the core planning functionalities for autonomous driving.  
@@ -175,6 +177,8 @@ The example below shows two road elements: a speed bump and a stop sign.
 ### Speed Profile: Demonstration
 
 {{< youtube code="QCiN3yqT5E8" width="800" caption="Autonomous vehicle control adapted to road elements." >}}
+
+
 
 ## References
 
