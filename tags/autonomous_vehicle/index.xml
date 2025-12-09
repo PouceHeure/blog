@@ -117,9 +117,31 @@ This system is fully integrated into a ROS2-based autonomous stack and has been 
 
 &lt;figure &gt;
  &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
+ &lt;iframe src="https://www.youtube.com/embed/IftR4tTMJbo" allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+ &lt;figcaption&gt;Video 1 - Demo video, pedestrian avoidance using lidar detection.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+&lt;figure &gt;
+ &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
  &lt;iframe src="https://www.youtube.com/embed/wnQpdtmPgv0" allowfullscreen&gt;&lt;/iframe&gt;
  &lt;/div&gt;
- &lt;figcaption&gt;Video 1 - Demo video, slalom test.&lt;/figcaption&gt;
+ &lt;figcaption&gt;Video 2 - Demo video, slalom test.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 
@@ -141,29 +163,7 @@ This system is fully integrated into a ROS2-based autonomous stack and has been 
  &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
  &lt;iframe src="https://www.youtube.com/embed/As44QMtXXiw" allowfullscreen&gt;&lt;/iframe&gt;
  &lt;/div&gt;
- &lt;figcaption&gt;Video 2 - Demo video, curve test.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-&lt;figure &gt;
- &lt;div class="ratio ratio-16x9" style="max-width: 800px; margin: auto;"&gt;
- &lt;iframe src="https://www.youtube.com/embed/IftR4tTMJbo" allowfullscreen&gt;&lt;/iframe&gt;
- &lt;/div&gt;
- &lt;figcaption&gt;Video 3 - Demo video, pedestrian avoidance using lidar detection.&lt;/figcaption&gt;
+ &lt;figcaption&gt;Video 3 - Demo video, curve test.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 
