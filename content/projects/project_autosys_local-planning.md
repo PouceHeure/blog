@@ -10,11 +10,12 @@ image: "images/local-planning/rviz_planning.png"
 
 ## Demonstration 
 
+{{< youtube code="IftR4tTMJbo" width="800" caption="Demo video, pedestrian avoidance using lidar detection." >}}
+
 {{< youtube code="wnQpdtmPgv0" width="800" caption="Demo video, slalom test." >}}
 
 {{< youtube code="As44QMtXXiw" width="800" caption="Demo video, curve test." >}}
 
-{{< youtube code="IftR4tTMJbo" width="800" caption="Demo video, pedestrian avoidance using lidar detection." >}}
 
 ## Overview
 
