@@ -82,9 +82,20 @@ A penalty on low velocities maintains motion:
 \mathcal{C}_{speed} = (v_{max} - v)^2
 {{< /equation >}}
 
-This prevents the robot from slowing unnecessarily.
+This prevents the robot to be stuck. Without the component, in some situations, the best solution should to stop the robot.
 
 ## Gradient Descent Optimization
+
+### Descent Limitation
+
+In the initial strategy, it is important to limit the values accessible to the robot. It is important to remember that the strategy must provide a solution that can be applied by the robot within a time interval $dt$. Consequently, acceleration and deceleration are taken into account, in addition to the current velocity.
+
+{{< figure src="/images/dwa-optimization/descent-gradient_limit.png" caption="DWA window limitation." width="400" label="dwa_limitation_window" >}}
+
+The {{< figref dwa_limitation_window >}} illustrates the DWA window concept combined with the gradient descent approach. The idea is to treat the window as a constraint: if the gradient descent reaches the boundary, the descent is redirected along the axis of that boundary.
+
+
+### Descent Formulation
 
 The optimal control is:
 
