@@ -54,7 +54,7 @@ The dataset was annotated with the following labels:
 - `TL_TOP_GREEN`: 2  
 - `TL_BOTTOM_GREEN`: 3  
 - `TL_TOP_ORANGE`: 4  
-- `TL_BOTTOM_ORANGE`: 5  
+- `TL_BOTTOM_ORANGE`: 5
 
 This allows the model to distinguish both the position (top or bottom) and the color of the lights.
 
@@ -194,18 +194,27 @@ The traffic light state machine is defined as:
 
 - `LOCK`: Element is active; vehicle stops before the light  
 - `SKIP`: Element is ignored; vehicle continues  
-- `FREE`: Element passed; no longer relevant  
+- `FREE`: Element passed; no longer relevant, handler manager can remove the traffic light handler  
 
 **Transitions:**
 - `LOCK` $\Longleftrightarrow$ `SKIP`  
 - `SKIP` $\Longrightarrow$ `FREE`  
 
 State updates based on detected light color:
-- `LOCK`: red or orange  
+- `LOCK`: red or orange (depending of the reach time)
 - `SKIP`: green  
-- `FREE`: light already passed  
+- `FREE`: light already passed
 
-The final control signal is computed by combining all velocity profiles and taking the minimum value at each distance point, ensuring compliance with all constraints.
+The final control signal is computed by combining all velocity profiles (traffic light state + stop state + obstacles + ...) and taking the minimum value at each distance point, ensuring compliance with all constraints.
+
+**Smooth Break:**
+
+To avoid abrupt braking when the traffic light changes from **GREEN to ORANGE**, the time required to reach the traffic light is computed by defining the relative distance to the traffic light and considering the vehicle’s current speed.  
+Based on this time, the decision logic chooses between switching the state to `LOCK` (stop) or keeping the `SKIP` state.
+
+{{< equation >}}
+time_{reach} = \frac{distance_{relative}}{|speed_{vehicle}| + \epsilon}
+{{< /equation >}}
 
 
 ### RQT
