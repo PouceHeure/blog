@@ -2,7 +2,7 @@ baseURL = "https://pouceheure.github.io/blog/"
 relativeURLs = false
 canonifyURLs = true
 
-languageCode = "en-en"
+languageCode = "en"
 title = "Hugo POUSSEUR"
 theme = "hugo-latex"
 [author]

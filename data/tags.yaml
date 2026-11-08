@@ -70,6 +70,12 @@ forecasting_analysis:
   repr: Forecasting & Data Analysis
   description: Data-driven techniques including forecasting, energy consumption modeling, and multi-criteria analysis.
 
+debugging:
+  name: debugging
+  title: Debugging
+  repr: Debugging
+  description: Tools and interfaces for monitoring, inspecting, and debugging robotic systems in real time.
+
 ros:
   name: ros
   title: ROS

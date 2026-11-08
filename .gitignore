@@ -34,3 +34,5 @@ latex/
 
 # content builder
 content-builder/
+# hugo lock
+.hugo_build.lock
