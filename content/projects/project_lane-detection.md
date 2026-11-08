@@ -20,8 +20,8 @@ The approach integrates image preprocessing, deep-learning inference, optional t
 Example detections:  
 
 {{< figure src="/images/lane-detection/example-global.gif" caption="Lane detection output" width="700">}}  
-{{< figure src="/images/lane-detection/example-global-seg.gif" caption="Lane detection + segmentation (demo 1)" width="700">}}  
-{{< figure src="/images/lane-detection/example-global-seg-2.gif" caption="Lane detection + segmentation (demo 2)" width="700">}}  
+{{< figure src="/images/lane-detection/example-global-seg.webp" caption="Lane detection + segmentation (demo 1)" width="700">}}  
+{{< figure src="/images/lane-detection/example-global-seg-2.webp" caption="Lane detection + segmentation (demo 2)" width="700">}}  
 
 ## Deep Learning Architecture
 
@@ -52,7 +52,7 @@ The ConvLSTM tracker improves predictions by considering the previous N frames, 
 {{< figure src="/images/lane-detection/schema-convlstm-channels.png" caption="ConvLSTM tracking architecture" width="800">}}  
 {{< figure src="/images/lane-detection/example-tracker-prediction.png" caption="Tracker mask prediction from previous frames" width="500">}}  
 {{< figure src="/images/lane-detection/example-tracker-raw-prediction.gif" caption="Tracker raw prediction animation" width="500">}}  
-{{< figure src="/images/lane-detection/example-tracker-improve.gif" caption="Tracker improving lane mask prediction" width="500">}}  
+{{< figure src="/images/lane-detection/example-tracker-improve.webp" caption="Tracker improving lane mask prediction" width="500">}}  
 
 ## Post-processing and Lane Regression
 
@@ -69,13 +69,13 @@ The model performs well with occlusions, worn markings, curves, and lighting var
 {{< subfigure images="/images/lane-detection/vs_simple.jpg,/images/lane-detection/vs_curve.jpg,/images/lane-detection/vs_complexe.jpg,/images/lane-detection/vs_without_mark.jpg" captions="Case: Simple, Case: Curve, Case: Complex Markings, Case: Missing Markings" >}}  
 
 Real-world example:  
-{{< figure src="/images/lane-detection/example-real.gif" caption="Real-world lane detection" width="500">}}  
+{{< figure src="/images/lane-detection/example-real.webp" caption="Real-world lane detection" width="500">}}  
 
 Simulator examples:  
 Carla  
-{{< figure src="/images/lane-detection/example-carla.gif" caption="Simulator: Carla" width="500">}}  
+{{< figure src="/images/lane-detection/example-carla.webp" caption="Simulator: Carla" width="500">}}  
 Scaner  
-{{< figure src="/images/lane-detection/example-scaner.gif" caption="Simulator: Scaner" width="500">}}  
+{{< figure src="/images/lane-detection/example-scaner.webp" caption="Simulator: Scaner" width="500">}}  
 
 ## Integration with Visual Servoing
 
