@@ -13,13 +13,13 @@ url: "/cv"
 - `2025`: Obtained the French National Qualification to Apply for Associate Professor (CNU – Section 27)  
 - `2020–2024`: **PhD in Robotics**, Université de Technologie de Compiègne, France  
   - *Thesis: [Shared navigation in a cybernetic multi-agent autonomous system](/articles/thesis/)*  
-- `2018–2019`: Specialized Master's in Robotics, CentraleSupélec (Metz, France)  
+- `2018–2019`: Specialized Master’s in Robotics, CentraleSupélec (Metz, France)  
 - `2014–2019`: Engineering Degree in Computing, ESILV (Paris, France)  
   - *Ranked 1st in class during the 1st and 2nd years of the engineering cycle*  
 
 ## <i class="bi bi-briefcase me-2"></i> Academic & Professional Experience  
 
-- `2024-2025`: **Research Engineer (CNRS)**, Heudiasyc Laboratory
+- `2024–2025`: **Research Engineer (CNRS)**, Heudiasyc Laboratory
   - Designed and implemented a full autonomous driving stack (navigation & control) on a real car using ROS2/C++, including traffic light integration.  
   - Delivered a demonstration setup for Imperial College London research.  
   - Supported research projects: prepared experiments, delivered software developments, and assisted MSc/PhD students.
@@ -41,9 +41,9 @@ url: "/cv"
 
 ## <i class="bi bi-tools me-2"></i> Skills  
 
-- **Robotics**: [Planning](/tags/planning_navigation/), [Perception (Vision/LiDAR)](/tags/sensing_perception), [Control](/tags/control_optimization/), [ROS](/tags/ros) / [ROS2](/tags/ros2), [Multi-Agent Systems](/tags/multi_agent_systems/)  
+- **Robotics**: [Planning](/tags/planning_navigation/), [Perception (Vision/LiDAR)](/tags/sensing_perception/), [Control](/tags/control_optimization/), [ROS](/tags/ros/) / [ROS2](/tags/ros2/), [Multi-Agent Systems](/tags/multi_agent_systems/)  
 - **Programming**: C++, Python  
-- **Machine Learning**: [Deep Learning (CNN, RNN)](/tags/ai_ml), TensorFlow  
+- **Machine Learning**: [Deep Learning (CNN, RNN)](/tags/ai_ml/), TensorFlow  
 - **Tools**: Linux, Git, Docker, OpenCV  
 
  
