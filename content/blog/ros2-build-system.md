@@ -114,9 +114,10 @@ colcon graph
 From that graph, colcon computes a **topological order**: a package is only built once everything it depends on, inside the workspace, has been built and installed. Dependencies that are not in the workspace (`rclcpp`, `std_msgs`, ...) are ignored for ordering, because they are expected to come from an underlay such as `/opt/ros/<distro>`, which you source before building.
 
 {{< mermaid caption="From <code>package.xml</code> files to a build order." >}}
-flowchart LR
-  A["robot_math<br/>package.xml"] --> G{"colcon<br/>dependency graph"}
-  B["robot_controller<br/>package.xml<br/>depend: robot_math"] --> G
+%%{init: {"flowchart": {"rankSpacing": 24, "nodeSpacing": 20, "padding": 5}}}%%
+flowchart TB
+  A["robot_math<br/>package.xml"] --> G["colcon<br/>dependency graph"]
+  B["robot_controller<br/>depend: robot_math"] --> G
   G --> S1["1. build and install<br/>robot_math"]
   S1 --> S2["2. build and install<br/>robot_controller"]
 {{< /mermaid >}}
@@ -128,9 +129,10 @@ A common mistake is to forget the `<depend>` while the CMake code works fine on 
 colcon does not compile anything. It plans the work and delegates it to **build tasks**, selected by each package's build type. For an `ament_cmake` package the task does three things:
 
 {{< mermaid caption="The three phases for each <code>ament_cmake</code> package." >}}
+%%{init: {"flowchart": {"rankSpacing": 24, "nodeSpacing": 20, "padding": 5}}}%%
 flowchart TB
-  C1["cmake configure<br/>reads CMakeLists.txt, generates build files"] --> C2["cmake build<br/>compiles and links in build/pkg"]
-  C2 --> C3["cmake install<br/>copies results to install/pkg"]
+  C1["configure<br/>read CMakeLists.txt"] --> C2["build<br/>compile and link in build/pkg"]
+  C2 --> C3["install<br/>copy to install/pkg"]
 {{< /mermaid >}}
 
 Each package gets its own directories:
@@ -387,22 +389,13 @@ This also explains a classic symptom: a node that runs in the terminal where you
 The whole chain, from the workspace to a running process, is shown below.
 
 {{< mermaid caption="The full chain, with the three separate mechanisms in colcon, CMake and the ament index." >}}
+%%{init: {"flowchart": {"rankSpacing": 24, "nodeSpacing": 20, "padding": 5}}}%%
 flowchart TB
-  subgraph colcon["colcon: workspace level"]
-    P["package.xml files"] --> G["dependency graph"] --> O["build order"]
-  end
-  subgraph cmake["CMake: one package at a time"]
-    F["find_package<br/>finds robot_mathConfig.cmake"] --> T["target graph"] --> L["compile and link"]
-  end
-  subgraph install["ament: install tree"]
-    I["lib/, include/, share/pkg/cmake<br/>share/ament_index/resource_index"]
-  end
-  subgraph run["Runtime"]
-    R1["ros2 run<br/>AMENT_PREFIX_PATH"] --> R2["ld.so<br/>LD_LIBRARY_PATH"]
-  end
-  O --> F
-  L --> I
-  I --> R1
+  A["colcon<br/>package.xml files<br/>dependency graph, build order"] --> B["CMake<br/>find_package, targets<br/>compile and link"]
+  B --> C["install tree<br/>lib/, share/pkg/cmake<br/>share/ament_index"]
+  C --> D["runtime<br/>ros2 run: AMENT_PREFIX_PATH<br/>ld.so: LD_LIBRARY_PATH"]
+  classDef run fill:#FFEFC2,stroke:#E5D28A,color:#6B4A00
+  class D run
 {{< /mermaid >}}
 
 With this picture, three questions that most tutorials leave open have short answers.

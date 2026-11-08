@@ -1,2 +1,19 @@
 <script data-goatcounter="https://pouceheure-blog.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+<style id="blog-mobile-fixes">
+  /* Wide tables scroll inside the post instead of widening the whole page */
+  @media (max-width: 767.98px) {
+    .post-body .content table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* Burger menu: left-aligned links, compact, active page shown as a highlighted row */
+    .navbar-custom .navbar-toggler { border-color: rgba(255, 255, 255, 0.35); }
+    .navbar-custom .navbar-toggler:focus { box-shadow: none; outline: 0; }
+    .navbar-custom .navbar-collapse { margin-top: 0.4rem; padding: 0.3rem 0 0; border-top: 1px solid rgba(255, 255, 255, 0.18); }
+    .navbar-custom .navbar-nav .nav-link { text-align: left; padding: 0.5rem 0.8rem; border-radius: 8px; border-bottom: 0; border-left: 3px solid transparent; }
+    .navbar-custom .navbar-nav .nav-link.active { background: rgba(255, 255, 255, 0.12); border-left-color: var(--bs-warning); padding-left: 0.8rem; }
+  }
+</style>
+<style id="blog-mermaid-size">
+  /* Narrow diagrams keep their natural size instead of being stretched to the theme's min-width */
+  .mermaid-figure svg { min-width: 0 !important; }
+</style>
