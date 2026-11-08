@@ -3,8 +3,8 @@ title: "Optimization of the Dynamic Window Approach (DWA)"
 date: 2021-12-10
 tags: [ground_robot, control_optimization, planning_navigation, ros]
 codelang: ["python"]
-image: images/dwa-optimization/thumbnail.png
 description: "Gradient descent formulation applied to the Dynamic Window Approach for improved convergence and trajectory quality."
+image: images/dwa-optimization/thumbnail.png
 article: /articles/article_gradient-descent/
 ---
 

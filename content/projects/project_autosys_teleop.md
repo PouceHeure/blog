@@ -2,9 +2,9 @@
 title: "Autonomous Vehicle: Teleop"
 date: 2025-11-10
 tags: [autonomous_vehicle, control_optimization, robotics_autonomy, ros2]
+codelang: ["python" ,"cpp"]
 description: Longitudinal control by teleop.
 image: "images/teleop/thumbnail.png"
-codelang: ["python" ,"cpp"]
 big: true
 ---
 

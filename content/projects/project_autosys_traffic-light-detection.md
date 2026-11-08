@@ -3,9 +3,9 @@ title: "Traffic Light Detection & Control"
 date: 2025-05-15
 tags: [autonomous_vehicle, control_optimization, core_technologies, robotics_autonomy, ros2, sensing_perception]
 codelang: ["cpp"]
-# pinned: true
 description: Detection of traffic lights, and adaptation of vehicle control depending on the light state.
 image: "images/traffic_light/thumbnail.png"
+# pinned: true
 ---
 
 ## Motivation
