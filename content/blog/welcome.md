@@ -40,6 +40,19 @@ Equations are supported too, numbered automatically. A simple example, the mean 
 \bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
 {{< /equation >}}
 
+## Diagrams
+
+Diagrams are written as text and drawn in the colours of the site. For example, this is how a new post goes from an idea to the web:
+
+{{< mermaid caption="From a Markdown file to the published site." >}}
+flowchart LR
+    A[Write Markdown] --> B[Push to GitHub]
+    B --> C[Coolify builds the site]
+    C --> D[Published on the blog]
+    B -.-> E{{Draft?}}
+    E -->|yes| F[Stays hidden]
+{{< /mermaid >}}
+
 ## What's next
 
 The first real articles will come soon. If there is a topic you would like me to cover, or a tool you want my opinion on, feel free to reach out through the contact button at the top of the page.
