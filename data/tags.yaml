@@ -87,3 +87,21 @@ ros2:
   title: ROS2
   repr: ROS2
   description: The second generation of ROS, offering real-time capabilities and improved middleware support for robotics applications.
+
+modelling:
+  name: modelling
+  title: Modelling
+  repr: Modelling
+  description: Building mathematical and simulation models of real systems, such as trains, vehicles and traffic.
+
+statistics:
+  name: statistics
+  title: Statistics
+  repr: Statistics
+  description: Statistical methods and intuition for estimation, uncertainty and data analysis.
+
+tooling:
+  name: tooling
+  title: Tooling
+  repr: Tooling
+  description: Developer tools and how they work under the hood, such as build systems and workflows.
