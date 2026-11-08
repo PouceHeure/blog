@@ -1,4 +1,4 @@
-baseURL = "https://pouceheure.github.io/blog/"
+baseURL = "https://blog.pouceheure.fr/"
 relativeURLs = false
 canonifyURLs = true
 
