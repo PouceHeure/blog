@@ -12,7 +12,7 @@ url: "/cv"
 
 - `2025`: Obtained the French National Qualification to Apply for Associate Professor (CNU – Section 27)  
 - `2020–2024`: **PhD in Robotics**, Université de Technologie de Compiègne, France  
-  - *Thesis: [Shared navigation in a cybernetic multi-agent autonomous system](/articles/article_thesis/)*  
+  - *Thesis: [Shared navigation in a cybernetic multi-agent autonomous system](/articles/thesis/)*  
 - `2018–2019`: Specialized Master's in Robotics, CentraleSupélec (Metz, France)  
 - `2014–2019`: Engineering Degree in Computing, ESILV (Paris, France)  
   - *Ranked 1st in class during the 1st and 2nd years of the engineering cycle*  
@@ -32,7 +32,7 @@ url: "/cv"
   - Supervised 6 MSc theses on planning, perception, shared-control and autonomous vehicle control.
 
 - `2022`: **Research Assignment**, University of Tokyo (Fujimoto Laboratory)  
-  - [Road adhesion estimation using camera data](/projects/project_friction-detection/).  
+  - [Road adhesion estimation using camera data](/projects/friction-detection/).  
 
 - `2019`: **Master Internship**, CEA-LIST
   - Development of tools for collaborative robotics projects.  
@@ -50,11 +50,11 @@ url: "/cv"
 
 ## <i class="bi bi-motherboard-fill me-2"></i> Projects  
 
-- **Traffic Light Detection & Control** – detection of traffic lights and adaptive control.  [View project](/projects/project_autosys_traffic-light-detection/)  
-- **Autonomous Vehicle Planning** – global route planning, local path adjustment, dynamic control. [View project](/projects/project_autosys_local-planning/)  
-- **Autonomous Vehicle Control** – lateral/longitudinal control with navigation integration. [View project](/projects/project_autosys_control/)  
-- **Human Driving Behavior Prediction** – short-term prediction with deep learning & multi-sensor data. [View project](/projects/project_human-prediction/)  
-- **Visual Control Applied to Autonomous Vehicle** – lane-based control from camera images only. [View project](/projects/project_visual-control/) 
+- **Traffic Light Detection & Control** – detection of traffic lights and adaptive control.  [View project](/projects/autosys-traffic-light-detection/)  
+- **Autonomous Vehicle Planning** – global route planning, local path adjustment, dynamic control. [View project](/projects/autosys-local-planning/)  
+- **Autonomous Vehicle Control** – lateral/longitudinal control with navigation integration. [View project](/projects/autosys-control/)  
+- **Human Driving Behavior Prediction** – short-term prediction with deep learning & multi-sensor data. [View project](/projects/human-prediction/)  
+- **Visual Control Applied to Autonomous Vehicle** – lane-based control from camera images only. [View project](/projects/visual-control/) 
 
 
 <i class="bi bi-motherboard"></i> [Explore projects](/projects/)
