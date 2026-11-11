@@ -46,7 +46,7 @@ Several acronyms come back in every section. Here they are in one place, each on
 | **CoE** | CANopen over EtherCAT, a protocol carried by the mailbox | Gives access to the object dictionary of the slave |
 | **Object dictionary** | A table inside the slave that lists all its parameters and values. Each entry has an **index** and a **sub-index**, for example `0x6040:00` | Describes everything the device can do or measure |
 | **SDO** | Service Data Object: one request to **read or write one entry** of the object dictionary | Set a parameter, read a status. Occasional, not every cycle |
-| **PDO** | Process Data Object: a **fixed list of entries** (for example target velocity and controlword) that is sent as one block **every cycle** | Real-time control. *RxPDO* is received by the slave (master outputs), *TxPDO* is sent by the slave (master inputs) |
+| **PDO** | Process Data Object: a **fixed list of entries** (for example target velocity and controlword) that is sent as one block **every cycle** | Real-time control. *RxPDO* is **received** by the slave (master outputs), *TxPDO* is **transmitted** by the slave (master inputs). The names are from the slave's point of view |
 | **Process data** | The content of all the PDOs | What is exchanged cyclically |
 | **Sync Manager** (SM) | A zone of the slave memory with an address, a size, a direction and an access mode | Guarantees that the master and the application never read and write the same data at the same time |
 | **FMMU** | Fieldbus Memory Management Unit | Maps the *logical* address of the network to the *physical* memory of the slave |
@@ -111,18 +111,26 @@ Going up must follow the order `INIT`, `PRE-OP`, `SAFE-OP`, `OP`, one step at a 
 
 ## INIT: initialize the device
 
+{{< mermaid caption="You are here: INIT." >}}
+%%{init: {"flowchart": {"rankSpacing": 24, "nodeSpacing": 20, "padding": 5}}}%%
+flowchart LR
+  I["INIT"] --> P["PRE-OP"] --> S["SAFE-OP"] --> O["OP"]
+  classDef run fill:#FFEFC2,stroke:#E5D28A,color:#6B4A00
+  class I run
+{{< /mermaid >}}
+
 In this state:
 
 | Element | Status | Detail |
 | --- | --- | --- |
-| ESC and its registers | **Running** | The master reads and writes them with ordinary frames |
+| ESC and its registers | **Running** | The master can read and write them. The chip does it alone, the slave application is not needed |
 | Slave application | Not reachable | The master has no way to talk to it yet |
 | Mailbox | Not running | `SM0` / `SM1` are not configured yet |
 | SDO (configuration) | Not running | Needs the mailbox |
 | Inputs (TxPDO) | Not running | No process data |
 | Outputs (RxPDO) | Not running | No process data |
 
-`INIT` is the state of a slave that has just powered up. The ESC works, so the master can read and write its registers with ordinary frames, but **the application layer is not reachable**. No mailbox exists and no process data is exchanged.
+`INIT` is the state of a slave that has just powered up. The ESC works, so the master can read and write its registers: the chip handles it alone, without the slave application, but **the application layer is not reachable**. No mailbox exists and no process data is exchanged.
 
 This is the state in which the master prepares the communication:
 
@@ -130,13 +138,42 @@ This is the state in which the master prepares the communication:
 - It reads the slave identity (vendor, product code, revision) and its default configuration from the **SII**, a small EEPROM on the device.
 - It configures the first two **Sync Managers**, `SM0` and `SM1`, which are the memory windows of the mailbox. By convention, `SM0` carries the mailbox from the master to the slave and `SM1` the mailbox from the slave to the master.
 
+{{< mermaid caption="In INIT the master configures SM0 and SM1: the mailbox, one window per direction." >}}
+%%{init: {"flowchart": {"rankSpacing": 24, "nodeSpacing": 20, "padding": 5}}}%%
+flowchart LR
+  M["Master"]
+  subgraph ESC["Slave: ESC memory"]
+    SM0["SM0<br/>mailbox out<br/>master → slave"]
+    SM1["SM1<br/>mailbox in<br/>slave → master"]
+    SM2["SM2<br/>RxPDO outputs<br/>master → slave"]
+    SM3["SM3<br/>TxPDO inputs<br/>slave → master"]
+  end
+  A["Slave application"]
+  M --> SM0 --> A
+  A --> SM1 --> M
+  M --> SM2 --> A
+  A --> SM3 --> M
+  classDef run fill:#FFEFC2,stroke:#E5D28A,color:#6B4A00
+  class SM0,SM1 run
+{{< /mermaid >}}
+
 A Sync Manager is a part of the slave's memory with an address, a size, a direction and an access mode. It makes sure the master and the slave application never read and write the same data at the same time. The mailbox uses it in a handshake mode: a message is written once, and must be read before the next one can be written.
+
+Each slave has **its own** ESC memory, with the same address layout as the others: the `SM2` of slave 1 and the `SM2` of slave 2 can both be at `0x1100`, but they are two different memories. These addresses are **physical**: they only make sense inside one slave. The network uses **logical** addresses instead, described in the `PRE-OP` section.
 
 Once the mailbox windows are set, the master requests `PRE-OP`. The slave checks that the mailbox configuration is valid, and if it is not, it stays in `INIT` and reports the reason, for example `0x0016` (invalid mailbox configuration).
 
 At the end of this step, no application data has been exchanged. The only thing established is a way to talk to the device.
 
 ## PRE-OP: configure before communicating
+
+{{< mermaid caption="You are here: PRE-OP." >}}
+%%{init: {"flowchart": {"rankSpacing": 24, "nodeSpacing": 20, "padding": 5}}}%%
+flowchart LR
+  I["INIT"] --> P["PRE-OP"] --> S["SAFE-OP"] --> O["OP"]
+  classDef run fill:#FFEFC2,stroke:#E5D28A,color:#6B4A00
+  class P run
+{{< /mermaid >}}
 
 In this state:
 
@@ -150,6 +187,14 @@ In this state:
 | Outputs (RxPDO) | Not running | `SM2` and the PDO mapping are not ready |
 
 In `PRE-OP` the mailbox is active, and the master can finally talk to the slave application. The mailbox is a request and response channel that carries several protocols, each one identified in the mailbox header. The most used one for configuration is **CoE** (CANopen over EtherCAT), which gives access to the **object dictionary** of the device through **SDOs**.
+
+The main protocols carried by the mailbox are:
+
+- **CoE**: access to the object dictionary, therefore the SDOs.
+- **FoE** (File access over EtherCAT): file transfer, for example a firmware update.
+- **EoE** (Ethernet over EtherCAT): tunnels standard Ethernet frames through the EtherCAT network.
+
+An SDO is thus a CoE message that travels in the mailbox: the master writes the request in `SM0`, the slave application reads it, then writes the answer in `SM1`, where the master reads it.
 
 An SDO (Service Data Object) reads or writes one object, identified by an index and a sub-index:
 
@@ -165,18 +210,53 @@ The main job of the master in this state is to describe the **process data**, th
 
 - **PDOs** (Process Data Objects) are the lists of objects exchanged cyclically. The slave receives *RxPDOs* (outputs of the master) and sends *TxPDOs* (inputs of the master). Which objects they contain is called the **PDO mapping**, and it is configured in the object dictionary, often with the default mapping of the device.
 - **`SM2` and `SM3`** are the Sync Managers dedicated to process data, by convention `SM2` for outputs (master → slave) and `SM3` for inputs (slave → master). Their configuration depends on the size of the PDOs, so it can only be done once the mapping is known.
-- **FMMUs** (Fieldbus Memory Management Units) translate between the **logical address space** of the network and the physical memory of the slave. They allow one single frame to read and write the data of many devices, since each slave takes from the frame only the part mapped to its own Sync Managers. The master configures them to build the cyclic frame.
+- **FMMUs** (Fieldbus Memory Management Units) translate between the **logical address space** of the network and the physical memory of the slave. They allow one single frame to read and write the data of many devices, since each slave takes from the frame only the part mapped to its own Sync Managers. The master configures them to build the cyclic frame. A FMMU is only a **mapping**, internal to the ESC: it translates a logical address of the frame into a physical address of this slave's memory. Each slave has its own FMMUs and only knows its own part; only the master knows the whole layout.
 
-{{< mermaid caption="From a PDO mapping to the data in the cyclic frame." >}}
+{{< mermaid caption="In PRE-OP the master prepares SM2 and SM3: the process data, one window per direction." >}}
 %%{init: {"flowchart": {"rankSpacing": 24, "nodeSpacing": 20, "padding": 5}}}%%
-flowchart TB
-  A["SDO 0x1600 / 0x1A00<br/>PDO mapping"] --> B["SDO 0x1C12 / 0x1C13<br/>PDOs assigned to SM2 / SM3"]
-  B --> C["SM2 / SM3<br/>size and address in the slave memory"]
-  C --> D["FMMU<br/>logical address ↔ SM memory"]
-  D --> E["Cyclic frame<br/>one logical address range"]
+flowchart LR
+  M["Master"]
+  subgraph ESC["Slave: ESC memory"]
+    SM0["SM0<br/>mailbox out<br/>master → slave"]
+    SM1["SM1<br/>mailbox in<br/>slave → master"]
+    SM2["SM2<br/>RxPDO outputs<br/>master → slave"]
+    SM3["SM3<br/>TxPDO inputs<br/>slave → master"]
+  end
+  A["Slave application"]
+  M --> SM0 --> A
+  A --> SM1 --> M
+  M --> SM2 --> A
+  A --> SM3 --> M
+  classDef run fill:#FFEFC2,stroke:#E5D28A,color:#6B4A00
+  class SM2,SM3 run
 {{< /mermaid >}}
 
-Process data does not flow yet. The master has described it, but the slave has not been asked to produce or consume it. This separation is the reason for the state: a configuration change is done with acyclic messages, and nothing in the cyclic exchange can be broken by a half-written configuration.
+Nothing is sent yet in this state. The master only *describes* the process data and prepares the memory; the values themselves are exchanged later, from `SAFE-OP`. This separation is the reason for the state: a configuration change is done with acyclic messages, and nothing in the cyclic exchange can be broken by a half-written configuration.
+
+The diagram shows how the content of a PDO ends up in the cyclic frame.
+
+{{< mermaid caption="From the content of a PDO to the cyclic frame (example: outputs of a drive). Inputs follow the same path with SM3." >}}
+%%{init: {"flowchart": {"rankSpacing": 26, "nodeSpacing": 20, "padding": 5}}}%%
+flowchart TB
+  A["<b>① Define the PDO layout</b><br/>Configure which objects it contains<br/>(SDO write in object 0x1600)<br/>Controlword 0x6040: 2 bytes<br/>Target position 0x607A: 4 bytes<br/>→ the PDO is 6 bytes"]
+  B["<b>② Assign the PDO to SM2</b><br/>(SDO write of 0x1600 in object 0x1C12)<br/>→ SM2 must carry this PDO"]
+  C["<b>③ Size SM2 in the slave memory</b><br/>SM2 at address 0x1100, 6 bytes<br/>(ESC register)"]
+  D["<b>④ Map to the network with the FMMU</b><br/>logical 0x0000 to 0x0005<br/>↔ physical 0x1100<br/>(ESC register)"]
+  E["<b>⑤ Result, from SAFE-OP</b><br/>The cyclic frame will carry one logical block:<br/>slave 1 outputs (6 B), slave 2 outputs (6 B), ..."]
+  A --> B --> C --> D --> E
+  classDef run fill:#FFEFC2,stroke:#E5D28A,color:#6B4A00
+  class E run
+{{< /mermaid >}}
+
+Read it from top to bottom. Steps ① to ④ are done now, in `PRE-OP`. Step ⑤ is what they prepare.
+
+**Steps ① and ② describe the data.** The master does *SDO writes*: it writes values in the object dictionary of the slave, through the mailbox. Nothing moves yet, the slave only notes what the PDO will contain and which Sync Manager carries it.
+
+**Steps ③ and ④ configure the memory.** The master writes registers of the ESC (not through the mailbox: the chip handles it alone): the size and address of `SM2`, then the FMMU that links this memory to a logical address.
+
+**Where do the addresses come from?** The physical addresses (`SM2` at `0x1100`) are the default values of the manufacturer, stored in the **SII** of the slave or in its **ESI** file (XML); the master rarely changes them. The logical addresses are **chosen freely by the master**, which builds a *process image* and gives each slave a consecutive range. The sizes come from the PDO mapping, read by SDO or in the ESI file.
+
+**Step ⑤ is the result, but it only happens later.** Once the slave is in `SAFE-OP`, the master sends at each cycle (one iteration of its loop, at a fixed period) one single block of logical addresses. Each slave only takes the bytes mapped to its own `SM2` and writes the bytes mapped to its own `SM3`. No SDO is involved anymore.
 
 When the configuration is done, the master requests `SAFE-OP`. This is the transition where the slave checks the most: that `SM2` and `SM3` are consistent with the PDOs, and that the mapping makes sense. A refusal here usually has one of these codes:
 
@@ -185,6 +265,14 @@ When the configuration is done, the master requests `SAFE-OP`. This is the trans
 - `0x001E`: invalid input configuration.
 
 ## SAFE-OP: communicate without acting
+
+{{< mermaid caption="You are here: SAFE-OP." >}}
+%%{init: {"flowchart": {"rankSpacing": 24, "nodeSpacing": 20, "padding": 5}}}%%
+flowchart LR
+  I["INIT"] --> P["PRE-OP"] --> S["SAFE-OP"] --> O["OP"]
+  classDef run fill:#FFEFC2,stroke:#E5D28A,color:#6B4A00
+  class S run
+{{< /mermaid >}}
 
 In this state:
 
@@ -225,6 +313,14 @@ The slave monitors the arrival of process data with a **Sync Manager watchdog**.
 {{< /callout >}}
 
 ## OP: exchange and control
+
+{{< mermaid caption="You are here: OP." >}}
+%%{init: {"flowchart": {"rankSpacing": 24, "nodeSpacing": 20, "padding": 5}}}%%
+flowchart LR
+  I["INIT"] --> P["PRE-OP"] --> S["SAFE-OP"] --> O["OP"]
+  classDef run fill:#FFEFC2,stroke:#E5D28A,color:#6B4A00
+  class O run
+{{< /mermaid >}}
 
 In this state:
 
