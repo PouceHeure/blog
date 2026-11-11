@@ -1,6 +1,6 @@
 ---
 title: "How ROS 2 Builds and Links Packages: Inside colcon, ament and CMake"
-date: 2026-11-08
+date: 2026-11-09
 description: "What really happens between `colcon build` and a running node: package discovery, build ordering, CMake targets, the ament index and the Linux dynamic loader."
 tags: ["ros2", "tooling"]
 series: ""
