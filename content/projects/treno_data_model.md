@@ -7,7 +7,7 @@ description: "Data collection, statistic analysis and behavior modelisation."
 image: "images/treno_data_model/thumbnail.png"
 # pinned: true
 aliases: ["/projects/treno_data_model/"]
-# draft: true
+draft: true
 ---
 
 ## Motivation
