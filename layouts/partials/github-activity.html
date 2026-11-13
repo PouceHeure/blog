@@ -1,0 +1,57 @@
+<!-- GitHub activity heatmap: vanilla JS, no React / no build step -->
+<section class="home-section gh-activity" id="github-activity" data-user="{{ with .Site.Params.github_user }}{{ . }}{{ else }}PouceHeure{{ end }}">
+  <div class="d-flex justify-content-between align-items-baseline">
+    <h2>GitHub activity</h2>
+    <a class="small fw-semibold" href="{{ .Site.Params.github }}" target="_blank" rel="noopener">@PouceHeure →</a>
+  </div>
+  <div class="gh-card">
+    <div class="gh-total" id="gh-total">Loading…</div>
+    <div class="gh-scroll"><div id="gh-graph" class="gh-graph" aria-label="GitHub contributions over the last year"></div></div>
+    <div class="gh-legend">Less
+      <i class="gh-cell l0"></i><i class="gh-cell l1"></i><i class="gh-cell l2"></i><i class="gh-cell l3"></i><i class="gh-cell l4"></i> More
+    </div>
+  </div>
+</section>
+
+<style>
+.gh-card{background:var(--card-bg,#fff);border:1px solid var(--card-border,#e3e0d6);border-radius:12px;padding:1.2rem 1.5rem}
+.gh-total{font-size:.95rem;color:#3e4857;margin-bottom:.8rem}
+.gh-total strong{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;color:var(--navy,#024A98);margin-right:.3rem}
+.gh-scroll{overflow-x:auto;padding-bottom:.4rem}
+.gh-graph{display:grid;grid-template-rows:16px repeat(7,12px);grid-auto-flow:column;grid-auto-columns:12px;gap:3px;width:max-content}
+.gh-month{font-size:.7rem;color:#5b7388;white-space:nowrap;overflow:visible}
+.gh-cell{display:inline-block;width:12px;height:12px;border-radius:3px;background:#e8ecf1}
+.gh-cell.l1{background:#b9d3ee}.gh-cell.l2{background:#6fa3d8}.gh-cell.l3{background:#2f74b8}.gh-cell.l4{background:#024A98}
+.gh-legend{display:flex;align-items:center;gap:4px;justify-content:flex-end;font-size:.72rem;color:#5b7388;margin-top:.5rem}
+</style>
+
+<script>
+(async function(){
+  const root=document.getElementById('github-activity'); if(!root) return;
+  const user=root.dataset.user;
+  try{
+    const data = window.__GH_DEMO__ || await (await fetch('https://github-contributions-api.jogruber.de/v4/'+user+'?y=last')).json();
+    const days=data.contributions, graph=document.getElementById('gh-graph');
+    const total=days.reduce((s,d)=>s+d.count,0);
+    document.getElementById('gh-total').innerHTML='<strong>'+total+'</strong> contributions in the last year';
+    const first=new Date(days[0].date+'T00:00'); const offset=first.getDay(); // Sunday = row 0
+    const mois=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const nWeeks=Math.ceil((days.length+offset)/7);
+    // row 1 = month labels (one per column), rows 2-8 = days
+    let lastM=-1;
+    for(let w=0;w<nWeeks;w++){
+      const d=days[Math.max(0,w*7-offset)]; const m=new Date(d.date+'T00:00').getMonth();
+      const lab=document.createElement('span'); lab.className='gh-month';
+      if(m!==lastM && w<nWeeks-1){lab.textContent=mois[m]; lastM=m;}
+      graph.appendChild(lab);
+      for(let r=0;r<7;r++){
+        const i=w*7+r-offset; const c=document.createElement('i');
+        if(i>=0&&i<days.length){c.className='gh-cell l'+days[i].level; c.title=days[i].count+' contributions on '+days[i].date;}
+        else c.style.visibility='hidden';
+        graph.appendChild(c);
+      }
+    }
+    root.querySelector('.gh-scroll').scrollLeft=1e5; // show most recent weeks on mobile
+  }catch(e){ root.style.display='none'; }
+})();
+</script>

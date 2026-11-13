@@ -1,0 +1,167 @@
+{{ define "main" }}
+
+<!-- get videos informations -->
+{{ partialCached "collect-videos.html" .  "videos-on-homepage"}}
+{{ $videos := .Scratch.Get "videos" | default (slice) }}
+{{ $sorted := sort $videos "page.Date" "desc" }}
+{{ $latestVideos := first 3 $sorted }}
+
+
+{{ $projects := where .Site.RegularPages "Section" "projects" }}
+{{ $pubs := where .Site.RegularPages "Section" "articles" }}
+
+<!-- Hero -->
+<section class="home-hero" id="home">
+  <div class="hero-text">
+    <span class="pill-eyebrow">Engineer · PhD in automation &amp; robotics</span>
+    <h1>{{ .Site.Params.name | lower | title }}</h1>
+    <p class="lead">{{ .Site.Params.intro | default .Site.Params.about | safeHTML }}</p>
+    <p class="typed-line">Currently exploring: <a id="changing-word" class="dynamic-text text-decoration-none" href="/tags/"></a></p>
+    <div class="d-flex flex-wrap gap-3 mt-3">
+      <a href="/projects/" class="btn-cta">Browse projects →</a>
+      <a href="/blog/" class="btn-ghost">Read the blog</a>
+    </div>
+  </div>
+  <div class="hero-frame">
+    <img src="https://github.com/PouceHeure.png?size=600" alt="{{ .Site.Params.name }}" />
+  </div>
+</section>
+
+<section class="stat-row">
+  <div class="stat-card"><strong>{{ len $projects }}</strong><span>Projects</span></div>
+  <div class="stat-card"><strong>{{ len $pubs }}</strong><span>Publications</span></div>
+  <div class="stat-card"><strong>2024</strong><span>PhD, Université de Technologie de Compiègne</span></div>
+</section>
+
+<!-- Research areas -->
+<section class="home-section">
+  <h2>Research areas</h2>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
+    {{ range $k := slice "autonomous_vehicle" "robotics_autonomy" "sensing_perception" "control_optimization" }}
+      {{ with index site.Data.tags $k }}
+      <div class="col">
+        <a href="/tags/{{ $k | urlize }}/" class="card area-card {{ partial "tagclass.html" $k }} h-100 p-3 text-decoration-none">
+          <div class="area-title">{{ .title }}</div>
+          <p class="small mt-2 mb-0">{{ .description | truncate 120 }}</p>
+        </a>
+      </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>
+
+<!-- Selected projects -->
+<section class="home-section" id="projects">
+  <div class="d-flex justify-content-between align-items-baseline">
+    <h2>Selected projects</h2>
+    <a href="/projects/" class="small fw-semibold">All projects →</a>
+  </div>
+  {{ $pinned := where $projects "Params.pinned" true }}
+  {{ $sel := first 3 ($pinned.ByDate.Reverse) }}
+  {{ if eq (len $sel) 0 }}{{ $sel = first 3 $projects.ByDate.Reverse }}{{ end }}
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {{ range $sel }}
+    <div class="col">
+      <div class="card proj-card h-100">
+        <div class="proj-img">
+          {{ with .Params.image }}<img src="{{ . | absURL }}" alt="" loading="lazy" />{{ end }}
+          <span class="date-badge">{{ .Date.Format "02 Jan 2006" }}</span>
+        </div>
+        <div class="p-3 d-flex flex-column flex-grow-1">
+          <h5><a href="{{ .RelPermalink }}" class="text-decoration-none text-dark stretched-link">{{ .Title }}</a></h5>
+          <p class="small text-muted">{{ with .Params.description }}{{ . | truncate 130 }}{{ end }}</p>
+          <div class="d-flex flex-wrap gap-1 mt-auto">
+            {{ range first 3 .Params.tags }}<span class="badge {{ partial "tagclass.html" . }} bg-secondary">{{ partial "tagrepr.html" . }}</span>{{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Section: Latest Blog posts -->
+{{ $posts := first 3 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
+{{ if gt (len $posts) 0 }}
+<div class="home-section" id="blog">
+  <div class="d-flex justify-content-between align-items-baseline"><h2>Latest from the blog</h2><a href="/blog/" class="small fw-semibold">All posts →</a></div>
+  <div class="row">
+    {{ range $posts }}
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card post-card h-100 p-3 d-flex flex-column">
+        <div class="mb-2 d-flex flex-wrap gap-1">
+          {{ range .Params.tags }}<span class="tag-pill {{ partial "tagclass.html" . }}">{{ partial "tagrepr.html" . }}</span>{{ end }}
+        </div>
+        <h5><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+        <p class="text-muted small flex-grow-1">{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 140 }}{{ end }}</p>
+        <div class="post-meta">{{ .Date.Format "02 Jan 2006" }} · {{ .ReadingTime }} min read</div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+<!-- GitHub activity heatmap (site-level override of the theme home page) -->
+{{ partial "github-activity.html" . }}
+
+<!-- Latest publication -->
+{{ with first 1 ($pubs.ByDate.Reverse) }}{{ range . }}
+<section class="pub-band">
+  <div>
+    <span class="eyebrow">Latest publication</span>
+    <h3>{{ .Title }}</h3>
+    {{ with .Params.conference }}<p class="mb-0 small">{{ . }} · {{ .Params.year }}</p>{{ end }}
+  </div>
+  <a href="{{ .RelPermalink }}" class="btn-cta">Read abstract</a>
+</section>
+{{ end }}{{ end }}
+
+<!-- Section: Latest Videos -->
+{{ if gt (len $latestVideos) 0 }}
+<div class="home-section" id="videos">
+  <h2>Latest videos</h2>
+  <div class="row justify-content-center">
+    {{ range $latestVideos }}
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card shadow h-100 card-transparent">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/{{ .code }}"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="card-body">
+          <p class="card-text text-center small text-muted">
+            {{ .caption }}
+          </p>
+          <p class="text-center">
+            <a
+              href="{{ .page.RelPermalink }}"
+              class="btn btn-outline-primary btn-sm"
+              >View in context</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+
+
+
+<!-- JavaScript Section -->
+<script>
+  window.tagReprMap = {
+    {{- range $k, $v := site.Data.tags -}}
+      "{{ $v.name }}": "{{ or $v.repr $v.title }}",
+    {{- end -}}
+  };
+</script>
+
+<script src="/js/animation-typewrite.js"></script>
+
+{{ end }}
